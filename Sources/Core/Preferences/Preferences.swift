@@ -22,6 +22,7 @@ public enum AppearanceMode: String, CaseIterable, Identifiable {
 
 public final class Preferences: ObservableObject {
     @AppStorage("appearanceMode") public var appearanceModeRaw: String = AppearanceMode.system.rawValue
+    @AppStorage("useCustomTextColor") public var useCustomTextColor: Bool = false
     @AppStorage("customTextColorR") public var textR: Double = 1.0
     @AppStorage("customTextColorG") public var textG: Double = 1.0
     @AppStorage("customTextColorB") public var textB: Double = 1.0
@@ -40,7 +41,11 @@ public final class Preferences: ObservableObject {
     public var colorScheme: ColorScheme? { appearanceMode.colorScheme }
 
     public var textColor: Color {
-        Color(red: textR, green: textG, blue: textB, opacity: textA)
+        if useCustomTextColor {
+            return Color(red: textR, green: textG, blue: textB, opacity: textA)
+        } else {
+            return .primary
+        }
     }
 
     public func setTextColor(_ color: Color) {
@@ -56,6 +61,7 @@ public final class Preferences: ObservableObject {
         UIColor(color).getRed(&r, green: &g, blue: &b, alpha: &a)
         textR = Double(r); textG = Double(g); textB = Double(b); textA = Double(a)
         #endif
+        useCustomTextColor = true
     }
 }
 
@@ -65,6 +71,7 @@ public enum FixedLayoutOrientation: String, CaseIterable, Identifiable { case po
 public final class AppState: ObservableObject {
     @Published public var stopwatch = Stopwatch()
     @Published public var preferences = Preferences()
+    @Published public var now: Date = Date()
 
     public init() {}
 

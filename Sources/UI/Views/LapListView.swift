@@ -13,7 +13,7 @@ struct LapListView: View {
                 Text(TimeFormatter.hmsms(lap.deltaFromPrev))
                     .font(.system(.body, design: .monospaced))
                 Spacer()
-                Text(TimeFormatter.hmsms(lap.atTotal))
+                Text(TimeFormatter.timeOfDay(lap.capturedDate))
                     .font(.system(.body, design: .monospaced))
                     .foregroundStyle(.secondary)
             }

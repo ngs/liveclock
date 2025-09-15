@@ -10,6 +10,7 @@ struct LiveClockTheGigTimerApp: App {
         WindowGroup {
             RootView()
                 .environmentObject(appState)
+                .preferredColorScheme(appState.preferences.colorScheme)
                 .onAppear { appState.applyKeepAwake() }
         }
         #if os(macOS)

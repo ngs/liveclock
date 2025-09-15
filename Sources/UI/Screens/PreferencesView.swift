@@ -14,7 +14,10 @@ public struct PreferencesView: View {
                         Text(mode.rawValue.capitalized).tag(mode.rawValue)
                     }
                 }
-                ColorPicker("Text Color", selection: Binding(get: { app.preferences.textColor }, set: { app.preferences.setTextColor($0) }))
+                Toggle("Use Custom Text Color", isOn: $app.preferences.useCustomTextColor)
+                if app.preferences.useCustomTextColor {
+                    ColorPicker("Text Color", selection: Binding(get: { app.preferences.textColor }, set: { app.preferences.setTextColor($0) }))
+                }
             }
             Section("Layout") {
                 Picker("Columns", selection: $app.preferences.layoutModeRaw) {

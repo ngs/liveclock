@@ -5,7 +5,7 @@ struct ClockView: View {
     @EnvironmentObject var app: AppState
 
     var body: some View {
-        Text(TimeFormatter.hmsms(app.stopwatch.elapsed))
+        Text(TimeFormatter.timeOfDay(app.now))
             .font(.system(size: 96, weight: .bold, design: .rounded))
             .minimumScaleFactor(0.2)
             .lineLimit(1)

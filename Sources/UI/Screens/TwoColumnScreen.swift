@@ -6,6 +6,7 @@ struct TwoColumnScreen: View {
         HStack(spacing: 16) {
             VStack(spacing: 16) {
                 ClockView()
+                StopwatchDigitsView()
                 ControlsView()
             }
             Divider()

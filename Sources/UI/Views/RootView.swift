@@ -38,6 +38,7 @@ public struct RootView: View {
 
 extension AppState: TickerDelegate {
     public func tickerDidTick() {
+        now = Date()
         stopwatch.tick()
     }
 }

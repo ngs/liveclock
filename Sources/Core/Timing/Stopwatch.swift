@@ -14,6 +14,7 @@ public struct Lap: Identifiable, Hashable {
     public let index: Int
     public let atTotal: TimeInterval
     public let deltaFromPrev: TimeInterval
+    public let capturedDate: Date
 }
 
 public final class Stopwatch: ObservableObject {
@@ -69,7 +70,7 @@ public final class Stopwatch: ObservableObject {
         }
         lastLapReference = now
         let index = (laps.first?.index ?? 0) + 1
-        let lap = Lap(id: UUID(), index: index, atTotal: total, deltaFromPrev: delta)
+        let lap = Lap(id: UUID(), index: index, atTotal: total, deltaFromPrev: delta, capturedDate: Date())
         laps.insert(lap, at: 0)
     }
 
