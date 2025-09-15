@@ -6,12 +6,12 @@ let project = Project(
         .package(path: ".")
     ],
     targets: [
-        Target(
+        .target(
             name: "LiveClock-iOS",
-            platform: .iOS,
+            destinations: [.iPhone, .iPad],
             product: .app,
             bundleId: "io.ngs.LiveClock",
-            deploymentTarget: .iOS(targetVersion: "16.0", devices: [.iphone, .ipad]),
+            deploymentTargets: .iOS("16.0"),
             infoPlist: .default,
             sources: ["Sources/App/**"],
             resources: [],
@@ -21,12 +21,12 @@ let project = Project(
                 .product(name: "LiveClockUI", package: "LiveClock")
             ]
         ),
-        Target(
+        .target(
             name: "LiveClock-macOS",
-            platform: .macOS,
+            destinations: [.mac],
             product: .app,
             bundleId: "io.ngs.LiveClock.mac",
-            deploymentTarget: .macOS(targetVersion: "13.0"),
+            deploymentTargets: .macOS("13.0"),
             infoPlist: .default,
             sources: ["Sources/App/**"],
             resources: [],
@@ -36,12 +36,12 @@ let project = Project(
                 .product(name: "LiveClockUI", package: "LiveClock")
             ]
         ),
-        Target(
+        .target(
             name: "LiveClock-tvOS",
-            platform: .tvOS,
+            destinations: [.tv],
             product: .app,
             bundleId: "io.ngs.LiveClock.tv",
-            deploymentTarget: .tvOS(targetVersion: "16.0"),
+            deploymentTargets: .tvOS("16.0"),
             infoPlist: .default,
             sources: ["Sources/App/**"],
             resources: [],
@@ -51,13 +51,13 @@ let project = Project(
                 .product(name: "LiveClockUI", package: "LiveClock")
             ]
         )
-        // visionOS target is possible with newer Tuist versions:
-        // Target(
+        // visionOS target (requires a recent Tuist with .visionOS support)
+        // .target(
         //     name: "LiveClock-visionOS",
-        //     platform: .visionOS,
+        //     destinations: [.vision],
         //     product: .app,
         //     bundleId: "io.ngs.LiveClock.vision",
-        //     deploymentTarget: .visionOS(targetVersion: "1.0"),
+        //     deploymentTargets: .visionOS("1.0"),
         //     infoPlist: .default,
         //     sources: ["Sources/App/**"],
         //     resources: [],
@@ -69,4 +69,3 @@ let project = Project(
         // )
     ]
 )
-
