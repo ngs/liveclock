@@ -16,9 +16,9 @@ let project = Project(
             sources: ["Sources/App/**"],
             resources: [],
             dependencies: [
-                .product(name: "LiveClockCore", package: "LiveClock"),
-                .product(name: "LiveClockPlatform", package: "LiveClock"),
-                .product(name: "LiveClockUI", package: "LiveClock")
+                .package(product: "LiveClockCore"),
+                .package(product: "LiveClockPlatform"),
+                .package(product: "LiveClockUI")
             ]
         ),
         .target(
@@ -31,24 +31,9 @@ let project = Project(
             sources: ["Sources/App/**"],
             resources: [],
             dependencies: [
-                .product(name: "LiveClockCore", package: "LiveClock"),
-                .product(name: "LiveClockPlatform", package: "LiveClock"),
-                .product(name: "LiveClockUI", package: "LiveClock")
-            ]
-        ),
-        .target(
-            name: "LiveClock-tvOS",
-            destinations: [.tv],
-            product: .app,
-            bundleId: "io.ngs.LiveClock.tv",
-            deploymentTargets: .tvOS("16.0"),
-            infoPlist: .default,
-            sources: ["Sources/App/**"],
-            resources: [],
-            dependencies: [
-                .product(name: "LiveClockCore", package: "LiveClock"),
-                .product(name: "LiveClockPlatform", package: "LiveClock"),
-                .product(name: "LiveClockUI", package: "LiveClock")
+                .package(product: "LiveClockCore"),
+                .package(product: "LiveClockPlatform"),
+                .package(product: "LiveClockUI")
             ]
         )
         // visionOS target (requires a recent Tuist with .visionOS support)
