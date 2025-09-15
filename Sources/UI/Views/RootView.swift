@@ -35,6 +35,10 @@ public struct RootView: View {
             #endif
         }
         #if os(iOS)
+        .navigationBarHidden(true)
+        .statusBarHidden(true)
+        .persistentSystemOverlays(.hidden)
+        .toolbar(.hidden, for: .navigationBar)
         .toolbar {
             ToolbarItemGroup(placement: .bottomBar) {
                 Button {
@@ -46,6 +50,7 @@ public struct RootView: View {
                 ExportButton()
             }
         }
+        .toolbarBackground(.visible, for: .bottomBar)
         .sheet(isPresented: $showSettings) {
             PreferencesView()
                 .environmentObject(app)

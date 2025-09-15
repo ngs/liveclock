@@ -14,7 +14,11 @@ let project = Project(
             deploymentTargets: .iOS("16.0"),
             infoPlist: .extendingDefault(with: [
                 "CFBundleDisplayName": .string("LiveClock"),
-                "CFBundleName": .string("LiveClock")
+                "CFBundleName": .string("LiveClock"),
+                "UIStatusBarHidden": .boolean(true),
+                "UIViewControllerBasedStatusBarAppearance": .boolean(false),
+                "UILaunchStoryboardName": .string(""),
+                "UIRequiresFullScreen": .boolean(true)
             ]),
             sources: ["Sources/App/**"],
             resources: [],

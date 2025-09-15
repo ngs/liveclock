@@ -14,7 +14,12 @@ struct LiveClockApp: App {
             RootView()
                 .environmentObject(appState)
                 .preferredColorScheme(appState.preferences.colorScheme)
-                .onAppear { appState.applyKeepAwake() }
+                .onAppear { 
+                    appState.applyKeepAwake()
+                    #if os(iOS)
+                    UIApplication.shared.isIdleTimerDisabled = true
+                    #endif
+                }
         }
         #if os(macOS)
         .commands {
