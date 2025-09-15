@@ -25,12 +25,14 @@ public struct PreferencesView: View {
                         Text(mode.rawValue.capitalized).tag(mode.rawValue)
                     }
                 }
+                #if !os(macOS)
                 Toggle("Follow Device Rotation", isOn: $app.preferences.followDeviceRotation)
                 Picker("Fixed Orientation", selection: $app.preferences.fixedLayoutOrientationRaw) {
                     ForEach(FixedLayoutOrientation.allCases) { o in
                         Text(o.rawValue.capitalized).tag(o.rawValue)
                     }
                 }
+                #endif
             }
             Section("Behavior") {
                 Toggle("Keep Awake", isOn: $app.preferences.keepAwake)

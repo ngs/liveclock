@@ -36,12 +36,14 @@ private struct SidebarLapsView: View {
                 }
             }
         }
+        #if os(iOS)
         .toolbar {
             ToolbarItemGroup(placement: .bottomBar) {
                 Button("Lap", action: app.stopwatch.lap)
                 Button("Reset", role: .destructive, action: app.stopwatch.reset)
             }
         }
+        #endif
         .navigationTitle("Laps")
     }
 }
@@ -58,4 +60,3 @@ private struct DetailTimerView: View {
         .navigationTitle("Timer")
     }
 }
-

@@ -33,6 +33,14 @@ public final class Stopwatch: ObservableObject {
             laps.removeAll()
             accumulated = 0
             lastLapReference = now
+            let baseLap = Lap(
+                id: UUID(),
+                index: 0,
+                atTotal: 0,
+                deltaFromPrev: 0,
+                capturedDate: Date()
+            )
+            laps.insert(baseLap, at: 0)
         }
         startReference = now
         state = .running

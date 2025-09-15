@@ -35,6 +35,8 @@ public struct RootView: View {
         .toolbar {
             ToolbarItemGroup(placement: .bottomBar) {
                 NavigationLink("Settings") { PreferencesView() }
+                Spacer()
+                ExportButton()
             }
         }
         #endif
