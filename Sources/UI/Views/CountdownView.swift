@@ -14,49 +14,49 @@ public struct CountdownView: View {
             Text(TimeFormatter.format(timer.remaining))
                 .font(.system(size: 72, weight: .thin, design: .monospaced))
                 .minimumScaleFactor(0.3)
-                .accessibilityLabel("Time remaining")
+                .accessibilityLabel(String(localized: "Time remaining", bundle: .module))
                 .accessibilityValue(voiceOverTime(timer.remaining))
             
             HStack(spacing: 16) {
                 switch timer.state {
                 case .idle:
-                    Button("Set Duration") {
+                    Button(String(localized: "Set Duration", bundle: .module)) {
                         showingDurationPicker = true
                     }
                     .buttonStyle(.bordered)
                     
-                    Button("Start") {
+                    Button(String(localized: "Start", bundle: .module)) {
                         timer.start()
                     }
                     .buttonStyle(.borderedProminent)
                     .keyboardShortcut(.space)
                     
                 case .running:
-                    Button("Pause") {
+                    Button(String(localized: "Pause", bundle: .module)) {
                         timer.pause()
                     }
                     .buttonStyle(.borderedProminent)
                     .keyboardShortcut(.space)
                     
                 case .paused:
-                    Button("Reset", role: .destructive) {
+                    Button(String(localized: "Reset", bundle: .module), role: .destructive) {
                         timer.reset()
                     }
                     .buttonStyle(.bordered)
                     .keyboardShortcut("r")
                     
-                    Button("Resume") {
+                    Button(String(localized: "Resume", bundle: .module)) {
                         timer.start()
                     }
                     .buttonStyle(.borderedProminent)
                     .keyboardShortcut(.space)
                     
                 case .finished:
-                    Text("Time's Up!")
+                    Text("Time's Up!", bundle: .module)
                         .font(.largeTitle)
                         .foregroundColor(.red)
                     
-                    Button("Reset") {
+                    Button(String(localized: "Reset", bundle: .module)) {
                         timer.reset()
                     }
                     .buttonStyle(.borderedProminent)
@@ -68,18 +68,18 @@ public struct CountdownView: View {
             NavigationView {
                 VStack {
                     HStack {
-                        Picker("Minutes", selection: $selectedMinutes) {
+                        Picker(String(localized: "Minutes", bundle: .module), selection: $selectedMinutes) {
                             ForEach(0..<60) { minute in
-                                Text("\(minute) min").tag(minute)
+                                Text("\(minute) min", bundle: .module).tag(minute)
                             }
                         }
                         #if os(iOS)
                         .pickerStyle(.wheel)
                         #endif
                         
-                        Picker("Seconds", selection: $selectedSeconds) {
+                        Picker(String(localized: "Seconds", bundle: .module), selection: $selectedSeconds) {
                             ForEach(0..<60) { second in
-                                Text("\(second) sec").tag(second)
+                                Text("\(second) sec", bundle: .module).tag(second)
                             }
                         }
                         #if os(iOS)
@@ -88,18 +88,18 @@ public struct CountdownView: View {
                     }
                     .padding()
                 }
-                .navigationTitle("Set Duration")
+                .navigationTitle(String(localized: "Set Duration", bundle: .module))
                 #if os(iOS)
                 .navigationBarTitleDisplayMode(.inline)
                 #endif
                 .toolbar {
                     ToolbarItem(placement: .cancellationAction) {
-                        Button("Cancel") {
+                        Button(String(localized: "Cancel", bundle: .module)) {
                             showingDurationPicker = false
                         }
                     }
                     ToolbarItem(placement: .confirmationAction) {
-                        Button("Done") {
+                        Button(String(localized: "Done", bundle: .module)) {
                             let duration = TimeInterval(selectedMinutes * 60 + selectedSeconds)
                             timer.setDuration(duration)
                             showingDurationPicker = false

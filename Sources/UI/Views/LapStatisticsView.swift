@@ -11,25 +11,25 @@ public struct LapStatisticsView: View {
     public var body: some View {
         if laps.count > 1 {
             VStack(alignment: .leading, spacing: 12) {
-                Text("Statistics")
+                Text("Statistics", bundle: .module)
                     .font(.headline)
                     .padding(.horizontal)
                 
                 HStack(spacing: 20) {
                     StatItem(
-                        title: "Average",
+                        title: String(localized: "Average", bundle: .module),
                         value: TimeFormatter.formatCompact(averageLapTime),
                         color: .blue
                     )
                     
                     StatItem(
-                        title: "Fastest",
+                        title: String(localized: "Fastest", bundle: .module),
                         value: TimeFormatter.formatCompact(fastestLapTime ?? 0),
                         color: .green
                     )
                     
                     StatItem(
-                        title: "Slowest",
+                        title: String(localized: "Slowest", bundle: .module),
                         value: TimeFormatter.formatCompact(slowestLapTime ?? 0),
                         color: .orange
                     )

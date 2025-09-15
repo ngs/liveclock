@@ -31,7 +31,10 @@ let package = Package(
                 .target(name: "LiveClockCore"),
                 .target(name: "LiveClockPlatform")
             ],
-            path: "Sources/UI"
+            path: "Sources/UI",
+            resources: [
+                .process("Resources")
+            ]
         ),
         .testTarget(
             name: "LiveClockCoreTests",

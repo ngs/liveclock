@@ -20,7 +20,7 @@ private struct SidebarLapsView: View {
     @EnvironmentObject var app: AppState
     var body: some View {
         List {
-            Section("Laps") {
+            Section(String(localized: "Laps", bundle: .module)) {
                 ForEach(app.stopwatch.laps) { lap in
                     HStack {
                         Text("#\(lap.index)")
@@ -39,12 +39,12 @@ private struct SidebarLapsView: View {
         #if os(iOS)
         .toolbar {
             ToolbarItemGroup(placement: .bottomBar) {
-                Button("Lap", action: app.stopwatch.lap)
-                Button("Reset", role: .destructive, action: app.stopwatch.reset)
+                Button(String(localized: "Lap", bundle: .module), action: app.stopwatch.lap)
+                Button(String(localized: "Reset", bundle: .module), role: .destructive, action: app.stopwatch.reset)
             }
         }
         #endif
-        .navigationTitle("Laps")
+        .navigationTitle(String(localized: "Laps", bundle: .module))
     }
 }
 
@@ -57,7 +57,7 @@ private struct DetailTimerView: View {
             ControlsView(showsLapButton: false)
         }
         .padding()
-        .navigationTitle("Timer")
+        .navigationTitle(String(localized: "Timer", bundle: .module))
     }
 }
 

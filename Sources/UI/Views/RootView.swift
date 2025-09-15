@@ -44,7 +44,7 @@ public struct RootView: View {
                 Button {
                     showSettings = true
                 } label: {
-                    Label("Settings", systemImage: "gearshape")
+                    Label(String(localized: "Settings", bundle: .module), systemImage: "gearshape")
                 }
                 Spacer()
                 ExportButton()

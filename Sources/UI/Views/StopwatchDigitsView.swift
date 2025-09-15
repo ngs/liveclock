@@ -27,7 +27,7 @@ struct StopwatchDigitsView: View {
             .minimumScaleFactor(0.2)
             .padding(.horizontal)
             .dynamicTypeSize(...DynamicTypeSize.accessibility2)
-            .accessibilityLabel("Elapsed time")
+            .accessibilityLabel(String(localized: "Elapsed time", bundle: .module))
             .accessibilityValue(voiceOverTime(app.stopwatch.elapsed))
             .accessibilityAddTraits(.updatesFrequently)
     }

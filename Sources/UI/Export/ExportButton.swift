@@ -9,7 +9,7 @@ struct ExportButton: View {
         Button {
             showExporter = true
         } label: {
-            Label("Export", systemImage: "square.and.arrow.up")
+            Label(String(localized: "Export", bundle: .module), systemImage: "square.and.arrow.up")
         }
         .sheet(isPresented: $showExporter) {
             ActivityExporter(items: [temporaryCSVURL(for: app.stopwatch.laps)])

@@ -10,7 +10,7 @@ struct ControlsView: View {
         HStack(spacing: 16) {
             switch app.stopwatchState {
             case .idle:
-                Button("Start", action: {
+                Button(String(localized: "Start", bundle: .module), action: {
                     app.stopwatch.start()
                     if app.preferences.enableHaptics || app.preferences.enableSounds {
                         FeedbackManager.shared.playStartFeedback()
@@ -18,10 +18,10 @@ struct ControlsView: View {
                 })
                     .buttonStyle(.borderedProminent)
                     .keyboardShortcut(.space)
-                    .accessibilityHint("Start the stopwatch")
+                    .accessibilityHint(String(localized: "Start the stopwatch", bundle: .module))
             case .running:
                 if showsLapButton {
-                    Button("Lap", action: {
+                    Button(String(localized: "Lap", bundle: .module), action: {
                         app.stopwatch.lap()
                         if app.preferences.enableHaptics || app.preferences.enableSounds {
                             FeedbackManager.shared.playLapFeedback()
@@ -29,9 +29,9 @@ struct ControlsView: View {
                     })
                         .buttonStyle(.bordered)
                         .keyboardShortcut("l")
-                        .accessibilityHint("Record a lap time")
+                        .accessibilityHint(String(localized: "Record a lap time", bundle: .module))
                 }
-                Button("Stop", action: {
+                Button(String(localized: "Stop", bundle: .module), action: {
                     app.stopwatch.pause()
                     if app.preferences.enableHaptics || app.preferences.enableSounds {
                         FeedbackManager.shared.playStopFeedback()
@@ -39,9 +39,9 @@ struct ControlsView: View {
                 })
                     .buttonStyle(.borderedProminent)
                     .keyboardShortcut(.space)
-                    .accessibilityHint("Pause the stopwatch")
+                    .accessibilityHint(String(localized: "Pause the stopwatch", bundle: .module))
             case .paused:
-                Button("Reset", role: .destructive, action: {
+                Button(String(localized: "Reset", bundle: .module), role: .destructive, action: {
                     app.stopwatch.reset()
                     if app.preferences.enableHaptics || app.preferences.enableSounds {
                         FeedbackManager.shared.playResetFeedback()
@@ -49,8 +49,8 @@ struct ControlsView: View {
                 })
                     .buttonStyle(.bordered)
                     .keyboardShortcut("r")
-                    .accessibilityHint("Reset the stopwatch to zero")
-                Button("Resume", action: {
+                    .accessibilityHint(String(localized: "Reset the stopwatch to zero", bundle: .module))
+                Button(String(localized: "Resume", bundle: .module), action: {
                     app.stopwatch.start()
                     if app.preferences.enableHaptics || app.preferences.enableSounds {
                         FeedbackManager.shared.playStartFeedback()
@@ -58,7 +58,7 @@ struct ControlsView: View {
                 })
                     .buttonStyle(.borderedProminent)
                     .keyboardShortcut(.space)
-                    .accessibilityHint("Resume the stopwatch")
+                    .accessibilityHint(String(localized: "Resume the stopwatch", bundle: .module))
             }
         }
     }

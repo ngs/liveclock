@@ -2,6 +2,9 @@ import XCTest
 import SwiftUI
 @testable import LiveClockUI
 @testable import LiveClockCore
+#if os(iOS)
+import UIKit
+#endif
 
 final class SnapshotTests: XCTestCase {
     
@@ -119,6 +122,7 @@ final class SnapshotTests: XCTestCase {
     }
 }
 
+#if os(iOS)
 private func assertSnapshot<V: View>(
     matching view: V,
     as format: SnapshotFormat,
@@ -170,6 +174,18 @@ private func assertSnapshot<V: View>(
         XCTFail("Reference snapshot not found. New snapshot saved to: \(snapshotPath.path)", file: file, line: line)
     }
 }
+#else
+private func assertSnapshot<V: View>(
+    matching view: V,
+    as format: SnapshotFormat,
+    file: StaticString = #file,
+    testName: String = #function,
+    line: UInt = #line
+) {
+    // Snapshot testing not available on macOS in this implementation
+    XCTSkip("Snapshot testing not available on this platform")
+}
+#endif
 
 private enum SnapshotFormat {
     case image
