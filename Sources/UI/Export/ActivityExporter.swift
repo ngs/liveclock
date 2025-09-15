@@ -23,8 +23,8 @@ private func defaultExportFileName(ext: String) -> String {
     let df = DateFormatter()
     df.locale = Locale(identifier: "en_US_POSIX")
     df.timeZone = .current
-    df.dateFormat = "Laps-yyyyMMdd-HHmmss.\(ext)"
-    return df.string(from: Date())
+    df.dateFormat = "yyyyMMdd-HHmmss"
+    return "Laps-\(df.string(from: Date())).\(ext)"
 }
 #endif
 

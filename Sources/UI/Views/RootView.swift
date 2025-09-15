@@ -8,6 +8,9 @@ import UIKit
 public struct RootView: View {
     @EnvironmentObject var app: AppState
     @State private var ticker: Ticker?
+    #if os(iOS)
+    @State private var showSettings = false
+    #endif
 
     public init() {}
 
@@ -34,10 +37,19 @@ public struct RootView: View {
         #if os(iOS)
         .toolbar {
             ToolbarItemGroup(placement: .bottomBar) {
-                NavigationLink("Settings") { PreferencesView() }
+                Button {
+                    showSettings = true
+                } label: {
+                    Label("Settings", systemImage: "gearshape")
+                }
                 Spacer()
                 ExportButton()
             }
+        }
+        .sheet(isPresented: $showSettings) {
+            PreferencesView()
+                .environmentObject(app)
+                .presentationDetents([.medium, .large])
         }
         #endif
         .onAppear {
