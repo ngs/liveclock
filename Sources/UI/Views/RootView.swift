@@ -2,11 +2,13 @@ import SwiftUI
 import LiveClockCore
 import LiveClockPlatform
 
-struct RootView: View {
+public struct RootView: View {
     @EnvironmentObject var app: AppState
-    @State private var ticker = Ticker()
+    @State private var ticker: Ticker?
 
-    var body: some View {
+    public init() {}
+
+    public var body: some View {
         NavigationStack {
             if app.preferences.layoutModeRaw == LayoutMode.single.rawValue {
                 SingleColumnScreen()
@@ -22,10 +24,15 @@ struct RootView: View {
         }
         #endif
         .onAppear {
-            ticker.delegate = app
-            ticker.start()
+            let t = Ticker()
+            t.delegate = app
+            t.start()
+            ticker = t
         }
-        .onDisappear { ticker.stop() }
+        .onDisappear {
+            ticker?.stop()
+            ticker = nil
+        }
     }
 }
 

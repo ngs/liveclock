@@ -32,18 +32,6 @@ let package = Package(
                 .target(name: "LiveClockPlatform")
             ],
             path: "Sources/UI"
-        ),
-        // App entrypoint module. Not exposed as a product; an Xcode App target can reference these sources
-        // or you can create a tiny app target that depends on the above libraries.
-        .target(
-            name: "LiveClockApp",
-            dependencies: [
-                .target(name: "LiveClockCore"),
-                .target(name: "LiveClockUI"),
-                .target(name: "LiveClockPlatform")
-            ],
-            path: "Sources/App"
         )
     ]
 )
-

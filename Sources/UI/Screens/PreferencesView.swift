@@ -1,10 +1,12 @@
 import SwiftUI
 import LiveClockCore
 
-struct PreferencesView: View {
+public struct PreferencesView: View {
     @EnvironmentObject var app: AppState
 
-    var body: some View {
+    public init() {}
+
+    public var body: some View {
         Form {
             Section("Appearance") {
                 Picker("Theme", selection: $app.preferences.appearanceModeRaw) {
