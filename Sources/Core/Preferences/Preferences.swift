@@ -5,13 +5,13 @@ import UIKit
 import AppKit
 #endif
 
-enum AppearanceMode: String, CaseIterable, Identifiable {
+public enum AppearanceMode: String, CaseIterable, Identifiable {
     case system
     case light
     case dark
-    var id: String { rawValue }
+    public var id: String { rawValue }
 
-    var colorScheme: ColorScheme? {
+    public var colorScheme: ColorScheme? {
         switch self {
         case .system: return nil
         case .light: return .light
@@ -20,30 +20,30 @@ enum AppearanceMode: String, CaseIterable, Identifiable {
     }
 }
 
-final class Preferences: ObservableObject {
-    @AppStorage("appearanceMode") var appearanceModeRaw: String = AppearanceMode.system.rawValue
-    @AppStorage("customTextColorR") var textR: Double = 1.0
-    @AppStorage("customTextColorG") var textG: Double = 1.0
-    @AppStorage("customTextColorB") var textB: Double = 1.0
-    @AppStorage("customTextColorA") var textA: Double = 1.0
+public final class Preferences: ObservableObject {
+    @AppStorage("appearanceMode") public var appearanceModeRaw: String = AppearanceMode.system.rawValue
+    @AppStorage("customTextColorR") public var textR: Double = 1.0
+    @AppStorage("customTextColorG") public var textG: Double = 1.0
+    @AppStorage("customTextColorB") public var textB: Double = 1.0
+    @AppStorage("customTextColorA") public var textA: Double = 1.0
 
-    @AppStorage("layoutMode") var layoutModeRaw: String = LayoutMode.single.rawValue
-    @AppStorage("followDeviceRotation") var followDeviceRotation: Bool = true
-    @AppStorage("fixedLayoutOrientation") var fixedLayoutOrientationRaw: String = FixedLayoutOrientation.portrait.rawValue
-    @AppStorage("keepAwake") var keepAwake: Bool = true
+    @AppStorage("layoutMode") public var layoutModeRaw: String = LayoutMode.single.rawValue
+    @AppStorage("followDeviceRotation") public var followDeviceRotation: Bool = true
+    @AppStorage("fixedLayoutOrientation") public var fixedLayoutOrientationRaw: String = FixedLayoutOrientation.portrait.rawValue
+    @AppStorage("keepAwake") public var keepAwake: Bool = true
 
-    var appearanceMode: AppearanceMode {
+    public var appearanceMode: AppearanceMode {
         get { AppearanceMode(rawValue: appearanceModeRaw) ?? .system }
         set { appearanceModeRaw = newValue.rawValue }
     }
 
-    var colorScheme: ColorScheme? { appearanceMode.colorScheme }
+    public var colorScheme: ColorScheme? { appearanceMode.colorScheme }
 
-    var textColor: Color {
+    public var textColor: Color {
         Color(red: textR, green: textG, blue: textB, opacity: textA)
     }
 
-    func setTextColor(_ color: Color) {
+    public func setTextColor(_ color: Color) {
         #if os(macOS)
         if let cg = color.cgColor, let ns = NSColor(cgColor: cg) {
             textR = Double(ns.redComponent)
@@ -59,14 +59,16 @@ final class Preferences: ObservableObject {
     }
 }
 
-enum LayoutMode: String, CaseIterable, Identifiable { case single, double; var id: String { rawValue } }
-enum FixedLayoutOrientation: String, CaseIterable, Identifiable { case portrait, landscape; var id: String { rawValue } }
+public enum LayoutMode: String, CaseIterable, Identifiable { case single, double; public var id: String { rawValue } }
+public enum FixedLayoutOrientation: String, CaseIterable, Identifiable { case portrait, landscape; public var id: String { rawValue } }
 
-final class AppState: ObservableObject {
-    @Published var stopwatch = Stopwatch()
-    @Published var preferences = Preferences()
+public final class AppState: ObservableObject {
+    @Published public var stopwatch = Stopwatch()
+    @Published public var preferences = Preferences()
 
-    func applyKeepAwake() {
+    public init() {}
+
+    public func applyKeepAwake() {
         #if os(iOS) || os(tvOS) || os(visionOS)
         UIApplication.shared.isIdleTimerDisabled = preferences.keepAwake
         #elseif os(macOS)

@@ -1,7 +1,7 @@
 import Foundation
 
-enum TimeFormatter {
-    static func hmsms(_ seconds: TimeInterval) -> String {
+public enum TimeFormatter {
+    public static func hmsms(_ seconds: TimeInterval) -> String {
         let totalMilliseconds = Int((seconds * 1000.0).rounded(.down))
         let ms = totalMilliseconds % 1000
         let totalSeconds = totalMilliseconds / 1000
@@ -12,4 +12,3 @@ enum TimeFormatter {
         return String(format: "%02d:%02d:%02d.%03d", h, m, s, ms)
     }
 }
-

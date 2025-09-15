@@ -3,29 +3,29 @@ import Foundation
 import QuartzCore
 #endif
 
-enum StopwatchState {
+public enum StopwatchState {
     case idle
     case running
     case paused
 }
 
-struct Lap: Identifiable, Hashable {
-    let id: UUID
-    let index: Int
-    let atTotal: TimeInterval
-    let deltaFromPrev: TimeInterval
+public struct Lap: Identifiable, Hashable {
+    public let id: UUID
+    public let index: Int
+    public let atTotal: TimeInterval
+    public let deltaFromPrev: TimeInterval
 }
 
-final class Stopwatch: ObservableObject {
-    @Published private(set) var state: StopwatchState = .idle
-    @Published private(set) var elapsed: TimeInterval = 0
-    @Published private(set) var laps: [Lap] = []
+public final class Stopwatch: ObservableObject {
+    @Published public private(set) var state: StopwatchState = .idle
+    @Published public private(set) var elapsed: TimeInterval = 0
+    @Published public private(set) var laps: [Lap] = []
 
     private var startReference: TimeInterval? // monotonic base
     private var accumulated: TimeInterval = 0
     private var lastLapReference: TimeInterval?
 
-    func start() {
+    public func start() {
         guard state != .running else { return }
         let now = monotonic()
         if state == .idle {
@@ -37,7 +37,7 @@ final class Stopwatch: ObservableObject {
         state = .running
     }
 
-    func pause() {
+    public func pause() {
         guard state == .running, let start = startReference else { return }
         let now = monotonic()
         accumulated += now - start
@@ -46,7 +46,7 @@ final class Stopwatch: ObservableObject {
         elapsed = accumulated
     }
 
-    func reset() {
+    public func reset() {
         state = .idle
         elapsed = 0
         startReference = nil
@@ -55,7 +55,7 @@ final class Stopwatch: ObservableObject {
         laps.removeAll()
     }
 
-    func lap() {
+    public func lap() {
         guard state == .running else { return }
         let now = monotonic()
         let total = currentElapsed(now: now)
@@ -73,7 +73,7 @@ final class Stopwatch: ObservableObject {
         laps.insert(lap, at: 0)
     }
 
-    func tick() {
+    public func tick() {
         guard state == .running else { return }
         elapsed = currentElapsed(now: monotonic())
     }

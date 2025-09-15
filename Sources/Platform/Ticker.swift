@@ -1,11 +1,12 @@
 import Foundation
 
-protocol TickerDelegate: AnyObject {
+public protocol TickerDelegate: AnyObject {
     func tickerDidTick()
 }
 
-final class Ticker {
-    weak var delegate: TickerDelegate?
+public final class Ticker {
+    public weak var delegate: TickerDelegate?
+    public init() {}
 
     #if os(iOS) || os(tvOS) || os(visionOS)
     private var link: CADisplayLink?
@@ -13,7 +14,7 @@ final class Ticker {
     private var timer: Timer?
     #endif
 
-    func start() {
+    public func start() {
         stop()
         #if os(iOS) || os(tvOS) || os(visionOS)
         let link = CADisplayLink(target: DisplayLinkProxy(self), selector: #selector(DisplayLinkProxy.step))
@@ -26,7 +27,7 @@ final class Ticker {
         #endif
     }
 
-    func stop() {
+    public func stop() {
         #if os(iOS) || os(tvOS) || os(visionOS)
         link?.invalidate(); link = nil
         #else
@@ -43,4 +44,3 @@ private final class DisplayLinkProxy: NSObject {
     @objc func step() { owner?.delegate?.tickerDidTick() }
 }
 #endif
-

@@ -14,11 +14,13 @@ struct RootView: View {
                 TwoColumnScreen()
             }
         }
+        #if os(iOS)
         .toolbar {
             ToolbarItemGroup(placement: .bottomBar) {
                 NavigationLink("Settings") { PreferencesView() }
             }
         }
+        #endif
         .onAppear {
             ticker.delegate = app
             ticker.start()
@@ -28,7 +30,7 @@ struct RootView: View {
 }
 
 extension AppState: TickerDelegate {
-    func tickerDidTick() {
+    public func tickerDidTick() {
         stopwatch.tick()
     }
 }
