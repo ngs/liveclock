@@ -12,7 +12,10 @@ let project = Project(
             product: .app,
             bundleId: "io.ngs.LiveClock",
             deploymentTargets: .iOS("16.0"),
-            infoPlist: .default,
+            infoPlist: .extendingDefault(with: [
+                "CFBundleDisplayName": .string("LiveClock"),
+                "CFBundleName": .string("LiveClock")
+            ]),
             sources: ["Sources/App/**"],
             resources: [],
             dependencies: [
@@ -27,7 +30,9 @@ let project = Project(
             product: .app,
             bundleId: "io.ngs.LiveClock.mac",
             deploymentTargets: .macOS("13.0"),
-            infoPlist: .default,
+            infoPlist: .extendingDefault(with: [
+                "CFBundleName": .string("LiveClock")
+            ]),
             sources: ["Sources/App/**"],
             resources: [],
             dependencies: [
