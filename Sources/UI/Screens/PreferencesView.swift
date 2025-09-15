@@ -41,3 +41,10 @@ public struct PreferencesView: View {
         .navigationTitle("Preferences")
     }
 }
+
+#Preview {
+    NavigationView {
+        PreferencesView()
+            .environmentObject(AppState())
+    }
+}

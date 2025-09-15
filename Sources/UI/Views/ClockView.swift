@@ -21,3 +21,10 @@ struct ClockView: View {
             .padding(.horizontal)
     }
 }
+
+#Preview {
+    ClockView()
+        .environmentObject(AppState())
+        .frame(height: 120)
+        .padding()
+}

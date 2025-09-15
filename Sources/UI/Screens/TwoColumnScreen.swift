@@ -15,3 +15,8 @@ struct TwoColumnScreen: View {
         .padding()
     }
 }
+
+#Preview {
+    TwoColumnScreen()
+        .environmentObject(AppState())
+}

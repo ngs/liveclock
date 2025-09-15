@@ -55,3 +55,24 @@ struct LapRowView: View {
         .padding(.vertical, 8)
     }
 }
+
+#Preview("With Laps") {
+    let appState = AppState()
+    appState.stopwatch.start()
+    Thread.sleep(forTimeInterval: 0.1)
+    appState.stopwatch.lap()
+    Thread.sleep(forTimeInterval: 0.15)
+    appState.stopwatch.lap()
+    Thread.sleep(forTimeInterval: 0.2)
+    appState.stopwatch.lap()
+    
+    return LapListView()
+        .environmentObject(appState)
+        .frame(height: 400)
+}
+
+#Preview("Empty") {
+    LapListView()
+        .environmentObject(AppState())
+        .frame(height: 400)
+}

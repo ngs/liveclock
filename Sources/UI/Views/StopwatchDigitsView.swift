@@ -15,8 +15,8 @@ struct StopwatchDigitsView: View {
             colonOpacity = 0.2 + 0.6 * tri
             dotOpacity = colonOpacity  // Dot blinks with the same pattern as colons
         } else {
-            colonOpacity = 0.8
-            dotOpacity = 0.8
+            colonOpacity = 0.5
+            dotOpacity = 0.5
         }
 
         return BlinkingTimeText(time, colonOpacity: colonOpacity, dotOpacity: dotOpacity)
@@ -55,4 +55,30 @@ struct StopwatchDigitsView: View {
         
         return components.joined(separator: ", ")
     }
+}
+
+#Preview("Running") {
+    let appState = AppState()
+    appState.stopwatch.start()
+    
+    return StopwatchDigitsView()
+        .environmentObject(appState)
+        .frame(height: 100)
+}
+
+#Preview("Paused") {
+    let appState = AppState()
+    appState.stopwatch.start()
+    Thread.sleep(forTimeInterval: 2.5)
+    appState.stopwatch.pause()
+    
+    return StopwatchDigitsView()
+        .environmentObject(appState)
+        .frame(height: 100)
+}
+
+#Preview("Idle") {
+    StopwatchDigitsView()
+        .environmentObject(AppState())
+        .frame(height: 100)
 }

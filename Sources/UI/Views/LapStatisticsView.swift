@@ -77,3 +77,30 @@ struct StatItem: View {
         .frame(maxWidth: .infinity)
     }
 }
+
+#Preview {
+    struct PreviewContainer: View {
+        let laps: [Lap]
+        
+        init() {
+            let stopwatch = Stopwatch()
+            stopwatch.start()
+            Thread.sleep(forTimeInterval: 0.105)
+            stopwatch.lap()
+            Thread.sleep(forTimeInterval: 0.118)
+            stopwatch.lap()
+            Thread.sleep(forTimeInterval: 0.089)
+            stopwatch.lap()
+            Thread.sleep(forTimeInterval: 0.145)
+            stopwatch.lap()
+            self.laps = stopwatch.laps
+        }
+        
+        var body: some View {
+            LapStatisticsView(laps: laps)
+                .padding()
+        }
+    }
+    
+    return PreviewContainer()
+}

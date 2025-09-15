@@ -76,3 +76,8 @@ extension AppState: TickerDelegate {
         stopwatch.tick()
     }
 }
+
+#Preview {
+    RootView()
+        .environmentObject(AppState())
+}

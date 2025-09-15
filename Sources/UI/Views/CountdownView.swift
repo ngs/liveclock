@@ -129,3 +129,8 @@ public struct CountdownView: View {
         return components.joined(separator: ", ")
     }
 }
+
+#Preview {
+    CountdownView()
+        .padding()
+}

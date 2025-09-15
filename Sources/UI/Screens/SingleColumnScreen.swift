@@ -15,3 +15,8 @@ struct SingleColumnScreen: View {
         .padding()
     }
 }
+
+#Preview {
+    SingleColumnScreen()
+        .environmentObject(AppState())
+}

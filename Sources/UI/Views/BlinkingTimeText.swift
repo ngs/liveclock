@@ -15,8 +15,6 @@ struct BlinkingTimeText: View {
     var body: some View {
         let chars = Array(timeString)
         let dotPos = chars.firstIndex(of: ".")
-        // Create light weight version of the current font for punctuation and milliseconds
-        let lightFont = Font.system(.body, design: .monospaced, weight: .light)
         
         return HStack(spacing: 0) {
             ForEach(0..<chars.count, id: \.self) { i in
@@ -41,5 +39,17 @@ struct BlinkingTimeText: View {
             }
         }
     }
+}
+
+#Preview("Blinking Time - Running") {
+    BlinkingTimeText("12:34:56.789", colonOpacity: 0.5, dotOpacity: 0.5)
+        .font(.system(size: 48, weight: .semibold, design: .monospaced))
+        .padding()
+}
+
+#Preview("Blinking Time - Static") {
+    BlinkingTimeText("00:00:00.000", colonOpacity: 0.8, dotOpacity: 0.8)
+        .font(.system(size: 48, weight: .semibold, design: .monospaced))
+        .padding()
 }
 

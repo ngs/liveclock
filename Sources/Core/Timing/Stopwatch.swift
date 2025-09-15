@@ -25,6 +25,8 @@ public final class Stopwatch: ObservableObject {
     private var startReference: TimeInterval? // monotonic base
     private var accumulated: TimeInterval = 0
     private var lastLapReference: TimeInterval?
+    
+    public init() {}
 
     public func start() {
         guard state != .running else { return }

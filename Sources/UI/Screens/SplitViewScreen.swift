@@ -60,3 +60,11 @@ private struct DetailTimerView: View {
         .navigationTitle("Timer")
     }
 }
+
+#if os(iOS)
+@available(iOS 16.0, *)
+#Preview {
+    SplitViewScreen()
+        .environmentObject(AppState())
+}
+#endif

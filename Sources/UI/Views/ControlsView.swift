@@ -67,3 +67,26 @@ struct ControlsView: View {
 private extension AppState {
     var stopwatchState: StopwatchState { stopwatch.state }
 }
+
+#Preview("Idle State") {
+    ControlsView()
+        .environmentObject(AppState())
+        .padding()
+}
+
+#Preview("Running State") {
+    let appState = AppState()
+    appState.stopwatch.start()
+    return ControlsView()
+        .environmentObject(appState)
+        .padding()
+}
+
+#Preview("Paused State") {
+    let appState = AppState()
+    appState.stopwatch.start()
+    appState.stopwatch.pause()
+    return ControlsView()
+        .environmentObject(appState)
+        .padding()
+}
