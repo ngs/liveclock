@@ -1,0 +1,20 @@
+# macOS
+.DS_Store
+
+# SwiftPM
+.build/
+.swiftpm/
+
+# Tuist/Xcode generated artifacts
+LiveClock.xcodeproj/
+LiveClock.xcworkspace/
+Derived/
+
+# Xcode user data
+**/xcuserdata/
+**/*.xcuserstate
+**/*.xccheckout
+
+# Swift/LLVM
+*.dSYM
+
