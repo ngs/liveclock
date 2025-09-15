@@ -2,7 +2,7 @@ Live Clock The Gig Timer — Agent Guide and Technical Design
 
 Overview
 - Goal: A simple, distraction‑free universal timer/stopwatch for live performance use, showing time down to milliseconds with optional lap tracking.
-- Platforms: iOS, iPadOS, macOS, visionOS, tvOS.
+- Platforms: iOS, iPadOS, macOS, visionOS.
 - Bundle Identifier: io.ngs.LiveClock
 - App Name (display/marketing): Live Clock The Gig Timer
 - Tech: Swift 5.9+ (or project default), SwiftUI, Observation, no third‑party dependencies.
@@ -21,9 +21,9 @@ Architecture
   - UI: SwiftUI views for Single‑Column and Two‑Column layouts, shared controls, theming.
 - Concurrency & observation
   - Use Swift’s `Observation` (`@Observable`, `@State`, `@Environment`) to publish state changes.
-  - Use a display‑driven tick where available (CADisplayLink on iOS/tvOS/visionOS) and a high‑frequency timer on macOS.
+  - Use a display‑driven tick where available (CADisplayLink on iOS/visionOS) and a high‑frequency timer on macOS.
 - Platforms
-  - iOS/iPadOS/visionOS/tvOS: Display‑linked updates for smooth UI; disable idle sleep while app is active.
+  - iOS/iPadOS/visionOS: Display‑linked updates for smooth UI; disable idle sleep while app is active.
   - macOS: Use `ProcessInfo.processInfo.beginActivity(options: .idleSystemSleepDisabled, reason:)` to keep the display awake.
 
 Timing Engine
@@ -79,15 +79,15 @@ Preferences (persisted)
 
 Platform Notes
 - Keep‑awake
-  - iOS/iPadOS/tvOS/visionOS: `UIApplication.shared.isIdleTimerDisabled = true` while active (guard with `#if !os(macOS)` and availability checks).
+  - iOS/iPadOS/visionOS: `UIApplication.shared.isIdleTimerDisabled = true` while active (guard with `#if !os(macOS)` and availability checks).
   - macOS: `ProcessInfo.processInfo.beginActivity(options: [.idleSystemSleepDisabled], reason: "Live timing")`; hold a token and end on app deactivate.
 - Display tick
-  - iOS/tvOS/visionOS: `CADisplayLink` into the main runloop; update `now` and derive elapsed.
+  - iOS/visionOS: `CADisplayLink` into the main runloop; update `now` and derive elapsed.
   - macOS: `Timer` at 1/60 sec; consider throttling when paused.
 - Orientation
   - iOS: Do not fight system orientation; implement a view‑level layout lock (render as portrait or landscape grid) independent of device rotation.
   - iPadOS/macOS: Size classes and window resizing will reflow; keep layout responsive.
-  - tvOS/visionOS: Orientation lock ignored; always use best layout for scene.
+  - visionOS: Orientation lock ignored; always use best layout for scene.
 
 Formatting Utilities
 - Provide `TimeFormatter.format(_ duration: Duration) -> String` returning `HH:MM:SS.mmm`.
@@ -102,7 +102,7 @@ Navigation & Scenes
 - SwiftUI `App` with one window per platform.
 - macOS: add a Settings scene for preferences; toolbar for quick actions.
 - visionOS: a volumetric‑friendly single window; controls via ornaments.
-- tvOS: a single full‑screen scene with focusable controls.
+
 
 Testing
 - Unit tests
@@ -116,7 +116,7 @@ Implementation Roadmap
 2) Two‑column layout with lap list; responsive split.
 3) Preferences: appearance, text color, keep‑awake.
 4) Orientation behavior toggle (follow vs fixed portrait/landscape) at the layout level.
-5) Platform polish: macOS/tvOS/visionOS specific tweaks and accessibility.
+5) Platform polish: macOS/visionOS specific tweaks and accessibility.
 
 File/Code Organization
 - SwiftPM targets
@@ -138,4 +138,4 @@ Design Guidelines for Contributors (Agent Rules)
 Open Questions (to confirm with owner)
 - Should laps list be newest‑first or oldest‑first by default? (Assume newest‑first.)
 - Persist last session’s laps across launches? (Assume no for v1.)
-- Minimum OS versions per platform? (Assume iOS/iPadOS 16+, macOS 13+, tvOS 16+, visionOS 1.0+.)
+- Minimum OS versions per platform? (Assume iOS/iPadOS 16+, macOS 13+, visionOS 1.0+.)
