@@ -6,7 +6,7 @@ import LiveClockCore
 import LiveClockUI
 
 @main
-struct LiveClockTheGigTimerApp: App {
+struct LiveClockApp: App {
     @StateObject private var appState = AppState()
 
     var body: some Scene {
@@ -18,6 +18,20 @@ struct LiveClockTheGigTimerApp: App {
         }
         #if os(macOS)
         .commands {
+            CommandMenu("Stopwatch") {
+                Button("Start/Resume") { appState.stopwatch.start() }
+                    .disabled(appState.stopwatch.state == .running)
+                    .keyboardShortcut("s", modifiers: [.command])
+                Button("Stop") { appState.stopwatch.pause() }
+                    .disabled(appState.stopwatch.state != .running)
+                    .keyboardShortcut("s", modifiers: [.command, .shift])
+                Button("Lap") { appState.stopwatch.lap() }
+                    .disabled(appState.stopwatch.state != .running)
+                    .keyboardShortcut("l", modifiers: [.command])
+                Button("Reset") { appState.stopwatch.reset() }
+                    .disabled(appState.stopwatch.state != .paused)
+                    .keyboardShortcut("r", modifiers: [.command])
+            }
             CommandMenu("Export") {
                 Button("Export Laps as RTF/CSV") {
                     exportOnMac()

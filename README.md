@@ -6,6 +6,9 @@ Scaffolded SwiftUI multi‑platform app source is under `Sources/`.
 - Display name: Live Clock The Gig Timer
 - Platforms: iOS, iPadOS, macOS, visionOS
 
+Docs
+- See `docs/README.md` for the full design and architecture index extracted from `AGENTS.md`.
+
 How to build
 - Option A — Tuist: run `tuist generate`, open the workspace, pick a platform scheme (iOS or macOS), and run.
 - Option B — Xcode + SPM: open `Package.swift` and follow `PROJECT_SETUP.md` to add an App target that depends on the package products (Core, Platform, UI) and uses the App entry from `Sources/App`.
