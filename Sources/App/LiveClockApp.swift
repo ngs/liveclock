@@ -70,7 +70,16 @@ struct LiveClockApp: App {
                 data = ExportFormatter.csv(from: laps)
             }
             if let data {
-                try? data.write(to: url)
+                do {
+                    try data.write(to: url)
+                } catch {
+                    let alert = NSAlert()
+                    alert.messageText = "Export Failed"
+                    alert.informativeText = "Unable to save the file: \(error.localizedDescription)"
+                    alert.alertStyle = .warning
+                    alert.addButton(withTitle: "OK")
+                    alert.runModal()
+                }
             }
         }
     }

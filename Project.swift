@@ -40,22 +40,24 @@ let project = Project(
                 .package(product: "LiveClockPlatform"),
                 .package(product: "LiveClockUI")
             ]
+        ),
+        .target(
+            name: "LiveClock-visionOS",
+            destinations: [.appleTv],
+            product: .app,
+            bundleId: "io.ngs.LiveClock.vision",
+            deploymentTargets: .tvOS("16.0"),
+            infoPlist: .extendingDefault(with: [
+                "CFBundleDisplayName": .string("LiveClock"),
+                "CFBundleName": .string("LiveClock")
+            ]),
+            sources: ["Sources/App/**"],
+            resources: ["Sources/Resources/**"],
+            dependencies: [
+                .package(product: "LiveClockCore"),
+                .package(product: "LiveClockPlatform"),
+                .package(product: "LiveClockUI")
+            ]
         )
-        // visionOS target (requires a recent Tuist with .visionOS support)
-        // .target(
-        //     name: "LiveClock-visionOS",
-        //     destinations: [.vision],
-        //     product: .app,
-        //     bundleId: "io.ngs.LiveClock.vision",
-        //     deploymentTargets: .visionOS("1.0"),
-        //     infoPlist: .default,
-        //     sources: ["Sources/App/**"],
-        //     resources: [],
-        //     dependencies: [
-        //         .product(name: "LiveClockCore", package: "LiveClock"),
-        //         .product(name: "LiveClockPlatform", package: "LiveClock"),
-        //         .product(name: "LiveClockUI", package: "LiveClock")
-        //     ]
-        // )
     ]
 )

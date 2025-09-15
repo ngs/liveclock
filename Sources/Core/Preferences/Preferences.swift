@@ -32,6 +32,8 @@ public final class Preferences: ObservableObject {
     @AppStorage("followDeviceRotation") public var followDeviceRotation: Bool = true
     @AppStorage("fixedLayoutOrientation") public var fixedLayoutOrientationRaw: String = FixedLayoutOrientation.portrait.rawValue
     @AppStorage("keepAwake") public var keepAwake: Bool = true
+    @AppStorage("enableHaptics") public var enableHaptics: Bool = true
+    @AppStorage("enableSounds") public var enableSounds: Bool = true
 
     public var appearanceMode: AppearanceMode {
         get { AppearanceMode(rawValue: appearanceModeRaw) ?? .system }

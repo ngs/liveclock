@@ -32,6 +32,16 @@ let package = Package(
                 .target(name: "LiveClockPlatform")
             ],
             path: "Sources/UI"
+        ),
+        .testTarget(
+            name: "LiveClockCoreTests",
+            dependencies: ["LiveClockCore"],
+            path: "Tests/LiveClockCoreTests"
+        ),
+        .testTarget(
+            name: "LiveClockUITests",
+            dependencies: ["LiveClockUI", "LiveClockCore"],
+            path: "Tests/LiveClockUITests"
         )
     ]
 )

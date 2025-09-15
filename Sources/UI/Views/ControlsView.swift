@@ -1,5 +1,6 @@
 import SwiftUI
 import LiveClockCore
+import LiveClockPlatform
 
 struct ControlsView: View {
     @EnvironmentObject var app: AppState
@@ -9,25 +10,55 @@ struct ControlsView: View {
         HStack(spacing: 16) {
             switch app.stopwatchState {
             case .idle:
-                Button("Start", action: app.stopwatch.start)
+                Button("Start", action: {
+                    app.stopwatch.start()
+                    if app.preferences.enableHaptics || app.preferences.enableSounds {
+                        FeedbackManager.shared.playStartFeedback()
+                    }
+                })
                     .buttonStyle(.borderedProminent)
                     .keyboardShortcut(.space)
+                    .accessibilityHint("Start the stopwatch")
             case .running:
                 if showsLapButton {
-                    Button("Lap", action: app.stopwatch.lap)
+                    Button("Lap", action: {
+                        app.stopwatch.lap()
+                        if app.preferences.enableHaptics || app.preferences.enableSounds {
+                            FeedbackManager.shared.playLapFeedback()
+                        }
+                    })
                         .buttonStyle(.bordered)
                         .keyboardShortcut("l")
+                        .accessibilityHint("Record a lap time")
                 }
-                Button("Stop", action: app.stopwatch.pause)
+                Button("Stop", action: {
+                    app.stopwatch.pause()
+                    if app.preferences.enableHaptics || app.preferences.enableSounds {
+                        FeedbackManager.shared.playStopFeedback()
+                    }
+                })
                     .buttonStyle(.borderedProminent)
                     .keyboardShortcut(.space)
+                    .accessibilityHint("Pause the stopwatch")
             case .paused:
-                Button("Reset", role: .destructive, action: app.stopwatch.reset)
+                Button("Reset", role: .destructive, action: {
+                    app.stopwatch.reset()
+                    if app.preferences.enableHaptics || app.preferences.enableSounds {
+                        FeedbackManager.shared.playResetFeedback()
+                    }
+                })
                     .buttonStyle(.bordered)
                     .keyboardShortcut("r")
-                Button("Resume", action: app.stopwatch.start)
+                    .accessibilityHint("Reset the stopwatch to zero")
+                Button("Resume", action: {
+                    app.stopwatch.start()
+                    if app.preferences.enableHaptics || app.preferences.enableSounds {
+                        FeedbackManager.shared.playStartFeedback()
+                    }
+                })
                     .buttonStyle(.borderedProminent)
                     .keyboardShortcut(.space)
+                    .accessibilityHint("Resume the stopwatch")
             }
         }
     }

@@ -1,0 +1,79 @@
+import SwiftUI
+import LiveClockCore
+
+public struct LapStatisticsView: View {
+    let laps: [Lap]
+    
+    public init(laps: [Lap]) {
+        self.laps = laps
+    }
+    
+    public var body: some View {
+        if laps.count > 1 {
+            VStack(alignment: .leading, spacing: 12) {
+                Text("Statistics")
+                    .font(.headline)
+                    .padding(.horizontal)
+                
+                HStack(spacing: 20) {
+                    StatItem(
+                        title: "Average",
+                        value: TimeFormatter.formatCompact(averageLapTime),
+                        color: .blue
+                    )
+                    
+                    StatItem(
+                        title: "Fastest",
+                        value: TimeFormatter.formatCompact(fastestLapTime ?? 0),
+                        color: .green
+                    )
+                    
+                    StatItem(
+                        title: "Slowest",
+                        value: TimeFormatter.formatCompact(slowestLapTime ?? 0),
+                        color: .orange
+                    )
+                }
+                .padding(.horizontal)
+                
+                Divider()
+            }
+            .accessibilityElement(children: .combine)
+        }
+    }
+    
+    private var averageLapTime: TimeInterval {
+        let validLaps = laps.filter { $0.index > 0 }
+        guard !validLaps.isEmpty else { return 0 }
+        let total = validLaps.reduce(0) { $0 + $1.deltaFromPrev }
+        return total / Double(validLaps.count)
+    }
+    
+    private var fastestLapTime: TimeInterval? {
+        laps.filter { $0.index > 0 }.map { $0.deltaFromPrev }.min()
+    }
+    
+    private var slowestLapTime: TimeInterval? {
+        laps.filter { $0.index > 0 }.map { $0.deltaFromPrev }.max()
+    }
+}
+
+struct StatItem: View {
+    let title: String
+    let value: String
+    let color: Color
+    
+    var body: some View {
+        VStack(alignment: .center, spacing: 4) {
+            Text(title)
+                .font(.caption)
+                .foregroundColor(.secondary)
+            
+            Text(value)
+                .font(.system(.body, design: .monospaced))
+                .foregroundColor(color)
+                .bold()
+        }
+        .frame(maxWidth: .infinity)
+    }
+}

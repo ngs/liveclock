@@ -23,5 +23,33 @@ struct StopwatchDigitsView: View {
             .lineLimit(1)
             .minimumScaleFactor(0.2)
             .padding(.horizontal)
+            .dynamicTypeSize(...DynamicTypeSize.accessibility2)
+            .accessibilityLabel("Elapsed time")
+            .accessibilityValue(voiceOverTime(app.stopwatch.elapsed))
+            .accessibilityAddTraits(.updatesFrequently)
+    }
+    
+    private func voiceOverTime(_ time: TimeInterval) -> String {
+        let totalSeconds = Int(time)
+        let hours = totalSeconds / 3600
+        let minutes = (totalSeconds % 3600) / 60
+        let seconds = totalSeconds % 60
+        let milliseconds = Int((time.truncatingRemainder(dividingBy: 1)) * 1000)
+        
+        var components: [String] = []
+        if hours > 0 {
+            components.append("\(hours) \(hours == 1 ? "hour" : "hours")")
+        }
+        if minutes > 0 {
+            components.append("\(minutes) \(minutes == 1 ? "minute" : "minutes")")
+        }
+        if seconds > 0 || components.isEmpty {
+            components.append("\(seconds) \(seconds == 1 ? "second" : "seconds")")
+        }
+        if milliseconds > 0 {
+            components.append("\(milliseconds) milliseconds")
+        }
+        
+        return components.joined(separator: ", ")
     }
 }

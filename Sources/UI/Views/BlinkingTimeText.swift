@@ -15,7 +15,7 @@ struct BlinkingTimeText: View {
         let chars = Array(timeString)
         let dotPos = chars.firstIndex(of: ".")
         return HStack(spacing: 0) {
-            ForEach(0..<chars.count) { i in
+            ForEach(0..<chars.count, id: \.self) { i in
                 let ch = chars[i]
                 if ch == ":" {
                     Text(":").opacity(colonOpacity)
