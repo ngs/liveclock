@@ -119,13 +119,11 @@ Implementation Roadmap
 5) Platform polish: macOS/tvOS/visionOS specific tweaks and accessibility.
 
 File/Code Organization
-- Sources
-  - `App/` SwiftUI App entry, scenes, app life‑cycle hooks.
-  - `Core/Timing/` Stopwatch engine and time utilities.
-  - `Core/Preferences/` Preference models and storage.
-  - `UI/Views/` Reusable components (ClockView, LapListView, ControlsView).
-  - `UI/Screens/` SingleColumnScreen, TwoColumnScreen, Settings.
-  - `Platform/` Platform shims (idle timer, display link, ornaments).
+- SwiftPM targets
+  - `LiveClockCore` (Sources/Core): Timing engine, preferences, models.
+  - `LiveClockPlatform` (Sources/Platform): Idle timer control, display link ticker.
+  - `LiveClockUI` (Sources/UI): Views, screens, RootView, app wiring.
+  - `LiveClockApp` (Sources/App): SwiftUI `@main` entry point.
 - Naming
   - Types: UpperCamelCase. Methods/properties: lowerCamelCase. Enums singular.
   - Keep files small and focused; avoid one‑letter names.

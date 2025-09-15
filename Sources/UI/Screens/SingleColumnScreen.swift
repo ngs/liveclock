@@ -9,4 +9,3 @@ struct SingleColumnScreen: View {
         .padding()
     }
 }
-

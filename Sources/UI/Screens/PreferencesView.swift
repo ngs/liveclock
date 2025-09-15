@@ -1,4 +1,5 @@
 import SwiftUI
+import LiveClockCore
 
 struct PreferencesView: View {
     @EnvironmentObject var app: AppState
@@ -33,4 +34,3 @@ struct PreferencesView: View {
         .navigationTitle("Preferences")
     }
 }
-

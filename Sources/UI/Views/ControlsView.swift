@@ -1,4 +1,5 @@
 import SwiftUI
+import LiveClockCore
 
 struct ControlsView: View {
     @EnvironmentObject var app: AppState
@@ -27,4 +28,3 @@ struct ControlsView: View {
 private extension AppState {
     var stopwatchState: StopwatchState { stopwatch.state }
 }
-

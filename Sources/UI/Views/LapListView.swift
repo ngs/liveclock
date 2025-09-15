@@ -1,4 +1,5 @@
 import SwiftUI
+import LiveClockCore
 
 struct LapListView: View {
     @EnvironmentObject var app: AppState
@@ -20,4 +21,3 @@ struct LapListView: View {
         .listStyle(.plain)
     }
 }
-

@@ -1,4 +1,5 @@
 import SwiftUI
+import LiveClockCore
 
 struct ClockView: View {
     @EnvironmentObject var app: AppState
@@ -13,4 +14,3 @@ struct ClockView: View {
             .padding(.horizontal)
     }
 }
-

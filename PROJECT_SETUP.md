@@ -6,16 +6,20 @@ Targets and Platforms
 - Platforms: iOS, iPadOS, macOS, tvOS, visionOS
 - Interface: SwiftUI, Language: Swift
 
-How to create the Xcode project
+Using Package.swift in Xcode (recommended)
 1) Open Xcode 15 or newer.
-2) File > New > Project…
-3) Choose “Multiplatform” > “App”.
-4) Set Product Name to “Live Clock The Gig Timer”.
-5) Set Organization Identifier to “io.ngs”. Xcode derives Bundle ID as io.ngs.LiveClock. Confirm it matches.
-6) Uncheck “Include Tests” (you can add later).
-7) Create the project.
-8) In the new Xcode project, delete the auto‑generated content files if desired.
-9) Drag the `Sources` folder from this repository into the Xcode project navigator (choose “Create folder references” or “Create groups” as you prefer). Ensure it’s added to the app target.
+2) File > Open… and select the `Package.swift` at the repo root.
+3) Xcode loads the package with targets: LiveClockCore, LiveClockPlatform, LiveClockUI, LiveClockApp.
+4) Create a new iOS (or Multiplatform) App target in the same workspace:
+   - File > New > Target… > App (iOS or Multiplatform)
+   - Product Name: Live Clock The Gig Timer
+   - Bundle Identifier: io.ngs.LiveClock
+5) In the new app target’s General > Frameworks, Libraries, and Embedded Content, add the following package products:
+   - LiveClockCore, LiveClockPlatform, LiveClockUI
+6) Set the app target’s entry point to use the SwiftUI `@main` in `Sources/App` by either:
+   - Adding the package target `LiveClockApp`’s sources to the app target (File Inspector > Target Membership), or
+   - Copying `Sources/App/LiveClockTheGigTimerApp.swift` into the app target (kept as a thin wrapper) and importing `LiveClockCore` and `LiveClockUI`.
+7) Build and run for each platform. The package manages code and configurations; the Xcode app target handles bundling/signing.
 
 Minimum OS (suggested)
 - iOS/iPadOS 16+, macOS 13+, tvOS 16+, visionOS 1.0+
@@ -25,6 +29,7 @@ Capabilities and settings
 - App Icons/Assets: Add in Xcode’s Asset Catalog later.
 
 Notes
+- The package defines modules similar to Point-Free’s style (separate Core/UI/Platform targets).
 - The code uses conditional compilation for platform‑specific parts (display link, idle timer).
 - Theme switching uses `preferredColorScheme` based on the selected appearance.
 - Orientation behavior is implemented at the layout level (HStack/VStack) rather than forcing device orientation.
@@ -33,4 +38,3 @@ Next Steps (optional)
 - Add app icons per platform.
 - Add unit tests for `Stopwatch` and `TimeFormatter`.
 - Polish tvOS/visionOS controls (focus/ornament styling).
-

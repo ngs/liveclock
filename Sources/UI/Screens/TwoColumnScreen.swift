@@ -1,4 +1,5 @@
 import SwiftUI
+import LiveClockCore
 
 struct TwoColumnScreen: View {
     @EnvironmentObject var app: AppState
@@ -30,4 +31,3 @@ struct TwoColumnScreen: View {
         }
     }
 }
-

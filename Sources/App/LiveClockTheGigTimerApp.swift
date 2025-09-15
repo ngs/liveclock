@@ -1,4 +1,6 @@
 import SwiftUI
+import LiveClockCore
+import LiveClockUI
 
 @main
 struct LiveClockTheGigTimerApp: App {
@@ -23,4 +25,3 @@ struct LiveClockTheGigTimerApp: App {
         #endif
     }
 }
-
