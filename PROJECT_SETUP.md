@@ -18,7 +18,7 @@ Using Package.swift in Xcode (recommended)
    - LiveClockCore, LiveClockPlatform, LiveClockUI
 6) Set the app target’s entry point to use the SwiftUI `@main` in `Sources/App` by either:
    - Adding the package target `LiveClockApp`’s sources to the app target (File Inspector > Target Membership), or
-   - Copying `Sources/App/LiveClockTheGigTimerApp.swift` into the app target (kept as a thin wrapper) and importing `LiveClockCore` and `LiveClockUI`.
+   - Copying `Sources/App/LiveClockApp.swift` into the app target (kept as a thin wrapper) and importing `LiveClockCore` and `LiveClockUI`.
 7) Build and run for each platform. The package manages code and configurations; the Xcode app target handles bundling/signing.
 
 Using Tuist (preferred by you)
