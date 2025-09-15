@@ -7,7 +7,8 @@ Scaffolded SwiftUI multi‑platform app source is under `Sources/`.
 - Platforms: iOS, iPadOS, macOS, tvOS, visionOS
 
 How to build
-- Open `Package.swift` in Xcode and follow `PROJECT_SETUP.md` to add an App target that depends on the package products (Core, Platform, UI) and uses the App entry from `Sources/App`.
+- Option A — Tuist: run `tuist generate`, open the workspace, pick a platform scheme, and run.
+- Option B — Xcode + SPM: open `Package.swift` and follow `PROJECT_SETUP.md` to add an App target that depends on the package products (Core, Platform, UI) and uses the App entry from `Sources/App`.
 
 What’s included
 - Core stopwatch engine with millisecond precision and laps.
