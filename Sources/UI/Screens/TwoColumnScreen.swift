@@ -7,7 +7,7 @@ struct TwoColumnScreen: View {
             VStack(spacing: 16) {
                 ClockView()
                 StopwatchDigitsView()
-                ControlsView()
+                ControlsView(showsLapButton: true)
             }
             Divider()
             LapListView()

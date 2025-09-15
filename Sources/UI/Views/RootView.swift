@@ -1,6 +1,9 @@
 import SwiftUI
 import LiveClockCore
 import LiveClockPlatform
+#if os(iOS)
+import UIKit
+#endif
 
 public struct RootView: View {
     @EnvironmentObject var app: AppState
@@ -10,11 +13,23 @@ public struct RootView: View {
 
     public var body: some View {
         NavigationStack {
+            #if os(iOS)
+            if UIDevice.current.userInterfaceIdiom == .pad, #available(iOS 16.0, *) {
+                SplitViewScreen()
+            } else {
+                if app.preferences.layoutModeRaw == LayoutMode.single.rawValue {
+                    SingleColumnScreen()
+                } else {
+                    TwoColumnScreen()
+                }
+            }
+            #else
             if app.preferences.layoutModeRaw == LayoutMode.single.rawValue {
                 SingleColumnScreen()
             } else {
                 TwoColumnScreen()
             }
+            #endif
         }
         #if os(iOS)
         .toolbar {

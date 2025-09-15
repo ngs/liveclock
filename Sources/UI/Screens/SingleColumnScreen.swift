@@ -8,11 +8,9 @@ struct SingleColumnScreen: View {
         VStack(spacing: 24) {
             ClockView()
             StopwatchDigitsView()
-            ControlsView()
-            if !app.stopwatch.laps.isEmpty {
-                Divider()
-                LapListView()
-            }
+            ControlsView(showsLapButton: true)
+            Divider()
+            LapListView()
         }
         .padding()
     }

@@ -1,0 +1,61 @@
+import SwiftUI
+import LiveClockCore
+
+@available(iOS 16.0, *)
+struct SplitViewScreen: View {
+    @EnvironmentObject var app: AppState
+
+    var body: some View {
+        NavigationSplitView {
+            SidebarLapsView()
+        } detail: {
+            DetailTimerView()
+        }
+        .navigationSplitViewStyle(.balanced)
+    }
+}
+
+@available(iOS 16.0, *)
+private struct SidebarLapsView: View {
+    @EnvironmentObject var app: AppState
+    var body: some View {
+        List {
+            Section("Laps") {
+                ForEach(app.stopwatch.laps) { lap in
+                    HStack {
+                        Text("#\(lap.index)")
+                            .foregroundStyle(.secondary)
+                            .frame(width: 44, alignment: .trailing)
+                        Text(TimeFormatter.hmsms(lap.deltaFromPrev))
+                            .font(.system(.body, design: .monospaced))
+                        Spacer()
+                        Text(TimeFormatter.timeOfDay(lap.capturedDate))
+                            .font(.system(.footnote, design: .monospaced))
+                            .foregroundStyle(.secondary)
+                    }
+                }
+            }
+        }
+        .toolbar {
+            ToolbarItemGroup(placement: .bottomBar) {
+                Button("Lap", action: app.stopwatch.lap)
+                Button("Reset", role: .destructive, action: app.stopwatch.reset)
+            }
+        }
+        .navigationTitle("Laps")
+    }
+}
+
+@available(iOS 16.0, *)
+private struct DetailTimerView: View {
+    var body: some View {
+        VStack(spacing: 24) {
+            ClockView()
+            StopwatchDigitsView()
+            ControlsView(showsLapButton: false)
+        }
+        .padding()
+        .navigationTitle("Timer")
+    }
+}
+

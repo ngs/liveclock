@@ -3,6 +3,7 @@ import LiveClockCore
 
 struct ControlsView: View {
     @EnvironmentObject var app: AppState
+    var showsLapButton: Bool = true
 
     var body: some View {
         HStack(spacing: 16) {
@@ -11,8 +12,10 @@ struct ControlsView: View {
                 Button("Start", action: app.stopwatch.start)
                     .buttonStyle(.borderedProminent)
             case .running:
-                Button("Lap", action: app.stopwatch.lap)
-                    .buttonStyle(.bordered)
+                if showsLapButton {
+                    Button("Lap", action: app.stopwatch.lap)
+                        .buttonStyle(.bordered)
+                }
                 Button("Stop", action: app.stopwatch.pause)
                     .buttonStyle(.borderedProminent)
             case .paused:
