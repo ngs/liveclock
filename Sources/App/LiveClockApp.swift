@@ -18,7 +18,9 @@ struct LiveClockApp: App {
                     appState.applyKeepAwake()
                 }
         }
+        #if os(macOS) || os(visionOS)
         .windowResizability(.contentMinSize)
+        #endif
         #if os(macOS)
         .commands {
             CommandMenu("Stopwatch") {

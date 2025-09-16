@@ -16,10 +16,24 @@ public struct RootView: View {
 
     public var body: some View {
         NavigationStack {
-            #if os(iOS)
-            if UIDevice.current.userInterfaceIdiom == .pad, #available(iOS 16.0, *) {
+            #if os(macOS)
+            // macOS always uses split view
+            if #available(macOS 13.0, *) {
                 SplitViewScreen()
             } else {
+                // Fallback for older macOS versions
+                if app.preferences.layoutModeRaw == LayoutMode.single.rawValue {
+                    SingleColumnScreen()
+                } else {
+                    TwoColumnScreen()
+                }
+            }
+            #elseif os(iOS)
+            if UIDevice.current.userInterfaceIdiom == .pad, #available(iOS 16.0, *) {
+                // iPad always uses split view
+                SplitViewScreen()
+            } else {
+                // iPhone uses column-based layout
                 if app.preferences.layoutModeRaw == LayoutMode.single.rawValue {
                     SingleColumnScreen()
                 } else {
@@ -27,6 +41,7 @@ public struct RootView: View {
                 }
             }
             #else
+            // Other platforms use column-based layout
             if app.preferences.layoutModeRaw == LayoutMode.single.rawValue {
                 SingleColumnScreen()
             } else {

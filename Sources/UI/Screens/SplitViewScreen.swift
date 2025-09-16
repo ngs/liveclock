@@ -1,7 +1,7 @@
 import SwiftUI
 import LiveClockCore
 
-@available(iOS 16.0, *)
+@available(iOS 16.0, macOS 13.0, *)
 struct SplitViewScreen: View {
     @EnvironmentObject var app: AppState
 
@@ -15,7 +15,7 @@ struct SplitViewScreen: View {
     }
 }
 
-@available(iOS 16.0, *)
+@available(iOS 16.0, macOS 13.0, *)
 private struct SidebarLapsView: View {
     @EnvironmentObject var app: AppState
     var body: some View {
@@ -48,7 +48,7 @@ private struct SidebarLapsView: View {
     }
 }
 
-@available(iOS 16.0, *)
+@available(iOS 16.0, macOS 13.0, *)
 private struct DetailTimerView: View {
     var body: some View {
         VStack(spacing: 24) {
@@ -61,10 +61,8 @@ private struct DetailTimerView: View {
     }
 }
 
-#if os(iOS)
-@available(iOS 16.0, *)
+@available(iOS 16.0, macOS 13.0, *)
 #Preview {
     SplitViewScreen()
         .environmentObject(AppState())
 }
-#endif

@@ -1,5 +1,8 @@
 import SwiftUI
 import LiveClockCore
+#if os(iOS)
+import UIKit
+#endif
 
 public struct PreferencesView: View {
     @EnvironmentObject var app: AppState
@@ -19,21 +22,24 @@ public struct PreferencesView: View {
                     ColorPicker(String(localized: "Text Color", bundle: .module), selection: Binding(get: { app.preferences.textColor }, set: { app.preferences.setTextColor($0) }))
                 }
             }
+            #if os(iOS)
             Section(String(localized: "Layout", bundle: .module)) {
-                Picker(String(localized: "Columns", bundle: .module), selection: $app.preferences.layoutModeRaw) {
-                    ForEach(LayoutMode.allCases) { mode in
-                        Text(mode.rawValue.capitalized).tag(mode.rawValue)
+                // Only show Columns picker for iPhone, not iPad
+                if UIDevice.current.userInterfaceIdiom == .phone {
+                    Picker(String(localized: "Columns", bundle: .module), selection: $app.preferences.layoutModeRaw) {
+                        ForEach(LayoutMode.allCases) { mode in
+                            Text(mode.rawValue.capitalized).tag(mode.rawValue)
+                        }
                     }
                 }
-                #if !os(macOS)
                 Toggle(String(localized: "Follow Device Rotation", bundle: .module), isOn: $app.preferences.followDeviceRotation)
                 Picker(String(localized: "Fixed Orientation", bundle: .module), selection: $app.preferences.fixedLayoutOrientationRaw) {
                     ForEach(FixedLayoutOrientation.allCases) { o in
                         Text(o.rawValue.capitalized).tag(o.rawValue)
                     }
                 }
-                #endif
             }
+            #endif
             Section(String(localized: "Behavior", bundle: .module)) {
                 Toggle(String(localized: "Keep Awake", bundle: .module), isOn: $app.preferences.keepAwake)
             }
