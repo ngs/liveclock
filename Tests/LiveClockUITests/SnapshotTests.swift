@@ -153,13 +153,16 @@ private func assertSnapshot<V: View>(
         // Save the snapshot
         do {
             try data.write(to: snapshotPath)
+            // swiftlint:disable:next no_print
             print("✅ Generated new reference snapshot: \(snapshotPath.path)")
         } catch {
             XCTFail("Failed to save snapshot: \(error)", file: file, line: line)
         }
 
         // Don't fail the test for missing reference - just generate it
+        // swiftlint:disable:next no_print
         print("⚠️ Reference snapshot was missing and has been generated.")
+        // swiftlint:disable:next no_print
         print("⚠️ Run tests again to verify snapshot stability.")
         return
     }
@@ -212,6 +215,7 @@ private func assertSnapshot<V: View>(
     // Don't do pixel-perfect comparison due to timing and rendering variations
     // In a real project, you would use a proper snapshot testing library with tolerance
 
+    // swiftlint:disable:next no_print
     print("✅ Snapshot test passed - reference exists and new snapshot generated successfully")
 
     // Optionally save the new snapshot for debugging purposes
