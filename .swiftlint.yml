@@ -85,7 +85,7 @@ analyzer_rules:
 type_name:
   min_length: 3
   max_length: 40
-  
+
 identifier_name:
   min_length: 2
   max_length: 40

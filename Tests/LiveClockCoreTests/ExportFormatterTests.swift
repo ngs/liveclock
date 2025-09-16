@@ -111,8 +111,9 @@ final class ExportFormatterTests: XCTestCase {
         
         // Try to convert to attributed string to validate RTF format
         if let data = rtfData {
-            let attributed = NSAttributedString(
-                rtf: data,
+            let attributed = try? NSAttributedString(
+                data: data,
+                options: [.documentType: NSAttributedString.DocumentType.rtf],
                 documentAttributes: nil
             )
             XCTAssertNotNil(attributed, "Should be valid RTF data")
@@ -134,8 +135,9 @@ final class ExportFormatterTests: XCTestCase {
         XCTAssertNotNil(rtfData, "RTF data should not be nil")
         
         if let data = rtfData {
-            let attributed = NSAttributedString(
-                rtf: data,
+            let attributed = try? NSAttributedString(
+                data: data,
+                options: [.documentType: NSAttributedString.DocumentType.rtf],
                 documentAttributes: nil
             )
             let plainText = attributed?.string ?? ""
@@ -159,8 +161,9 @@ final class ExportFormatterTests: XCTestCase {
         XCTAssertNotNil(rtfData, "RTF data should not be nil")
         
         if let data = rtfData {
-            let attributed = NSAttributedString(
-                rtf: data,
+            let attributed = try? NSAttributedString(
+                data: data,
+                options: [.documentType: NSAttributedString.DocumentType.rtf],
                 documentAttributes: nil
             )
             let plainText = attributed?.string ?? ""
@@ -190,8 +193,8 @@ final class ExportFormatterTests: XCTestCase {
         
         if let data = rtfData {
             var attributes: NSDictionary?
-            let attributed = NSAttributedString(
-                rtf: data,
+            let attributed = try? NSAttributedString(
+                data: data,
                 documentAttributes: &attributes
             )
             XCTAssertNotNil(attributed, "Should create attributed string")
@@ -203,12 +206,12 @@ final class ExportFormatterTests: XCTestCase {
                 options: []
             ) { attrs, _, _ in
                 #if os(macOS)
-                if let font = attrs[.font] as? NSFont {
+                if let font = attrs[NSAttributedString.Key.font] as? NSFont {
                     // Check if font is monospaced
                     hasMonospacedFont = true
                 }
                 #else
-                if let font = attrs[.font] as? UIFont {
+                if let font = attrs[NSAttributedString.Key.font] as? UIFont {
                     // Check if font is monospaced
                     hasMonospacedFont = true
                 }
@@ -227,8 +230,9 @@ final class ExportFormatterTests: XCTestCase {
         XCTAssertNotNil(rtfData, "RTF data should not be nil")
         
         if let data = rtfData {
-            let attributed = NSAttributedString(
-                rtf: data,
+            let attributed = try? NSAttributedString(
+                data: data,
+                options: [.documentType: NSAttributedString.DocumentType.rtf],
                 documentAttributes: nil
             )
             
@@ -242,7 +246,7 @@ final class ExportFormatterTests: XCTestCase {
                 in: NSRange(location: 0, length: attributed?.length ?? 0),
                 options: []
             ) { attrs, _, _ in
-                if let style = attrs[.paragraphStyle] as? NSParagraphStyle {
+                if let style = attrs[NSAttributedString.Key.paragraphStyle] as? NSParagraphStyle {
                     hasParagraphStyle = !style.tabStops.isEmpty
                 }
             }
@@ -277,7 +281,7 @@ final class ExportFormatterTests: XCTestCase {
     func testDateFormatterCacheSingleton() {
         let cache1 = DateFormatterCache.shared
         let cache2 = DateFormatterCache.shared
-        XCTAssertTrue(cache1 === cache2, "Should be singleton instance")
+        XCTAssertIdentical(cache1, cache2, "Should be singleton instance")
     }
     
     // MARK: - Performance Tests

@@ -98,6 +98,54 @@ let project = Project(
                 .package(product: "LiveClockPlatform"),
                 .package(product: "LiveClockUI")
             ]
+        ),
+        .target(
+            name: "LiveClockTests-iOS",
+            destinations: [.iPhone, .iPad],
+            product: .unitTests,
+            bundleId: "io.ngs.LiveClockTests",
+            deploymentTargets: .iOS("16.0"),
+            sources: ["Tests/**"],
+            dependencies: [
+                .target(name: "LiveClock-iOS"),
+                .package(product: "LiveClockCore"),
+                .package(product: "LiveClockUI")
+            ]
+        ),
+        .target(
+            name: "LiveClockTests-macOS",
+            destinations: [.mac],
+            product: .unitTests,
+            bundleId: "io.ngs.LiveClockTests.mac",
+            deploymentTargets: .macOS("13.0"),
+            sources: ["Tests/**"],
+            dependencies: [
+                .target(name: "LiveClock-macOS"),
+                .package(product: "LiveClockCore"),
+                .package(product: "LiveClockUI")
+            ]
+        )
+    ],
+    schemes: [
+        .scheme(
+            name: "LiveClock-iOS",
+            buildAction: .buildAction(targets: ["LiveClock-iOS"]),
+            testAction: .targets(
+                ["LiveClockTests-iOS"],
+                configuration: .debug,
+                options: .options(coverage: true)
+            ),
+            runAction: .runAction(configuration: .debug)
+        ),
+        .scheme(
+            name: "LiveClock-macOS",
+            buildAction: .buildAction(targets: ["LiveClock-macOS"]),
+            testAction: .targets(
+                ["LiveClockTests-macOS"],
+                configuration: .debug,
+                options: .options(coverage: true)
+            ),
+            runAction: .runAction(configuration: .debug)
         )
     ]
 )
