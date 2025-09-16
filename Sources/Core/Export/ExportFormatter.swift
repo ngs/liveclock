@@ -1,9 +1,4 @@
 import Foundation
-#if os(macOS)
-import AppKit
-#else
-import UIKit
-#endif
 
 public enum ExportFormatter {
     public static func csv(from laps: [Lap]) -> Data {
@@ -19,42 +14,6 @@ public enum ExportFormatter {
         }
         let csv = rows.joined(separator: "\n") + "\n"
         return Data(csv.utf8)
-    }
-
-    public static func rtf(from laps: [Lap]) -> Data? {
-        // Simple tabular rich text using tab stops and monospaced digits.
-        let header = "Lap\tDelta\tCaptured\n"
-        let body = laps.reversed().map { lap in
-            "#\(lap.index)\t\(TimeFormatter.hmsms(lap.deltaFromPrev))\t\(DateFormatterCache.shared.timeOfDay(lap.capturedDate))"
-        }.joined(separator: "\n") + "\n"
-        let full = header + body
-
-        let style = NSMutableParagraphStyle()
-        style.tabStops = [
-            NSTextTab(textAlignment: .left, location: 50, options: [:]),
-            NSTextTab(textAlignment: .left, location: 200, options: [:]),
-            NSTextTab(textAlignment: .left, location: 360, options: [:])
-        ]
-        style.defaultTabInterval = 120
-
-        let attrs: [NSAttributedString.Key: Any] = [
-            .font: monospacedFont(),
-            .paragraphStyle: style
-        ]
-        let attr = NSAttributedString(string: full, attributes: attrs)
-        let range = NSRange(location: 0, length: attr.length)
-        let options: [NSAttributedString.DocumentAttributeKey: Any] = [
-            .documentType: NSAttributedString.DocumentType.rtf
-        ]
-        return try? attr.data(from: range, documentAttributes: options)
-    }
-
-    private static func monospacedFont() -> Any {
-        #if os(macOS)
-        return NSFont.monospacedSystemFont(ofSize: 12, weight: .regular)
-        #else
-        return UIFont.monospacedSystemFont(ofSize: 12, weight: .regular)
-        #endif
     }
 }
 
