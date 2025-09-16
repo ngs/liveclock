@@ -31,6 +31,9 @@ jobs:
             -scheme LiveClock-iOS \
             -destination 'platform=iOS Simulator,name=iPhone 16 Pro Max,OS=18.5' \
             -derivedDataPath .build \
+            CODE_SIGNING_ALLOWED=NO \
+            CODE_SIGN_IDENTITY="" \
+            CODE_SIGNING_REQUIRED=NO \
             clean test
 
       - name: Build and Test (macOS)
@@ -39,6 +42,9 @@ jobs:
             -scheme LiveClock-macOS \
             -destination 'platform=macOS' \
             -derivedDataPath .build \
+            CODE_SIGNING_ALLOWED=NO \
+            CODE_SIGN_IDENTITY="" \
+            CODE_SIGNING_REQUIRED=NO \
             clean test
 
       - name: Run Swift Tests
@@ -46,6 +52,7 @@ jobs:
 
       - name: Archive latest snapshots
         uses: actions/upload-artifact@v4
+        if: always()
         with:
           name: ui-snapshots
           path: "**/__Snapshots__/**/*.latest.png"
@@ -88,13 +95,19 @@ jobs:
           if [ "${{ matrix.platform }}" = "iOS" ]; then
             xcodebuild build \
               -scheme LiveClock-iOS \
-              -destination 'generic/platform=iOS' \
+              -destination 'generic/platform=iOS Simulator' \
               -derivedDataPath .build \
+              CODE_SIGNING_ALLOWED=NO \
+              CODE_SIGN_IDENTITY="" \
+              CODE_SIGNING_REQUIRED=NO \
               clean build
           else
             xcodebuild build \
               -scheme LiveClock-macOS \
               -destination 'platform=macOS' \
               -derivedDataPath .build \
+              CODE_SIGNING_ALLOWED=NO \
+              CODE_SIGN_IDENTITY="" \
+              CODE_SIGNING_REQUIRED=NO \
               clean build
           fi
