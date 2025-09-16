@@ -4,7 +4,8 @@ struct BlinkingTimeText: View {
     let timeString: String
     let colonOpacity: Double
     let dotOpacity: Double
-    @Environment(\.font) var font
+    @Environment(\.font)
+    var font
 
     init(_ timeString: String, colonOpacity: Double, dotOpacity: Double = 0.8) {
         self.timeString = timeString

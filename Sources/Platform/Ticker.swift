@@ -67,6 +67,10 @@ import QuartzCore
 private final class DisplayLinkProxy: NSObject {
     weak var owner: Ticker?
     init(_ owner: Ticker) { self.owner = owner }
-    @objc func step() { owner?.delegate?.tickerDidTick() }
+
+    @objc
+    func step() {
+        owner?.delegate?.tickerDidTick()
+    }
 }
 #endif

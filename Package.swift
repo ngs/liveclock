@@ -16,6 +16,9 @@ let package = Package(
         .library(name: "LiveClockPlatform", targets: ["LiveClockPlatform"]),
         .library(name: "LiveClockUI", targets: ["LiveClockUI"])
     ],
+    dependencies: [
+        .package(url: "https://github.com/SimplyDanny/SwiftLintPlugins", exact: "0.59.0")
+    ],
     targets: [
         .target(
             name: "LiveClockCore",

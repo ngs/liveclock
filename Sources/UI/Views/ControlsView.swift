@@ -15,10 +15,10 @@ struct ControlsView: View {
                     if app.preferences.enableHaptics || app.preferences.enableSounds {
                         FeedbackManager.shared.playResetFeedback()
                     }
-                }) {
+                }, label: {
                     Text(String(localized: "Reset", bundle: .module))
                         .frame(width: buttonWidth)
-                }
+                })
                     .buttonStyle(.bordered)
                     .controlSize(.large)
                     .keyboardShortcut("r")
@@ -28,10 +28,10 @@ struct ControlsView: View {
                     if app.preferences.enableHaptics || app.preferences.enableSounds {
                         FeedbackManager.shared.playStartFeedback()
                     }
-                }) {
+                }, label: {
                     Text(String(localized: "Resume", bundle: .module))
                         .frame(width: buttonWidth)
-                }
+                })
                     .buttonStyle(.borderedProminent)
                     .controlSize(.large)
                     .keyboardShortcut(.space)
@@ -42,10 +42,10 @@ struct ControlsView: View {
                     if app.preferences.enableHaptics || app.preferences.enableSounds {
                         FeedbackManager.shared.playLapFeedback()
                     }
-                }) {
+                }, label: {
                     Text(String(localized: "Lap", bundle: .module))
                         .frame(width: buttonWidth)
-                }
+                })
                     .buttonStyle(.bordered)
                     .disabled(app.stopwatchState == .idle)
                     .controlSize(.large)
@@ -57,10 +57,10 @@ struct ControlsView: View {
                         if app.preferences.enableHaptics || app.preferences.enableSounds {
                             FeedbackManager.shared.playStopFeedback()
                         }
-                    }) {
+                    }, label: {
                         Text(String(localized: "Stop", bundle: .module))
                             .frame(width: buttonWidth)
-                    }
+                    })
                     .buttonStyle(.borderedProminent)
                     .controlSize(.large)
                     .keyboardShortcut(.space)
@@ -71,10 +71,10 @@ struct ControlsView: View {
                         if app.preferences.enableHaptics || app.preferences.enableSounds {
                             FeedbackManager.shared.playStartFeedback()
                         }
-                    }) {
+                    }, label: {
                         Text(String(localized: "Start", bundle: .module))
                             .frame(width: buttonWidth)
-                    }
+                    })
                         .buttonStyle(.borderedProminent)
                         .controlSize(.large)
                         .keyboardShortcut(.space)

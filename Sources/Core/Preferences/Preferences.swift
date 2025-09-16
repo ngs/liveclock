@@ -21,15 +21,24 @@ public enum AppearanceMode: String, CaseIterable, Identifiable {
 }
 
 public final class Preferences: ObservableObject {
-    @AppStorage("appearanceMode") public var appearanceModeRaw: String = AppearanceMode.system.rawValue
-    @AppStorage("useCustomTextColor") public var useCustomTextColor: Bool = false
-    @AppStorage("customTextColorR") public var textR: Double = 1.0
-    @AppStorage("customTextColorG") public var textG: Double = 1.0
-    @AppStorage("customTextColorB") public var textB: Double = 1.0
-    @AppStorage("customTextColorA") public var textA: Double = 1.0
-    @AppStorage("keepAwake") public var keepAwake: Bool = true
-    @AppStorage("enableHaptics") public var enableHaptics: Bool = true
-    @AppStorage("enableSounds") public var enableSounds: Bool = true
+    @AppStorage("appearanceMode")
+    public var appearanceModeRaw: String = AppearanceMode.system.rawValue
+    @AppStorage("useCustomTextColor")
+    public var useCustomTextColor: Bool = false
+    @AppStorage("customTextColorR")
+    public var textR: Double = 1.0
+    @AppStorage("customTextColorG")
+    public var textG: Double = 1.0
+    @AppStorage("customTextColorB")
+    public var textB: Double = 1.0
+    @AppStorage("customTextColorA")
+    public var textA: Double = 1.0
+    @AppStorage("keepAwake")
+    public var keepAwake: Bool = true
+    @AppStorage("enableHaptics")
+    public var enableHaptics: Bool = true
+    @AppStorage("enableSounds")
+    public var enableSounds: Bool = true
 
     public var appearanceMode: AppearanceMode {
         get { AppearanceMode(rawValue: appearanceModeRaw) ?? .system }

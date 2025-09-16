@@ -29,6 +29,13 @@ let project = Project(
             ]),
             sources: ["Sources/App/**"],
             resources: ["Sources/Resources/**"],
+            scripts: [
+                .pre(
+                    script: "${SRCROOT}/Scripts/swiftlint-fix-build-phase.sh",
+                    name: "SwiftLint Auto-Fix",
+                    basedOnDependencyAnalysis: false
+                )
+            ],
             dependencies: [
                 .package(product: "LiveClockCore"),
                 .package(product: "LiveClockPlatform"),
@@ -51,6 +58,13 @@ let project = Project(
             ]),
             sources: ["Sources/App/**"],
             resources: ["Sources/Resources/**"],
+            scripts: [
+                .pre(
+                    script: "${SRCROOT}/Scripts/swiftlint-fix-build-phase.sh",
+                    name: "SwiftLint Auto-Fix",
+                    basedOnDependencyAnalysis: false
+                )
+            ],
             dependencies: [
                 .package(product: "LiveClockCore"),
                 .package(product: "LiveClockPlatform"),
@@ -72,6 +86,13 @@ let project = Project(
             ]),
             sources: ["Sources/App/**"],
             resources: ["Sources/Resources/**"],
+            scripts: [
+                .pre(
+                    script: "${SRCROOT}/Scripts/swiftlint-fix-build-phase.sh",
+                    name: "SwiftLint Auto-Fix",
+                    basedOnDependencyAnalysis: false
+                )
+            ],
             dependencies: [
                 .package(product: "LiveClockCore"),
                 .package(product: "LiveClockPlatform"),
