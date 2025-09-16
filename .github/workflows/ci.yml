@@ -19,6 +19,9 @@ jobs:
           - platform: macOS
             scheme: LiveClock-macOS
             destination: 'platform=macOS'
+          - platform: visionOS
+            scheme: LiveClock-visionOS
+            destination: 'platform=visionOS Simulator,name=Apple Vision Pro'
 
     steps:
       - uses: actions/checkout@v5
@@ -89,6 +92,9 @@ jobs:
           - platform: macOS
             scheme: LiveClock-macOS
             destination: 'platform=macOS'
+          - platform: visionOS
+            scheme: LiveClock-visionOS
+            destination: 'generic/platform=visionOS Simulator'
 
     steps:
       - uses: actions/checkout@v5

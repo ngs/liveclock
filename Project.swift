@@ -124,6 +124,19 @@ let project = Project(
                 .package(product: "LiveClockCore"),
                 .package(product: "LiveClockUI")
             ]
+        ),
+        .target(
+            name: "LiveClockTests-visionOS",
+            destinations: [.appleVision],
+            product: .unitTests,
+            bundleId: "io.ngs.LiveClockTests.vision",
+            deploymentTargets: .visionOS("1.0"),
+            sources: ["Tests/**"],
+            dependencies: [
+                .target(name: "LiveClock-visionOS"),
+                .package(product: "LiveClockCore"),
+                .package(product: "LiveClockUI")
+            ]
         )
     ],
     schemes: [
@@ -142,6 +155,16 @@ let project = Project(
             buildAction: .buildAction(targets: ["LiveClock-macOS"]),
             testAction: .targets(
                 ["LiveClockTests-macOS"],
+                configuration: .debug,
+                options: .options(coverage: true)
+            ),
+            runAction: .runAction(configuration: .debug)
+        ),
+        .scheme(
+            name: "LiveClock-visionOS",
+            buildAction: .buildAction(targets: ["LiveClock-visionOS"]),
+            testAction: .targets(
+                ["LiveClockTests-visionOS"],
                 configuration: .debug,
                 options: .options(coverage: true)
             ),
