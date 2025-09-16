@@ -44,6 +44,12 @@ jobs:
       - name: Run Swift Tests
         run: swift test
 
+      - name: Archive latest snapshots
+        uses: actions/upload-artifact@v4
+        with:
+          name: ui-snapshots
+          path: "**/__Snapshots__/**/*.latest.png"
+
   lint:
     name: SwiftLint
     runs-on: ubuntu-latest

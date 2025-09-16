@@ -18,3 +18,4 @@ Derived/
 # Swift/LLVM
 *.dSYM
 
+**/__Snapshots__/**/*.latest.png
