@@ -17,6 +17,7 @@ struct ControlsView: View {
                     }
                 })
                     .buttonStyle(.borderedProminent)
+                    .controlSize(.large)
                     .keyboardShortcut(.space)
                     .accessibilityHint(String(localized: "Start the stopwatch", bundle: .module))
             case .running:
@@ -28,6 +29,7 @@ struct ControlsView: View {
                         }
                     })
                         .buttonStyle(.bordered)
+                        .controlSize(.large)
                         .keyboardShortcut("l")
                         .accessibilityHint(String(localized: "Record a lap time", bundle: .module))
                 }
@@ -38,6 +40,7 @@ struct ControlsView: View {
                     }
                 })
                     .buttonStyle(.borderedProminent)
+                    .controlSize(.large)
                     .keyboardShortcut(.space)
                     .accessibilityHint(String(localized: "Pause the stopwatch", bundle: .module))
             case .paused:
@@ -48,6 +51,7 @@ struct ControlsView: View {
                     }
                 })
                     .buttonStyle(.bordered)
+                    .controlSize(.large)
                     .keyboardShortcut("r")
                     .accessibilityHint(String(localized: "Reset the stopwatch to zero", bundle: .module))
                 Button(String(localized: "Resume", bundle: .module), action: {
@@ -57,6 +61,7 @@ struct ControlsView: View {
                     }
                 })
                     .buttonStyle(.borderedProminent)
+                    .controlSize(.large)
                     .keyboardShortcut(.space)
                     .accessibilityHint(String(localized: "Resume the stopwatch", bundle: .module))
             }
