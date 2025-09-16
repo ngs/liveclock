@@ -27,10 +27,6 @@ public final class Preferences: ObservableObject {
     @AppStorage("customTextColorG") public var textG: Double = 1.0
     @AppStorage("customTextColorB") public var textB: Double = 1.0
     @AppStorage("customTextColorA") public var textA: Double = 1.0
-
-    @AppStorage("layoutMode") public var layoutModeRaw: String = LayoutMode.single.rawValue
-    @AppStorage("followDeviceRotation") public var followDeviceRotation: Bool = true
-    @AppStorage("fixedLayoutOrientation") public var fixedLayoutOrientationRaw: String = FixedLayoutOrientation.portrait.rawValue
     @AppStorage("keepAwake") public var keepAwake: Bool = true
     @AppStorage("enableHaptics") public var enableHaptics: Bool = true
     @AppStorage("enableSounds") public var enableSounds: Bool = true
@@ -67,13 +63,12 @@ public final class Preferences: ObservableObject {
     }
 }
 
-public enum LayoutMode: String, CaseIterable, Identifiable { case single, double; public var id: String { rawValue } }
-public enum FixedLayoutOrientation: String, CaseIterable, Identifiable { case portrait, landscape; public var id: String { rawValue } }
-
 public final class AppState: ObservableObject {
     @Published public var stopwatch = Stopwatch()
     @Published public var preferences = Preferences()
     @Published public var now: Date = Date()
+    @Published public var showExporter = false
+    @Published public var showSettings = false
 
     public init() {}
 

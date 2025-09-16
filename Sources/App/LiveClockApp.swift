@@ -38,7 +38,7 @@ struct LiveClockApp: App {
                     .keyboardShortcut("r", modifiers: [.command])
             }
             CommandMenu("Export") {
-                Button("Export Laps as RTF/CSV") {
+                Button("Export Laps as CSV") {
                     exportOnMac()
                 }.keyboardShortcut("e", modifiers: [.command, .shift])
             }
@@ -59,9 +59,9 @@ struct LiveClockApp: App {
         guard let scene = NSApp.keyWindow else { return }
         let panel = NSSavePanel()
         if #available(macOS 12.0, *) {
-            panel.allowedContentTypes = [.rtf, .commaSeparatedText]
+            panel.allowedContentTypes = [.commaSeparatedText]
         } else {
-            panel.allowedFileTypes = ["rtf", "csv"]
+            panel.allowedFileTypes = ["csv"]
         }
         panel.allowsOtherFileTypes = false
         panel.nameFieldStringValue = exportFileName(ext: "csv")

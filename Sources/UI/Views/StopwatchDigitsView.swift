@@ -6,6 +6,8 @@ struct StopwatchDigitsView: View {
 
     var body: some View {
         let time = TimeFormatter.hmsms(app.stopwatch.elapsed)
+        let lapTime = TimeFormatter.hmsms(app.stopwatch.currentLapTime)
+
         let colonOpacity: Double
         let dotOpacity: Double
         if app.stopwatch.state == .running {
@@ -19,17 +21,35 @@ struct StopwatchDigitsView: View {
             dotOpacity = 0.5
         }
 
-        return BlinkingTimeText(time, colonOpacity: colonOpacity, dotOpacity: dotOpacity)
-            .font(.system(size: 64, weight: .semibold, design: .monospaced))
-            .monospacedDigit()
-            .foregroundStyle(app.preferences.textColor)
-            .lineLimit(1)
-            .minimumScaleFactor(0.2)
-            .padding(.horizontal)
-            .dynamicTypeSize(...DynamicTypeSize.accessibility2)
-            .accessibilityLabel(String(localized: "Elapsed time", bundle: .module))
-            .accessibilityValue(voiceOverTime(app.stopwatch.elapsed))
-            .accessibilityAddTraits(.updatesFrequently)
+        return VStack(spacing: 4) {
+            BlinkingTimeText(time, colonOpacity: colonOpacity, dotOpacity: dotOpacity)
+                .font(.system(size: 32, weight: .semibold, design: .monospaced))
+                .monospacedDigit()
+                .foregroundStyle(app.preferences.textColor)
+                .lineLimit(1)
+                .minimumScaleFactor(0.2)
+                .padding(.horizontal)
+                .dynamicTypeSize(...DynamicTypeSize.accessibility2)
+                .accessibilityLabel(String(localized: "Elapsed time", bundle: .module))
+                .accessibilityValue(voiceOverTime(app.stopwatch.elapsed))
+                .accessibilityAddTraits(.updatesFrequently)
+
+                HStack(spacing: 8) {
+                    Text("LAP \(app.stopwatch.currentLapNumber)")
+                        .font(.system(size: 12, weight: .medium, design: .default))
+                        .foregroundStyle(.secondary)
+
+                    
+                    BlinkingTimeText(lapTime, colonOpacity: colonOpacity, dotOpacity: dotOpacity)
+                        .font(.system(size: 20, weight: .semibold, design: .monospaced))
+                        .monospacedDigit()
+                        .foregroundStyle(app.preferences.textColor.opacity(0.8))
+                }
+                .padding(.horizontal)
+                .accessibilityLabel(String(localized: "Current lap", bundle: .module))
+                .accessibilityValue("Lap \(app.stopwatch.currentLapNumber), \(voiceOverTime(app.stopwatch.currentLapTime))")
+                .accessibilityAddTraits(.updatesFrequently)
+        }
     }
     
     private func voiceOverTime(_ time: TimeInterval) -> String {

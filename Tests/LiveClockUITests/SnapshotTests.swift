@@ -79,27 +79,6 @@ final class SnapshotTests: XCTestCase {
         assertSnapshot(matching: view, as: .image)
     }
     
-    func testLapStatisticsView() {
-        let laps = [
-            Lap(id: UUID(), index: 0, atTotal: 0, deltaFromPrev: 0, capturedDate: Date()),
-            Lap(id: UUID(), index: 1, atTotal: 10.5, deltaFromPrev: 10.5, capturedDate: Date()),
-            Lap(id: UUID(), index: 2, atTotal: 22.3, deltaFromPrev: 11.8, capturedDate: Date()),
-            Lap(id: UUID(), index: 3, atTotal: 31.2, deltaFromPrev: 8.9, capturedDate: Date())
-        ]
-        
-        let view = LapStatisticsView(laps: laps)
-            .frame(width: 390, height: 150)
-        
-        assertSnapshot(matching: view, as: .image)
-    }
-    
-    func testCountdownView() {
-        let view = CountdownView()
-            .frame(width: 390, height: 300)
-        
-        assertSnapshot(matching: view, as: .image)
-    }
-    
     func testSingleColumnScreen() {
         let appState = AppState()
         

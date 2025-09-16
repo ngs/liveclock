@@ -8,7 +8,7 @@ struct SingleColumnScreen: View {
         VStack(spacing: 24) {
             ClockView()
             StopwatchDigitsView()
-            ControlsView(showsLapButton: true)
+            ControlsView()
             Divider()
             LapListView()
         }
