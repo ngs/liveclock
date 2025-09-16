@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 1024 1024">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #2a5298;
+      }
+
+      .cls-2 {
+        fill: #5a7db8;
+      }
+
+      .cls-3 {
+        stroke: #f44;
+        stroke-width: 10.8px;
+      }
+
+      .cls-3, .cls-4, .cls-5 {
+        fill: none;
+        stroke-linecap: round;
+      }
+
+      .cls-6 {
+        fill: #fff;
+      }
+
+      .cls-4 {
+        stroke: #1e3c72;
+        stroke-width: 32.5px;
+      }
+
+      .cls-7 {
+        fill: #1e3c72;
+      }
+
+      .cls-5 {
+        stroke: #2a5298;
+        stroke-width: 24.4px;
+      }
+    </style>
+  </defs>
+  <!-- Generator: Adobe Illustrator 28.7.1, SVG Export Plug-In . SVG Version: 1.2.0 Build 142)  -->
+  <g>
+    <g id="Layer_1">
+      <g id="Layer_1-2" data-name="Layer_1">
+        <g id="MiddleLayer">
+          <g id="hour-markers">
+            <path class="cls-1" d="M512,75.9h0c7.4,0,13.5,6.2,13.5,13.5v54.2c0,7.5-6.2,13.5-13.5,13.5h0c-7.4,0-13.5-6-13.5-13.5v-54.2c0-7.4,6.2-13.5,13.5-13.5Z"/>
+            <path class="cls-1" d="M880.4,498.5h54.2c7.4,0,13.5,6.2,13.5,13.5h0c0,7.4-6.2,13.5-13.5,13.5h-54.2c-7.5,0-13.5-6.2-13.5-13.5h0c0-7.4,6-13.5,13.5-13.5Z"/>
+            <path class="cls-1" d="M512,866.8h0c7.4,0,13.5,6,13.5,13.5v54.2c0,7.4-6.2,13.5-13.5,13.5h0c-7.4,0-13.5-6.2-13.5-13.5v-54.2c0-7.5,6.2-13.5,13.5-13.5Z"/>
+            <path class="cls-1" d="M89.4,498.5h54.2c7.5,0,13.5,6.2,13.5,13.5h0c0,7.4-6,13.5-13.5,13.5h-54.2c-7.4,0-13.5-6.2-13.5-13.5h0c0-7.4,6.2-13.5,13.5-13.5Z"/>
+            <circle class="cls-2" cx="655.6" cy="149" r="16.3"/>
+            <circle class="cls-2" cx="766.6" cy="260.1" r="16.3"/>
+            <circle class="cls-2" cx="766.6" cy="763.9" r="16.3"/>
+            <circle class="cls-2" cx="655.6" cy="875" r="16.3"/>
+            <circle class="cls-2" cx="368.4" cy="875" r="16.3"/>
+            <circle class="cls-2" cx="257.4" cy="763.9" r="16.3"/>
+            <circle class="cls-2" cx="257.4" cy="260.1" r="16.3"/>
+            <circle class="cls-2" cx="368.4" cy="149" r="16.3"/>
+          </g>
+          <g id="clock-hands">
+            <line class="cls-4" x1="512" y1="512" x2="360.3" y2="333.2"/>
+            <line class="cls-5" x1="512" y1="512" x2="685.4" y2="279"/>
+            <line class="cls-3" x1="512" y1="512" x2="512" y2="820.8"/>
+            <circle class="cls-7" cx="512" cy="512" r="27.1"/>
+            <circle class="cls-6" cx="512" cy="512" r="16.3"/>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

@@ -49,7 +49,7 @@
       "size" : "60x60"
     },
     {
-      "filename" : "icon-20.png",
+      "filename" : "icon-20@1x.png",
       "idiom" : "ipad",
       "scale" : "1x",
       "size" : "20x20"
@@ -61,7 +61,7 @@
       "size" : "20x20"
     },
     {
-      "filename" : "icon-29.png",
+      "filename" : "icon-29@1x.png",
       "idiom" : "ipad",
       "scale" : "1x",
       "size" : "29x29"
@@ -73,7 +73,7 @@
       "size" : "29x29"
     },
     {
-      "filename" : "icon-40.png",
+      "filename" : "icon-40@1x.png",
       "idiom" : "ipad",
       "scale" : "1x",
       "size" : "40x40"
@@ -85,7 +85,7 @@
       "size" : "40x40"
     },
     {
-      "filename" : "icon-76.png",
+      "filename" : "icon-76@1x.png",
       "idiom" : "ipad",
       "scale" : "1x",
       "size" : "76x76"
@@ -109,61 +109,61 @@
       "size" : "1024x1024"
     },
     {
-      "filename" : "icon-16.png",
+      "filename" : "icon-mac-16@1x.png",
       "idiom" : "mac",
       "scale" : "1x",
       "size" : "16x16"
     },
     {
-      "filename" : "icon-16@2x.png",
+      "filename" : "icon-mac-16@2x.png",
       "idiom" : "mac",
       "scale" : "2x",
       "size" : "16x16"
     },
     {
-      "filename" : "icon-32.png",
+      "filename" : "icon-mac-32@1x.png",
       "idiom" : "mac",
       "scale" : "1x",
       "size" : "32x32"
     },
     {
-      "filename" : "icon-32@2x.png",
+      "filename" : "icon-mac-32@2x.png",
       "idiom" : "mac",
       "scale" : "2x",
       "size" : "32x32"
     },
     {
-      "filename" : "icon-128.png",
+      "filename" : "icon-mac-128@1x.png",
       "idiom" : "mac",
       "scale" : "1x",
       "size" : "128x128"
     },
     {
-      "filename" : "icon-128@2x.png",
+      "filename" : "icon-mac-128@2x.png",
       "idiom" : "mac",
       "scale" : "2x",
       "size" : "128x128"
     },
     {
-      "filename" : "icon-256.png",
+      "filename" : "icon-mac-256@1x.png",
       "idiom" : "mac",
       "scale" : "1x",
       "size" : "256x256"
     },
     {
-      "filename" : "icon-256@2x.png",
+      "filename" : "icon-mac-256@2x.png",
       "idiom" : "mac",
       "scale" : "2x",
       "size" : "256x256"
     },
     {
-      "filename" : "icon-512.png",
+      "filename" : "icon-mac-512@1x.png",
       "idiom" : "mac",
       "scale" : "1x",
       "size" : "512x512"
     },
     {
-      "filename" : "icon-512@2x.png",
+      "filename" : "icon-mac-512@2x.png",
       "idiom" : "mac",
       "scale" : "2x",
       "size" : "512x512"
