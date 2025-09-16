@@ -17,8 +17,8 @@ struct BlinkingTimeText: View {
         let dotPos = chars.firstIndex(of: ".")
         
         return HStack(spacing: 0) {
-            ForEach(0..<chars.count, id: \.self) { i in
-                let ch = chars[i]
+            ForEach(0..<chars.count, id: \.self) { index in
+                let ch = chars[index]
                 if ch == ":" {
                     Text(":")
                         .fontWeight(.light)
@@ -27,7 +27,7 @@ struct BlinkingTimeText: View {
                     Text(".")
                         .fontWeight(.light)
                         .opacity(dotOpacity)
-                } else if let dp = dotPos, i > dp {
+                } else if let dp = dotPos, index > dp {
                     // Milliseconds after dot
                     Text(String(ch))
                         .fontWeight(.light)
@@ -52,4 +52,3 @@ struct BlinkingTimeText: View {
         .font(.system(size: 48, weight: .semibold, design: .monospaced))
         .padding()
 }
-

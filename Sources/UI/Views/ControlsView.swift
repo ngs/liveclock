@@ -37,7 +37,6 @@ struct ControlsView: View {
                     .keyboardShortcut(.space)
                     .accessibilityHint(String(localized: "Resume the stopwatch", bundle: .module))
             } else {
-
                 Button(action: {
                     app.stopwatch.lap()
                     if app.preferences.enableHaptics || app.preferences.enableSounds {

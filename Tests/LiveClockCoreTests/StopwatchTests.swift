@@ -2,7 +2,7 @@ import XCTest
 @testable import LiveClockCore
 
 final class StopwatchTests: XCTestCase {
-    var stopwatch: Stopwatch!
+    private var stopwatch: Stopwatch!
     
     override func setUp() {
         super.setUp()

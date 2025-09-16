@@ -6,8 +6,8 @@ struct ClockView: View {
 
     var body: some View {
         let time = TimeFormatter.timeOfDay(app.now)
-        let t = app.now.timeIntervalSinceReferenceDate
-        let frac = t - floor(t)
+        let timeInterval = app.now.timeIntervalSinceReferenceDate
+        let frac = timeInterval - floor(timeInterval)
         let tri = frac < 0.5 ? (frac / 0.5) : ((1.0 - frac) / 0.5)
         let colonOpacity = 0.2 + 0.6 * tri
         let dotOpacity = colonOpacity  // Make dot and milliseconds blink with same pattern

@@ -12,7 +12,7 @@ public enum ExportFormatter {
         let iso = ISO8601DateFormatter()
         iso.formatOptions = [.withInternetDateTime, .withTimeZone, .withColonSeparatorInTimeZone]
         for lap in laps.reversed() { // oldest first for reading order
-            let deltaMs = Int((lap.deltaFromPrev * 1000.0).rounded())
+            let deltaMs = Int((lap.deltaFromPrev * 1_000.0).rounded())
             let deltaHMS = TimeFormatter.hmsms(lap.deltaFromPrev)
             let isoStr = iso.string(from: lap.capturedDate)
             rows.append("\(lap.index),\(deltaMs),\(deltaHMS),\(isoStr)")

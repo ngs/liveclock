@@ -27,4 +27,3 @@ private func defaultExportFileName(ext: String) -> String {
     return "Laps-\(df.string(from: Date())).\(ext)"
 }
 #endif
-

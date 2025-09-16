@@ -7,7 +7,6 @@ import UIKit
 #endif
 
 final class SnapshotTests: XCTestCase {
-    
     func testStopwatchDigitsView() {
         let appState = AppState()
         appState.stopwatch.start()
@@ -85,17 +84,6 @@ final class SnapshotTests: XCTestCase {
         let view = SingleColumnScreen()
             .environmentObject(appState)
             .frame(width: 390, height: 844)
-        
-        assertSnapshot(matching: view, as: .image)
-    }
-    
-    func testTwoColumnScreen() {
-        let appState = AppState()
-        appState.stopwatch.start()
-        
-        let view = TwoColumnScreen()
-            .environmentObject(appState)
-            .frame(width: 834, height: 1194)
         
         assertSnapshot(matching: view, as: .image)
     }

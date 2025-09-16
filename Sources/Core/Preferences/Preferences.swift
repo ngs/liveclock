@@ -66,7 +66,7 @@ public final class Preferences: ObservableObject {
 public final class AppState: ObservableObject {
     @Published public var stopwatch = Stopwatch()
     @Published public var preferences = Preferences()
-    @Published public var now: Date = Date()
+    @Published public var now = Date()
     @Published public var showExporter = false
     @Published public var showSettings = false
 

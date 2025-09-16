@@ -11,8 +11,8 @@ struct StopwatchDigitsView: View {
         let colonOpacity: Double
         let dotOpacity: Double
         if app.stopwatch.state == .running {
-            let t = app.now.timeIntervalSinceReferenceDate
-            let frac = t - floor(t)
+            let timeInterval = app.now.timeIntervalSinceReferenceDate
+            let frac = timeInterval - floor(timeInterval)
             let tri = frac < 0.5 ? (frac / 0.5) : ((1.0 - frac) / 0.5)
             colonOpacity = 0.2 + 0.6 * tri
             dotOpacity = colonOpacity  // Dot blinks with the same pattern as colons
@@ -38,7 +38,6 @@ struct StopwatchDigitsView: View {
                     Text("LAP \(app.stopwatch.currentLapNumber)")
                         .font(.system(size: 12, weight: .medium, design: .default))
                         .foregroundStyle(.secondary)
-
                     
                     BlinkingTimeText(lapTime, colonOpacity: colonOpacity, dotOpacity: dotOpacity)
                         .font(.system(size: 20, weight: .semibold, design: .monospaced))
@@ -54,10 +53,10 @@ struct StopwatchDigitsView: View {
     
     private func voiceOverTime(_ time: TimeInterval) -> String {
         let totalSeconds = Int(time)
-        let hours = totalSeconds / 3600
-        let minutes = (totalSeconds % 3600) / 60
+        let hours = totalSeconds / 3_600
+        let minutes = (totalSeconds % 3_600) / 60
         let seconds = totalSeconds % 60
-        let milliseconds = Int((time.truncatingRemainder(dividingBy: 1)) * 1000)
+        let milliseconds = Int((time.truncatingRemainder(dividingBy: 1)) * 1_000)
         
         var components: [String] = []
         if hours > 0 {

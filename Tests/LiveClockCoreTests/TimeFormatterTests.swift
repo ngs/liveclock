@@ -2,7 +2,6 @@ import XCTest
 @testable import LiveClockCore
 
 final class TimeFormatterTests: XCTestCase {
-    
     func testFormatZero() {
         XCTAssertEqual(TimeFormatter.format(0), "00:00:00.000")
     }
@@ -20,18 +19,18 @@ final class TimeFormatterTests: XCTestCase {
     func testFormatMinutes() {
         XCTAssertEqual(TimeFormatter.format(60.0), "00:01:00.000")
         XCTAssertEqual(TimeFormatter.format(119.5), "00:01:59.500")
-        XCTAssertEqual(TimeFormatter.format(3599.999), "00:59:59.999")
+        XCTAssertEqual(TimeFormatter.format(3_599.999), "00:59:59.999")
     }
     
     func testFormatHours() {
-        XCTAssertEqual(TimeFormatter.format(3600.0), "01:00:00.000")
-        XCTAssertEqual(TimeFormatter.format(7200.123), "02:00:00.123")
-        XCTAssertEqual(TimeFormatter.format(359999.999), "99:59:59.999")
+        XCTAssertEqual(TimeFormatter.format(3_600.0), "01:00:00.000")
+        XCTAssertEqual(TimeFormatter.format(7_200.123), "02:00:00.123")
+        XCTAssertEqual(TimeFormatter.format(359_999.999), "99:59:59.999")
     }
     
     func testFormatOverflow() {
-        XCTAssertEqual(TimeFormatter.format(360000.0), "99:59:59.999")
-        XCTAssertEqual(TimeFormatter.format(999999.999), "99:59:59.999")
+        XCTAssertEqual(TimeFormatter.format(360_000.0), "99:59:59.999")
+        XCTAssertEqual(TimeFormatter.format(999_999.999), "99:59:59.999")
     }
     
     func testFormatNegative() {
@@ -61,11 +60,11 @@ final class TimeFormatterTests: XCTestCase {
     func testFormatCompactMinutes() {
         XCTAssertEqual(TimeFormatter.formatCompact(60.0), "1:00.000")
         XCTAssertEqual(TimeFormatter.formatCompact(119.5), "1:59.500")
-        XCTAssertEqual(TimeFormatter.formatCompact(3599.999), "59:59.999")
+        XCTAssertEqual(TimeFormatter.formatCompact(3_599.999), "59:59.999")
     }
     
     func testFormatCompactHours() {
-        XCTAssertEqual(TimeFormatter.formatCompact(3600.0), "1:00:00.000")
-        XCTAssertEqual(TimeFormatter.formatCompact(7200.123), "2:00:00.123")
+        XCTAssertEqual(TimeFormatter.formatCompact(3_600.0), "1:00:00.000")
+        XCTAssertEqual(TimeFormatter.formatCompact(7_200.123), "2:00:00.123")
     }
 }

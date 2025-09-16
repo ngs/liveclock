@@ -25,14 +25,14 @@ let project = Project(
                 "CFBundleShortVersionString": .string(version),
                 "UIViewControllerBasedStatusBarAppearance": .boolean(false),
                 "UILaunchStoryboardName": .string(""),
-                "UIRequiresFullScreen": .boolean(true),
+                "UIRequiresFullScreen": .boolean(true)
             ]),
             sources: ["Sources/App/**"],
             resources: ["Sources/Resources/**"],
             dependencies: [
                 .package(product: "LiveClockCore"),
                 .package(product: "LiveClockPlatform"),
-                .package(product: "LiveClockUI"),
+                .package(product: "LiveClockUI")
             ]
         ),
         .target(
@@ -47,14 +47,14 @@ let project = Project(
                 "CFBundleIconFile": .string("AppIcon"),
                 "CFBundleVersion": .string(version),
                 "CFBundleShortVersionString": .string(version),
-                "NSHumanReadableCopyright": .string(copyright),
+                "NSHumanReadableCopyright": .string(copyright)
             ]),
             sources: ["Sources/App/**"],
             resources: ["Sources/Resources/**"],
             dependencies: [
                 .package(product: "LiveClockCore"),
                 .package(product: "LiveClockPlatform"),
-                .package(product: "LiveClockUI"),
+                .package(product: "LiveClockUI")
             ]
         ),
         .target(
@@ -68,15 +68,15 @@ let project = Project(
                 "CFBundleDisplayName": .string("LiveClock"),
                 "CFBundleName": .string("LiveClock"),
                 "CFBundleVersion": .string(version),
-                "CFBundleShortVersionString": .string(version),
+                "CFBundleShortVersionString": .string(version)
             ]),
             sources: ["Sources/App/**"],
             resources: ["Sources/Resources/**"],
             dependencies: [
                 .package(product: "LiveClockCore"),
                 .package(product: "LiveClockPlatform"),
-                .package(product: "LiveClockUI"),
+                .package(product: "LiveClockUI")
             ]
-        ),
+        )
     ]
 )

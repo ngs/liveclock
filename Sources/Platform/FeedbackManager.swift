@@ -29,7 +29,8 @@ public final class FeedbackManager {
             try AVAudioSession.sharedInstance().setCategory(.ambient, mode: .default)
             try AVAudioSession.sharedInstance().setActive(true)
         } catch {
-            print("Failed to setup audio session: \(error)")
+            // Audio session setup failed, but we'll continue silently
+            // as sound feedback is not critical to app functionality
         }
     }
     #endif
@@ -37,7 +38,7 @@ public final class FeedbackManager {
     public func playStartFeedback() {
         #if os(iOS)
         impactFeedback.impactOccurred()
-        playSystemSound(1117)
+        playSystemSound(1_117)
         #elseif os(macOS)
         NSSound.beep()
         #endif
@@ -46,7 +47,7 @@ public final class FeedbackManager {
     public func playStopFeedback() {
         #if os(iOS)
         impactFeedback.impactOccurred()
-        playSystemSound(1118)
+        playSystemSound(1_118)
         #elseif os(macOS)
         NSSound.beep()
         #endif
@@ -55,21 +56,21 @@ public final class FeedbackManager {
     public func playLapFeedback() {
         #if os(iOS)
         impactFeedback.impactOccurred(intensity: 0.7)
-        playSystemSound(1103)
+        playSystemSound(1_103)
         #endif
     }
     
     public func playResetFeedback() {
         #if os(iOS)
         notificationFeedback.notificationOccurred(.warning)
-        playSystemSound(1102)
+        playSystemSound(1_102)
         #endif
     }
     
     public func playCountdownFinishedFeedback() {
         #if os(iOS)
         notificationFeedback.notificationOccurred(.success)
-        playSystemSound(1336)
+        playSystemSound(1_336)
         #elseif os(macOS)
         for _ in 0..<3 {
             NSSound.beep()

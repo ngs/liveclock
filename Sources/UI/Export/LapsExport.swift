@@ -28,4 +28,3 @@ struct LapsExport: Transferable {
         return "Laps-\(df.string(from: Date()))"
     }
 }
-

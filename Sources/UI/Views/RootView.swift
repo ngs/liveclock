@@ -56,10 +56,10 @@ public struct RootView: View {
         }
 #endif
         .onAppear {
-            let t = Ticker()
-            t.delegate = app
-            t.start()
-            ticker = t
+            let newTicker = Ticker()
+            newTicker.delegate = app
+            newTicker.start()
+            ticker = newTicker
         }
         .onDisappear {
             ticker?.stop()

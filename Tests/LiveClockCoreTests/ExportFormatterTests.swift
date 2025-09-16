@@ -2,7 +2,6 @@ import XCTest
 @testable import LiveClockCore
 
 final class ExportFormatterTests: XCTestCase {
-    
     // MARK: - CSV Export Tests
     
     func testCSVExportWithNoLaps() {
@@ -190,7 +189,7 @@ final class ExportFormatterTests: XCTestCase {
         XCTAssertNotNil(rtfData, "RTF data should not be nil")
         
         if let data = rtfData {
-            var attributes: NSDictionary? = nil
+            var attributes: NSDictionary?
             let attributed = NSAttributedString(
                 rtf: data,
                 documentAttributes: &attributes
@@ -202,7 +201,7 @@ final class ExportFormatterTests: XCTestCase {
             attributed?.enumerateAttributes(
                 in: NSRange(location: 0, length: attributed?.length ?? 0),
                 options: []
-            ) { attrs, range, stop in
+            ) { attrs, _, _ in
                 #if os(macOS)
                 if let font = attrs[.font] as? NSFont {
                     // Check if font is monospaced
@@ -242,7 +241,7 @@ final class ExportFormatterTests: XCTestCase {
             attributed?.enumerateAttributes(
                 in: NSRange(location: 0, length: attributed?.length ?? 0),
                 options: []
-            ) { attrs, range, stop in
+            ) { attrs, _, _ in
                 if let style = attrs[.paragraphStyle] as? NSParagraphStyle {
                     hasParagraphStyle = !style.tabStops.isEmpty
                 }
@@ -265,10 +264,14 @@ final class ExportFormatterTests: XCTestCase {
         XCTAssertTrue(lastComponent.contains("."), "Should include milliseconds")
         
         // Verify format with regex
-        let regex = try! NSRegularExpression(pattern: "^\\d{2}:\\d{2}:\\d{2}\\.\\d{3}$")
-        let range = NSRange(location: 0, length: formatted.utf16.count)
-        let matches = regex.matches(in: formatted, range: range)
-        XCTAssertEqual(matches.count, 1, "Should match HH:mm:ss.SSS format")
+        do {
+            let regex = try NSRegularExpression(pattern: "^\\d{2}:\\d{2}:\\d{2}\\.\\d{3}$")
+            let range = NSRange(location: 0, length: formatted.utf16.count)
+            let matches = regex.matches(in: formatted, range: range)
+            XCTAssertEqual(matches.count, 1, "Should match HH:mm:ss.SSS format")
+        } catch {
+            XCTFail("Failed to create regex: \(error)")
+        }
     }
     
     func testDateFormatterCacheSingleton() {
@@ -284,7 +287,7 @@ final class ExportFormatterTests: XCTestCase {
         stopwatch.start()
         
         // Create 1000 laps
-        for _ in 0..<1000 {
+        for _ in 0..<1_000 {
             Thread.sleep(forTimeInterval: 0.001)
             stopwatch.lap()
         }
@@ -299,7 +302,7 @@ final class ExportFormatterTests: XCTestCase {
         stopwatch.start()
         
         // Create 1000 laps
-        for _ in 0..<1000 {
+        for _ in 0..<1_000 {
             Thread.sleep(forTimeInterval: 0.001)
             stopwatch.lap()
         }
