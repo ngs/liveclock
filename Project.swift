@@ -14,6 +14,7 @@ let project = Project(
             deploymentTargets: .iOS("16.0"),
             infoPlist: .extendingDefault(with: [
                 "CFBundleDisplayName": .string("LiveClock"),
+                "CFBundleIconFile": .string("AppIcon"),
                 "CFBundleName": .string("LiveClock"),
                 "UIStatusBarHidden": .boolean(true),
                 "UIViewControllerBasedStatusBarAppearance": .boolean(false),
@@ -21,7 +22,7 @@ let project = Project(
                 "UIRequiresFullScreen": .boolean(true)
             ]),
             sources: ["Sources/App/**"],
-            resources: [],
+            resources: ["Sources/Resources/**"],
             dependencies: [
                 .package(product: "LiveClockCore"),
                 .package(product: "LiveClockPlatform"),
@@ -35,10 +36,12 @@ let project = Project(
             bundleId: "io.ngs.LiveClock.mac",
             deploymentTargets: .macOS("13.0"),
             infoPlist: .extendingDefault(with: [
-                "CFBundleName": .string("LiveClock")
+                "CFBundleDisplayName": .string("LiveClock"),
+                "CFBundleName": .string("LiveClock"),
+                "CFBundleIconFile": .string("AppIcon"),
             ]),
             sources: ["Sources/App/**"],
-            resources: [],
+            resources: ["Sources/Resources/**"],
             dependencies: [
                 .package(product: "LiveClockCore"),
                 .package(product: "LiveClockPlatform"),
@@ -47,11 +50,12 @@ let project = Project(
         ),
         .target(
             name: "LiveClock-visionOS",
-            destinations: [.appleTv],
+            destinations: [.appleVision],
             product: .app,
             bundleId: "io.ngs.LiveClock.vision",
-            deploymentTargets: .tvOS("16.0"),
+            deploymentTargets: .visionOS("1.0"),
             infoPlist: .extendingDefault(with: [
+                "CFBundleIconFile": .string("AppIcon"),
                 "CFBundleDisplayName": .string("LiveClock"),
                 "CFBundleName": .string("LiveClock")
             ]),

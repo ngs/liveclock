@@ -16,11 +16,9 @@ struct LiveClockApp: App {
                 .preferredColorScheme(appState.preferences.colorScheme)
                 .onAppear { 
                     appState.applyKeepAwake()
-                    #if os(iOS)
-                    UIApplication.shared.isIdleTimerDisabled = true
-                    #endif
                 }
         }
+        .windowResizability(.contentMinSize)
         #if os(macOS)
         .commands {
             CommandMenu("Stopwatch") {

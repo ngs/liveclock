@@ -18,6 +18,7 @@ PROJECT_ROOT="$( cd "${SCRIPT_DIR}/.." && pwd )"
 
 # Paths
 SVG_TEMPLATE="${PROJECT_ROOT}/Resources/icon-template.svg"
+SVG_TEMPLATE_MACOS="${PROJECT_ROOT}/Resources/icon-template-macos.svg"
 SVG_VISION_BACK="${PROJECT_ROOT}/Resources/icon-visionos-back.svg"
 SVG_VISION_MIDDLE="${PROJECT_ROOT}/Resources/icon-visionos-middle.svg"
 SVG_VISION_FRONT="${PROJECT_ROOT}/Resources/icon-visionos-front.svg"
@@ -160,11 +161,17 @@ declare -a ICON_SIZES=(
 generate_png() {
     local size=$1
     local output=$2
+    local svg_file=$3
+    
+    # Use default template if not specified
+    if [ -z "$svg_file" ]; then
+        svg_file="${SVG_TEMPLATE}"
+    fi
     
     if [ "$USE_RSVG" = true ]; then
-        rsvg-convert -w "${size}" -h "${size}" "${SVG_TEMPLATE}" -o "${output}"
+        rsvg-convert -w "${size}" -h "${size}" "${svg_file}" -o "${output}"
     else
-        convert -background none -resize "${size}x${size}" "${SVG_TEMPLATE}" "${output}"
+        convert -background none -resize "${size}x${size}" "${svg_file}" "${output}"
     fi
 }
 
@@ -197,7 +204,13 @@ generate_icons() {
         output_path="${ICON_SET_DIR}/${filename}"
         
         echo -e "  Generating ${description} (${pixel_size}x${pixel_size}px) -> ${filename}"
-        generate_png "${pixel_size}" "${output_path}"
+        
+        # Use rounded corner SVG for macOS icons
+        if [[ "$idiom" == "mac" ]]; then
+            generate_png "${pixel_size}" "${output_path}" "${SVG_TEMPLATE_MACOS}"
+        else
+            generate_png "${pixel_size}" "${output_path}" "${SVG_TEMPLATE}"
+        fi
     done
     
     echo -e "${GREEN}Icons generated successfully${NC}"
@@ -558,9 +571,14 @@ main() {
     echo -e "${BLUE}==========================================${NC}"
     echo ""
     
-    # Check if SVG template exists
+    # Check if SVG templates exist
     if [ ! -f "${SVG_TEMPLATE}" ]; then
         echo -e "${RED}Error: SVG template not found at ${SVG_TEMPLATE}${NC}"
+        exit 1
+    fi
+    
+    if [ ! -f "${SVG_TEMPLATE_MACOS}" ]; then
+        echo -e "${RED}Error: macOS SVG template not found at ${SVG_TEMPLATE_MACOS}${NC}"
         exit 1
     fi
     

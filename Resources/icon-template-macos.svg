@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 1024 1024">
+  <defs>
+    <style>
+      .cls-1, .cls-2, .cls-3, .cls-4, .cls-5, .cls-6 {
+        fill: none;
+      }
+
+      .cls-7 {
+        fill: #2a5298;
+      }
+
+      .cls-8 {
+        filter: url(#drop-shadow-2);
+      }
+
+      .cls-9 {
+        fill: #5a7db8;
+      }
+
+      .cls-2 {
+        stroke: #f44;
+      }
+
+      .cls-2, .cls-3, .cls-6 {
+        stroke-linecap: round;
+      }
+
+      .cls-2, .cls-4 {
+        stroke-width: 8px;
+      }
+
+      .cls-10 {
+        font-family: SFMono-Semibold, 'SF Mono';
+        font-size: 36px;
+        font-weight: 600;
+      }
+
+      .cls-10, .cls-11, .cls-12, .cls-4, .cls-13, .cls-14 {
+        isolation: isolate;
+      }
+
+      .cls-10, .cls-15, .cls-13, .cls-14 {
+        fill: #fff;
+      }
+
+      .cls-16 {
+        fill: url(#linear-gradient-2);
+      }
+
+      .cls-12 {
+        opacity: .9;
+      }
+
+      .cls-12, .cls-17 {
+        fill: #1e3c72;
+      }
+
+      .cls-3 {
+        stroke: #1e3c72;
+        stroke-width: 24px;
+      }
+
+      .cls-18 {
+        fill: #f44;
+      }
+
+      .cls-19 {
+        fill: #f8f9fa;
+      }
+
+      .cls-4 {
+        stroke: #fff;
+      }
+
+      .cls-4, .cls-13 {
+        opacity: .3;
+      }
+
+      .cls-5 {
+        stroke-width: 6px;
+      }
+
+      .cls-5, .cls-6 {
+        stroke: #2a5298;
+      }
+
+      .cls-20 {
+        fill: url(#linear-gradient);
+        filter: url(#drop-shadow-1);
+      }
+
+      .cls-6 {
+        stroke-width: 18px;
+      }
+
+      .cls-21 {
+        clip-path: url(#clippath);
+      }
+
+      .cls-14 {
+        opacity: .2;
+      }
+    </style>
+    <linearGradient id="linear-gradient" x1="100" y1="512" x2="924" y2="512" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#1e3c72"/>
+      <stop offset="1" stop-color="#2a5298"/>
+    </linearGradient>
+    <filter id="drop-shadow-1" x="32" y="46" width="960" height="961" filterUnits="userSpaceOnUse">
+      <feOffset dx="0" dy="14.2"/>
+      <feGaussianBlur result="blur" stdDeviation="22.7"/>
+      <feFlood flood-color="#000" flood-opacity=".3"/>
+      <feComposite in2="blur" operator="in"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="drop-shadow-2" x="32" y="46" width="960" height="961" filterUnits="userSpaceOnUse">
+      <feOffset dx="0" dy="14.2"/>
+      <feGaussianBlur result="blur-2" stdDeviation="22.7"/>
+      <feFlood flood-color="#000" flood-opacity=".3"/>
+      <feComposite in2="blur-2" operator="in"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <clipPath id="clippath">
+      <rect class="cls-1" x="100" y="100" width="824" height="824" rx="185.1" ry="185.1"/>
+    </clipPath>
+    <linearGradient id="linear-gradient-2" x1="37.6" y1="984.3" x2="986.4" y2="35.4" gradientTransform="translate(0 1021.9) scale(1 -1)" xlink:href="#linear-gradient"/>
+  </defs>
+  <!-- Generator: Adobe Illustrator 28.7.1, SVG Export Plug-In . SVG Version: 1.2.0 Build 142)  -->
+  <g>
+    <g id="Layer_1">
+      <rect class="cls-20" x="100" y="100" width="824" height="824" rx="185.1" ry="185.1"/>
+      <g class="cls-8">
+        <g class="cls-21">
+          <g id="Layer_1-2" data-name="Layer_1">
+            <rect class="cls-16" x="100" y="100" width="824" height="824"/>
+            <circle class="cls-4" cx="512" cy="512" r="380"/>
+            <circle class="cls-15" cx="512" cy="512" r="350"/>
+            <circle class="cls-19" cx="512" cy="512" r="340"/>
+            <g id="hour-markers">
+              <path class="cls-7" d="M512,190h0c5.5,0,10,4.5,10,10v40c0,5.5-4.5,10-10,10h0c-5.5,0-10-4.5-10-10v-40c0-5.5,4.5-10,10-10Z"/>
+              <path class="cls-7" d="M784,502h40c5.5,0,10,4.5,10,10h0c0,5.5-4.5,10-10,10h-40c-5.5,0-10-4.5-10-10h0c0-5.5,4.5-10,10-10Z"/>
+              <path class="cls-7" d="M512,774h0c5.5,0,10,4.5,10,10v40c0,5.5-4.5,10-10,10h0c-5.5,0-10-4.5-10-10v-40c0-5.5,4.5-10,10-10Z"/>
+              <path class="cls-7" d="M200,502h40c5.5,0,10,4.5,10,10h0c0,5.5-4.5,10-10,10h-40c-5.5,0-10-4.5-10-10h0c0-5.5,4.5-10,10-10Z"/>
+              <circle class="cls-9" cx="618" cy="244" r="12"/>
+              <circle class="cls-9" cx="700" cy="326" r="12"/>
+              <circle class="cls-9" cx="700" cy="698" r="12"/>
+              <circle class="cls-9" cx="618" cy="780" r="12"/>
+              <circle class="cls-9" cx="406" cy="780" r="12"/>
+              <circle class="cls-9" cx="324" cy="698" r="12"/>
+              <circle class="cls-9" cx="324" cy="326" r="12"/>
+              <circle class="cls-9" cx="406" cy="244" r="12"/>
+            </g>
+            <g id="clock-hands">
+              <line class="cls-3" x1="512" y1="512" x2="400" y2="380"/>
+              <line class="cls-6" x1="512" y1="512" x2="640" y2="340"/>
+              <line class="cls-2" x1="512" y1="512" x2="512" y2="740"/>
+              <circle class="cls-17" cx="512" cy="512" r="20"/>
+              <circle class="cls-15" cx="512" cy="512" r="12"/>
+            </g>
+            <g id="stopwatch-button">
+              <g>
+                <circle class="cls-15" cx="680" cy="280" r="45"/>
+                <circle class="cls-5" cx="680" cy="280" r="45"/>
+              </g>
+              <circle class="cls-18" cx="680" cy="280" r="35"/>
+              <circle class="cls-13" cx="680" cy="280" r="25"/>
+            </g>
+            <g id="digital-display">
+              <rect class="cls-12" x="412" y="620" width="200" height="60" rx="8" ry="8"/>
+              <g class="cls-11">
+                <text class="cls-10" transform="translate(423 660)"><tspan x="0" y="0">00:10:30</tspan></text>
+              </g>
+            </g>
+            <ellipse class="cls-14" cx="512" cy="320" rx="200" ry="100"/>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
