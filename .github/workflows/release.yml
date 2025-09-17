@@ -57,23 +57,26 @@ jobs:
           fi
 
   release:
-    # Run if manually triggered OR if CI completed successfully
+    # Only depend on check-ci-status if workflow_run trigger
     needs: [check-ci-status]
     if: |
       always() &&
-      (github.event_name == 'workflow_dispatch' ||
-       (github.event_name == 'workflow_run' && needs.check-ci-status.outputs.should_deploy == 'true'))
+      (
+        (github.event_name == 'workflow_dispatch') ||
+        (github.event_name == 'push') ||
+        (github.event_name == 'workflow_run' && needs.check-ci-status.outputs.should_deploy == 'true')
+      )
     runs-on: macos-latest
     timeout-minutes: 120
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4.2.2
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
       - name: Setup Ruby
-        uses: ruby/setup-ruby@v1.196.0
+        uses: ruby/setup-ruby@v1
         with:
           ruby-version: '3.3'
           bundler-cache: true
@@ -89,7 +92,7 @@ jobs:
           ssh-keyscan github.com >> ~/.ssh/known_hosts
 
       - name: Cache Match certificates
-        uses: actions/cache@v4.1.2
+        uses: actions/cache@v4
         with:
           path: ~/Library/MobileDevice/Provisioning Profiles
           key: ${{ runner.os }}-certificates-${{ hashFiles('**/Matchfile') }}
@@ -135,7 +138,7 @@ jobs:
 
       - name: Upload IPA artifact
         if: success()
-        uses: actions/upload-artifact@v4.5.0
+        uses: actions/upload-artifact@v4
         with:
           name: ipa-release-${{ github.sha }}
           path: |
@@ -146,7 +149,7 @@ jobs:
 
       - name: Create GitHub Release
         if: success() && steps.params.outputs.skip_upload != 'true' && steps.version.outputs.version != ''
-        uses: softprops/action-gh-release@v2.0.9
+        uses: softprops/action-gh-release@v2
         with:
           tag_name: v${{ steps.version.outputs.version || '1.0.0' }}
           name: Release v${{ steps.version.outputs.version || '1.0.0' }}
