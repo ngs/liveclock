@@ -1,0 +1,213 @@
+name: Release Build and Upload
+
+on:
+  # Trigger when CI workflow completes successfully
+  workflow_run:
+    workflows: ["CI"]
+    types:
+      - completed
+    branches:
+      - master
+      - main
+
+  # Manual trigger
+  workflow_dispatch:
+    inputs:
+      skip_upload:
+        description: 'Skip App Store Upload'
+        required: false
+        type: boolean
+        default: false
+
+env:
+  # Load all secrets as environment variables
+  APP_STORE_CONNECT_API_KEY_KEY: ${{ secrets.APP_STORE_CONNECT_API_KEY_KEY }}
+  APP_STORE_CONNECT_API_KEY_IS_KEY_CONTENT_BASE64: 'true'
+  FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD: ${{ secrets.FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD }}
+  FASTLANE_PASSWORD: ${{ secrets.FASTLANE_PASSWORD }}
+  FASTLANE_USER: ${{ secrets.FASTLANE_USER }}
+  MATCH_GIT_URL: ${{ secrets.MATCH_GIT_URL }}
+  MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
+  PRODUCE_ITC_TEAM_ID: ${{ secrets.PRODUCE_ITC_TEAM_ID }}
+  PRODUCE_TEAM_ID: ${{ secrets.PRODUCE_TEAM_ID }}
+
+  # Additional Fastlane settings
+  FASTLANE_XCODEBUILD_SETTINGS_TIMEOUT: "600"
+  FASTLANE_XCODEBUILD_SETTINGS_RETRIES: "5"
+
+jobs:
+  check-ci-status:
+    # Only run for workflow_run trigger
+    if: github.event_name == 'workflow_run'
+    runs-on: ubuntu-latest
+    outputs:
+      should_deploy: ${{ steps.check.outputs.should_deploy }}
+    steps:
+      - name: Check CI workflow status
+        id: check
+        run: |
+          if [[ "${{ github.event.workflow_run.conclusion }}" == "success" ]]; then
+            echo "CI workflow completed successfully"
+            echo "should_deploy=true" >> $GITHUB_OUTPUT
+          else
+            echo "CI workflow did not complete successfully: ${{ github.event.workflow_run.conclusion }}"
+            echo "should_deploy=false" >> $GITHUB_OUTPUT
+          fi
+
+  release:
+    # Run if manually triggered OR if CI completed successfully
+    needs: [check-ci-status]
+    if: |
+      always() &&
+      (github.event_name == 'workflow_dispatch' ||
+       (github.event_name == 'workflow_run' && needs.check-ci-status.outputs.should_deploy == 'true'))
+    runs-on: macos-latest
+    timeout-minutes: 120
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4.2.2
+        with:
+          fetch-depth: 0
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1.196.0
+        with:
+          ruby-version: '3.3'
+          bundler-cache: true
+
+      - name: Install Fastlane
+        run: |
+          gem install bundler
+          bundle install
+
+      - name: Setup SSH for Match
+        run: |
+          mkdir -p ~/.ssh
+          ssh-keyscan github.com >> ~/.ssh/known_hosts
+
+      - name: Cache Match certificates
+        uses: actions/cache@v4.1.2
+        with:
+          path: ~/Library/MobileDevice/Provisioning Profiles
+          key: ${{ runner.os }}-certificates-${{ hashFiles('**/Matchfile') }}
+          restore-keys: |
+            ${{ runner.os }}-certificates-
+
+      - name: Determine release parameters
+        id: params
+        run: |
+          if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
+            echo "skip_upload=${{ github.event.inputs.skip_upload }}" >> $GITHUB_OUTPUT
+          else
+            # Default for CI completion trigger
+            echo "skip_upload=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Get version info
+        id: version
+        run: |
+          # Version will be set by Fastlane using GitHub Actions Run ID
+          echo "GitHub Actions Run ID: ${{ github.run_id }}"
+          # Get current version from Info.plist
+          VERSION=$(plutil -extract CFBundleShortVersionString raw Sources/Resources/Info.plist 2>/dev/null || echo "1.0.0")
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+          echo "Current version: $VERSION"
+          echo "Build number will be: ${{ github.run_id }}"
+
+      - name: Sync certificates and profiles (release_match)
+        run: |
+          echo "Running fastlane release_match..."
+          bundle exec fastlane release_match
+
+      - name: Build release version (release_build)
+        run: |
+          echo "Running fastlane release_build with GitHub Actions Run ID: ${{ github.run_id }}"
+          bundle exec fastlane release_build
+
+      - name: Upload to App Store Connect (release_upload)
+        if: steps.params.outputs.skip_upload != 'true'
+        run: |
+          echo "Running fastlane release_upload..."
+          bundle exec fastlane release_upload
+
+      - name: Upload IPA artifact
+        if: success()
+        uses: actions/upload-artifact@v4.5.0
+        with:
+          name: ipa-release-${{ github.sha }}
+          path: |
+            *.ipa
+            fastlane/report.xml
+            build/*.dSYM.zip
+          retention-days: 30
+
+      - name: Create GitHub Release
+        if: success() && steps.params.outputs.skip_upload != 'true' && steps.version.outputs.version != ''
+        uses: softprops/action-gh-release@v2.0.9
+        with:
+          tag_name: v${{ steps.version.outputs.version || '1.0.0' }}
+          name: Release v${{ steps.version.outputs.version || '1.0.0' }}
+          draft: false
+          prerelease: false
+          generate_release_notes: true
+          files: |
+            *.ipa
+            build/*.dSYM.zip
+
+      - name: Slack notification - Success
+        if: success() && env.SLACK_WEBHOOK != ''
+        env:
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK || '' }}
+        run: |
+          if [ -n "$SLACK_WEBHOOK" ]; then
+            curl -X POST "$SLACK_WEBHOOK" \
+              -H 'Content-Type: application/json' \
+              -d @- <<EOF
+          {
+            "text": ":rocket: LiveClock release build successful!",
+            "attachments": [{
+              "color": "good",
+              "fields": [
+                {"title": "Version", "value": "${{ steps.version.outputs.version || 'N/A' }}", "short": true},
+                {"title": "Build Number", "value": "${{ github.run_id }}", "short": true},
+                {"title": "Commit", "value": "${{ github.sha }}", "short": true}
+              ]
+            }]
+          }
+          EOF
+          fi
+        continue-on-error: true
+
+      - name: Slack notification - Failure
+        if: failure() && env.SLACK_WEBHOOK != ''
+        env:
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK || '' }}
+        run: |
+          if [ -n "$SLACK_WEBHOOK" ]; then
+            curl -X POST "$SLACK_WEBHOOK" \
+              -H 'Content-Type: application/json' \
+              -d @- <<EOF
+          {
+            "text": ":x: LiveClock release build failed!",
+            "attachments": [{
+              "color": "danger",
+              "fields": [
+                {"title": "Workflow", "value": "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"}
+              ]
+            }]
+          }
+          EOF
+          fi
+        continue-on-error: true
+
+  cleanup:
+    runs-on: macos-latest
+    needs: release
+    if: always()
+    steps:
+      - name: Clean up Keychain
+        run: |
+          security delete-keychain signing_temp.keychain || true
+          security delete-keychain fastlane_tmp_keychain || true
+        continue-on-error: true
