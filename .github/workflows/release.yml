@@ -109,8 +109,8 @@ jobs:
         run: |
           # Version will be set by Fastlane using GitHub Actions Run ID
           echo "GitHub Actions Run ID: ${{ github.run_id }}"
-          # Get current version from Info.plist
-          VERSION=$(plutil -extract CFBundleShortVersionString raw Sources/Resources/Info.plist 2>/dev/null || echo "1.0.0")
+          # Get current version from Project.swift (Tuist)
+          VERSION=$(grep -E 'version *= *"' Project.swift | head -1 | sed -E 's/.*version *= *"([^"]+)".*/\1/' || echo "1.0.0")
           echo "version=$VERSION" >> $GITHUB_OUTPUT
           echo "Current version: $VERSION"
           echo "Build number will be: ${{ github.run_id }}"
