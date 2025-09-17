@@ -36,7 +36,8 @@ let project = Project(
                 "CFBundleDisplayName": .string("LiveClock"),
                 "CFBundleName": .string("LiveClock"),
                 "CFBundleVersion": .string("$(CURRENT_PROJECT_VERSION)"),
-                "CFBundleShortVersionString": .string("$(MARKETING_VERSION)")
+                "CFBundleShortVersionString": .string("$(MARKETING_VERSION)"),
+                "ITSAppUsesNonExemptEncryption": .boolean(false)
             ]),
             sources: ["Sources/App/**"],
             resources: ["Sources/Resources/**"],
@@ -60,6 +61,7 @@ let project = Project(
             bundleId: "io.ngs.LiveClock.mac",
             deploymentTargets: .macOS("13.0"),
             infoPlist: .extendingDefault(with: [
+                "ITSAppUsesNonExemptEncryption": .boolean(false),
                 "NSHumanReadableCopyright": .string(copyright)
             ]),
             sources: ["Sources/App/**"],
@@ -83,7 +85,9 @@ let project = Project(
             product: .app,
             bundleId: "io.ngs.LiveClock.vision",
             deploymentTargets: .visionOS("1.0"),
-            infoPlist: .extendingDefault(with: [:]),
+            infoPlist: .extendingDefault(with: [
+                "ITSAppUsesNonExemptEncryption": .boolean(false)
+            ]),
             sources: ["Sources/App/**"],
             resources: ["Sources/Resources/**"],
             scripts: [

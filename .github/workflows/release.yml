@@ -16,22 +16,31 @@ on:
   workflow_dispatch:
     inputs:
       skip_upload:
-        description: 'Skip App Store Upload'
+        description: "Skip App Store Upload"
         required: false
         type: boolean
         default: false
 
 env:
   # Load all secrets as environment variables
+  FASTLANE_SKIP_UPDATE_CHECK: "1"
   APP_STORE_CONNECT_API_KEY_KEY: ${{ secrets.APP_STORE_CONNECT_API_KEY_KEY }}
-  APP_STORE_CONNECT_API_KEY_IS_KEY_CONTENT_BASE64: 'true'
+  APP_STORE_CONNECT_API_KEY_IS_KEY_CONTENT_BASE64: "true"
   FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD: ${{ secrets.FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD }}
   FASTLANE_PASSWORD: ${{ secrets.FASTLANE_PASSWORD }}
   FASTLANE_USER: ${{ secrets.FASTLANE_USER }}
-  MATCH_GIT_URL: ${{ secrets.MATCH_GIT_URL }}
+  FASTLANE_SESSION: ${{ secrets.FASTLANE_SESSION }}
+  MATCH_GIT_URL: ${{ secrets.MATCH_GIT_URL }} # Must be SSH format: git@github.com:user/repo.git
   MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
   PRODUCE_ITC_TEAM_ID: ${{ secrets.PRODUCE_ITC_TEAM_ID }}
   PRODUCE_TEAM_ID: ${{ secrets.PRODUCE_TEAM_ID }}
+  MATCH_KEYCHAIN_NAME: tmp.keychain
+  CERT_KEYCHAIN_NAME: tmp.keychain
+  KEYCHAIN_NAME: tmp.keychain
+  MATCH_KEYCHAIN_PASSWORD: tmp
+  CERT_KEYCHAIN_PASSWORD: tmp
+  KEYCHAIN_PASSWORD: tmp
+  MATCH_READONLY: "true"
 
   # Additional Fastlane settings
   FASTLANE_XCODEBUILD_SETTINGS_TIMEOUT: "600"
@@ -78,7 +87,7 @@ jobs:
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.3'
+          ruby-version: "3.3"
           bundler-cache: true
 
       - name: Install Fastlane
@@ -86,10 +95,20 @@ jobs:
           gem install bundler
           bundle install
 
+      - run: bundle exec fastlane ios create_ci_keychain
+
       - name: Setup SSH for Match
+        env:
+          MATCH_DEPLOY_KEY: ${{ secrets.MATCH_DEPLOY_KEY }}
         run: |
+          echo "Setting up SSH with deploy key..."
           mkdir -p ~/.ssh
+          echo "$MATCH_DEPLOY_KEY" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
           ssh-keyscan github.com >> ~/.ssh/known_hosts
+
+          # Configure git to use SSH
+          git config --global url."git@github.com:".insteadOf "https://github.com/"
 
       - name: Cache Match certificates
         uses: actions/cache@v4
@@ -108,6 +127,16 @@ jobs:
             # Default for CI completion trigger
             echo "skip_upload=false" >> $GITHUB_OUTPUT
           fi
+
+      - name: Install tuist
+        run: |
+          brew tap tuist/tuist
+          brew install --formula tuist
+
+      - name: Generate Xcode project and workspace
+        run: tuist generate --no-open
+        env:
+          TUIST_RUN_ID: ${{ github.run_id }}
 
       - name: Get version info
         id: version
@@ -142,9 +171,9 @@ jobs:
         with:
           name: ipa-release-${{ github.sha }}
           path: |
-            *.ipa
+            builds/**/*.ipa
             fastlane/report.xml
-            build/*.dSYM.zip
+            builds/**/*.dSYM.zip
           retention-days: 30
 
       - name: Create GitHub Release
@@ -157,8 +186,8 @@ jobs:
           prerelease: false
           generate_release_notes: true
           files: |
-            *.ipa
-            build/*.dSYM.zip
+            build/**/*.ipa
+            build/**/*.dSYM.zip
 
       - name: Slack notification - Success
         if: success() && env.SLACK_WEBHOOK != ''
@@ -204,15 +233,4 @@ jobs:
           }
           EOF
           fi
-        continue-on-error: true
-
-  cleanup:
-    runs-on: macos-latest
-    needs: release
-    if: always()
-    steps:
-      - name: Clean up Keychain
-        run: |
-          security delete-keychain signing_temp.keychain || true
-          security delete-keychain fastlane_tmp_keychain || true
         continue-on-error: true

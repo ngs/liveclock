@@ -53,7 +53,7 @@ Build app for beta
 [bundle exec] fastlane ios release_build
 ```
 
-Build app for beta
+Build app for release
 
 ### ios release_upload
 

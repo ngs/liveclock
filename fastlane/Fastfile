@@ -32,13 +32,13 @@ platform :ios do
   desc 'Match Ad-Hoc Provisioning Profiles'
   lane :beta_match do
     xcode_select ENV['XCODE_PATH'] if ENV['XCODE_PATH']
-    match type: 'adhoc', app_identifier: 'io.ngs.LiveClock'
+    match type: 'adhoc', app_identifier: 'io.ngs.LiveClock', readonly: ENV['MATCH_READONLY'] == 'true'
   end
 
   desc 'Match App Store Provisioning Profiles'
   lane :release_match do
     xcode_select ENV['XCODE_PATH'] if ENV['XCODE_PATH']
-    match type: 'appstore', app_identifier: 'io.ngs.LiveClock'
+    match type: 'appstore', app_identifier: 'io.ngs.LiveClock', readonly: ENV['MATCH_READONLY'] == 'true'
   end
 
   desc 'Build app for beta'
