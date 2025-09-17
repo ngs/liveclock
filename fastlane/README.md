@@ -1,0 +1,72 @@
+fastlane documentation
+----
+
+# Installation
+
+Make sure you have the latest version of the Xcode command line tools installed:
+
+```sh
+xcode-select --install
+```
+
+For _fastlane_ installation instructions, see [Installing _fastlane_](https://docs.fastlane.tools/#installing-fastlane)
+
+# Available Actions
+
+## iOS
+
+### ios create_ci_keychain
+
+```sh
+[bundle exec] fastlane ios create_ci_keychain
+```
+
+Create keychain
+
+### ios beta_match
+
+```sh
+[bundle exec] fastlane ios beta_match
+```
+
+Match Ad-Hoc Provisioning Profiles
+
+### ios release_match
+
+```sh
+[bundle exec] fastlane ios release_match
+```
+
+Match App Store Provisioning Profiles
+
+### ios beta_build
+
+```sh
+[bundle exec] fastlane ios beta_build
+```
+
+Build app for beta
+
+### ios release_build
+
+```sh
+[bundle exec] fastlane ios release_build
+```
+
+Build app for beta
+
+### ios release_upload
+
+```sh
+[bundle exec] fastlane ios release_upload
+```
+
+Publish app to App Store
+
+----
+
+This README.md is auto-generated and will be re-generated every time [_fastlane_](https://fastlane.tools) is run.
+
+More information about _fastlane_ can be found on [fastlane.tools](https://fastlane.tools).
+
+The documentation of _fastlane_ can be found on [docs.fastlane.tools](https://docs.fastlane.tools).

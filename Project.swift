@@ -3,12 +3,24 @@ import ProjectDescription
 let version = "1.0.0"
 let copyright = "© LittleApps Inc. All Rights Reserved."
 
+let actionRunId = Environment.runId.getString(default: "0")
+
 let project = Project(
     name: "LiveClock",
     organizationName: "LittleApps Inc.",
     packages: [
         .package(path: ".")
     ],
+    settings: .settings(
+        base: [
+            "INFOPLIST_KEY_LSApplicationCategoryType": .string("public.app-category.productivity"),
+            "INFOPLIST_KEY_CFBundleIconFile": .string("AppIcon"),
+            "INFOPLIST_KEY_CFBundleDisplayName": .string("LiveClock"),
+            "INFOPLIST_KEY_CFBundleName": .string("LiveClock"),
+            "CURRENT_PROJECT_VERSION": .string(actionRunId),
+            "MARKETING_VERSION": .string(version),
+            "DEVELOPMENT_TEAM": .string("3Y8APYUG2G"),
+        ]),
     targets: [
         .target(
             name: "LiveClock-iOS",
@@ -17,15 +29,14 @@ let project = Project(
             bundleId: "io.ngs.LiveClock",
             deploymentTargets: .iOS("16.0"),
             infoPlist: .extendingDefault(with: [
-                "CFBundleDisplayName": .string("LiveClock"),
-                "CFBundleIconFile": .string("AppIcon"),
-                "CFBundleName": .string("LiveClock"),
-                "UIStatusBarHidden": .boolean(true),
-                "CFBundleVersion": .string(version),
-                "CFBundleShortVersionString": .string(version),
                 "UIViewControllerBasedStatusBarAppearance": .boolean(false),
                 "UILaunchStoryboardName": .string(""),
-                "UIRequiresFullScreen": .boolean(true)
+                "UIRequiresFullScreen": .boolean(true),
+                "UIStatusBarHidden": .boolean(true),
+                "CFBundleDisplayName": .string("LiveClock"),
+                "CFBundleName": .string("LiveClock"),
+                "CFBundleVersion": .string("$(CURRENT_PROJECT_VERSION)"),
+                "CFBundleShortVersionString": .string("$(MARKETING_VERSION)"),
             ]),
             sources: ["Sources/App/**"],
             resources: ["Sources/Resources/**"],
@@ -39,7 +50,7 @@ let project = Project(
             dependencies: [
                 .package(product: "LiveClockCore"),
                 .package(product: "LiveClockPlatform"),
-                .package(product: "LiveClockUI")
+                .package(product: "LiveClockUI"),
             ]
         ),
         .target(
@@ -49,11 +60,6 @@ let project = Project(
             bundleId: "io.ngs.LiveClock.mac",
             deploymentTargets: .macOS("13.0"),
             infoPlist: .extendingDefault(with: [
-                "CFBundleDisplayName": .string("LiveClock"),
-                "CFBundleName": .string("LiveClock"),
-                "CFBundleIconFile": .string("AppIcon"),
-                "CFBundleVersion": .string(version),
-                "CFBundleShortVersionString": .string(version),
                 "NSHumanReadableCopyright": .string(copyright)
             ]),
             sources: ["Sources/App/**"],
@@ -68,7 +74,7 @@ let project = Project(
             dependencies: [
                 .package(product: "LiveClockCore"),
                 .package(product: "LiveClockPlatform"),
-                .package(product: "LiveClockUI")
+                .package(product: "LiveClockUI"),
             ]
         ),
         .target(
@@ -77,13 +83,7 @@ let project = Project(
             product: .app,
             bundleId: "io.ngs.LiveClock.vision",
             deploymentTargets: .visionOS("1.0"),
-            infoPlist: .extendingDefault(with: [
-                "CFBundleIconFile": .string("AppIcon"),
-                "CFBundleDisplayName": .string("LiveClock"),
-                "CFBundleName": .string("LiveClock"),
-                "CFBundleVersion": .string(version),
-                "CFBundleShortVersionString": .string(version)
-            ]),
+            infoPlist: .extendingDefault(with: [:]),
             sources: ["Sources/App/**"],
             resources: ["Sources/Resources/**"],
             scripts: [
@@ -96,7 +96,7 @@ let project = Project(
             dependencies: [
                 .package(product: "LiveClockCore"),
                 .package(product: "LiveClockPlatform"),
-                .package(product: "LiveClockUI")
+                .package(product: "LiveClockUI"),
             ]
         ),
         .target(
@@ -109,7 +109,7 @@ let project = Project(
             dependencies: [
                 .target(name: "LiveClock-iOS"),
                 .package(product: "LiveClockCore"),
-                .package(product: "LiveClockUI")
+                .package(product: "LiveClockUI"),
             ]
         ),
         .target(
@@ -122,7 +122,7 @@ let project = Project(
             dependencies: [
                 .target(name: "LiveClock-macOS"),
                 .package(product: "LiveClockCore"),
-                .package(product: "LiveClockUI")
+                .package(product: "LiveClockUI"),
             ]
         ),
         .target(
@@ -135,9 +135,9 @@ let project = Project(
             dependencies: [
                 .target(name: "LiveClock-visionOS"),
                 .package(product: "LiveClockCore"),
-                .package(product: "LiveClockUI")
+                .package(product: "LiveClockUI"),
             ]
-        )
+        ),
     ],
     schemes: [
         .scheme(
@@ -169,6 +169,6 @@ let project = Project(
                 options: .options(coverage: true)
             ),
             runAction: .runAction(configuration: .debug)
-        )
+        ),
     ]
 )

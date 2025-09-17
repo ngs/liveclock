@@ -8,10 +8,45 @@ Complete the localization for all untranslated strings in the project's Localiza
 2. `/Sources/Resources/Localizable.xcstrings`
 
 ## Target Languages
-The project supports the following languages:
+The project supports the following languages (based on fastlane/metadata locales):
 - English (en) - Source language
+- Arabic (ar-SA)
+- Catalan (ca)
+- Czech (cs)
+- Danish (da)
+- German (de-DE)
+- Greek (el)
+- English - Australia (en-AU)
+- English - Canada (en-CA)
+- English - United Kingdom (en-GB)
+- English - United States (en-US)
+- Spanish - Spain (es-ES)
+- Spanish - Mexico (es-MX)
+- Finnish (fi)
+- French - Canada (fr-CA)
+- French - France (fr-FR)
+- Hebrew (he)
+- Hindi (hi)
+- Croatian (hr)
+- Hungarian (hu)
+- Indonesian (id)
+- Italian (it)
 - Japanese (ja)
+- Korean (ko)
+- Malay (ms)
+- Dutch (nl-NL)
+- Norwegian (no)
+- Polish (pl)
+- Portuguese - Brazil (pt-BR)
+- Portuguese - Portugal (pt-PT)
+- Romanian (ro)
+- Russian (ru)
+- Slovak (sk)
+- Swedish (sv)
 - Thai (th)
+- Turkish (tr)
+- Ukrainian (uk)
+- Vietnamese (vi)
 - Chinese Simplified (zh-Hans)
 - Chinese Traditional (zh-Hant)
 
@@ -74,16 +109,22 @@ The project supports the following languages:
         "value": "English Text"
       }
     },
+    "ar-SA": {
+      "stringUnit": {
+        "state": "translated",
+        "value": "نص عربي"
+      }
+    },
     "ja": {
       "stringUnit": {
         "state": "translated",
         "value": "日本語テキスト"
       }
     },
-    "th": {
+    "ko": {
       "stringUnit": {
         "state": "translated",
-        "value": "ข้อความภาษาไทย"
+        "value": "한국어 텍스트"
       }
     },
     "zh-Hans": {
@@ -98,6 +139,7 @@ The project supports the following languages:
         "value": "繁體中文文本"
       }
     }
+    // ... other languages
   }
 }
 ```
@@ -116,3 +158,6 @@ The project supports the following languages:
 - Focus on meaningful text strings that appear in the user interface
 - If a string already has a translation for a language, do not modify it unless it's clearly incorrect
 - The `"state": "translated"` field is important for the build system to recognize completed translations
+- For locale codes, use the exact format from fastlane/metadata (e.g., "ar-SA" not "ar", "de-DE" not "de")
+- English variants (en-AU, en-CA, en-GB, en-US) can share the same translation as "en" unless specific regional differences are needed
+- Regional variants like fr-CA vs fr-FR, es-ES vs es-MX, pt-BR vs pt-PT should have appropriate regional variations where applicable

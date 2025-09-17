@@ -15,10 +15,83 @@
 
 default_platform(:ios)
 
+TARGET_IDENTIFIER_MAP = {
+      'LiveClock-iOS' => 'io.ngs.LiveClock',
+}.freeze
+
 platform :ios do
-  desc "Push a new beta build to TestFlight"
-  lane :beta do
-    build_app(workspace: "LiveClock.xcworkspace", scheme: "LiveClock-Workspace")
-    upload_to_testflight
+  desc 'Create keychain'
+  lane :create_ci_keychain do
+    create_keychain(
+      default_keychain: true,
+      unlock: true,
+      timeout: 3600
+    )
+  end
+
+  desc 'Match Ad-Hoc Provisioning Profiles'
+  lane :beta_match do
+    xcode_select ENV['XCODE_PATH'] if ENV['XCODE_PATH']
+    match type: 'adhoc', app_identifier: 'io.ngs.LiveClock'
+  end
+
+  desc 'Match App Store Provisioning Profiles'
+  lane :release_match do
+    xcode_select ENV['XCODE_PATH'] if ENV['XCODE_PATH']
+    match type: 'appstore', app_identifier: 'io.ngs.LiveClock'
+  end
+
+  desc 'Build app for beta'
+  lane :beta_build do
+    xcode_select ENV['XCODE_PATH'] if ENV['XCODE_PATH']
+    TARGET_IDENTIFIER_MAP.each do |target, identifier|
+      update_code_signing_settings(
+        profile_name: "match AdHoc #{identifier}",
+        bundle_identifier: identifier,
+        use_automatic_signing: false,
+        targets: [target],
+        code_sign_identity: 'Apple Distribution',
+        build_configurations: %w(Release),
+        path: 'LiveClock.xcodeproj'
+      )
+    end
+    build_app(
+      export_method: 'ad-hoc',
+      scheme: 'LiveClock-iOS',
+      output_directory: './build/beta',
+      export_options: {
+        iCloudContainerEnvironment: 'Production'
+      }
+    )
+  end
+
+  desc 'Build app for beta'
+  lane :release_build do
+    xcode_select ENV['XCODE_PATH'] if ENV['XCODE_PATH']
+    TARGET_IDENTIFIER_MAP.each do |target, identifier|
+      update_code_signing_settings(
+        profile_name: "match AppStore #{identifier}",
+        bundle_identifier: identifier,
+        use_automatic_signing: false,
+        code_sign_identity: 'Apple Distribution',
+        targets: [target],
+        build_configurations: %w(Release),
+        path: 'LiveClock.xcodeproj'
+      )
+    end
+    build_app(
+      export_method: 'app-store',
+      output_directory: './build/release',
+      catalyst_platform: 'ios',
+      scheme: 'LiveClock-iOS'
+    )
+  end
+
+  desc 'Publish app to App Store'
+  lane :release_upload do
+    pilot(
+      skip_waiting_for_build_processing: true,
+      ipa: './build/release/LiveClock_iOS.ipa'
+    )
   end
 end
