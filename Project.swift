@@ -19,7 +19,7 @@ let project = Project(
             "INFOPLIST_KEY_CFBundleName": .string("LiveClock"),
             "CURRENT_PROJECT_VERSION": .string(actionRunId),
             "MARKETING_VERSION": .string(version),
-            "DEVELOPMENT_TEAM": .string("3Y8APYUG2G"),
+            "DEVELOPMENT_TEAM": .string("3Y8APYUG2G")
         ]),
     targets: [
         .target(
@@ -36,7 +36,7 @@ let project = Project(
                 "CFBundleDisplayName": .string("LiveClock"),
                 "CFBundleName": .string("LiveClock"),
                 "CFBundleVersion": .string("$(CURRENT_PROJECT_VERSION)"),
-                "CFBundleShortVersionString": .string("$(MARKETING_VERSION)"),
+                "CFBundleShortVersionString": .string("$(MARKETING_VERSION)")
             ]),
             sources: ["Sources/App/**"],
             resources: ["Sources/Resources/**"],
@@ -50,7 +50,7 @@ let project = Project(
             dependencies: [
                 .package(product: "LiveClockCore"),
                 .package(product: "LiveClockPlatform"),
-                .package(product: "LiveClockUI"),
+                .package(product: "LiveClockUI")
             ]
         ),
         .target(
@@ -74,7 +74,7 @@ let project = Project(
             dependencies: [
                 .package(product: "LiveClockCore"),
                 .package(product: "LiveClockPlatform"),
-                .package(product: "LiveClockUI"),
+                .package(product: "LiveClockUI")
             ]
         ),
         .target(
@@ -96,7 +96,7 @@ let project = Project(
             dependencies: [
                 .package(product: "LiveClockCore"),
                 .package(product: "LiveClockPlatform"),
-                .package(product: "LiveClockUI"),
+                .package(product: "LiveClockUI")
             ]
         ),
         .target(
@@ -109,7 +109,7 @@ let project = Project(
             dependencies: [
                 .target(name: "LiveClock-iOS"),
                 .package(product: "LiveClockCore"),
-                .package(product: "LiveClockUI"),
+                .package(product: "LiveClockUI")
             ]
         ),
         .target(
@@ -122,7 +122,7 @@ let project = Project(
             dependencies: [
                 .target(name: "LiveClock-macOS"),
                 .package(product: "LiveClockCore"),
-                .package(product: "LiveClockUI"),
+                .package(product: "LiveClockUI")
             ]
         ),
         .target(
@@ -135,9 +135,9 @@ let project = Project(
             dependencies: [
                 .target(name: "LiveClock-visionOS"),
                 .package(product: "LiveClockCore"),
-                .package(product: "LiveClockUI"),
+                .package(product: "LiveClockUI")
             ]
-        ),
+        )
     ],
     schemes: [
         .scheme(
@@ -169,6 +169,6 @@ let project = Project(
                 options: .options(coverage: true)
             ),
             runAction: .runAction(configuration: .debug)
-        ),
+        )
     ]
 )
