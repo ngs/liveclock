@@ -43,7 +43,7 @@ The project supports the following languages:
    This is a stopwatch/timer application with the following features:
    - Start, Stop, Resume, Reset controls
    - Lap time tracking
-   - Export functionality (CSV, RTF formats)
+   - Export functionality (CSV format)
    - Preferences for appearance and behavior
    - Sound and haptic feedback options
    - Color customization
