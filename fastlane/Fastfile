@@ -65,7 +65,7 @@ platform :ios do
     )
   end
 
-  desc 'Build app for beta'
+  desc 'Build app for release'
   lane :release_build do
     xcode_select ENV['XCODE_PATH'] if ENV['XCODE_PATH']
     TARGET_IDENTIFIER_MAP.each do |target, identifier|
