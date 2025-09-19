@@ -132,8 +132,21 @@ platform :mac do
   desc 'Match App Store Provisioning Profiles for macOS'
   lane :release_match do
     xcode_select ENV['XCODE_PATH'] if ENV['XCODE_PATH']
-    match type: 'appstore', app_identifier: 'io.ngs.LiveClock', platform: 'macos',
-          readonly: ENV['MATCH_READONLY'] == 'true'
+    # Get Application Distribution certificate and provisioning profile
+    match(
+      type: 'appstore',
+      app_identifier: 'io.ngs.LiveClock',
+      platform: 'macos',
+      readonly: ENV['MATCH_READONLY'] == 'true'
+    )
+    # Get Mac Installer Distribution certificate for PKG creation
+    match(
+      type: 'appstore',
+      app_identifier: 'io.ngs.LiveClock',
+      platform: 'macos',
+      additional_cert_types: 'mac_installer_distribution',
+      readonly: ENV['MATCH_READONLY'] == 'true'
+    )
   end
 
   desc 'Build app for macOS release'
@@ -157,7 +170,9 @@ platform :mac do
       output_directory: './build/release',
       scheme: 'LiveClock-macOS',
       destination: 'platform=macOS',
+      skip_package_pkg: false, # Generate PKG for App Store upload
       export_options: {
+        method: 'app-store',
         provisioningProfiles: {
           'io.ngs.LiveClock' => profile_name
         }
@@ -177,10 +192,15 @@ platform :mac do
       )
     end
 
-    pilot(
-      skip_waiting_for_build_processing: true,
+    # Upload macOS app to App Store Connect
+    upload_to_app_store(
+      app_identifier: 'io.ngs.LiveClock',
+      platform: 'osx',
       pkg: './build/release/LiveClock_macOS.pkg',
-      platform: 'osx'
+      skip_screenshots: true,
+      skip_metadata: true,
+      force: true,
+      run_precheck_before_submit: false
     )
   end
 end
