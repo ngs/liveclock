@@ -218,7 +218,9 @@ jobs:
 
   create-release:
     needs: [release, determine-platforms]
-    if: success() && needs.determine-platforms.outputs.skip_upload != 'true'
+    if: |
+      always() &&
+      needs.determine-platforms.outputs.skip_upload != 'true'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
