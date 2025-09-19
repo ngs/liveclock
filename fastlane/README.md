@@ -13,13 +13,13 @@ For _fastlane_ installation instructions, see [Installing _fastlane_](https://do
 
 # Available Actions
 
-### deliver_metadata
+### setup_app_store_connect_api_key
 
 ```sh
-[bundle exec] fastlane deliver_metadata
+[bundle exec] fastlane setup_app_store_connect_api_key
 ```
 
-Update App Store metadata
+Setup AppStore Connect API Key
 
 ----
 
@@ -74,6 +74,22 @@ Build app for release
 
 Publish app to App Store
 
+### ios deliver_metadata
+
+```sh
+[bundle exec] fastlane ios deliver_metadata
+```
+
+Update App Store metadata
+
+### ios deliver_screenshots
+
+```sh
+[bundle exec] fastlane ios deliver_screenshots
+```
+
+Update App Store screenshots
+
 ----
 
 
@@ -111,6 +127,22 @@ Build app for macOS release
 
 Publish macOS app to App Store
 
+### mac deliver_metadata
+
+```sh
+[bundle exec] fastlane mac deliver_metadata
+```
+
+Update App Store metadata
+
+### mac deliver_screenshots
+
+```sh
+[bundle exec] fastlane mac deliver_screenshots
+```
+
+Update App Store screenshots
+
 ----
 
 
@@ -139,6 +171,22 @@ Build app for visionOS release
 ```
 
 Publish visionOS app to App Store
+
+### visionos deliver_metadata
+
+```sh
+[bundle exec] fastlane visionos deliver_metadata
+```
+
+Update App Store metadata
+
+### visionos deliver_screenshots
+
+```sh
+[bundle exec] fastlane visionos deliver_screenshots
+```
+
+Update App Store screenshots
 
 ----
 

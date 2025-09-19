@@ -1,8 +1,6 @@
 name: Release Build and Upload
 
 on:
-  push:
-    branches: [fastlane]
   # Trigger when CI workflow completes successfully
   workflow_run:
     workflows: ["CI"]
@@ -110,7 +108,6 @@ jobs:
       always() &&
       (
         (github.event_name == 'workflow_dispatch') ||
-        (github.event_name == 'push') ||
         (github.event_name == 'workflow_run' && needs.check-ci-status.outputs.should_deploy == 'true')
       )
     runs-on: macos-latest

@@ -14,7 +14,7 @@
 
 # Uncomment the line if you want fastlane to automatically update itself
 # update_fastlane
-
+#
 default_platform(:ios)
 
 TARGET_IDENTIFIER_MAP = {
@@ -102,19 +102,41 @@ platform :ios do
 
   desc 'Publish app to App Store'
   lane :release_upload do
-    # Use App Store Connect API key if available
-    if ENV['APP_STORE_CONNECT_API_KEY_KEY_ID'] && ENV['APP_STORE_CONNECT_API_KEY_ISSUER_ID'] && ENV['APP_STORE_CONNECT_API_KEY_KEY']
-      app_store_connect_api_key(
-        key_id: ENV['APP_STORE_CONNECT_API_KEY_KEY_ID'],
-        issuer_id: ENV['APP_STORE_CONNECT_API_KEY_ISSUER_ID'],
-        key_content: ENV['APP_STORE_CONNECT_API_KEY_KEY'],
-        is_key_content_base64: ENV['APP_STORE_CONNECT_API_KEY_IS_KEY_CONTENT_BASE64'] == 'true'
-      )
-    end
+    setup_app_store_connect_api_key
 
     pilot(
       skip_waiting_for_build_processing: true,
       ipa: './build/release/LiveClock_iOS.ipa'
+    )
+  end
+
+  desc 'Update App Store metadata'
+  lane :deliver_metadata do
+    setup_app_store_connect_api_key
+
+    deliver(
+      platform: 'ios',
+      force: true,
+      skip_screenshots: true,
+      skip_binary_upload: true,
+      run_precheck_before_submit: false,
+      metadata_path: './fastlane/metadata',
+      app_identifier: 'io.ngs.LiveClock'
+    )
+  end
+
+  desc 'Update App Store screenshots'
+  lane :deliver_screenshots do
+    setup_app_store_connect_api_key
+
+    deliver(
+      platform: 'ios',
+      force: true,
+      skip_metadata: true,
+      skip_binary_upload: true,
+      run_precheck_before_submit: false,
+      screenshots_path: './fastlane/screenshots',
+      app_identifier: 'io.ngs.LiveClock'
     )
   end
 end
@@ -182,15 +204,7 @@ platform :mac do
 
   desc 'Publish macOS app to App Store'
   lane :release_upload do
-    # Use App Store Connect API key if available
-    if ENV['APP_STORE_CONNECT_API_KEY_KEY_ID'] && ENV['APP_STORE_CONNECT_API_KEY_ISSUER_ID'] && ENV['APP_STORE_CONNECT_API_KEY_KEY']
-      app_store_connect_api_key(
-        key_id: ENV['APP_STORE_CONNECT_API_KEY_KEY_ID'],
-        issuer_id: ENV['APP_STORE_CONNECT_API_KEY_ISSUER_ID'],
-        key_content: ENV['APP_STORE_CONNECT_API_KEY_KEY'],
-        is_key_content_base64: ENV['APP_STORE_CONNECT_API_KEY_IS_KEY_CONTENT_BASE64'] == 'true'
-      )
-    end
+    setup_app_store_connect_api_key
 
     # Upload macOS app to App Store Connect
     upload_to_app_store(
@@ -201,6 +215,36 @@ platform :mac do
       skip_metadata: true,
       force: true,
       run_precheck_before_submit: false
+    )
+  end
+
+  desc 'Update App Store metadata'
+  lane :deliver_metadata do
+    setup_app_store_connect_api_key
+
+    deliver(
+      platform: 'osx',
+      force: true,
+      skip_screenshots: true,
+      skip_binary_upload: true,
+      run_precheck_before_submit: false,
+      metadata_path: './fastlane/metadata',
+      app_identifier: 'io.ngs.LiveClock'
+    )
+  end
+
+  desc 'Update App Store screenshots'
+  lane :deliver_screenshots do
+    setup_app_store_connect_api_key
+
+    deliver(
+      platform: 'osx',
+      force: true,
+      skip_metadata: true,
+      skip_binary_upload: true,
+      run_precheck_before_submit: false,
+      screenshots_path: './fastlane/screenshots',
+      app_identifier: 'io.ngs.LiveClock'
     )
   end
 end
@@ -244,44 +288,53 @@ platform :visionos do
 
   desc 'Publish visionOS app to App Store'
   lane :release_upload do
-    # Use App Store Connect API key if available
-    if ENV['APP_STORE_CONNECT_API_KEY_KEY_ID'] && ENV['APP_STORE_CONNECT_API_KEY_ISSUER_ID'] && ENV['APP_STORE_CONNECT_API_KEY_KEY']
-      app_store_connect_api_key(
-        key_id: ENV['APP_STORE_CONNECT_API_KEY_KEY_ID'],
-        issuer_id: ENV['APP_STORE_CONNECT_API_KEY_ISSUER_ID'],
-        key_content: ENV['APP_STORE_CONNECT_API_KEY_KEY'],
-        is_key_content_base64: ENV['APP_STORE_CONNECT_API_KEY_IS_KEY_CONTENT_BASE64'] == 'true'
-      )
-    end
+    setup_app_store_connect_api_key
 
     pilot(
       skip_waiting_for_build_processing: true,
       ipa: './build/release/LiveClock_visionOS.ipa'
     )
   end
-end
 
-# Cross-platform deliver lane
-desc 'Update App Store metadata'
-lane :deliver_metadata do
-  # Use App Store Connect API key if available
-  if ENV['APP_STORE_CONNECT_API_KEY_KEY_ID'] && ENV['APP_STORE_CONNECT_API_KEY_ISSUER_ID'] && ENV['APP_STORE_CONNECT_API_KEY_KEY']
-    app_store_connect_api_key(
-      key_id: ENV['APP_STORE_CONNECT_API_KEY_KEY_ID'],
-      issuer_id: ENV['APP_STORE_CONNECT_API_KEY_ISSUER_ID'],
-      key_content: ENV['APP_STORE_CONNECT_API_KEY_KEY'],
-      is_key_content_base64: ENV['APP_STORE_CONNECT_API_KEY_IS_KEY_CONTENT_BASE64'] == 'true'
+  desc 'Update App Store metadata'
+  lane :deliver_metadata do
+    setup_app_store_connect_api_key
+
+    deliver(
+      platform: 'xros',
+      force: true,
+      skip_screenshots: true,
+      skip_binary_upload: true,
+      run_precheck_before_submit: false,
+      metadata_path: './fastlane/metadata',
+      app_identifier: 'io.ngs.LiveClock'
     )
   end
 
-  # Run deliver with environment variables
-  deliver(
-    platform: ENV['DELIVER_PLATFORM'],
-    force: ENV['DELIVER_FORCE'] == 'true',
-    skip_screenshots: ENV['DELIVER_SKIP_SCREENSHOTS'] == 'true',
-    skip_binary_upload: ENV['DELIVER_SKIP_BINARY_UPLOAD'] == 'true',
-    run_precheck_before_submit: ENV['DELIVER_RUN_PRECHECK_BEFORE_SUBMIT'] != 'false',
-    metadata_path: './fastlane/metadata',
-    app_identifier: 'io.ngs.LiveClock'
+  desc 'Update App Store screenshots'
+  lane :deliver_screenshots do
+    setup_app_store_connect_api_key
+
+    deliver(
+      platform: 'xros',
+      force: true,
+      skip_metadata: true,
+      skip_binary_upload: true,
+      run_precheck_before_submit: false,
+      screenshots_path: './fastlane/screenshots',
+      app_identifier: 'io.ngs.LiveClock'
+    )
+  end
+end
+
+desc 'Setup AppStore Connect API Key'
+lane :setup_app_store_connect_api_key do
+  return unless ENV['APP_STORE_CONNECT_API_KEY_KEY_ID'] && ENV['APP_STORE_CONNECT_API_KEY_ISSUER_ID'] && ENV['APP_STORE_CONNECT_API_KEY_KEY']
+
+  app_store_connect_api_key(
+    key_id: ENV['APP_STORE_CONNECT_API_KEY_KEY_ID'],
+    issuer_id: ENV['APP_STORE_CONNECT_API_KEY_ISSUER_ID'],
+    key_content: ENV['APP_STORE_CONNECT_API_KEY_KEY'],
+    is_key_content_base64: ENV['APP_STORE_CONNECT_API_KEY_IS_KEY_CONTENT_BASE64'] == 'true'
   )
 end

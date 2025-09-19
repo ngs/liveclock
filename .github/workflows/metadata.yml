@@ -2,7 +2,7 @@ name: Update metadata
 
 on:
   push:
-    branches: [fastlane, master]
+    branches: [master, fastlane]
 
 env:
   # Load all secrets as environment variables
@@ -30,15 +30,15 @@ env:
 
 jobs:
   deliver:
-    name: Deliver ${{ matrix.name || matrix.platform }}
+    name: Deliver ${{ matrix.name }}
     strategy:
       matrix:
         include:
-          - platform: osx
+          - platform: mac
             name: macOS
           - platform: ios
             name: iOS
-          - platform: xros
+          - platform: visionos
             name: visionOS
     runs-on: macos-latest
 
@@ -54,13 +54,7 @@ jobs:
           ruby-version: "3.3"
           bundler-cache: true
 
-      - run: bundle exec fastlane deliver_metadata
-        env:
-          DELIVER_PLATFORM: ${{ matrix.platform }}
-          DELIVER_FORCE: "true"
-          DELIVER_SKIP_SCREENSHOTS: "true"
-          DELIVER_SKIP_BINARY_UPLOAD: "true"
-          DELIVER_RUN_PRECHECK_BEFORE_SUBMIT: ${{ matrix.platform == 'xros' && 'false' || 'true' }}
+      - run: bundle exec fastlane ${{ matrix.platform }} deliver_metadata
 
       - name: Upload report.xml
         if: always()
