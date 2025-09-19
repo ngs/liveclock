@@ -83,7 +83,7 @@ let project = Project(
             name: "LiveClock-visionOS",
             destinations: [.appleVision],
             product: .app,
-            bundleId: "io.ngs.LiveClock.vision",
+            bundleId: "io.ngs.LiveClock",
             deploymentTargets: .visionOS("1.0"),
             infoPlist: .extendingDefault(with: [
                 "ITSAppUsesNonExemptEncryption": .boolean(false)
@@ -120,7 +120,7 @@ let project = Project(
             name: "LiveClockTests-macOS",
             destinations: [.mac],
             product: .unitTests,
-            bundleId: "io.ngs.LiveClockTests.mac",
+            bundleId: "io.ngs.LiveClockTests",
             deploymentTargets: .macOS("13.0"),
             sources: ["Tests/**"],
             dependencies: [
@@ -133,7 +133,7 @@ let project = Project(
             name: "LiveClockTests-visionOS",
             destinations: [.appleVision],
             product: .unitTests,
-            bundleId: "io.ngs.LiveClockTests.vision",
+            bundleId: "io.ngs.LiveClockTests",
             deploymentTargets: .visionOS("1.0"),
             sources: ["Tests/**"],
             dependencies: [

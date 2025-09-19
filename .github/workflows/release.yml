@@ -88,11 +88,6 @@ jobs:
           ruby-version: "3.3"
           bundler-cache: true
 
-      - name: Install Fastlane
-        run: |
-          gem install bundler
-          bundle install
-
       - run: bundle exec fastlane ios create_ci_keychain
 
       - name: Setup SSH for Match
