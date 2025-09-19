@@ -62,10 +62,12 @@ let project = Project(
             deploymentTargets: .macOS("13.0"),
             infoPlist: .extendingDefault(with: [
                 "ITSAppUsesNonExemptEncryption": .boolean(false),
-                "NSHumanReadableCopyright": .string(copyright)
+                "NSHumanReadableCopyright": .string(copyright),
+                "LSApplicationCategoryType": .string("public.app-category.productivity")
             ]),
             sources: ["Sources/App/**"],
             resources: ["Sources/Resources/**"],
+            entitlements: .file(path: "Resources/LiveClock-macOS.entitlements"),
             scripts: [
                 .pre(
                     script: "${SRCROOT}/Scripts/swiftlint-fix-build-phase.sh",
