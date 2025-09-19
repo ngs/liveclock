@@ -13,6 +13,17 @@ For _fastlane_ installation instructions, see [Installing _fastlane_](https://do
 
 # Available Actions
 
+### deliver_metadata
+
+```sh
+[bundle exec] fastlane deliver_metadata
+```
+
+Update App Store metadata
+
+----
+
+
 ## iOS
 
 ### ios create_ci_keychain

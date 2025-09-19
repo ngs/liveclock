@@ -214,3 +214,28 @@ platform :visionos do
     )
   end
 end
+
+# Cross-platform deliver lane
+desc 'Update App Store metadata'
+lane :deliver_metadata do
+  # Use App Store Connect API key if available
+  if ENV['APP_STORE_CONNECT_API_KEY_KEY_ID'] && ENV['APP_STORE_CONNECT_API_KEY_ISSUER_ID'] && ENV['APP_STORE_CONNECT_API_KEY_KEY']
+    app_store_connect_api_key(
+      key_id: ENV['APP_STORE_CONNECT_API_KEY_KEY_ID'],
+      issuer_id: ENV['APP_STORE_CONNECT_API_KEY_ISSUER_ID'],
+      key_content: ENV['APP_STORE_CONNECT_API_KEY_KEY'],
+      is_key_content_base64: ENV['APP_STORE_CONNECT_API_KEY_IS_KEY_CONTENT_BASE64'] == 'true'
+    )
+  end
+
+  # Run deliver with environment variables
+  deliver(
+    platform: ENV['DELIVER_PLATFORM'],
+    force: ENV['DELIVER_FORCE'] == 'true',
+    skip_screenshots: ENV['DELIVER_SKIP_SCREENSHOTS'] == 'true',
+    skip_binary_upload: ENV['DELIVER_SKIP_BINARY_UPLOAD'] == 'true',
+    run_precheck_before_submit: ENV['DELIVER_RUN_PRECHECK_BEFORE_SUBMIT'] != 'false',
+    metadata_path: './fastlane/metadata',
+    app_identifier: 'io.ngs.LiveClock'
+  )
+end
