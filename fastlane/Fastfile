@@ -72,9 +72,13 @@ platform :ios do
   desc 'Build app for release'
   lane :release_build do
     xcode_select ENV['XCODE_PATH'] if ENV['XCODE_PATH']
+
+    # Get the provisioning profile name from match
+    profile_name = ENV['sigh_io.ngs.LiveClock_appstore_profile-name'] || 'match AppStore io.ngs.LiveClock'
+
     TARGET_IDENTIFIER_MAP.each do |target, identifier|
       update_code_signing_settings(
-        profile_name: "match AppStore #{identifier}",
+        profile_name: profile_name,
         bundle_identifier: identifier,
         use_automatic_signing: false,
         code_sign_identity: 'Apple Distribution',
@@ -90,7 +94,7 @@ platform :ios do
       scheme: 'LiveClock-iOS',
       export_options: {
         provisioningProfiles: {
-          'io.ngs.LiveClock' => 'match AppStore io.ngs.LiveClock'
+          'io.ngs.LiveClock' => profile_name
         }
       }
     )
@@ -135,8 +139,12 @@ platform :mac do
   desc 'Build app for macOS release'
   lane :release_build do
     xcode_select ENV['XCODE_PATH'] if ENV['XCODE_PATH']
+
+    # Get the provisioning profile name from match
+    profile_name = ENV['sigh_io.ngs.LiveClock_appstore_macos_profile-name'] || 'match AppStore io.ngs.LiveClock macos'
+
     update_code_signing_settings(
-      profile_name: 'match AppStore io.ngs.LiveClock macos',
+      profile_name: profile_name,
       bundle_identifier: 'io.ngs.LiveClock',
       use_automatic_signing: false,
       code_sign_identity: 'Apple Distribution',
@@ -151,7 +159,7 @@ platform :mac do
       destination: 'platform=macOS',
       export_options: {
         provisioningProfiles: {
-          'io.ngs.LiveClock' => 'match AppStore io.ngs.LiveClock macos'
+          'io.ngs.LiveClock' => profile_name
         }
       }
     )
@@ -189,8 +197,12 @@ platform :visionos do
   desc 'Build app for visionOS release'
   lane :release_build do
     xcode_select ENV['XCODE_PATH'] if ENV['XCODE_PATH']
+
+    # Get the provisioning profile name from match (visionOS uses iOS profiles)
+    profile_name = ENV['sigh_io.ngs.LiveClock_appstore_profile-name'] || 'match AppStore io.ngs.LiveClock'
+
     update_code_signing_settings(
-      profile_name: 'match AppStore io.ngs.LiveClock',
+      profile_name: profile_name,
       bundle_identifier: 'io.ngs.LiveClock',
       use_automatic_signing: false,
       code_sign_identity: 'Apple Distribution',
@@ -205,7 +217,7 @@ platform :visionos do
       destination: 'generic/platform=visionOS',
       export_options: {
         provisioningProfiles: {
-          'io.ngs.LiveClock' => 'match AppStore io.ngs.LiveClock'
+          'io.ngs.LiveClock' => profile_name
         }
       }
     )
