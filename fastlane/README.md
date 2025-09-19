@@ -122,7 +122,7 @@ Publish macOS app to App Store
 [bundle exec] fastlane visionos release_match
 ```
 
-Match App Store Provisioning Profiles for visionOS
+Match App Store Provisioning Profiles for visionOS (alias to iOS)
 
 ### visionos release_build
 

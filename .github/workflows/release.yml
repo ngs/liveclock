@@ -198,19 +198,19 @@ jobs:
         if: steps.params.outputs.platform == 'all' || steps.params.outputs.platform == 'visionos'
         run: |
           echo "Running fastlane visionOS release_match..."
-          bundle exec fastlane ios visionos_release_match
+          bundle exec fastlane visionos release_match
 
       - name: Build visionOS release version
         if: steps.params.outputs.platform == 'all' || steps.params.outputs.platform == 'visionos'
         run: |
           echo "Running fastlane visionOS release_build..."
-          bundle exec fastlane ios visionos_release_build
+          bundle exec fastlane visionos release_build
 
       - name: Upload visionOS to App Store Connect
         if: (steps.params.outputs.platform == 'all' || steps.params.outputs.platform == 'visionos') && steps.params.outputs.skip_upload != 'true'
         run: |
           echo "Running fastlane visionOS release_upload..."
-          bundle exec fastlane ios visionos_release_upload
+          bundle exec fastlane visionos release_upload
 
       - name: Upload build artifacts
         if: success()

@@ -207,11 +207,10 @@ end
 
 # visionOS uses iOS platform but with different scheme
 platform :visionos do
-  desc 'Match App Store Provisioning Profiles for visionOS'
+  desc 'Match App Store Provisioning Profiles for visionOS (alias to iOS)'
   lane :release_match do
-    xcode_select ENV['XCODE_PATH'] if ENV['XCODE_PATH']
-    # visionOS uses iOS provisioning profiles
-    match type: 'appstore', app_identifier: 'io.ngs.LiveClock', readonly: ENV['MATCH_READONLY'] == 'true'
+    # visionOS uses iOS provisioning profiles, so just call the iOS lane
+    Fastlane::LaneManager.cruise_lane('ios', 'release_match')
   end
 
   desc 'Build app for visionOS release'
