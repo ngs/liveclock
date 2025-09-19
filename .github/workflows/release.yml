@@ -15,6 +15,16 @@ on:
   # Manual trigger
   workflow_dispatch:
     inputs:
+      platform:
+        description: "Platform to build"
+        required: true
+        type: choice
+        options:
+          - all
+          - ios
+          - macos
+          - visionos
+        default: all
       skip_upload:
         description: "Skip App Store Upload"
         required: false
@@ -116,9 +126,11 @@ jobs:
         run: |
           if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
             echo "skip_upload=${{ github.event.inputs.skip_upload }}" >> $GITHUB_OUTPUT
+            echo "platform=${{ github.event.inputs.platform }}" >> $GITHUB_OUTPUT
           else
             # Default for CI completion trigger
             echo "skip_upload=false" >> $GITHUB_OUTPUT
+            echo "platform=all" >> $GITHUB_OUTPUT
           fi
 
       - name: Install tuist
@@ -142,29 +154,71 @@ jobs:
           echo "Current version: $VERSION"
           echo "Build number will be: ${{ github.run_id }}"
 
-      - name: Sync certificates and profiles (release_match)
+      # iOS Build and Upload
+      - name: Sync iOS certificates and profiles
+        if: steps.params.outputs.platform == 'all' || steps.params.outputs.platform == 'ios'
         run: |
-          echo "Running fastlane release_match..."
-          bundle exec fastlane release_match
+          echo "Running fastlane iOS release_match..."
+          bundle exec fastlane ios release_match
 
-      - name: Build release version (release_build)
+      - name: Build iOS release version
+        if: steps.params.outputs.platform == 'all' || steps.params.outputs.platform == 'ios'
         run: |
-          echo "Running fastlane release_build with GitHub Actions Run ID: ${{ github.run_id }}"
-          bundle exec fastlane release_build
+          echo "Running fastlane iOS release_build with GitHub Actions Run ID: ${{ github.run_id }}"
+          bundle exec fastlane ios release_build
 
-      - name: Upload to App Store Connect (release_upload)
-        if: steps.params.outputs.skip_upload != 'true'
+      - name: Upload iOS to App Store Connect
+        if: (steps.params.outputs.platform == 'all' || steps.params.outputs.platform == 'ios') && steps.params.outputs.skip_upload != 'true'
         run: |
-          echo "Running fastlane release_upload..."
-          bundle exec fastlane release_upload
+          echo "Running fastlane iOS release_upload..."
+          bundle exec fastlane ios release_upload
 
-      - name: Upload IPA artifact
+      # macOS Build and Upload
+      - name: Sync macOS certificates and profiles
+        if: steps.params.outputs.platform == 'all' || steps.params.outputs.platform == 'macos'
+        run: |
+          echo "Running fastlane macOS release_match..."
+          bundle exec fastlane mac release_match
+
+      - name: Build macOS release version
+        if: steps.params.outputs.platform == 'all' || steps.params.outputs.platform == 'macos'
+        run: |
+          echo "Running fastlane macOS release_build..."
+          bundle exec fastlane mac release_build
+
+      - name: Upload macOS to App Store Connect
+        if: (steps.params.outputs.platform == 'all' || steps.params.outputs.platform == 'macos') && steps.params.outputs.skip_upload != 'true'
+        run: |
+          echo "Running fastlane macOS release_upload..."
+          bundle exec fastlane mac release_upload
+
+      # visionOS Build and Upload
+      - name: Sync visionOS certificates and profiles
+        if: steps.params.outputs.platform == 'all' || steps.params.outputs.platform == 'visionos'
+        run: |
+          echo "Running fastlane visionOS release_match..."
+          bundle exec fastlane ios visionos_release_match
+
+      - name: Build visionOS release version
+        if: steps.params.outputs.platform == 'all' || steps.params.outputs.platform == 'visionos'
+        run: |
+          echo "Running fastlane visionOS release_build..."
+          bundle exec fastlane ios visionos_release_build
+
+      - name: Upload visionOS to App Store Connect
+        if: (steps.params.outputs.platform == 'all' || steps.params.outputs.platform == 'visionos') && steps.params.outputs.skip_upload != 'true'
+        run: |
+          echo "Running fastlane visionOS release_upload..."
+          bundle exec fastlane ios visionos_release_upload
+
+      - name: Upload build artifacts
         if: success()
         uses: actions/upload-artifact@v4
         with:
-          name: ipa-release-${{ github.sha }}
+          name: release-${{ steps.params.outputs.platform }}-${{ github.sha }}
           path: |
             build/release/**/*.ipa
+            build/release/**/*.pkg
             fastlane/report.xml
             build/release/**/*.dSYM.zip
           retention-days: 30
@@ -180,6 +234,7 @@ jobs:
           generate_release_notes: true
           files: |
             build/release/**/*.ipa
+            build/release/**/*.pkg
             build/release/**/*.dSYM.zip
 
       - name: Slack notification - Success
@@ -196,6 +251,7 @@ jobs:
             "attachments": [{
               "color": "good",
               "fields": [
+                {"title": "Platform", "value": "${{ steps.params.outputs.platform }}", "short": true},
                 {"title": "Version", "value": "${{ steps.version.outputs.version || 'N/A' }}", "short": true},
                 {"title": "Build Number", "value": "${{ github.run_id }}", "short": true},
                 {"title": "Commit", "value": "${{ github.sha }}", "short": true}
