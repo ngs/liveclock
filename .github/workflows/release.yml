@@ -186,8 +186,8 @@ jobs:
           prerelease: false
           generate_release_notes: true
           files: |
-            build/**/*.ipa
-            build/**/*.dSYM.zip
+            build/release/**/*.ipa
+            build/release/**/*.dSYM.zip
 
       - name: Slack notification - Success
         if: success() && env.SLACK_WEBHOOK != ''
