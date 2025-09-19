@@ -1,9 +1,9 @@
-Live Clock The Gig Timer
+LiveClock The Gig Timer
 
 Scaffolded SwiftUI multi‑platform app source is under `Sources/`.
 
 - App identifier: `io.ngs.LiveClock`
-- Display name: Live Clock The Gig Timer
+- Display name: LiveClock The Gig Timer
 - Platforms: iOS, iPadOS, macOS, visionOS
 
 Docs

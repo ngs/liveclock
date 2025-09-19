@@ -1,4 +1,4 @@
-Live Clock - Profesyonel Konser Zamanlayıcısı, canlı performanslar, sunumlar ve etkinlik yönetimi için tasarlanmış hassas bir zamanlama aracıdır.
+LiveClock - Profesyonel Konser Zamanlayıcısı, canlı performanslar, sunumlar ve etkinlik yönetimi için tasarlanmış hassas bir zamanlama aracıdır.
 
 【Ana Özellikler】
 

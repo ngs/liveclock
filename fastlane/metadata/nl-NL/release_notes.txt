@@ -1,10 +1,1 @@
-Versie 1.0.0
 
-Eerste release
-- Zeer nauwkeurige stopwatchfunctie
-- Rondetijd registratie en beheer
-- Data-export in CSV-formaat
-- Aanpasbare thema's en kleuren
-- Groot digitaal display
-- Ondersteuning voor donkere modus
-- Scherm altijd aan optie

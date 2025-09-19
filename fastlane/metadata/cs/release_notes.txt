@@ -1,10 +1,1 @@
-Verze 1.0.0
 
-První vydání
-- Funkce vysoce přesných stopek
-- Záznam a správa času kol
-- Export dat ve formátu CSV
-- Přizpůsobitelné motivy a barvy
-- Velký digitální displej
-- Podpora tmavého režimu
-- Možnost stále zapnuté obrazovky

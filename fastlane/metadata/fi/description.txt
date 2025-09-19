@@ -1,4 +1,4 @@
-Live Clock - Ammattilaisen Keikka-ajastin on tarkka ajoitustyökalu, joka on suunniteltu live-esityksiin, esitelmiin ja tapahtumanhallintaan.
+LiveClock - Ammattilaisen Keikka-ajastin on tarkka ajoitustyökalu, joka on suunniteltu live-esityksiin, esitelmiin ja tapahtumanhallintaan.
 
 【Pääominaisuudet】
 

@@ -1,7 +1,7 @@
-Project Setup — Live Clock The Gig Timer
+Project Setup — LiveClock The Gig Timer
 
 Targets and Platforms
-- Product Name: Live Clock The Gig Timer
+- Product Name: LiveClock The Gig Timer
 - Bundle Identifier: io.ngs.LiveClock
 - Platforms: iOS, iPadOS, macOS, visionOS
 - Interface: SwiftUI, Language: Swift
@@ -12,7 +12,7 @@ Using Package.swift in Xcode (recommended)
 3) Xcode loads the package with targets: LiveClockCore, LiveClockPlatform, LiveClockUI, LiveClockApp.
 4) Create a new iOS (or Multiplatform) App target in the same workspace:
    - File > New > Target… > App (iOS or Multiplatform)
-   - Product Name: Live Clock The Gig Timer
+   - Product Name: LiveClock The Gig Timer
    - Bundle Identifier: io.ngs.LiveClock
 5) In the new app target’s General > Frameworks, Libraries, and Embedded Content, add the following package products:
    - LiveClockCore, LiveClockPlatform, LiveClockUI

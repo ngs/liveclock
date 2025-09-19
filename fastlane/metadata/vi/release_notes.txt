@@ -1,10 +1,1 @@
-Phiên bản 1.0.0
 
-Phát hành đầu tiên
-- Chức năng đồng hồ bấm giờ độ chính xác cao
-- Ghi lại và quản lý thời gian vòng
-- Xuất dữ liệu ở định dạng CSV
-- Chủ đề và màu sắc tùy chỉnh
-- Màn hình kỹ thuật số lớn
-- Hỗ trợ chế độ tối
-- Tùy chọn màn hình luôn bật

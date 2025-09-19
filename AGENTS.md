@@ -1,4 +1,4 @@
-Live Clock The Gig Timer — Agent Guide
+LiveClock The Gig Timer — Agent Guide
 
 This guide has moved to sectioned docs under `docs/`.
 

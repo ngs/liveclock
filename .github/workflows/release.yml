@@ -216,7 +216,7 @@ jobs:
   create-release:
     needs: [release, determine-platforms]
     if: |
-      always() &&
+      needs.release.result == 'success' &&
       needs.determine-platforms.outputs.skip_upload != 'true'
     runs-on: ubuntu-latest
     steps:
@@ -249,8 +249,10 @@ jobs:
             artifacts/**/*.dSYM.zip
 
   notify:
-    needs: [release, create-release]
-    if: always()
+    needs: [release, create-release, determine-platforms]
+    if: |
+      always() &&
+      needs.determine-platforms.outputs.skip_upload != 'true'
     runs-on: ubuntu-latest
     steps:
       - name: Slack notification - Success

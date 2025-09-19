@@ -1,10 +1,1 @@
-Version 1.0.0
 
-Version Initiale
-- Fonctionnalité chronomètre haute précision
-- Enregistrement et gestion des temps intermédiaires
-- Export de données au format CSV
-- Thèmes et couleurs personnalisables
-- Grand écran numérique
-- Support mode sombre
-- Option écran toujours allumé
