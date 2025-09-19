@@ -1,0 +1,51 @@
+Live Clock - Profesyonel Konser Zamanlayıcısı, canlı performanslar, sunumlar ve etkinlik yönetimi için tasarlanmış hassas bir zamanlama aracıdır.
+
+【Ana Özellikler】
+
+■ Büyük Dijital Ekran
+• Yüksek görünürlüklü tasarım, uzaktan kolayca görülebilir
+• Sahne ve stüdyo kullanımı için optimize edilmiş
+• Düşük ışıklı ortamlar için karanlık mod desteği
+
+■ Profesyonel Zamanlayıcı Özellikleri
+• Yüksek hassasiyetli kronometre
+• Tur zamanı kayıt özelliği
+• Sınırsız tur desteği
+• Milisaniye hassasiyetinde ölçüm
+
+■ Konser ve Etkinlik Yönetimi
+• Set listesi zaman yönetimi
+• Performans zamanı kaydı
+• Prova zamanı ölçümü
+• Birden fazla bölüm için zaman yönetimi
+
+■ Veri Dışa Aktarma
+• Tur zamanlarını CSV formatında dışa aktar
+• Performans kayıtlarını kaydet ve paylaş
+• Set listesi analizi için veri çıkışı
+
+■ Özelleştirilebilir Arayüz
+• Metin rengi özelleştirmesi
+• Birden fazla tema seçeneği
+• Her zaman açık ekran seçeneği
+• Optimum görünürlük için ayarlamalar
+
+■ Performans Optimizasyonu
+• Düşük enerji tüketimli tasarım
+• Pürüzsüz animasyonlar
+• Kararlı çalışma
+• Arka plan çalışma desteği
+
+【Kullanım Senaryoları】
+• Canlı performanslar
+• Tiyatro ve sahne
+• Sunumlar
+• Spor etkinlikleri
+• Müzik provaları
+• Yayın ve akış
+• Etkinlik ilerleme yönetimi
+
+【Profesyoneller İçin】
+Müzisyenler, etkinlik planlayıcıları, prodüktörler ve spor koçları dahil olmak üzere hassas zamanlamaya ihtiyaç duyan tüm profesyoneller için idealdir.
+
+Basit ve sezgisel bir arayüzü profesyonel düzeyde özelliklerle birleştirerek, her türlü performans veya etkinlik için güvenilir bir zamanlama aracı sağlar.

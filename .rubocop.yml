@@ -1,0 +1,18 @@
+AllCops:
+  NewCops: enable
+  TargetRubyVersion: 3.1
+  Exclude:
+    - 'vendor/**/*'
+    - '.bundle/**/*'
+
+Layout/LineLength:
+  Enabled: false
+
+Metrics/BlockLength:
+  Enabled: false
+
+# Fastlane commonly uses ENV[] pattern
+Style/FetchEnvVar:
+  Exclude:
+    - 'fastlane/**/*'
+

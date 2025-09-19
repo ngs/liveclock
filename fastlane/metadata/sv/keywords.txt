@@ -1,0 +1,1 @@
+timer,stoppklocka,live,gig,setlist,framträdande,varvtid,evenemang,scen,musik,repetition,CSV

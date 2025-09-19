@@ -1,0 +1,51 @@
+Live Clock - Temporizador Profissional para Espetáculos é uma ferramenta de cronometragem precisa concebida para atuações ao vivo, apresentações e gestão de eventos.
+
+【Funcionalidades Principais】
+
+■ Ecrã Digital Grande
+• Design de alta visibilidade, fácil de ver à distância
+• Otimizado para uso em palcos e estúdios
+• Suporte para modo escuro em ambientes com pouca luz
+
+■ Funções de Temporizador Profissional
+• Cronómetro de alta precisão
+• Função de registo de tempos parciais
+• Suporte para voltas ilimitadas
+• Medição precisa em milissegundos
+
+■ Gestão de Espetáculos e Eventos
+• Gestão de tempo de alinhamento
+• Registo de tempo de atuação
+• Medição de tempo de ensaio
+• Gestão de tempo de múltiplas secções
+
+■ Exportação de Dados
+• Exporte tempos parciais em formato CSV
+• Guarde e partilhe registos de atuação
+• Saída de dados para análise de alinhamento
+
+■ Interface Personalizável
+• Personalização de cores de texto
+• Múltiplas opções de tema
+• Opção de ecrã sempre ligado
+• Ajustes para visibilidade ideal
+
+■ Otimização de Desempenho
+• Design de baixo consumo energético
+• Animações fluidas
+• Operação estável
+• Suporte para operação em segundo plano
+
+【Cenários de Utilização】
+• Atuações ao vivo
+• Teatro e palco
+• Apresentações
+• Eventos desportivos
+• Ensaios musicais
+• Emissão e streaming
+• Gestão de progressão de eventos
+
+【Para Profissionais】
+Ideal para todos os profissionais que necessitam de cronometragem precisa, incluindo músicos, organizadores de eventos, produtores e treinadores desportivos.
+
+Combinando uma interface simples e intuitiva com funcionalidades de nível profissional, fornecendo uma ferramenta de cronometragem fiável para qualquer atuação ou evento.

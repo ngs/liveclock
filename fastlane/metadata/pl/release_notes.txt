@@ -1,0 +1,10 @@
+Wersja 1.0.0
+
+Pierwsze wydanie
+- Funkcja wysokoprecyzyjnego stopera
+- Rejestracja i zarządzanie czasem okrążeń
+- Eksport danych w formacie CSV
+- Dostosowywalne motywy i kolory
+- Duży cyfrowy wyświetlacz
+- Obsługa trybu ciemnego
+- Opcja zawsze włączonego ekranu

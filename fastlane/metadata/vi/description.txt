@@ -1,0 +1,51 @@
+Live Clock - Bộ hẹn giờ biểu diễn chuyên nghiệp là công cụ định thời chính xác được thiết kế cho các buổi biểu diễn trực tiếp, thuyết trình và quản lý sự kiện.
+
+【Tính năng chính】
+
+■ Màn hình kỹ thuật số lớn
+• Thiết kế tầm nhìn cao, dễ nhìn từ xa
+• Tối ưu hóa để sử dụng trên sân khấu và trong phòng thu
+• Hỗ trợ chế độ tối cho môi trường ánh sáng yếu
+
+■ Tính năng hẹn giờ chuyên nghiệp
+• Đồng hồ bấm giờ độ chính xác cao
+• Chức năng ghi lại thời gian vòng
+• Hỗ trợ số vòng không giới hạn
+• Đo chính xác đến miligiây
+
+■ Quản lý biểu diễn và sự kiện
+• Quản lý thời gian danh sách bài hát
+• Ghi lại thời gian biểu diễn
+• Đo thời gian tập luyện
+• Quản lý thời gian nhiều phần
+
+■ Xuất dữ liệu
+• Xuất thời gian vòng ở định dạng CSV
+• Lưu và chia sẻ hồ sơ biểu diễn
+• Xuất dữ liệu để phân tích danh sách bài hát
+
+■ Giao diện tùy chỉnh
+• Tùy chỉnh màu văn bản
+• Nhiều tùy chọn chủ đề
+• Tùy chọn màn hình luôn bật
+• Điều chỉnh để có tầm nhìn tối ưu
+
+■ Tối ưu hóa hiệu suất
+• Thiết kế tiết kiệm năng lượng
+• Hoạt ảnh mượt mà
+• Hoạt động ổn định
+• Hỗ trợ hoạt động nền
+
+【Tình huống sử dụng】
+• Biểu diễn trực tiếp
+• Nhà hát và sân khấu
+• Thuyết trình
+• Sự kiện thể thao
+• Tập luyện âm nhạc
+• Phát sóng và truyền trực tiếp
+• Quản lý tiến độ sự kiện
+
+【Dành cho chuyên nghiệp】
+Lý tưởng cho tất cả các chuyên gia cần định thời chính xác, bao gồm nhạc sĩ, người lập kế hoạch sự kiện, nhà sản xuất và huấn luyện viên thể thao.
+
+Kết hợp giao diện đơn giản và trực quan với các tính năng cấp chuyên nghiệp, cung cấp công cụ định thời đáng tin cậy cho bất kỳ buổi biểu diễn hoặc sự kiện nào.

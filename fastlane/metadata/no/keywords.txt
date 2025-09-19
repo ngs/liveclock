@@ -1,0 +1,1 @@
+timer,stoppeklokke,live,gig,settliste,opptreden,rundetid,arrangement,scene,musikk,øving,CSV

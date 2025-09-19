@@ -1,0 +1,51 @@
+Live Clock - Professional Gig Timer is a precision timing tool designed for live performances, presentations, and event management.
+
+【Key Features】
+
+■ Large Digital Display
+• High visibility design that's easy to read from a distance
+• Optimized for use on stage and in studios
+• Dark mode support for comfortable use in low-light environments
+
+■ Professional Timer Functions
+• High-precision stopwatch
+• Lap time recording functionality
+• Unlimited lap count support
+• Accurate measurement down to milliseconds
+
+■ Gig & Event Management
+• Setlist time management
+• Performance time recording
+• Rehearsal time measurement
+• Multi-section timing management
+
+■ Data Export
+• Export lap times in CSV format
+• Save and share performance records
+• Data output for setlist analysis
+
+■ Customizable Interface
+• Text color customization
+• Multiple theme options
+• Always-on screen option
+• Adjustments for optimal visibility
+
+■ Performance Optimization
+• Low power consumption design
+• Smooth animations
+• Stable operation
+• Background operation support
+
+【Use Cases】
+• Live performances
+• Theater and stage productions
+• Presentations
+• Sports events
+• Music rehearsals
+• Broadcasting and streaming
+• Event coordination
+
+【For Professionals】
+Perfect for all professionals who need precise timing: musicians, event planners, producers, sports coaches, and more.
+
+Combines a simple, intuitive interface with professional-grade features to provide a reliable timing tool for any performance or event.

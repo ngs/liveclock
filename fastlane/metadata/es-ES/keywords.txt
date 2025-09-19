@@ -1,0 +1,1 @@
+temporizador,cronómetro,directo,concierto,setlist,actuación,vuelta,evento,escenario,música,ensayo

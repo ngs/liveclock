@@ -1,0 +1,1 @@
+timer,cronômetro,show,setlist,performance,volta,evento,palco,música,ensaio,apresentação,CSV

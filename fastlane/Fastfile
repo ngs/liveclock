@@ -1,0 +1,344 @@
+# frozen_string_literal: true
+
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# For a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
+#
+default_platform(:ios)
+
+TARGET_IDENTIFIER_MAP = {
+  'LiveClock-iOS' => 'io.ngs.LiveClock',
+  'LiveClock-macOS' => 'io.ngs.LiveClock',
+  'LiveClock-visionOS' => 'io.ngs.LiveClock'
+}.freeze
+
+platform :ios do
+  desc 'Create keychain'
+  lane :create_ci_keychain do
+    create_keychain(
+      default_keychain: true,
+      unlock: true,
+      timeout: 3600
+    )
+  end
+
+  desc 'Match Ad-Hoc Provisioning Profiles'
+  lane :beta_match do
+    xcode_select ENV['XCODE_PATH'] if ENV['XCODE_PATH']
+    match type: 'adhoc', app_identifier: 'io.ngs.LiveClock', readonly: ENV['MATCH_READONLY'] == 'true'
+  end
+
+  desc 'Match App Store Provisioning Profiles'
+  lane :release_match do
+    xcode_select ENV['XCODE_PATH'] if ENV['XCODE_PATH']
+    match type: 'appstore', app_identifier: 'io.ngs.LiveClock', readonly: ENV['MATCH_READONLY'] == 'true'
+  end
+
+  desc 'Build app for beta'
+  lane :beta_build do
+    xcode_select ENV['XCODE_PATH'] if ENV['XCODE_PATH']
+    TARGET_IDENTIFIER_MAP.each do |target, identifier|
+      update_code_signing_settings(
+        profile_name: "match AdHoc #{identifier}",
+        bundle_identifier: identifier,
+        use_automatic_signing: false,
+        targets: [target],
+        code_sign_identity: 'Apple Distribution',
+        build_configurations: %w[Release],
+        path: 'LiveClock.xcodeproj'
+      )
+    end
+    build_app(
+      export_method: 'ad-hoc',
+      scheme: 'LiveClock-iOS',
+      output_directory: './build/beta',
+      export_options: {
+        iCloudContainerEnvironment: 'Production'
+      }
+    )
+  end
+
+  desc 'Build app for release'
+  lane :release_build do
+    xcode_select ENV['XCODE_PATH'] if ENV['XCODE_PATH']
+
+    # Get the provisioning profile name from match
+    profile_name = ENV['sigh_io.ngs.LiveClock_appstore_profile-name'] || 'match AppStore io.ngs.LiveClock'
+
+    TARGET_IDENTIFIER_MAP.each do |target, identifier|
+      update_code_signing_settings(
+        profile_name: profile_name,
+        bundle_identifier: identifier,
+        use_automatic_signing: false,
+        code_sign_identity: 'Apple Distribution',
+        targets: [target],
+        build_configurations: %w[Release],
+        path: 'LiveClock.xcodeproj'
+      )
+    end
+    build_app(
+      export_method: 'app-store',
+      output_directory: './build/release',
+      catalyst_platform: 'ios',
+      scheme: 'LiveClock-iOS',
+      export_options: {
+        provisioningProfiles: {
+          'io.ngs.LiveClock' => profile_name
+        }
+      }
+    )
+  end
+
+  desc 'Publish app to App Store'
+  lane :release_upload do
+    setup_app_store_connect_api_key
+
+    pilot(
+      skip_waiting_for_build_processing: true,
+      ipa: './build/release/LiveClock_iOS.ipa'
+    )
+  end
+
+  desc 'Update App Store metadata'
+  lane :deliver_metadata do
+    setup_app_store_connect_api_key
+
+    deliver(
+      platform: 'ios',
+      force: true,
+      skip_screenshots: true,
+      skip_binary_upload: true,
+      run_precheck_before_submit: false,
+      metadata_path: './fastlane/metadata',
+      app_identifier: 'io.ngs.LiveClock'
+    )
+  end
+
+  desc 'Update App Store screenshots'
+  lane :deliver_screenshots do
+    setup_app_store_connect_api_key
+
+    deliver(
+      platform: 'ios',
+      force: true,
+      skip_metadata: true,
+      skip_binary_upload: true,
+      run_precheck_before_submit: false,
+      overwrite_screenshots: true,
+      screenshots_path: './fastlane/screenshots/ios',
+      app_identifier: 'io.ngs.LiveClock'
+    )
+  end
+end
+
+platform :mac do
+  desc 'Create keychain'
+  lane :create_ci_keychain do
+    create_keychain(
+      default_keychain: true,
+      unlock: true,
+      timeout: 3600
+    )
+  end
+
+  desc 'Match App Store Provisioning Profiles for macOS'
+  lane :release_match do
+    xcode_select ENV['XCODE_PATH'] if ENV['XCODE_PATH']
+    # Get Application Distribution certificate and provisioning profile
+    match(
+      type: 'appstore',
+      app_identifier: 'io.ngs.LiveClock',
+      platform: 'macos',
+      readonly: ENV['MATCH_READONLY'] == 'true'
+    )
+    # Get Mac Installer Distribution certificate for PKG creation
+    match(
+      type: 'appstore',
+      app_identifier: 'io.ngs.LiveClock',
+      platform: 'macos',
+      additional_cert_types: 'mac_installer_distribution',
+      readonly: ENV['MATCH_READONLY'] == 'true'
+    )
+  end
+
+  desc 'Build app for macOS release'
+  lane :release_build do
+    xcode_select ENV['XCODE_PATH'] if ENV['XCODE_PATH']
+
+    # Get the provisioning profile name from match
+    profile_name = ENV['sigh_io.ngs.LiveClock_appstore_macos_profile-name'] || 'match AppStore io.ngs.LiveClock macos'
+
+    update_code_signing_settings(
+      profile_name: profile_name,
+      bundle_identifier: 'io.ngs.LiveClock',
+      use_automatic_signing: false,
+      code_sign_identity: 'Apple Distribution',
+      targets: ['LiveClock-macOS'],
+      build_configurations: %w[Release],
+      path: 'LiveClock.xcodeproj'
+    )
+    build_app(
+      export_method: 'app-store',
+      output_directory: './build/release',
+      scheme: 'LiveClock-macOS',
+      destination: 'platform=macOS',
+      skip_package_pkg: false, # Generate PKG for App Store upload
+      export_options: {
+        method: 'app-store',
+        provisioningProfiles: {
+          'io.ngs.LiveClock' => profile_name
+        }
+      }
+    )
+  end
+
+  desc 'Publish macOS app to App Store'
+  lane :release_upload do
+    setup_app_store_connect_api_key
+
+    # Upload macOS app to App Store Connect
+    upload_to_app_store(
+      app_identifier: 'io.ngs.LiveClock',
+      platform: 'osx',
+      pkg: './build/release/LiveClock_macOS.pkg',
+      skip_screenshots: true,
+      skip_metadata: true,
+      force: true,
+      run_precheck_before_submit: false
+    )
+  end
+
+  desc 'Update App Store metadata'
+  lane :deliver_metadata do
+    setup_app_store_connect_api_key
+
+    deliver(
+      platform: 'osx',
+      force: true,
+      skip_screenshots: true,
+      skip_binary_upload: true,
+      run_precheck_before_submit: false,
+      metadata_path: './fastlane/metadata',
+      app_identifier: 'io.ngs.LiveClock'
+    )
+  end
+
+  desc 'Update App Store screenshots'
+  lane :deliver_screenshots do
+    setup_app_store_connect_api_key
+
+    deliver(
+      platform: 'osx',
+      force: true,
+      skip_metadata: true,
+      skip_binary_upload: true,
+      run_precheck_before_submit: false,
+      overwrite_screenshots: true,
+      screenshots_path: './fastlane/screenshots/mac',
+      app_identifier: 'io.ngs.LiveClock'
+    )
+  end
+end
+
+# visionOS uses iOS platform but with different scheme
+platform :visionos do
+  desc 'Match App Store Provisioning Profiles for visionOS (alias to iOS)'
+  lane :release_match do
+    # visionOS uses iOS provisioning profiles, so just call the iOS lane
+    Fastlane::LaneManager.cruise_lane('ios', 'release_match')
+  end
+
+  desc 'Build app for visionOS release'
+  lane :release_build do
+    xcode_select ENV['XCODE_PATH'] if ENV['XCODE_PATH']
+
+    # Get the provisioning profile name from match (visionOS uses iOS profiles)
+    profile_name = ENV['sigh_io.ngs.LiveClock_appstore_profile-name'] || 'match AppStore io.ngs.LiveClock'
+
+    update_code_signing_settings(
+      profile_name: profile_name,
+      bundle_identifier: 'io.ngs.LiveClock',
+      use_automatic_signing: false,
+      code_sign_identity: 'Apple Distribution',
+      targets: ['LiveClock-visionOS'],
+      build_configurations: %w[Release],
+      path: 'LiveClock.xcodeproj'
+    )
+    build_app(
+      export_method: 'app-store',
+      output_directory: './build/release',
+      scheme: 'LiveClock-visionOS',
+      destination: 'generic/platform=visionOS',
+      export_options: {
+        provisioningProfiles: {
+          'io.ngs.LiveClock' => profile_name
+        }
+      }
+    )
+  end
+
+  desc 'Publish visionOS app to App Store'
+  lane :release_upload do
+    setup_app_store_connect_api_key
+
+    pilot(
+      skip_waiting_for_build_processing: true,
+      ipa: './build/release/LiveClock_visionOS.ipa'
+    )
+  end
+
+  desc 'Update App Store metadata'
+  lane :deliver_metadata do
+    setup_app_store_connect_api_key
+
+    deliver(
+      platform: 'xros',
+      force: true,
+      skip_screenshots: true,
+      skip_binary_upload: true,
+      run_precheck_before_submit: false,
+      metadata_path: './fastlane/metadata',
+      app_identifier: 'io.ngs.LiveClock'
+    )
+  end
+
+  desc 'Update App Store screenshots'
+  lane :deliver_screenshots do
+    UI.error 'Deliver screenshots for visionOS is not yet supported.'
+    # setup_app_store_connect_api_key
+
+    # deliver(
+    #   platform: 'xros',
+    #   force: true,
+    #   skip_metadata: true,
+    #   skip_binary_upload: true,
+    #   run_precheck_before_submit: false,
+    #   overwrite_screenshots: true,
+    #   screenshots_path: './fastlane/screenshots/visionos',
+    #   app_identifier: 'io.ngs.LiveClock'
+    # )
+  end
+end
+
+desc 'Setup AppStore Connect API Key'
+lane :setup_app_store_connect_api_key do
+  return unless ENV['APP_STORE_CONNECT_API_KEY_KEY_ID'] && ENV['APP_STORE_CONNECT_API_KEY_ISSUER_ID'] && ENV['APP_STORE_CONNECT_API_KEY_KEY']
+
+  app_store_connect_api_key(
+    key_id: ENV['APP_STORE_CONNECT_API_KEY_KEY_ID'],
+    issuer_id: ENV['APP_STORE_CONNECT_API_KEY_ISSUER_ID'],
+    key_content: ENV['APP_STORE_CONNECT_API_KEY_KEY'],
+    is_key_content_base64: ENV['APP_STORE_CONNECT_API_KEY_IS_KEY_CONTENT_BASE64'] == 'true'
+  )
+end

@@ -1,0 +1,10 @@
+Versione 1.0.0
+
+Rilascio Iniziale
+- Funzionalità cronometro ad alta precisione
+- Registrazione e gestione tempi parziali
+- Esportazione dati in formato CSV
+- Temi e colori personalizzabili
+- Display digitale grande
+- Supporto modalità scura
+- Opzione schermo sempre acceso

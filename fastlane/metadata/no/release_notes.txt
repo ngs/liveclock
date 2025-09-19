@@ -1,0 +1,10 @@
+Versjon 1.0.0
+
+Første utgivelse
+- Høypresisjons stoppeklokkefunksjon
+- Rundetidsregistrering og håndtering
+- Dataeksport i CSV-format
+- Tilpassbare temaer og farger
+- Stort digitalt display
+- Støtte for mørk modus
+- Skjerm alltid på-alternativ

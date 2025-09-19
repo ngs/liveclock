@@ -1,0 +1,10 @@
+Versão 1.0.0
+
+Lançamento inicial
+- Função de cronômetro de alta precisão
+- Gravação e gerenciamento de tempo de volta
+- Exportação de dados em formato CSV
+- Temas e cores personalizáveis
+- Display digital grande
+- Suporte ao modo escuro
+- Opção de tela sempre ligada

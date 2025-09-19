@@ -1,0 +1,51 @@
+Live Clock - Professionel Gig Timer er et præcisionstidsværktøj designet til live-optrædener, præsentationer og eventhåndtering.
+
+【Hovedfunktioner】
+
+■ Stort Digitalt Display
+• Design med høj synlighed, let at se på afstand
+• Optimeret til brug på scene og i studie
+• Understøttelse af mørk tilstand til svagt oplyste miljøer
+
+■ Professionelle Timerfunktioner
+• Højpræcisions stopur
+• Omgangstidsregistreringsfunktion
+• Understøttelse af ubegrænset antal omgange
+• Præcis måling ned til millisekunder
+
+■ Gig- og Eventhåndtering
+• Setlistetidshåndtering
+• Optrædentstidsregistrering
+• Prøvetidsmåling
+• Tidshåndtering for flere sektioner
+
+■ Dataeksport
+• Eksporter omgangstider i CSV-format
+• Gem og del optrædenregistre
+• Dataudgang til setlisteanalyse
+
+■ Tilpasselig Grænseflade
+• Tilpasning af tekstfarve
+• Flere temamuligheder
+• Skærm altid tændt-mulighed
+• Justeringer for optimal synlighed
+
+■ Præstationsoptimering
+• Energibesparende design
+• Glatte animationer
+• Stabil drift
+• Understøttelse af baggrundsdrift
+
+【Brugsscenarier】
+• Live-optrædener
+• Teater og scene
+• Præsentationer
+• Sportsbegivenheder
+• Musikprøver
+• Udsendelse og streaming
+• Eventforløbshåndtering
+
+【For Professionelle】
+Ideel til alle professionelle, der har brug for præcis tidtagning, herunder musikere, eventplanlæggere, producere og sportstrænere.
+
+Kombinerer en simpel og intuitiv grænseflade med funktioner på professionelt niveau og giver et pålideligt tidsværktøj til enhver optræden eller begivenhed.

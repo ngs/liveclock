@@ -1,0 +1,10 @@
+Verzia 1.0.0
+
+Prvé vydanie
+- Funkcia vysoko presných stopiek
+- Záznam a správa času kôl
+- Export údajov vo formáte CSV
+- Prispôsobiteľné motívy a farby
+- Veľký digitálny displej
+- Podpora tmavého režimu
+- Možnosť stále zapnutej obrazovky

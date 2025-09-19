@@ -1,0 +1,51 @@
+Live Clock - Profesionalni timer za nastupe je precizni alat za mjerenje vremena dizajniran za uživo nastupe, prezentacije i upravljanje događajima.
+
+【Glavne značajke】
+
+■ Veliki digitalni zaslon
+• Dizajn visoke vidljivosti, lako vidljiv iz daljine
+• Optimiziran za uporabu na pozornici i u studiju
+• Podrška za tamni način rada za okruženja slabog osvjetljenja
+
+■ Profesionalne funkcije timera
+• Štoperica visoke preciznosti
+• Funkcija snimanja vremena kruga
+• Podrška za neograničen broj krugova
+• Precizno mjerenje do milisekundi
+
+■ Upravljanje nastupima i događajima
+• Upravljanje vremenom set liste
+• Snimanje vremena izvedbe
+• Mjerenje vremena probe
+• Upravljanje vremenom više sekcija
+
+■ Izvoz podataka
+• Izvoz vremena krugova u CSV formatu
+• Spremite i podijelite zapise nastupa
+• Izlaz podataka za analizu set liste
+
+■ Prilagodljivo sučelje
+• Prilagođavanje boje teksta
+• Više opcija tema
+• Opcija uvijek uključenog zaslona
+• Prilagodbe za optimalnu vidljivost
+
+■ Optimizacija performansi
+• Dizajn niske potrošnje energije
+• Glatke animacije
+• Stabilan rad
+• Podrška za rad u pozadini
+
+【Scenariji uporabe】
+• Uživo nastupi
+• Kazalište i pozornica
+• Prezentacije
+• Sportski događaji
+• Glazbene probe
+• Emitiranje i streaming
+• Upravljanje napretkom događaja
+
+【Za profesionalce】
+Idealno za sve profesionalce kojima je potrebno precizno mjerenje vremena, uključujući glazbenike, planere događaja, producente i sportske trenere.
+
+Kombinira jednostavno i intuitivno sučelje s profesionalnim značajkama, pružajući pouzdani alat za mjerenje vremena za bilo koji nastup ili događaj.

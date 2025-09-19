@@ -1,0 +1,1 @@
+časovač,stopky,koncert,setlist,vystoupení,kolo,akce,pódium,hudba,zkouška,prezentace,CSV

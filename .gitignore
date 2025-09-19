@@ -19,3 +19,10 @@ Derived/
 *.dSYM
 
 **/__Snapshots__/**/*.latest.png
+*.p8
+
+fastlane/report.xml
+build/
+match_deploy_key*
+
+fastlane/Preview.html

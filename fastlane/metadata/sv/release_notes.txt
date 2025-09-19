@@ -1,0 +1,10 @@
+Version 1.0.0
+
+Första versionen
+- Högprecisions stoppklocksfunktion
+- Varvtidsregistrering och hantering
+- Dataexport i CSV-format
+- Anpassningsbara teman och färger
+- Stor digital display
+- Stöd för mörkt läge
+- Skärm alltid på-alternativ

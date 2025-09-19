@@ -1,0 +1,51 @@
+Live Clock - Minuteur Professionnel pour Concerts est un outil de chronométrage de précision conçu pour les performances live, présentations et gestion d'événements.
+
+【Fonctionnalités Principales】
+
+■ Grand Écran Numérique
+• Design haute visibilité facile à lire à distance
+• Optimisé pour utilisation sur scène et en studio
+• Support mode sombre pour utilisation confortable en faible éclairage
+
+■ Fonctions de Minuteur Professionnel
+• Chronomètre haute précision
+• Fonctionnalité d'enregistrement des temps intermédiaires
+• Support de tours illimités
+• Mesure précise à la milliseconde
+
+■ Gestion de Concerts et Événements
+• Gestion du temps de setlist
+• Enregistrement des temps de performance
+• Mesure du temps de répétition
+• Gestion de chronométrage multi-sections
+
+■ Export de Données
+• Export des temps intermédiaires au format CSV
+• Sauvegarde et partage des enregistrements de performance
+• Sortie de données pour analyse de setlist
+
+■ Interface Personnalisable
+• Personnalisation de la couleur du texte
+• Options de thèmes multiples
+• Option écran toujours allumé
+• Ajustements pour visibilité optimale
+
+■ Optimisation des Performances
+• Conception basse consommation
+• Animations fluides
+• Opération stable
+• Support opération en arrière-plan
+
+【Cas d'Usage】
+• Performances live
+• Théâtre et productions scéniques
+• Présentations
+• Événements sportifs
+• Répétitions musicales
+• Diffusion et streaming
+• Coordination d'événements
+
+【Pour les Professionnels】
+Parfait pour tous les professionnels qui ont besoin d'un chronométrage précis : musiciens, organisateurs d'événements, producteurs, entraîneurs sportifs et plus.
+
+Combine une interface simple et intuitive avec des fonctionnalités de qualité professionnelle pour fournir un outil de chronométrage fiable pour toute performance ou événement.

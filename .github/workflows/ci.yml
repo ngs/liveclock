@@ -15,19 +15,19 @@ jobs:
         include:
           - platform: iOS
             scheme: LiveClock-iOS
-            destination: 'platform=iOS Simulator,name=iPhone 16 Pro Max,OS=18.5'
+            destination: "platform=iOS Simulator,name=iPhone 16 Pro Max,OS=18.5"
           - platform: macOS
             scheme: LiveClock-macOS
-            destination: 'platform=macOS'
+            destination: "platform=macOS"
           - platform: visionOS
             scheme: LiveClock-visionOS
-            destination: 'platform=visionOS Simulator,name=Apple Vision Pro'
+            destination: "platform=visionOS Simulator,name=Apple Vision Pro,OS=26.0"
 
     steps:
       - uses: actions/checkout@v5
 
       - name: Select Xcode
-        run: sudo xcode-select -s /Applications/Xcode_16.4.app
+        run: ls -l /Applications && sudo xcode-select -s /Applications/Xcode_26.app
 
       - name: Install tuist
         run: |
@@ -36,6 +36,8 @@ jobs:
 
       - name: Generate Xcode project and workspace
         run: tuist generate --no-open
+        env:
+          TUIST_RUN_ID: ${{ github.run_id }}
 
       - name: Build and Test (${{ matrix.platform }})
         run: |
@@ -63,7 +65,7 @@ jobs:
       - uses: actions/checkout@v5
 
       - name: Select Xcode
-        run: sudo xcode-select -s /Applications/Xcode_16.4.app
+        run: ls -l /Applications && sudo xcode-select -s /Applications/Xcode_26.app
 
       - name: Run Swift Tests
         run: swift test
@@ -80,6 +82,22 @@ jobs:
         with:
           args: --strict
 
+  rubocop:
+    name: RuboCop
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.3"
+          bundler-cache: true
+
+      - name: Run RuboCop
+        run: bundle exec rubocop
+
   build:
     name: Build ${{ matrix.platform }}
     runs-on: macos-latest
@@ -88,19 +106,19 @@ jobs:
         include:
           - platform: iOS
             scheme: LiveClock-iOS
-            destination: 'generic/platform=iOS Simulator'
+            destination: "generic/platform=iOS Simulator"
           - platform: macOS
             scheme: LiveClock-macOS
-            destination: 'platform=macOS'
+            destination: "platform=macOS"
           - platform: visionOS
             scheme: LiveClock-visionOS
-            destination: 'generic/platform=visionOS Simulator'
+            destination: "generic/platform=visionOS Simulator"
 
     steps:
       - uses: actions/checkout@v5
 
       - name: Select Xcode
-        run: sudo xcode-select -s /Applications/Xcode_16.4.app
+        run: ls -l /Applications && sudo xcode-select -s /Applications/Xcode_26.app
 
       - name: Install tuist
         run: |
@@ -109,6 +127,8 @@ jobs:
 
       - name: Generate Xcode project and workspace
         run: tuist generate --no-open
+        env:
+          TUIST_RUN_ID: ${{ github.run_id }}
 
       - name: Build ${{ matrix.platform }}
         run: |

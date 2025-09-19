@@ -1,0 +1,10 @@
+Version 1.0.0
+
+Initial Release
+- High-precision stopwatch functionality
+- Lap time recording and management
+- CSV format data export
+- Customizable themes and colors
+- Large digital display
+- Dark mode support
+- Always-on screen option

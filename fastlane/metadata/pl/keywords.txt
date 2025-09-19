@@ -1,0 +1,1 @@
+timer,stoper,koncert,setlista,występ,okrążenie,wydarzenie,scena,muzyka,próba,prezentacja,CSV

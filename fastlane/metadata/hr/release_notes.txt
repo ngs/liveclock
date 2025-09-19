@@ -1,0 +1,10 @@
+Verzija 1.0.0
+
+Prvo izdanje
+- Funkcija štoperice visoke preciznosti
+- Snimanje i upravljanje vremenom krugova
+- Izvoz podataka u CSV formatu
+- Prilagodljive teme i boje
+- Veliki digitalni zaslon
+- Podrška za tamni način rada
+- Opcija uvijek uključenog zaslona
