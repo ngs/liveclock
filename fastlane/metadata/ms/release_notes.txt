@@ -1,10 +1,1 @@
-Versi 1.0.0
 
-Keluaran pertama
-- Fungsi jam randik berketepatan tinggi
-- Rakaman dan pengurusan masa pusingan
-- Eksport data dalam format CSV
-- Tema dan warna boleh disesuaikan
-- Paparan digital besar
-- Sokongan mod gelap
-- Pilihan skrin sentiasa hidup

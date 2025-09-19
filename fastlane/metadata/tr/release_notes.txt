@@ -1,10 +1,1 @@
-Sürüm 1.0.0
 
-İlk sürüm
-- Yüksek hassasiyetli kronometre özelliği
-- Tur zamanı kaydı ve yönetimi
-- CSV formatında veri dışa aktarma
-- Özelleştirilebilir temalar ve renkler
-- Büyük dijital ekran
-- Karanlık mod desteği
-- Her zaman açık ekran seçeneği
