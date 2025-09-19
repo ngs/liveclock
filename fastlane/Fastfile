@@ -135,7 +135,8 @@ platform :ios do
       skip_metadata: true,
       skip_binary_upload: true,
       run_precheck_before_submit: false,
-      screenshots_path: './fastlane/screenshots',
+      overwrite_screenshots: true,
+      screenshots_path: './fastlane/screenshots/ios',
       app_identifier: 'io.ngs.LiveClock'
     )
   end
@@ -243,7 +244,8 @@ platform :mac do
       skip_metadata: true,
       skip_binary_upload: true,
       run_precheck_before_submit: false,
-      screenshots_path: './fastlane/screenshots',
+      overwrite_screenshots: true,
+      screenshots_path: './fastlane/screenshots/mac',
       app_identifier: 'io.ngs.LiveClock'
     )
   end
@@ -313,17 +315,19 @@ platform :visionos do
 
   desc 'Update App Store screenshots'
   lane :deliver_screenshots do
-    setup_app_store_connect_api_key
+    UI.error 'Deliver screenshots for visionOS is not yet supported.'
+    # setup_app_store_connect_api_key
 
-    deliver(
-      platform: 'xros',
-      force: true,
-      skip_metadata: true,
-      skip_binary_upload: true,
-      run_precheck_before_submit: false,
-      screenshots_path: './fastlane/screenshots',
-      app_identifier: 'io.ngs.LiveClock'
-    )
+    # deliver(
+    #   platform: 'xros',
+    #   force: true,
+    #   skip_metadata: true,
+    #   skip_binary_upload: true,
+    #   run_precheck_before_submit: false,
+    #   overwrite_screenshots: true,
+    #   screenshots_path: './fastlane/screenshots/visionos',
+    #   app_identifier: 'io.ngs.LiveClock'
+    # )
   end
 end
 
