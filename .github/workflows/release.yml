@@ -224,6 +224,16 @@ jobs:
             build/release/**/*.dSYM.zip
           retention-days: 30
 
+      - name: Upload gym logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gym-logs-${{ steps.params.outputs.platform }}-${{ github.sha }}
+          path: |
+            /Users/runner/Library/Logs/gym/*.log
+            fastlane/report.xml
+          retention-days: 7
+
       - name: Create GitHub Release
         if: success() && steps.params.outputs.skip_upload != 'true' && steps.version.outputs.version != ''
         uses: softprops/action-gh-release@v2
