@@ -29,13 +29,16 @@ env:
 
 jobs:
   deliver:
-    name: Deliver ${{ matrix.platform }}
+    name: Deliver ${{ matrix.name || matrix.platform }}
     strategy:
       matrix:
         include:
           - platform: osx
-          - platform: vros
+            name: macOS
           - platform: ios
+            name: iOS
+          - platform: xros
+            name: visionOS
     runs-on: macos-latest
 
     steps:
@@ -56,7 +59,7 @@ jobs:
           DELIVER_FORCE: "true"
           DELIVER_SKIP_SCREENSHOTS: "true"
           DELIVER_SKIP_BINARY_UPLOAD: "true"
-          DELIVER_RUN_PRECHECK_BEFORE_SUBMIT: ${{  matrix.platform == 'vros' && 'false' || 'true' }}
+          DELIVER_RUN_PRECHECK_BEFORE_SUBMIT: ${{ matrix.platform == 'xros' && 'false' || 'true' }}
 
       - name: Upload report.xml
         if: always()

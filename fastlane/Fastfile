@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This file contains the fastlane.tools configuration
 # You can find the documentation at https://docs.fastlane.tools
 #
@@ -16,9 +18,9 @@
 default_platform(:ios)
 
 TARGET_IDENTIFIER_MAP = {
-      'LiveClock-iOS' => 'io.ngs.LiveClock',
-      'LiveClock-macOS' => 'io.ngs.LiveClock',
-      'LiveClock-visionOS' => 'io.ngs.LiveClock',
+  'LiveClock-iOS' => 'io.ngs.LiveClock',
+  'LiveClock-macOS' => 'io.ngs.LiveClock',
+  'LiveClock-visionOS' => 'io.ngs.LiveClock'
 }.freeze
 
 platform :ios do
@@ -53,7 +55,7 @@ platform :ios do
         use_automatic_signing: false,
         targets: [target],
         code_sign_identity: 'Apple Distribution',
-        build_configurations: %w(Release),
+        build_configurations: %w[Release],
         path: 'LiveClock.xcodeproj'
       )
     end
@@ -77,7 +79,7 @@ platform :ios do
         use_automatic_signing: false,
         code_sign_identity: 'Apple Distribution',
         targets: [target],
-        build_configurations: %w(Release),
+        build_configurations: %w[Release],
         path: 'LiveClock.xcodeproj'
       )
     end
@@ -121,19 +123,20 @@ platform :mac do
   desc 'Match App Store Provisioning Profiles for macOS'
   lane :release_match do
     xcode_select ENV['XCODE_PATH'] if ENV['XCODE_PATH']
-    match type: 'appstore', app_identifier: 'io.ngs.LiveClock', platform: 'macos', readonly: ENV['MATCH_READONLY'] == 'true'
+    match type: 'appstore', app_identifier: 'io.ngs.LiveClock', platform: 'macos',
+          readonly: ENV['MATCH_READONLY'] == 'true'
   end
 
   desc 'Build app for macOS release'
   lane :release_build do
     xcode_select ENV['XCODE_PATH'] if ENV['XCODE_PATH']
     update_code_signing_settings(
-      profile_name: "match AppStore io.ngs.LiveClock macos",
+      profile_name: 'match AppStore io.ngs.LiveClock macos',
       bundle_identifier: 'io.ngs.LiveClock',
       use_automatic_signing: false,
       code_sign_identity: 'Apple Distribution',
       targets: ['LiveClock-macOS'],
-      build_configurations: %w(Release),
+      build_configurations: %w[Release],
       path: 'LiveClock.xcodeproj'
     )
     build_app(
@@ -165,24 +168,24 @@ platform :mac do
 end
 
 # visionOS uses iOS platform but with different scheme
-platform :ios do
+platform :visionos do
   desc 'Match App Store Provisioning Profiles for visionOS'
-  lane :visionos_release_match do
+  lane :release_match do
     xcode_select ENV['XCODE_PATH'] if ENV['XCODE_PATH']
     # visionOS uses iOS provisioning profiles
     match type: 'appstore', app_identifier: 'io.ngs.LiveClock', readonly: ENV['MATCH_READONLY'] == 'true'
   end
 
   desc 'Build app for visionOS release'
-  lane :visionos_release_build do
+  lane :release_build do
     xcode_select ENV['XCODE_PATH'] if ENV['XCODE_PATH']
     update_code_signing_settings(
-      profile_name: "match AppStore io.ngs.LiveClock",
+      profile_name: 'match AppStore io.ngs.LiveClock',
       bundle_identifier: 'io.ngs.LiveClock',
       use_automatic_signing: false,
       code_sign_identity: 'Apple Distribution',
       targets: ['LiveClock-visionOS'],
-      build_configurations: %w(Release),
+      build_configurations: %w[Release],
       path: 'LiveClock.xcodeproj'
     )
     build_app(
@@ -194,7 +197,7 @@ platform :ios do
   end
 
   desc 'Publish visionOS app to App Store'
-  lane :visionos_release_upload do
+  lane :release_upload do
     # Use App Store Connect API key if available
     if ENV['APP_STORE_CONNECT_API_KEY_KEY_ID'] && ENV['APP_STORE_CONNECT_API_KEY_ISSUER_ID'] && ENV['APP_STORE_CONNECT_API_KEY_KEY']
       app_store_connect_api_key(

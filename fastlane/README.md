@@ -65,6 +65,72 @@ Publish app to App Store
 
 ----
 
+
+## Mac
+
+### mac create_ci_keychain
+
+```sh
+[bundle exec] fastlane mac create_ci_keychain
+```
+
+Create keychain
+
+### mac release_match
+
+```sh
+[bundle exec] fastlane mac release_match
+```
+
+Match App Store Provisioning Profiles for macOS
+
+### mac release_build
+
+```sh
+[bundle exec] fastlane mac release_build
+```
+
+Build app for macOS release
+
+### mac release_upload
+
+```sh
+[bundle exec] fastlane mac release_upload
+```
+
+Publish macOS app to App Store
+
+----
+
+
+## visionos
+
+### visionos release_match
+
+```sh
+[bundle exec] fastlane visionos release_match
+```
+
+Match App Store Provisioning Profiles for visionOS
+
+### visionos release_build
+
+```sh
+[bundle exec] fastlane visionos release_build
+```
+
+Build app for visionOS release
+
+### visionos release_upload
+
+```sh
+[bundle exec] fastlane visionos release_upload
+```
+
+Publish visionOS app to App Store
+
+----
+
 This README.md is auto-generated and will be re-generated every time [_fastlane_](https://fastlane.tools) is run.
 
 More information about _fastlane_ can be found on [fastlane.tools](https://fastlane.tools).

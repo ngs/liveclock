@@ -1,3 +1,6 @@
-source "https://rubygems.org"
+# frozen_string_literal: true
 
-gem "fastlane"
+source 'https://rubygems.org'
+
+gem 'fastlane'
+gem 'rubocop'
