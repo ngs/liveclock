@@ -21,13 +21,13 @@ jobs:
             destination: "platform=macOS"
           - platform: visionOS
             scheme: LiveClock-visionOS
-            destination: "platform=visionOS Simulator,name=Apple Vision Pro"
+            destination: "platform=visionOS Simulator,name=Apple Vision Pro,OS=26.0"
 
     steps:
       - uses: actions/checkout@v5
 
       - name: Select Xcode
-        run: sudo xcode-select -s /Applications/Xcode_16.4.app
+        run: ls -l /Applications && sudo xcode-select -s /Applications/Xcode_26.app
 
       - name: Install tuist
         run: |
