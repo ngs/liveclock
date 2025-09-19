@@ -1,1 +1,1 @@
-
+temporizador,cronómetro,ao vivo,espetáculo,alinhamento,atuação,tempo parcial,evento,palco,música,ensaio,gestão de tempo,apresentação,contagem decrescente,medição,registo,CSV,exportar

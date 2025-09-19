@@ -1,1 +1,1 @@
-
+timer,stoppklocka,live,gig,setlist,framträdande,varvtid,evenemang,scen,musik,repetition,tidshantering,presentation,nedräkning,mätning,registrering,CSV,export

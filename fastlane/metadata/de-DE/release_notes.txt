@@ -1,1 +1,10 @@
+Version 1.0.0
 
+Erstveröffentlichung
+- Hochpräzise Stoppuhr-Funktionalität
+- Rundenzeit-Aufzeichnung und -Verwaltung
+- CSV-Format Datenexport
+- Anpassbare Themes und Farben
+- Großes Digitalanzeige
+- Dark Mode Unterstützung
+- Bildschirm-immer-an Option

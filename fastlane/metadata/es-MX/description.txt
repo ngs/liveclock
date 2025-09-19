@@ -1,1 +1,51 @@
+Live Clock - Temporizador Profesional para Conciertos es una herramienta de cronometraje de precisión diseñada para actuaciones en vivo, presentaciones y gestión de eventos.
 
+【Características Principales】
+
+■ Pantalla Digital Grande
+• Diseño de alta visibilidad fácil de leer a distancia
+• Optimizado para uso en escenario y estudio
+• Soporte de modo oscuro para uso cómodo en ambientes con poca luz
+
+■ Funciones de Temporizador Profesional
+• Cronómetro de alta precisión
+• Funcionalidad de grabación de tiempos parciales
+• Soporte de vueltas ilimitadas
+• Medición precisa hasta milisegundos
+
+■ Gestión de Conciertos y Eventos
+• Gestión de tiempo de setlist
+• Grabación de tiempos de actuación
+• Medición de tiempo de ensayo
+• Gestión de cronometraje multi-sección
+
+■ Exportación de Datos
+• Exportar tiempos parciales en formato CSV
+• Guardar y compartir registros de actuación
+• Salida de datos para análisis de setlist
+
+■ Interfaz Personalizable
+• Personalización de color de texto
+• Múltiples opciones de tema
+• Opción de pantalla siempre encendida
+• Ajustes para visibilidad óptima
+
+■ Optimización de Rendimiento
+• Diseño de bajo consumo de energía
+• Animaciones suaves
+• Operación estable
+• Soporte de operación en segundo plano
+
+【Casos de Uso】
+• Actuaciones en vivo
+• Teatro y producciones escénicas
+• Presentaciones
+• Eventos deportivos
+• Ensayos musicales
+• Transmisión y streaming
+• Coordinación de eventos
+
+【Para Profesionales】
+Perfecto para todos los profesionales que necesitan cronometraje preciso: músicos, planificadores de eventos, productores, entrenadores deportivos y más.
+
+Combina una interfaz simple e intuitiva con características de grado profesional para proporcionar una herramienta de cronometraje confiable para cualquier actuación o evento.

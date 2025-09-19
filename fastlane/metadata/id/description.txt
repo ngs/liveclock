@@ -1,1 +1,51 @@
+Live Clock - Timer Pertunjukan Profesional adalah alat pengatur waktu presisi yang dirancang untuk pertunjukan langsung, presentasi, dan manajemen acara.
 
+【Fitur Utama】
+
+■ Layar Digital Besar
+• Desain visibilitas tinggi, mudah dilihat dari jarak jauh
+• Dioptimalkan untuk penggunaan panggung dan studio
+• Dukungan mode gelap untuk lingkungan cahaya rendah
+
+■ Fungsi Timer Profesional
+• Stopwatch presisi tinggi
+• Fungsi perekaman waktu putaran
+• Dukungan putaran tak terbatas
+• Pengukuran akurat hingga milidetik
+
+■ Manajemen Pertunjukan dan Acara
+• Manajemen waktu setlist
+• Perekaman waktu pertunjukan
+• Pengukuran waktu latihan
+• Manajemen waktu multi bagian
+
+■ Ekspor Data
+• Ekspor waktu putaran dalam format CSV
+• Simpan dan bagikan catatan pertunjukan
+• Output data untuk analisis setlist
+
+■ Antarmuka yang Dapat Disesuaikan
+• Penyesuaian warna teks
+• Beberapa pilihan tema
+• Opsi layar selalu menyala
+• Penyesuaian untuk visibilitas optimal
+
+■ Optimasi Performa
+• Desain hemat energi
+• Animasi halus
+• Operasi stabil
+• Dukungan operasi latar belakang
+
+【Skenario Penggunaan】
+• Pertunjukan langsung
+• Teater dan panggung
+• Presentasi
+• Acara olahraga
+• Latihan musik
+• Penyiaran dan streaming
+• Manajemen kemajuan acara
+
+【Untuk Profesional】
+Ideal untuk semua profesional yang membutuhkan pengaturan waktu yang tepat, termasuk musisi, perencana acara, produser, dan pelatih olahraga.
+
+Menggabungkan antarmuka yang sederhana dan intuitif dengan fitur tingkat profesional, menyediakan alat pengatur waktu yang andal untuk pertunjukan atau acara apa pun.

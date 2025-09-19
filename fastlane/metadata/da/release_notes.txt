@@ -1,1 +1,10 @@
+Version 1.0.0
 
+Første udgivelse
+- Højpræcisions stopursfunktion
+- Omgangstidsregistrering og håndtering
+- Dataeksport i CSV-format
+- Tilpasselige temaer og farver
+- Stort digitalt display
+- Understøttelse af mørk tilstand
+- Skærm altid tændt-mulighed

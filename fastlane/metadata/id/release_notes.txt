@@ -1,1 +1,10 @@
+Versi 1.0.0
 
+Rilis pertama
+- Fungsi stopwatch presisi tinggi
+- Perekaman dan manajemen waktu putaran
+- Ekspor data dalam format CSV
+- Tema dan warna yang dapat disesuaikan
+- Layar digital besar
+- Dukungan mode gelap
+- Opsi layar selalu menyala

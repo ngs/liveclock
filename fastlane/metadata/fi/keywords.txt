@@ -1,1 +1,1 @@
-
+ajastin,sekuntikello,live,keikka,settilista,esitys,kierrosaika,tapahtuma,lava,musiikki,harjoitus,ajanhallinta,esitelmä,lähtölaskenta,mittaus,tallennus,CSV,vienti

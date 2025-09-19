@@ -1,1 +1,1 @@
-
+zamanlayıcı,kronometre,canlı,konser,set listesi,performans,tur zamanı,etkinlik,sahne,müzik,prova,zaman yönetimi,sunum,geri sayım,ölçüm,kayıt,CSV,dışa aktarma

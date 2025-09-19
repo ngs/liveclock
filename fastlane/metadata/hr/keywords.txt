@@ -1,1 +1,1 @@
-
+timer,štoperica,uživo,nastup,set lista,izvedba,vrijeme kruga,događaj,pozornica,glazba,proba,upravljanje vremenom,prezentacija,odbrojavanje,mjerenje,snimanje,CSV,izvoz

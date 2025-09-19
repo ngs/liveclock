@@ -1,1 +1,10 @@
+Versio 1.0.0
 
+Ensimmäinen julkaisu
+- Erittäin tarkka sekuntikellon toiminto
+- Kierrosajan tallennus ja hallinta
+- Tietojen vienti CSV-muodossa
+- Mukautettavat teemat ja värit
+- Suuri digitaalinen näyttö
+- Tumman tilan tuki
+- Näyttö aina päällä -vaihtoehto

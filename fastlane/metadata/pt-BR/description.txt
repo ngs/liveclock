@@ -1,1 +1,51 @@
+Live Clock - Timer Profissional para Shows é uma ferramenta de cronometragem precisa projetada para performances ao vivo, apresentações e gerenciamento de eventos.
 
+【Principais Recursos】
+
+■ Display Digital Grande
+• Design de alta visibilidade, fácil de ver à distância
+• Otimizado para uso em palcos e estúdios
+• Suporte ao modo escuro para ambientes com pouca luz
+
+■ Funções de Timer Profissional
+• Cronômetro de alta precisão
+• Função de gravação de tempo de volta
+• Suporte ilimitado de voltas
+• Medição precisa em milissegundos
+
+■ Gerenciamento de Shows e Eventos
+• Gerenciamento de tempo de setlist
+• Gravação de tempo de performance
+• Medição de tempo de ensaio
+• Gerenciamento de tempo de múltiplas seções
+
+■ Exportação de Dados
+• Exporte tempos de volta em formato CSV
+• Salve e compartilhe registros de performance
+• Saída de dados para análise de setlist
+
+■ Interface Personalizável
+• Personalização de cores de texto
+• Múltiplas opções de tema
+• Opção de tela sempre ligada
+• Ajustes para visibilidade ideal
+
+■ Otimização de Desempenho
+• Design de baixo consumo de energia
+• Animações suaves
+• Operação estável
+• Suporte para operação em segundo plano
+
+【Cenários de Uso】
+• Performances ao vivo
+• Teatro e palco
+• Apresentações
+• Eventos esportivos
+• Ensaios musicais
+• Transmissão e streaming
+• Gerenciamento de progressão de eventos
+
+【Para Profissionais】
+Ideal para todos os profissionais que precisam de cronometragem precisa, incluindo músicos, planejadores de eventos, produtores e treinadores esportivos.
+
+Combinando uma interface simples e intuitiva com recursos de nível profissional, fornecendo uma ferramenta de cronometragem confiável para qualquer performance ou evento.

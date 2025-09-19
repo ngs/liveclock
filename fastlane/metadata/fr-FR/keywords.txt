@@ -1,1 +1,1 @@
-
+minuteur,chronomètre,live,concert,setlist,performance,temps intermédiaire,événement,scène,musique,répétition,gestion du temps,présentation,compte à rebours,mesure,enregistrement,CSV,export

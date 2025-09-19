@@ -1,1 +1,1 @@
-
+időmérő,stopper,élő,koncert,setlista,előadás,köridő,rendezvény,színpad,zene,próba,időkezelés,prezentáció,visszaszámlálás,mérés,rögzítés,CSV,export

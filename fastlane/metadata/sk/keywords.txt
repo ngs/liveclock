@@ -1,1 +1,1 @@
-
+časovač,stopky,naživo,koncert,setlist,vystúpenie,čas kola,podujatie,pódium,hudba,skúška,správa času,prezentácia,odpočítavanie,meranie,záznam,CSV,export

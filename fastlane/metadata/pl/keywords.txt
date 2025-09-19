@@ -1,1 +1,1 @@
-
+timer,stoper,na żywo,koncert,setlista,występ,czas okrążenia,wydarzenie,scena,muzyka,próba,zarządzanie czasem,prezentacja,odliczanie,pomiar,rejestracja,CSV,eksport

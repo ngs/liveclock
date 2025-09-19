@@ -1,1 +1,51 @@
+Live Clock - Ammattilaisen Keikka-ajastin on tarkka ajoitustyökalu, joka on suunniteltu live-esityksiin, esitelmiin ja tapahtumanhallintaan.
 
+【Pääominaisuudet】
+
+■ Suuri Digitaalinen Näyttö
+• Korkean näkyvyyden muotoilu, helppo nähdä kaukaa
+• Optimoitu lava- ja studiokäyttöön
+• Tumman tilan tuki hämäriin ympäristöihin
+
+■ Ammattimaiset Ajastintoiminnot
+• Erittäin tarkka sekuntikello
+• Kierrosajan tallennustoiminto
+• Rajattoman kierrosmäärän tuki
+• Tarkka mittaus millisekunnin tarkkuudella
+
+■ Keikka- ja Tapahtumahallinta
+• Settilistan ajanhallinta
+• Esitysajan tallennus
+• Harjoitusajan mittaus
+• Usean osion ajanhallinta
+
+■ Tietojen Vienti
+• Vie kierrosajat CSV-muodossa
+• Tallenna ja jaa esitystallenteet
+• Tietojen tulostus settilistan analysointiin
+
+■ Mukautettava Käyttöliittymä
+• Tekstin värin mukauttaminen
+• Useita teemavaihtoehtoja
+• Näyttö aina päällä -vaihtoehto
+• Säädöt optimaalista näkyvyyttä varten
+
+■ Suorituskyvyn Optimointi
+• Vähän energiaa kuluttava muotoilu
+• Sujuvat animaatiot
+• Vakaa toiminta
+• Taustakäytön tuki
+
+【Käyttöskenaariot】
+• Live-esitykset
+• Teatteri ja lava
+• Esitelmät
+• Urheilutapahtumat
+• Musiikkiharjoitukset
+• Lähetys ja suoratoisto
+• Tapahtuman etenemisen hallinta
+
+【Ammattilaisille】
+Ihanteellinen kaikille ammattilaisille, jotka tarvitsevat tarkkaa ajoitusta, mukaan lukien muusikot, tapahtumasuunnittelijat, tuottajat ja urheiluvalmentajat.
+
+Yhdistää yksinkertaisen ja intuitiivisen käyttöliittymän ammattilaistason ominaisuuksiin tarjoten luotettavan ajoitustyökalun mihin tahansa esitykseen tai tapahtumaan.
