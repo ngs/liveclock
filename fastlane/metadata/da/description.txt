@@ -1,4 +1,4 @@
-Live Clock - Professionel Gig Timer er et præcisionstidsværktøj designet til live-optrædener, præsentationer og eventhåndtering.
+LiveClock - Professionel Gig Timer er et præcisionstidsværktøj designet til live-optrædener, præsentationer og eventhåndtering.
 
 【Hovedfunktioner】
 

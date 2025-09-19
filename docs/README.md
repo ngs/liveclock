@@ -1,4 +1,4 @@
-# Live Clock Docs Index
+# LiveClock Docs Index
 
 Quick links to key design docs extracted from AGENTS.md:
 

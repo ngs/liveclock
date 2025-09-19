@@ -1,4 +1,4 @@
-Live Clock - Bộ hẹn giờ biểu diễn chuyên nghiệp là công cụ định thời chính xác được thiết kế cho các buổi biểu diễn trực tiếp, thuyết trình và quản lý sự kiện.
+LiveClock - Bộ hẹn giờ biểu diễn chuyên nghiệp là công cụ định thời chính xác được thiết kế cho các buổi biểu diễn trực tiếp, thuyết trình và quản lý sự kiện.
 
 【Tính năng chính】
 
