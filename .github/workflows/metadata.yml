@@ -11,6 +11,7 @@ env:
   APP_STORE_CONNECT_API_KEY_ISSUER_ID: ${{ secrets.APP_STORE_CONNECT_API_KEY_ISSUER_ID }}
   APP_STORE_CONNECT_API_KEY_KEY: ${{ secrets.APP_STORE_CONNECT_API_KEY_KEY }}
   APP_STORE_CONNECT_API_KEY_IS_KEY_CONTENT_BASE64: "true"
+  FASTLANE_USER: ${{ secrets.FASTLANE_USER }}
   MATCH_GIT_URL: ${{ secrets.MATCH_GIT_URL }} # Must be SSH format: git@github.com:user/repo.git
   MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
   PRODUCE_ITC_TEAM_ID: ${{ secrets.PRODUCE_ITC_TEAM_ID }}
@@ -65,7 +66,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: fastlane-report-${{ github.sha }}
+          name: fastlane-report-${{ matrix.platform }}-${{ github.sha }}
           path: |
             fastlane/report.xml
           retention-days: 30
