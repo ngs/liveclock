@@ -171,9 +171,9 @@ jobs:
         with:
           name: ipa-release-${{ github.sha }}
           path: |
-            builds/**/*.ipa
+            build/release/**/*.ipa
             fastlane/report.xml
-            builds/**/*.dSYM.zip
+            build/release/**/*.dSYM.zip
           retention-days: 30
 
       - name: Create GitHub Release
