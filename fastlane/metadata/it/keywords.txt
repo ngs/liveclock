@@ -1,1 +1,1 @@
-timer,cronometro,live,concerto,setlist,performance,tempo parziale,evento,palco,musica,prova,gestione tempo,presentazione,conto alla rovescia,misurazione,registrazione,CSV,esportazione
+timer,cronometro,live,concerto,scaletta,esibizione,giro,evento,palco,musica,prova,presentazione,CSV

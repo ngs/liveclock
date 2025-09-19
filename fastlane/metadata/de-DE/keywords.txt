@@ -1,1 +1,1 @@
-Timer,Stoppuhr,Live,Gig,Setlist,Performance,Rundenzeit,Event,Bühne,Musik,Probe,Zeitmanagement,Präsentation,Countdown,Messung,Aufzeichnung,CSV,Export
+Timer,Stoppuhr,Live,Gig,Setlist,Auftritt,Rundenzeit,Event,Bühne,Musik,Probe,Präsentation,CSV

@@ -1,1 +1,1 @@
-bộ hẹn giờ,đồng hồ bấm giờ,trực tiếp,biểu diễn,danh sách bài hát,trình diễn,thời gian vòng,sự kiện,sân khấu,âm nhạc,tập luyện,quản lý thời gian,thuyết trình,đếm ngược,đo lường,ghi lại,CSV,xuất
+hẹn giờ,đồng hồ,trực tiếp,biểu diễn,danh sách,trình diễn,vòng,sự kiện,sân khấu,âm nhạc,CSV

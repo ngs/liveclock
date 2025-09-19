@@ -1,1 +1,1 @@
-timer,cronômetro,ao vivo,show,setlist,performance,tempo de volta,evento,palco,música,ensaio,gerenciamento de tempo,apresentação,contagem regressiva,medição,gravação,CSV,exportar
+timer,cronômetro,show,setlist,performance,volta,evento,palco,música,ensaio,apresentação,CSV

@@ -1,1 +1,1 @@
-temporitzador,cronòmetre,directe,actuació,llista cançons,actuació,temps volta,esdeveniment,escenari,música,assaig,gestió temps,presentació,compte enrere,mesurament,enregistrament,CSV,exportar
+temporitzador,cronòmetre,directe,actuació,llista,actuació,volta,esdeveniment,escenari,música,CSV

@@ -1,1 +1,1 @@
-timer,stopwatch,live,gig,setlijst,optreden,rondetijd,evenement,podium,muziek,repetitie,tijdbeheer,presentatie,aftellen,meting,registratie,CSV,exporteren
+timer,stopwatch,live,gig,setlijst,optreden,rondetijd,evenement,podium,muziek,repetitie,CSV

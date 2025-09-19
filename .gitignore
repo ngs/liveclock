@@ -24,3 +24,5 @@ Derived/
 fastlane/report.xml
 build/
 match_deploy_key*
+
+fastlane/Preview.html

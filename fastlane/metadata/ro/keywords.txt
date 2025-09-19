@@ -1,1 +1,1 @@
-cronometru,timer,live,concert,setlist,performanță,timp tur,eveniment,scenă,muzică,repetiție,gestionare timp,prezentare,numărătoare inversă,măsurare,înregistrare,CSV,export
+cronometru,timer,live,concert,setlist,performanță,tur,eveniment,scenă,muzică,repetiție,CSV

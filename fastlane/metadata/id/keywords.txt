@@ -1,1 +1,1 @@
-timer,stopwatch,langsung,pertunjukan,setlist,penampilan,waktu putaran,acara,panggung,musik,latihan,manajemen waktu,presentasi,hitung mundur,pengukuran,perekaman,CSV,ekspor
+timer,stopwatch,langsung,pertunjukan,setlist,penampilan,putaran,acara,panggung,musik,latihan,CSV

@@ -1,1 +1,1 @@
-timer,stoppeklokke,live,gig,settliste,opptreden,rundetid,arrangement,scene,musikk,øving,tidshåndtering,presentasjon,nedtelling,måling,registrering,CSV,eksport
+timer,stoppeklokke,live,gig,settliste,opptreden,rundetid,arrangement,scene,musikk,øving,CSV

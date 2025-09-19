@@ -1,1 +1,1 @@
-timer,stopwatch,live,gig,setlist,performance,lap time,event,stage,music,rehearsal,time management,presentation,countdown,measurement,recording,CSV,export
+timer,stopwatch,live,gig,setlist,performance,lap,event,stage,music,rehearsal,presentation,CSV

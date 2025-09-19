@@ -1,1 +1,1 @@
-temporizador,cronómetro,vivo,concierto,setlist,actuación,tiempo parcial,evento,escenario,música,ensayo,gestión de tiempo,presentación,cuenta atrás,medición,grabación,CSV,exportar
+temporizador,cronómetro,vivo,concierto,setlist,presentación,vuelta,evento,escenario,música,ensayo

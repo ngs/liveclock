@@ -1,1 +1,1 @@
-timer,stopur,live,gig,setliste,optræden,omgangstid,begivenhed,scene,musik,prøve,tidshåndtering,præsentation,nedtælling,måling,registrering,CSV,eksport
+timer,stopur,live,koncert,setliste,optræden,omgangstid,begivenhed,scene,musik,prøve,CSV
