@@ -22,7 +22,7 @@ on:
         options:
           - all
           - ios
-          - macos
+          - mac
           - visionos
         default: all
       skip_upload:
@@ -74,9 +74,38 @@ jobs:
             echo "should_deploy=false" >> $GITHUB_OUTPUT
           fi
 
+  determine-platforms:
+    # Determine which platforms to build based on the trigger
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.set-matrix.outputs.matrix }}
+      skip_upload: ${{ steps.set-params.outputs.skip_upload }}
+    steps:
+      - name: Set parameters
+        id: set-params
+        run: |
+          if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
+            echo "skip_upload=${{ github.event.inputs.skip_upload }}" >> $GITHUB_OUTPUT
+          else
+            echo "skip_upload=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Set matrix
+        id: set-matrix
+        run: |
+          if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
+            if [[ "${{ github.event.inputs.platform }}" == "all" ]]; then
+              echo 'matrix=["ios", "mac", "visionos"]' >> $GITHUB_OUTPUT
+            else
+              echo 'matrix=["${{ github.event.inputs.platform }}"]' >> $GITHUB_OUTPUT
+            fi
+          else
+            # Default for CI completion trigger
+            echo 'matrix=["ios", "mac", "visionos"]' >> $GITHUB_OUTPUT
+          fi
+
   release:
-    # Only depend on check-ci-status if workflow_run trigger
-    needs: [check-ci-status]
+    needs: [check-ci-status, determine-platforms]
     if: |
       always() &&
       (
@@ -85,7 +114,11 @@ jobs:
         (github.event_name == 'workflow_run' && needs.check-ci-status.outputs.should_deploy == 'true')
       )
     runs-on: macos-latest
-    timeout-minutes: 120
+    timeout-minutes: 60
+    strategy:
+      fail-fast: false
+      matrix:
+        platform: ${{ fromJson(needs.determine-platforms.outputs.matrix) }}
 
     steps:
       - name: Checkout code
@@ -99,7 +132,8 @@ jobs:
           ruby-version: "3.3"
           bundler-cache: true
 
-      - run: bundle exec fastlane ios create_ci_keychain
+      - name: Create CI keychain
+        run: bundle exec fastlane ios create_ci_keychain
 
       - name: Setup SSH for Match
         env:
@@ -118,21 +152,10 @@ jobs:
         uses: actions/cache@v4
         with:
           path: ~/Library/MobileDevice/Provisioning Profiles
-          key: ${{ runner.os }}-certificates-${{ hashFiles('**/Matchfile') }}
+          key: ${{ runner.os }}-certificates-${{ matrix.platform }}-${{ hashFiles('**/Matchfile') }}
           restore-keys: |
+            ${{ runner.os }}-certificates-${{ matrix.platform }}-
             ${{ runner.os }}-certificates-
-
-      - name: Determine release parameters
-        id: params
-        run: |
-          if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
-            echo "skip_upload=${{ github.event.inputs.skip_upload }}" >> $GITHUB_OUTPUT
-            echo "platform=${{ github.event.inputs.platform }}" >> $GITHUB_OUTPUT
-          else
-            # Default for CI completion trigger
-            echo "skip_upload=false" >> $GITHUB_OUTPUT
-            echo "platform=all" >> $GITHUB_OUTPUT
-          fi
 
       - name: Install tuist
         run: |
@@ -155,68 +178,27 @@ jobs:
           echo "Current version: $VERSION"
           echo "Build number will be: ${{ github.run_id }}"
 
-      # iOS Build and Upload
-      - name: Sync iOS certificates and profiles
-        if: steps.params.outputs.platform == 'all' || steps.params.outputs.platform == 'ios'
+      - name: Sync certificates and profiles
         run: |
-          echo "Running fastlane iOS release_match..."
-          bundle exec fastlane ios release_match
+          echo "Running fastlane ${{ matrix.platform }} release_match..."
+          bundle exec fastlane ${{ matrix.platform }} release_match
 
-      - name: Build iOS release version
-        if: steps.params.outputs.platform == 'all' || steps.params.outputs.platform == 'ios'
+      - name: Build release version
         run: |
-          echo "Running fastlane iOS release_build with GitHub Actions Run ID: ${{ github.run_id }}"
-          bundle exec fastlane ios release_build
+          echo "Running fastlane ${{ matrix.platform }} release_build with GitHub Actions Run ID: ${{ github.run_id }}"
+          bundle exec fastlane ${{ matrix.platform }} release_build
 
-      - name: Upload iOS to App Store Connect
-        if: (steps.params.outputs.platform == 'all' || steps.params.outputs.platform == 'ios') && steps.params.outputs.skip_upload != 'true'
+      - name: Upload to App Store Connect
+        if: needs.determine-platforms.outputs.skip_upload != 'true'
         run: |
-          echo "Running fastlane iOS release_upload..."
-          bundle exec fastlane ios release_upload
-
-      # macOS Build and Upload
-      - name: Sync macOS certificates and profiles
-        if: steps.params.outputs.platform == 'all' || steps.params.outputs.platform == 'macos'
-        run: |
-          echo "Running fastlane macOS release_match..."
-          bundle exec fastlane mac release_match
-
-      - name: Build macOS release version
-        if: steps.params.outputs.platform == 'all' || steps.params.outputs.platform == 'macos'
-        run: |
-          echo "Running fastlane macOS release_build..."
-          bundle exec fastlane mac release_build
-
-      - name: Upload macOS to App Store Connect
-        if: (steps.params.outputs.platform == 'all' || steps.params.outputs.platform == 'macos') && steps.params.outputs.skip_upload != 'true'
-        run: |
-          echo "Running fastlane macOS release_upload..."
-          bundle exec fastlane mac release_upload
-
-      # visionOS Build and Upload
-      - name: Sync visionOS certificates and profiles
-        if: steps.params.outputs.platform == 'all' || steps.params.outputs.platform == 'visionos'
-        run: |
-          echo "Running fastlane visionOS release_match..."
-          bundle exec fastlane visionos release_match
-
-      - name: Build visionOS release version
-        if: steps.params.outputs.platform == 'all' || steps.params.outputs.platform == 'visionos'
-        run: |
-          echo "Running fastlane visionOS release_build..."
-          bundle exec fastlane visionos release_build
-
-      - name: Upload visionOS to App Store Connect
-        if: (steps.params.outputs.platform == 'all' || steps.params.outputs.platform == 'visionos') && steps.params.outputs.skip_upload != 'true'
-        run: |
-          echo "Running fastlane visionOS release_upload..."
-          bundle exec fastlane visionos release_upload
+          echo "Running fastlane ${{ matrix.platform }} release_upload..."
+          bundle exec fastlane ${{ matrix.platform }} release_upload
 
       - name: Upload build artifacts
         if: success()
         uses: actions/upload-artifact@v4
         with:
-          name: release-${{ steps.params.outputs.platform }}-${{ github.sha }}
+          name: release-${{ matrix.platform }}-${{ github.sha }}
           path: |
             build/release/**/*.ipa
             build/release/**/*.pkg
@@ -228,26 +210,50 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: gym-logs-${{ steps.params.outputs.platform }}-${{ github.sha }}
+          name: gym-logs-${{ matrix.platform }}-${{ github.sha }}
           path: |
             /Users/runner/Library/Logs/gym/*.log
             fastlane/report.xml
           retention-days: 7
 
+  create-release:
+    needs: [release, determine-platforms]
+    if: success() && needs.determine-platforms.outputs.skip_upload != 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Get version info
+        id: version
+        run: |
+          VERSION=$(grep -E 'version *= *"' Project.swift | head -1 | sed -E 's/.*version *= *"([^"]+)".*/\1/' || echo "1.0.0")
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+
+      - name: Download all artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: artifacts
+          pattern: release-*
+
       - name: Create GitHub Release
-        if: success() && steps.params.outputs.skip_upload != 'true' && steps.version.outputs.version != ''
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: v${{ steps.version.outputs.version || '1.0.0' }}
-          name: Release v${{ steps.version.outputs.version || '1.0.0' }}
+          tag_name: v${{ steps.version.outputs.version }}-${{ github.run_id }}
+          name: Release v${{ steps.version.outputs.version }} (Build ${{ github.run_id }})
           draft: false
           prerelease: false
           generate_release_notes: true
           files: |
-            build/release/**/*.ipa
-            build/release/**/*.pkg
-            build/release/**/*.dSYM.zip
+            artifacts/**/*.ipa
+            artifacts/**/*.pkg
+            artifacts/**/*.dSYM.zip
 
+  notify:
+    needs: [release, create-release]
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
       - name: Slack notification - Success
         if: success() && env.SLACK_WEBHOOK != ''
         env:
@@ -262,8 +268,6 @@ jobs:
             "attachments": [{
               "color": "good",
               "fields": [
-                {"title": "Platform", "value": "${{ steps.params.outputs.platform }}", "short": true},
-                {"title": "Version", "value": "${{ steps.version.outputs.version || 'N/A' }}", "short": true},
                 {"title": "Build Number", "value": "${{ github.run_id }}", "short": true},
                 {"title": "Commit", "value": "${{ github.sha }}", "short": true}
               ]
