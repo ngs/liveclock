@@ -87,7 +87,12 @@ platform :ios do
       export_method: 'app-store',
       output_directory: './build/release',
       catalyst_platform: 'ios',
-      scheme: 'LiveClock-iOS'
+      scheme: 'LiveClock-iOS',
+      export_options: {
+        provisioningProfiles: {
+          'io.ngs.LiveClock' => 'match AppStore io.ngs.LiveClock'
+        }
+      }
     )
   end
 
@@ -143,7 +148,12 @@ platform :mac do
       export_method: 'app-store',
       output_directory: './build/release',
       scheme: 'LiveClock-macOS',
-      destination: 'platform=macOS'
+      destination: 'platform=macOS',
+      export_options: {
+        provisioningProfiles: {
+          'io.ngs.LiveClock' => 'match AppStore io.ngs.LiveClock macos'
+        }
+      }
     )
   end
 
@@ -192,7 +202,12 @@ platform :visionos do
       export_method: 'app-store',
       output_directory: './build/release',
       scheme: 'LiveClock-visionOS',
-      destination: 'generic/platform=visionOS'
+      destination: 'generic/platform=visionOS',
+      export_options: {
+        provisioningProfiles: {
+          'io.ngs.LiveClock' => 'match AppStore io.ngs.LiveClock'
+        }
+      }
     )
   end
 
