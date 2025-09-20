@@ -4,10 +4,13 @@ let version = "1.0.0"
 let copyright = "© LittleApps Inc. All Rights Reserved."
 
 let actionRunId = Environment.runId.getString(default: "0")
-let supportedInterfaceOrientations = [
-    "UIInterfaceOrientationPortrait", "UIInterfaceOrientationLandscapeLeft",
-    "UIInterfaceOrientationLandscapeRight", "UIInterfaceOrientationPortraitUpsideDown"
-]
+let supportedInterfaceOrientations: Plist.Value = .array(
+    [
+        "UIInterfaceOrientationPortrait",
+        "UIInterfaceOrientationLandscapeLeft",
+        "UIInterfaceOrientationLandscapeRight",
+        "UIInterfaceOrientationPortraitUpsideDown"
+    ].map { Plist.Value.string($0) })
 
 let project = Project(
     name: "LiveClock",
@@ -31,20 +34,18 @@ let project = Project(
             destinations: [.iPhone, .iPad],
             product: .app,
             bundleId: "io.ngs.LiveClock",
-            deploymentTargets: .iOS("16.0"),
+            deploymentTargets: .iOS("18.0"),
             infoPlist: .extendingDefault(with: [
                 "UIViewControllerBasedStatusBarAppearance": .boolean(false),
                 "UILaunchStoryboardName": .string(""),
-                "UIRequiresFullScreen": .boolean(true),
                 "UIStatusBarHidden": .boolean(true),
                 "CFBundleDisplayName": .string("LiveClock"),
                 "CFBundleName": .string("LiveClock"),
                 "CFBundleVersion": .string("$(CURRENT_PROJECT_VERSION)"),
                 "CFBundleShortVersionString": .string("$(MARKETING_VERSION)"),
                 "ITSAppUsesNonExemptEncryption": .boolean(false),
-                "UISupportedInterfaceOrientations": .array(
-                    supportedInterfaceOrientations.map { Plist.Value.string($0) }
-                )
+                "UISupportedInterfaceOrientations": supportedInterfaceOrientations,
+                "UISupportedInterfaceOrientations~ipad": supportedInterfaceOrientations
             ]),
             sources: ["Sources/App/**"],
             resources: ["Sources/Resources/**"],
@@ -66,7 +67,7 @@ let project = Project(
             destinations: [.mac],
             product: .app,
             bundleId: "io.ngs.LiveClock",
-            deploymentTargets: .macOS("13.0"),
+            deploymentTargets: .macOS("15.0"),
             infoPlist: .extendingDefault(with: [
                 "ITSAppUsesNonExemptEncryption": .boolean(false),
                 "NSHumanReadableCopyright": .string(copyright),
@@ -95,7 +96,7 @@ let project = Project(
             destinations: [.appleVision],
             product: .app,
             bundleId: "io.ngs.LiveClock",
-            deploymentTargets: .visionOS("1.0"),
+            deploymentTargets: .visionOS("2.0"),
             infoPlist: .extendingDefault(with: [
                 "ITSAppUsesNonExemptEncryption": .boolean(false),
                 "CFBundleVersion": .string("$(CURRENT_PROJECT_VERSION)"),
@@ -121,7 +122,7 @@ let project = Project(
             destinations: [.iPhone, .iPad],
             product: .unitTests,
             bundleId: "io.ngs.LiveClockTests",
-            deploymentTargets: .iOS("16.0"),
+            deploymentTargets: .iOS("18.0"),
             sources: ["Tests/**"],
             dependencies: [
                 .target(name: "LiveClock-iOS"),

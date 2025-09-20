@@ -5,9 +5,8 @@ let package = Package(
     name: "LiveClock",
     defaultLocalization: "en",
     platforms: [
-        .iOS(.v16),
-        .macOS(.v13),
-        .tvOS(.v16),
+        .iOS(.v17),
+        .macOS(.v14),
         .visionOS(.v1)
     ],
     products: [
