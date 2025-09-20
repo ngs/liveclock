@@ -21,7 +21,7 @@ jobs:
             destination: "platform=macOS"
           - platform: visionOS
             scheme: LiveClock-visionOS
-            destination: "platform=visionOS Simulator,name=Apple Vision Pro,OS=26.0"
+            destination: "platform=visionOS Simulator,name=Apple Vision Pro,OS=2.5"
 
     steps:
       - uses: actions/checkout@v5
