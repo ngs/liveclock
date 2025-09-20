@@ -19,7 +19,7 @@ struct LapListView: View {
     var body: some View {
         ScrollViewReader { proxy in
             ScrollView {
-                LazyVStack(alignment: .trailing, spacing: 0) {
+                LazyVStack(alignment: .center, spacing: 0) {
                     ForEach(app.stopwatch.laps) { lap in
                         LapRowView(lap: lap, isFastest: lap.id == fastestLapId, isSlowest: lap.id == slowestLapId)
                             .id(lap.id)
@@ -51,6 +51,7 @@ struct LapRowView: View {
             let sizeS = proxy.size.width > 200.0
             
             return HStack(spacing: 10) {
+                Spacer(minLength: 0)
                 if sizeM {
                     HStack {
                         if sizeL {
@@ -97,6 +98,7 @@ struct LapRowView: View {
                         .foregroundStyle(fgColor)
                         .opacity(0.6)
                 }
+                Spacer(minLength: 0)
             }
         }
         .padding(.horizontal)

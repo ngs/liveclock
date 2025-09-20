@@ -81,6 +81,7 @@ public final class AppState: ObservableObject {
 
     public init() {}
 
+    @MainActor
     public func applyKeepAwake() {
         #if os(iOS) || os(tvOS) || os(visionOS)
         UIApplication.shared.isIdleTimerDisabled = preferences.keepAwake

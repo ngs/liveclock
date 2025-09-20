@@ -1,1512 +1,1476 @@
 {
-  "sourceLanguage": "en",
-  "strings": {
-    "Export": {
-      "extractionState": "manual",
-      "localizations": {
-        "ar-SA": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "تصدير"
+  "sourceLanguage" : "en",
+  "strings" : {
+    "Export" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar-SA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "تصدير"
           }
         },
-        "ca": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Exportar"
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Exportar"
           }
         },
-        "cs": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Exportovat"
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Exportovat"
           }
         },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Eksporter"
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Eksporter"
           }
         },
-        "de-DE": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Exportieren"
+        "de-DE" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Exportieren"
           }
         },
-        "el": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Εξαγωγή"
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Εξαγωγή"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Export"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Export"
           }
         },
-        "en-AU": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Export"
+        "en-AU" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Export"
           }
         },
-        "en-CA": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Export"
+        "en-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Export"
           }
         },
-        "en-GB": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Export"
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Export"
           }
         },
-        "en-US": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Export"
+        "en-US" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Export"
           }
         },
-        "es-ES": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Exportar"
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Exportar"
           }
         },
-        "es-MX": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Exportar"
+        "es-MX" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Exportar"
           }
         },
-        "fi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Vie"
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vie"
           }
         },
-        "fr-CA": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Exporter"
+        "fr-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Exporter"
           }
         },
-        "fr-FR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Exporter"
+        "fr-FR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Exporter"
           }
         },
-        "he": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "ייצוא"
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ייצוא"
           }
         },
-        "hi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "निर्यात करें"
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "निर्यात करें"
           }
         },
-        "hr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Izvoz"
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Izvoz"
           }
         },
-        "hu": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Exportálás"
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Exportálás"
           }
         },
-        "id": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ekspor"
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ekspor"
           }
         },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Esporta"
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Esporta"
           }
         },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "エクスポート"
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "書き出し"
           }
         },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "내보내기"
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "내보내기"
           }
         },
-        "ms": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Eksport"
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Eksport"
           }
         },
-        "nb": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Eksporter"
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Eksporter"
           }
         },
-        "nl-NL": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Exporteren"
+        "nl-NL" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Exporteren"
           }
         },
-        "pl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Eksportuj"
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Eksportuj"
           }
         },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Exportar"
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Exportar"
           }
         },
-        "pt-PT": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Exportar"
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Exportar"
           }
         },
-        "ro": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Export"
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Export"
           }
         },
-        "ru": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Экспорт"
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Экспорт"
           }
         },
-        "sk": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Exportovať"
+        "sk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Exportovať"
           }
         },
-        "sv": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Exportera"
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Exportera"
           }
         },
-        "th": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "ส่งออก"
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ส่งออก"
           }
         },
-        "tr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Dışa Aktar"
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dışa Aktar"
           }
         },
-        "uk": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Експорт"
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Експорт"
           }
         },
-        "vi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Xuất"
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Xuất"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "导出"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "导出"
           }
         },
-        "zh-Hant": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "匯出"
-          }
-        },
-        "no": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Eksporter"
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "匯出"
           }
         }
       }
     },
-    "Export Failed": {
-      "extractionState": "manual",
-      "localizations": {
-        "ar-SA": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "فشل التصدير"
+    "Export Failed" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar-SA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "فشل التصدير"
           }
         },
-        "ca": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ha fallat l'exportació"
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ha fallat l'exportació"
           }
         },
-        "cs": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Export selhal"
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Export selhal"
           }
         },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Eksport mislykkedes"
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Eksport mislykkedes"
           }
         },
-        "de-DE": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Export fehlgeschlagen"
+        "de-DE" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Export fehlgeschlagen"
           }
         },
-        "el": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Η εξαγωγή απέτυχε"
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Η εξαγωγή απέτυχε"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Export Failed"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Export Failed"
           }
         },
-        "en-AU": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Export Failed"
+        "en-AU" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Export Failed"
           }
         },
-        "en-CA": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Export Failed"
+        "en-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Export Failed"
           }
         },
-        "en-GB": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Export Failed"
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Export Failed"
           }
         },
-        "en-US": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Export Failed"
+        "en-US" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Export Failed"
           }
         },
-        "es-ES": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Error de exportación"
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Error de exportación"
           }
         },
-        "es-MX": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Fallo en la exportación"
+        "es-MX" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fallo en la exportación"
           }
         },
-        "fi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Vienti epäonnistui"
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vienti epäonnistui"
           }
         },
-        "fr-CA": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Échec de l'exportation"
+        "fr-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Échec de l'exportation"
           }
         },
-        "fr-FR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Échec de l'exportation"
+        "fr-FR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Échec de l'exportation"
           }
         },
-        "he": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "ייצוא נכשל"
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ייצוא נכשל"
           }
         },
-        "hi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "निर्यात विफल"
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "निर्यात विफल"
           }
         },
-        "hr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Izvoz neuspješan"
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Izvoz neuspješan"
           }
         },
-        "hu": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Exportálás sikertelen"
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Exportálás sikertelen"
           }
         },
-        "id": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ekspor Gagal"
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ekspor Gagal"
           }
         },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Esportazione fallita"
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Esportazione fallita"
           }
         },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "エクスポートに失敗しました"
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "書き出しに失敗しました"
           }
         },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "내보내기 실패"
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "내보내기 실패"
           }
         },
-        "ms": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Eksport Gagal"
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Eksport Gagal"
           }
         },
-        "nb": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Eksport mislyktes"
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Eksport mislyktes"
           }
         },
-        "nl-NL": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Exporteren mislukt"
+        "nl-NL" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Exporteren mislukt"
           }
         },
-        "pl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Eksport nieudany"
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Eksport nieudany"
           }
         },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Falha na exportação"
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Falha na exportação"
           }
         },
-        "pt-PT": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Falha na exportação"
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Falha na exportação"
           }
         },
-        "ro": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Export eșuat"
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Export eșuat"
           }
         },
-        "ru": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Экспорт не удался"
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Экспорт не удался"
           }
         },
-        "sk": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Export zlyhal"
+        "sk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Export zlyhal"
           }
         },
-        "sv": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Export misslyckades"
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Export misslyckades"
           }
         },
-        "th": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "การส่งออกล้มเหลว"
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "การส่งออกล้มเหลว"
           }
         },
-        "tr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Dışa Aktarma Başarısız"
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dışa Aktarma Başarısız"
           }
         },
-        "uk": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Експорт не вдався"
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Експорт не вдався"
           }
         },
-        "vi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Xuất thất bại"
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Xuất thất bại"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "导出失败"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "导出失败"
           }
         },
-        "zh-Hant": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "匯出失敗"
-          }
-        },
-        "no": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Eksport mislyktes"
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "匯出失敗"
           }
         }
       }
     },
-    "Lap": {
-      "extractionState": "manual",
-      "localizations": {
-        "ar-SA": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "دورة"
+    "Lap" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar-SA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "دورة"
           }
         },
-        "ca": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Volta"
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Volta"
           }
         },
-        "cs": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Kolo"
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kolo"
           }
         },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Omgang"
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Omgang"
           }
         },
-        "de-DE": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Runde"
+        "de-DE" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Runde"
           }
         },
-        "el": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Γύρος"
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Γύρος"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Lap"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lap"
           }
         },
-        "en-AU": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Lap"
+        "en-AU" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lap"
           }
         },
-        "en-CA": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Lap"
+        "en-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lap"
           }
         },
-        "en-GB": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Lap"
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lap"
           }
         },
-        "en-US": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Lap"
+        "en-US" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lap"
           }
         },
-        "es-ES": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Vuelta"
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vuelta"
           }
         },
-        "es-MX": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Vuelta"
+        "es-MX" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vuelta"
           }
         },
-        "fi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Kierros"
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kierros"
           }
         },
-        "fr-CA": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tour"
+        "fr-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tour"
           }
         },
-        "fr-FR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tour"
+        "fr-FR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tour"
           }
         },
-        "he": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "סיבוב"
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "סיבוב"
           }
         },
-        "hi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "लैप"
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "लैप"
           }
         },
-        "hr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Krug"
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Krug"
           }
         },
-        "hu": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Kör"
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kör"
           }
         },
-        "id": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Putaran"
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Putaran"
           }
         },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Giro"
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Giro"
           }
         },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "ラップ"
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ラップ"
           }
         },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "랩"
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "랩"
           }
         },
-        "ms": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Pusingan"
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pusingan"
           }
         },
-        "nb": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Runde"
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Runde"
           }
         },
-        "nl-NL": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ronde"
+        "nl-NL" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ronde"
           }
         },
-        "pl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Okrążenie"
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Okrążenie"
           }
         },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Volta"
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Volta"
           }
         },
-        "pt-PT": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Volta"
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Volta"
           }
         },
-        "ro": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tură"
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tură"
           }
         },
-        "ru": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Круг"
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Круг"
           }
         },
-        "sk": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Kolo"
+        "sk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kolo"
           }
         },
-        "sv": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Varv"
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Varv"
           }
         },
-        "th": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "รอบ"
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "รอบ"
           }
         },
-        "tr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tur"
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tur"
           }
         },
-        "uk": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Коло"
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Коло"
           }
         },
-        "vi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Vòng"
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vòng"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "计圈"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "计圈"
           }
         },
-        "zh-Hant": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "計圈"
-          }
-        },
-        "no": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Runde"
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "計圈"
           }
         }
       }
     },
-    "Reset": {
-      "extractionState": "manual",
-      "localizations": {
-        "ar-SA": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "إعادة تعيين"
+    "Reset" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar-SA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "إعادة تعيين"
           }
         },
-        "ca": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Reiniciar"
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reiniciar"
           }
         },
-        "cs": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Resetovat"
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Resetovat"
           }
         },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Nulstil"
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nulstil"
           }
         },
-        "de-DE": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Zurücksetzen"
+        "de-DE" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zurücksetzen"
           }
         },
-        "el": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Επαναφορά"
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Επαναφορά"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Reset"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reset"
           }
         },
-        "en-AU": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Reset"
+        "en-AU" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reset"
           }
         },
-        "en-CA": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Reset"
+        "en-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reset"
           }
         },
-        "en-GB": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Reset"
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reset"
           }
         },
-        "en-US": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Reset"
+        "en-US" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reset"
           }
         },
-        "es-ES": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Reiniciar"
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reiniciar"
           }
         },
-        "es-MX": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Reiniciar"
+        "es-MX" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reiniciar"
           }
         },
-        "fi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Nollaa"
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nollaa"
           }
         },
-        "fr-CA": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Réinitialiser"
+        "fr-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Réinitialiser"
           }
         },
-        "fr-FR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Réinitialiser"
+        "fr-FR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Réinitialiser"
           }
         },
-        "he": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "איפוס"
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "איפוס"
           }
         },
-        "hi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "रीसेट"
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "रीसेट"
           }
         },
-        "hr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Resetiraj"
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Resetiraj"
           }
         },
-        "hu": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Visszaállítás"
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Visszaállítás"
           }
         },
-        "id": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Reset"
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reset"
           }
         },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Reimposta"
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reimposta"
           }
         },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "リセット"
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "リセット"
           }
         },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "리셋"
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "리셋"
           }
         },
-        "ms": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Set Semula"
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Set Semula"
           }
         },
-        "nb": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tilbakestill"
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tilbakestill"
           }
         },
-        "nl-NL": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Resetten"
+        "nl-NL" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Resetten"
           }
         },
-        "pl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Resetuj"
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Resetuj"
           }
         },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Redefinir"
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Redefinir"
           }
         },
-        "pt-PT": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Repor"
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Repor"
           }
         },
-        "ro": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Resetare"
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Resetare"
           }
         },
-        "ru": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Сброс"
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Сброс"
           }
         },
-        "sk": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Resetovať"
+        "sk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Resetovať"
           }
         },
-        "sv": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Återställ"
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Återställ"
           }
         },
-        "th": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "รีเซ็ต"
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "รีเซ็ต"
           }
         },
-        "tr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Sıfırla"
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sıfırla"
           }
         },
-        "uk": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Скинути"
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Скинути"
           }
         },
-        "vi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Đặt lại"
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Đặt lại"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "重置"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "重置"
           }
         },
-        "zh-Hant": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "重置"
-          }
-        },
-        "no": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Nullstill"
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "重置"
           }
         }
       }
     },
-    "Stop": {
-      "extractionState": "manual",
-      "localizations": {
-        "ar-SA": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "توقف"
+    "Stop" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar-SA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "توقف"
           }
         },
-        "ca": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Aturar"
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aturar"
           }
         },
-        "cs": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Zastavit"
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zastavit"
           }
         },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Stop"
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Stop"
           }
         },
-        "de-DE": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Stopp"
+        "de-DE" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Stopp"
           }
         },
-        "el": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Σταμάτημα"
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Σταμάτημα"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Stop"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Stop"
           }
         },
-        "en-AU": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Stop"
+        "en-AU" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Stop"
           }
         },
-        "en-CA": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Stop"
+        "en-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Stop"
           }
         },
-        "en-GB": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Stop"
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Stop"
           }
         },
-        "en-US": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Stop"
+        "en-US" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Stop"
           }
         },
-        "es-ES": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Parar"
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Parar"
           }
         },
-        "es-MX": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Detener"
+        "es-MX" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Detener"
           }
         },
-        "fi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Pysäytä"
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pysäytä"
           }
         },
-        "fr-CA": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Arrêter"
+        "fr-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Arrêter"
           }
         },
-        "fr-FR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Arrêter"
+        "fr-FR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Arrêter"
           }
         },
-        "he": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "עצור"
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "עצור"
           }
         },
-        "hi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "रोकें"
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "रोकें"
           }
         },
-        "hr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Zaustavi"
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zaustavi"
           }
         },
-        "hu": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Leállítás"
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Leállítás"
           }
         },
-        "id": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Berhenti"
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Berhenti"
           }
         },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ferma"
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ferma"
           }
         },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "停止"
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "停止"
           }
         },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "정지"
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "정지"
           }
         },
-        "ms": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Berhenti"
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Berhenti"
           }
         },
-        "nb": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Stopp"
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Stopp"
           }
         },
-        "nl-NL": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Stoppen"
+        "nl-NL" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Stoppen"
           }
         },
-        "pl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Zatrzymaj"
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zatrzymaj"
           }
         },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Parar"
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Parar"
           }
         },
-        "pt-PT": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Parar"
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Parar"
           }
         },
-        "ro": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Oprire"
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Oprire"
           }
         },
-        "ru": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Остановить"
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Остановить"
           }
         },
-        "sk": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Zastaviť"
+        "sk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zastaviť"
           }
         },
-        "sv": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Stoppa"
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Stoppa"
           }
         },
-        "th": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "หยุด"
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "หยุด"
           }
         },
-        "tr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Durdur"
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Durdur"
           }
         },
-        "uk": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Зупинити"
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Зупинити"
           }
         },
-        "vi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Dừng"
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dừng"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "停止"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "停止"
           }
         },
-        "zh-Hant": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "停止"
-          }
-        },
-        "no": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Stopp"
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "停止"
           }
         }
       }
     },
-    "Unable to save the file: %@": {
-      "extractionState": "manual",
-      "localizations": {
-        "ar-SA": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "غير قادر على حفظ الملف: %@"
+    "Unable to save the file: %@" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar-SA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "غير قادر على حفظ الملف: %@"
           }
         },
-        "ca": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "No s'ha pogut desar el fitxer: %@"
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No s'ha pogut desar el fitxer: %@"
           }
         },
-        "cs": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Nelze uložit soubor: %@"
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nelze uložit soubor: %@"
           }
         },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Kan ikke gemme filen: %@"
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kan ikke gemme filen: %@"
           }
         },
-        "de-DE": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Datei kann nicht gespeichert werden: %@"
+        "de-DE" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Datei kann nicht gespeichert werden: %@"
           }
         },
-        "el": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Αδυναμία αποθήκευσης αρχείου: %@"
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Αδυναμία αποθήκευσης αρχείου: %@"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Unable to save the file: %@"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unable to save the file: %@"
           }
         },
-        "en-AU": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Unable to save the file: %@"
+        "en-AU" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unable to save the file: %@"
           }
         },
-        "en-CA": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Unable to save the file: %@"
+        "en-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unable to save the file: %@"
           }
         },
-        "en-GB": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Unable to save the file: %@"
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unable to save the file: %@"
           }
         },
-        "en-US": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Unable to save the file: %@"
+        "en-US" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unable to save the file: %@"
           }
         },
-        "es-ES": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "No se puede guardar el archivo: %@"
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No se puede guardar el archivo: %@"
           }
         },
-        "es-MX": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "No se puede guardar el archivo: %@"
+        "es-MX" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No se puede guardar el archivo: %@"
           }
         },
-        "fi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tiedostoa ei voi tallentaa: %@"
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tiedostoa ei voi tallentaa: %@"
           }
         },
-        "fr-CA": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Impossible de sauvegarder le fichier : %@"
+        "fr-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impossible de sauvegarder le fichier : %@"
           }
         },
-        "fr-FR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Impossible d'enregistrer le fichier : %@"
+        "fr-FR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impossible d'enregistrer le fichier : %@"
           }
         },
-        "he": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "לא ניתן לשמור את הקובץ: %@"
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "לא ניתן לשמור את הקובץ: %@"
           }
         },
-        "hi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "फ़ाइल सहेजने में असमर्थ: %@"
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "फ़ाइल सहेजने में असमर्थ: %@"
           }
         },
-        "hr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Nije moguće spremiti datoteku: %@"
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nije moguće spremiti datoteku: %@"
           }
         },
-        "hu": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "A fájl mentése sikertelen: %@"
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A fájl mentése sikertelen: %@"
           }
         },
-        "id": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tidak dapat menyimpan file: %@"
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tidak dapat menyimpan file: %@"
           }
         },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Impossibile salvare il file: %@"
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impossibile salvare il file: %@"
           }
         },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "ファイルを保存できません: %@"
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ファイルを保存できません: %@"
           }
         },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "파일을 저장할 수 없습니다: %@"
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "파일을 저장할 수 없습니다: %@"
           }
         },
-        "ms": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tidak dapat menyimpan fail: %@"
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tidak dapat menyimpan fail: %@"
           }
         },
-        "nb": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Kan ikke lagre filen: %@"
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kan ikke lagre filen: %@"
           }
         },
-        "nl-NL": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Kan het bestand niet opslaan: %@"
+        "nl-NL" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kan het bestand niet opslaan: %@"
           }
         },
-        "pl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Nie można zapisać pliku: %@"
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nie można zapisać pliku: %@"
           }
         },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Não foi possível salvar o arquivo: %@"
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Não foi possível salvar o arquivo: %@"
           }
         },
-        "pt-PT": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Não foi possível guardar o ficheiro: %@"
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Não foi possível guardar o ficheiro: %@"
           }
         },
-        "ro": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Nu se poate salva fișierul: %@"
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nu se poate salva fișierul: %@"
           }
         },
-        "ru": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Невозможно сохранить файл: %@"
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Невозможно сохранить файл: %@"
           }
         },
-        "sk": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Nie je možné uložiť súbor: %@"
+        "sk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nie je možné uložiť súbor: %@"
           }
         },
-        "sv": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Kan inte spara filen: %@"
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kan inte spara filen: %@"
           }
         },
-        "th": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "ไม่สามารถบันทึกไฟล์: %@"
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ไม่สามารถบันทึกไฟล์: %@"
           }
         },
-        "tr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Dosya kaydedilemedi: %@"
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dosya kaydedilemedi: %@"
           }
         },
-        "uk": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Неможливо зберегти файл: %@"
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Неможливо зберегти файл: %@"
           }
         },
-        "vi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Không thể lưu tập tin: %@"
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Không thể lưu tập tin: %@"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "无法保存文件: %@"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法保存文件: %@"
           }
         },
-        "zh-Hant": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "無法儲存檔案: %@"
-          }
-        },
-        "no": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Kan ikke lagre filen: %@"
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "無法儲存檔案: %@"
           }
         }
       }
     }
   },
-  "version": "1.0"
+  "version" : "1.0"
 }
