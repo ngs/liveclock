@@ -82,6 +82,28 @@ jobs:
         with:
           args: --strict
 
+  periphery:
+    name: Periphery Scan
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Select Xcode
+        run: ls -l /Applications && sudo xcode-select -s /Applications/Xcode_26.app
+
+      - name: Install tuist and periphery
+        run: |
+          brew tap tuist/tuist
+          brew install --formula tuist periphery
+
+      - name: Generate Xcode project and workspace
+        run: tuist generate --no-open
+        env:
+          TUIST_RUN_ID: ${{ github.run_id }}
+
+      - name: periphery scan
+        run: periphery scan --strict
+
   rubocop:
     name: RuboCop
     runs-on: ubuntu-latest
