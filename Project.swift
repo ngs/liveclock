@@ -4,13 +4,6 @@ let version = "1.0.0"
 let copyright = "© LittleApps Inc. All Rights Reserved."
 
 let actionRunId = Environment.runId.getString(default: "0")
-let supportedInterfaceOrientations: Plist.Value = .array(
-    [
-        "UIInterfaceOrientationPortrait",
-        "UIInterfaceOrientationLandscapeLeft",
-        "UIInterfaceOrientationLandscapeRight",
-        "UIInterfaceOrientationPortraitUpsideDown"
-    ].map { Plist.Value.string($0) })
 
 let project = Project(
     name: "LiveClock",
@@ -43,9 +36,7 @@ let project = Project(
                 "CFBundleName": .string("LiveClock"),
                 "CFBundleVersion": .string("$(CURRENT_PROJECT_VERSION)"),
                 "CFBundleShortVersionString": .string("$(MARKETING_VERSION)"),
-                "ITSAppUsesNonExemptEncryption": .boolean(false),
-                "UISupportedInterfaceOrientations": supportedInterfaceOrientations,
-                "UISupportedInterfaceOrientations~ipad": supportedInterfaceOrientations
+                "ITSAppUsesNonExemptEncryption": .boolean(false)
             ]),
             sources: ["Sources/App/**"],
             resources: ["Sources/Resources/**"],
