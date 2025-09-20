@@ -41,7 +41,9 @@ struct LiveClockApp: App {
                 CommandMenu("Export") {
                     Button("Export Laps as CSV") {
                         exportOnMac()
-                    }.keyboardShortcut("e", modifiers: [.command, .shift])
+                    }
+                    .keyboardShortcut("e", modifiers: [.command, .shift])
+                    .disabled(appState.stopwatch.laps.isEmpty)
                 }
             }
         #endif

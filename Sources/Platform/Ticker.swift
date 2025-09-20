@@ -48,7 +48,9 @@ public final class Ticker {
         }
         #else
         timer = Timer.scheduledTimer(withTimeInterval: frequency.timeInterval, repeats: true) { [weak self] _ in
-            self?.delegate?.tickerDidTick()
+            Task { @MainActor in
+                  self?.delegate?.tickerDidTick()
+            }
         }
         #endif
     }

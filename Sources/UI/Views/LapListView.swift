@@ -24,7 +24,7 @@ struct LapListView: View {
                         LapRowView(lap: lap, isFastest: lap.id == fastestLapId, isSlowest: lap.id == slowestLapId)
                             .id(lap.id)
                     }
-                }
+                }.padding(.bottom, 20)
             }
             .onChange(of: app.stopwatch.laps.count) {
                 if let firstLap = app.stopwatch.laps.first {
@@ -70,11 +70,17 @@ struct LapRowView: View {
                             }
                             .frame(width: 20, alignment: .trailing)
                         }
-                        Text("#\(lap.index)")
-                            .font(.system(.body, design: .monospaced))
-                            .lineLimit(1)
-                            .foregroundStyle(fgColor)
-                            .opacity(0.6)
+                        if lap.index == 0 {
+                            Image(systemName: "play.circle")
+                                .foregroundStyle(fgColor)
+                                .opacity(0.6)
+                        } else {
+                            Text("#\(lap.index)")
+                                .font(.system(.body, design: .monospaced))
+                                .lineLimit(1)
+                                .foregroundStyle(fgColor)
+                                .opacity(0.6)
+                        }
                     }
                     .frame(width: sizeL ? 74 : 44, alignment: .trailing)
                 }
