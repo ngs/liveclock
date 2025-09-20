@@ -81,7 +81,7 @@ public final class FeedbackManager {
 
     #if os(iOS)
     private func playSystemSound(_ soundID: UInt32) {
-        AudioServicesPlayAlertSound(soundID)
+        AudioServicesPlaySystemSound(soundID)
     }
     #endif
 }
