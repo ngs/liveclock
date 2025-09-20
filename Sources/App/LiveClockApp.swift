@@ -49,9 +49,8 @@ struct LiveClockApp: App {
         #endif
         #if os(macOS)
             Settings {
-                PreferencesView()
+                MacPreferencesView()
                     .environmentObject(appState)
-                    .frame(minWidth: 420, minHeight: 320)
                     .preferredColorScheme(appState.preferences.colorScheme)
             }
         #endif

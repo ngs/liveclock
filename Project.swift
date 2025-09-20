@@ -62,6 +62,8 @@ let project = Project(
             infoPlist: .extendingDefault(with: [
                 "ITSAppUsesNonExemptEncryption": .boolean(false),
                 "NSHumanReadableCopyright": .string(copyright),
+                "CFBundleDisplayName": .string("LiveClock"),
+                "CFBundleName": .string("LiveClock"),
                 "LSApplicationCategoryType": .string("public.app-category.productivity"),
                 "CFBundleVersion": .string("$(CURRENT_PROJECT_VERSION)"),
                 "CFBundleShortVersionString": .string("$(MARKETING_VERSION)")
@@ -90,6 +92,8 @@ let project = Project(
             deploymentTargets: .visionOS("2.0"),
             infoPlist: .extendingDefault(with: [
                 "ITSAppUsesNonExemptEncryption": .boolean(false),
+                "CFBundleDisplayName": .string("LiveClock"),
+                "CFBundleName": .string("LiveClock"),
                 "CFBundleVersion": .string("$(CURRENT_PROJECT_VERSION)"),
                 "CFBundleShortVersionString": .string("$(MARKETING_VERSION)")
             ]),
