@@ -74,8 +74,6 @@ public final class Preferences: ObservableObject {
 }
 
 public final class AppState: ObservableObject {
-    private var cancellables = Set<AnyCancellable>()
-
     @Published public var stopwatch = Stopwatch()
     @Published public var preferences = Preferences()
     @Published public var now = Date()
