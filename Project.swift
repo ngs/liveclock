@@ -15,31 +15,35 @@ let project = Project(
         base: [
             "INFOPLIST_KEY_LSApplicationCategoryType": .string("public.app-category.productivity"),
             "INFOPLIST_KEY_CFBundleIconFile": .string("AppIcon"),
-            "INFOPLIST_KEY_CFBundleDisplayName": .string("LiveClock"),
-            "INFOPLIST_KEY_CFBundleName": .string("LiveClock"),
             "CURRENT_PROJECT_VERSION": .string(actionRunId),
             "MARKETING_VERSION": .string(version),
-            "DEVELOPMENT_TEAM": .string("3Y8APYUG2G")
+            "DEVELOPMENT_TEAM": .string("3Y8APYUG2G"),
+            "SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD": "NO",
         ]),
     targets: [
         .target(
-            name: "LiveClock-iOS",
-            destinations: [.iPhone, .iPad],
+            name: "LiveClock",
+            destinations: [.iPhone, .iPad, .mac, .appleVision],
             product: .app,
             bundleId: "io.ngs.LiveClock",
-            deploymentTargets: .iOS("18.0"),
+            deploymentTargets: .multiplatform(
+                iOS: "18.0",
+                macOS: "15.0",
+                visionOS: "2.0"
+            ),
             infoPlist: .extendingDefault(with: [
+                "ITSAppUsesNonExemptEncryption": .boolean(false),
+                "CFBundleVersion": .string("$(CURRENT_PROJECT_VERSION)"),
+                "CFBundleShortVersionString": .string("$(MARKETING_VERSION)"),
+                "NSHumanReadableCopyright": .string(copyright),
+                "LSApplicationCategoryType": .string("public.app-category.productivity"),
                 "UIViewControllerBasedStatusBarAppearance": .boolean(false),
                 "UILaunchStoryboardName": .string(""),
                 "UIStatusBarHidden": .boolean(true),
-                "CFBundleDisplayName": .string("LiveClock"),
-                "CFBundleName": .string("LiveClock"),
-                "CFBundleVersion": .string("$(CURRENT_PROJECT_VERSION)"),
-                "CFBundleShortVersionString": .string("$(MARKETING_VERSION)"),
-                "ITSAppUsesNonExemptEncryption": .boolean(false)
             ]),
             sources: ["Sources/App/**"],
             resources: ["Sources/Resources/**"],
+            entitlements: .file(path: "Resources/LiveClock.entitlements"),
             scripts: [
                 .pre(
                     script: "${SRCROOT}/Scripts/swiftlint-fix-build-phase.sh",
@@ -50,134 +54,33 @@ let project = Project(
             dependencies: [
                 .package(product: "LiveClockCore"),
                 .package(product: "LiveClockPlatform"),
-                .package(product: "LiveClockUI")
+                .package(product: "LiveClockUI"),
             ]
         ),
         .target(
-            name: "LiveClock-macOS",
-            destinations: [.mac],
-            product: .app,
-            bundleId: "io.ngs.LiveClock",
-            deploymentTargets: .macOS("15.0"),
-            infoPlist: .extendingDefault(with: [
-                "ITSAppUsesNonExemptEncryption": .boolean(false),
-                "NSHumanReadableCopyright": .string(copyright),
-                "CFBundleDisplayName": .string("LiveClock"),
-                "CFBundleName": .string("LiveClock"),
-                "LSApplicationCategoryType": .string("public.app-category.productivity"),
-                "CFBundleVersion": .string("$(CURRENT_PROJECT_VERSION)"),
-                "CFBundleShortVersionString": .string("$(MARKETING_VERSION)")
-            ]),
-            sources: ["Sources/App/**"],
-            resources: ["Sources/Resources/**"],
-            entitlements: .file(path: "Resources/LiveClock-macOS.entitlements"),
-            scripts: [
-                .pre(
-                    script: "${SRCROOT}/Scripts/swiftlint-fix-build-phase.sh",
-                    name: "SwiftLint Auto-Fix",
-                    basedOnDependencyAnalysis: false
-                )
-            ],
-            dependencies: [
-                .package(product: "LiveClockCore"),
-                .package(product: "LiveClockPlatform"),
-                .package(product: "LiveClockUI")
-            ]
-        ),
-        .target(
-            name: "LiveClock-visionOS",
-            destinations: [.appleVision],
-            product: .app,
-            bundleId: "io.ngs.LiveClock",
-            deploymentTargets: .visionOS("2.0"),
-            infoPlist: .extendingDefault(with: [
-                "ITSAppUsesNonExemptEncryption": .boolean(false),
-                "CFBundleDisplayName": .string("LiveClock"),
-                "CFBundleName": .string("LiveClock"),
-                "CFBundleVersion": .string("$(CURRENT_PROJECT_VERSION)"),
-                "CFBundleShortVersionString": .string("$(MARKETING_VERSION)")
-            ]),
-            sources: ["Sources/App/**"],
-            resources: ["Sources/Resources/**"],
-            scripts: [
-                .pre(
-                    script: "${SRCROOT}/Scripts/swiftlint-fix-build-phase.sh",
-                    name: "SwiftLint Auto-Fix",
-                    basedOnDependencyAnalysis: false
-                )
-            ],
-            dependencies: [
-                .package(product: "LiveClockCore"),
-                .package(product: "LiveClockPlatform"),
-                .package(product: "LiveClockUI")
-            ]
-        ),
-        .target(
-            name: "LiveClockTests-iOS",
-            destinations: [.iPhone, .iPad],
+            name: "LiveClockTests",
+            destinations: [.iPhone, .iPad, .mac, .appleVision],
             product: .unitTests,
             bundleId: "io.ngs.LiveClockTests",
-            deploymentTargets: .iOS("18.0"),
+            deploymentTargets: .multiplatform(
+                iOS: "18.0",
+                macOS: "15.0",
+                visionOS: "2.0"
+            ),
             sources: ["Tests/**"],
             dependencies: [
-                .target(name: "LiveClock-iOS"),
+                .target(name: "LiveClock"),
                 .package(product: "LiveClockCore"),
-                .package(product: "LiveClockUI")
+                .package(product: "LiveClockUI"),
             ]
         ),
-        .target(
-            name: "LiveClockTests-macOS",
-            destinations: [.mac],
-            product: .unitTests,
-            bundleId: "io.ngs.LiveClockTests",
-            deploymentTargets: .macOS("15.0"),
-            sources: ["Tests/**"],
-            dependencies: [
-                .target(name: "LiveClock-macOS"),
-                .package(product: "LiveClockCore"),
-                .package(product: "LiveClockUI")
-            ]
-        ),
-        .target(
-            name: "LiveClockTests-visionOS",
-            destinations: [.appleVision],
-            product: .unitTests,
-            bundleId: "io.ngs.LiveClockTests",
-            deploymentTargets: .visionOS("2.0"),
-            sources: ["Tests/**"],
-            dependencies: [
-                .target(name: "LiveClock-visionOS"),
-                .package(product: "LiveClockCore"),
-                .package(product: "LiveClockUI")
-            ]
-        )
     ],
     schemes: [
         .scheme(
-            name: "LiveClock-iOS",
-            buildAction: .buildAction(targets: ["LiveClock-iOS"]),
+            name: "LiveClock",
+            buildAction: .buildAction(targets: ["LiveClock"]),
             testAction: .targets(
-                ["LiveClockTests-iOS"],
-                configuration: .debug,
-                options: .options(coverage: true)
-            ),
-            runAction: .runAction(configuration: .debug)
-        ),
-        .scheme(
-            name: "LiveClock-macOS",
-            buildAction: .buildAction(targets: ["LiveClock-macOS"]),
-            testAction: .targets(
-                ["LiveClockTests-macOS"],
-                configuration: .debug,
-                options: .options(coverage: true)
-            ),
-            runAction: .runAction(configuration: .debug)
-        ),
-        .scheme(
-            name: "LiveClock-visionOS",
-            buildAction: .buildAction(targets: ["LiveClock-visionOS"]),
-            testAction: .targets(
-                ["LiveClockTests-visionOS"],
+                ["LiveClockTests"],
                 configuration: .debug,
                 options: .options(coverage: true)
             ),

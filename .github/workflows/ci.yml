@@ -14,13 +14,10 @@ jobs:
       matrix:
         include:
           - platform: iOS
-            scheme: LiveClock-iOS
             destination: "platform=iOS Simulator,name=iPhone 16 Pro Max,OS=18.5"
           - platform: macOS
-            scheme: LiveClock-macOS
             destination: "platform=macOS"
           - platform: visionOS
-            scheme: LiveClock-visionOS
             destination: "platform=visionOS Simulator,name=Apple Vision Pro,OS=2.5"
 
     steps:
@@ -42,7 +39,7 @@ jobs:
       - name: Build and Test (${{ matrix.platform }})
         run: |
           xcodebuild test \
-            -scheme ${{ matrix.scheme }} \
+            -scheme LiveClock \
             -destination '${{ matrix.destination }}' \
             -derivedDataPath .build \
             CODE_SIGNING_ALLOWED=NO \
@@ -127,13 +124,10 @@ jobs:
       matrix:
         include:
           - platform: iOS
-            scheme: LiveClock-iOS
             destination: "generic/platform=iOS Simulator"
           - platform: macOS
-            scheme: LiveClock-macOS
             destination: "platform=macOS"
           - platform: visionOS
-            scheme: LiveClock-visionOS
             destination: "generic/platform=visionOS Simulator"
 
     steps:
@@ -155,7 +149,7 @@ jobs:
       - name: Build ${{ matrix.platform }}
         run: |
           xcodebuild build \
-            -scheme ${{ matrix.scheme }} \
+            -scheme LiveClock \
             -destination '${{ matrix.destination }}' \
             -derivedDataPath .build \
             CODE_SIGNING_ALLOWED=NO \
