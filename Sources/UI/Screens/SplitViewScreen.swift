@@ -27,6 +27,7 @@ struct SplitViewScreen: View {
                         }
                     #endif
                 }
+                .navigationSplitViewColumnWidth(min: 160, ideal: 380, max: 380)
         } detail: {
             DetailTimerView()
                 .toolbar {

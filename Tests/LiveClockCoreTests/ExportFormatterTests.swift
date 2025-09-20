@@ -2,6 +2,7 @@ import XCTest
 @testable import LiveClockCore
 
 final class ExportFormatterTests: XCTestCase {
+    private let pst = TimeZone(secondsFromGMT: -28_800)!
     // MARK: - CSV Export Tests
     
     func testCSVExportWithNoLaps() {
@@ -19,7 +20,7 @@ final class ExportFormatterTests: XCTestCase {
         Thread.sleep(forTimeInterval: 0.1)
         stopwatch.lap()
         
-        let csvData = ExportFormatter.csv(from: stopwatch.laps)
+        let csvData = ExportFormatter.csv(from: stopwatch.laps, timeZone: pst)
         let csvString = String(data: csvData, encoding: .utf8)!
         
         let lines = csvString.split(separator: "\n")
@@ -37,26 +38,38 @@ final class ExportFormatterTests: XCTestCase {
     }
     
     func testCSVExportWithMultipleLaps() {
-        let stopwatch = Stopwatch()
-        stopwatch.start()
-        Thread.sleep(forTimeInterval: 0.05)
-        stopwatch.lap()
-        Thread.sleep(forTimeInterval: 0.1)
-        stopwatch.lap()
-        Thread.sleep(forTimeInterval: 0.08)
-        stopwatch.lap()
+        let laps: [Lap] = (0..<10).reversed().map { intIndex in
+            let index = Double(intIndex)
+            let atTotal = TimeInterval(index)
+            let deltaFromPrev = TimeInterval(index * 10)
+            let capturedDate = Date(timeIntervalSince1970: 1_760_000_000 + index)
+            let lapID = UUID()
+            return Lap(
+                id: lapID,
+                index: intIndex,
+                atTotal: atTotal,
+                deltaFromPrev: deltaFromPrev,
+                capturedDate: capturedDate
+            )
+        }
         
-        let csvData = ExportFormatter.csv(from: stopwatch.laps)
+        let csvData = ExportFormatter.csv(from: laps, timeZone: pst)
         let csvString = String(data: csvData, encoding: .utf8)!
         
         let lines = csvString.split(separator: "\n")
-        XCTAssertEqual(lines.count, 5, "Should have header and four data rows (base + 3 laps)")
-        
-        // Check order is reversed (oldest first)
-        let firstDataRow = lines[1].split(separator: ",")
-        let lastDataRow = lines[4].split(separator: ",")
-        XCTAssertEqual(firstDataRow[0], "0", "First row should be lap 0")
-        XCTAssertEqual(lastDataRow[0], "3", "Last row should be lap 3")
+        XCTAssertEqual(lines, [
+            "Lap,Delta (ms),Delta (h:m:s.ms),Captured (ISO8601)",
+            "0,0,00:00:00.000,2025-10-09T00:53:20-08:00",
+            "1,10000,00:00:10.000,2025-10-09T00:53:21-08:00",
+            "2,20000,00:00:20.000,2025-10-09T00:53:22-08:00",
+            "3,30000,00:00:30.000,2025-10-09T00:53:23-08:00",
+            "4,40000,00:00:40.000,2025-10-09T00:53:24-08:00",
+            "5,50000,00:00:50.000,2025-10-09T00:53:25-08:00",
+            "6,60000,00:01:00.000,2025-10-09T00:53:26-08:00",
+            "7,70000,00:01:10.000,2025-10-09T00:53:27-08:00",
+            "8,80000,00:01:20.000,2025-10-09T00:53:28-08:00",
+            "9,90000,00:01:30.000,2025-10-09T00:53:29-08:00"
+        ], "Should have header and ten data rows (base + 9 laps)")
     }
     
     func testCSVExportDeltaTimeFormatting() {
