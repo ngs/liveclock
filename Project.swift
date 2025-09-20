@@ -126,7 +126,7 @@ let project = Project(
             destinations: [.mac],
             product: .unitTests,
             bundleId: "io.ngs.LiveClockTests",
-            deploymentTargets: .macOS("13.0"),
+            deploymentTargets: .macOS("14.0"),
             sources: ["Tests/**"],
             dependencies: [
                 .target(name: "LiveClock-macOS"),

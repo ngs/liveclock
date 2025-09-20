@@ -73,16 +73,6 @@ final class SnapshotTests: XCTestCase {
 
         assertSnapshot(matching: view, as: .image)
     }
-    
-    func testSingleColumnScreen() {
-        let appState = AppState()
-        
-        let view = SingleColumnScreen()
-            .environmentObject(appState)
-            .frame(width: 390, height: 844)
-        
-        assertSnapshot(matching: view, as: .image)
-    }
 }
 
 #if os(iOS)
@@ -206,7 +196,7 @@ private func assertSnapshot<V: View>(
     }
 
     // Compare with reference
-    guard let referenceImage = UIImage(contentsOfFile: snapshotPath.path) else {
+    guard UIImage(contentsOfFile: snapshotPath.path) != nil else {
         XCTFail("Failed to load reference image", file: file, line: line)
         return
     }
@@ -228,11 +218,11 @@ private func assertSnapshot<V: View>(
 }
 #else
 private func assertSnapshot<V: View>(
-    matching view: V,
-    as format: SnapshotFormat,
-    file: StaticString = #file,
-    testName: String = #function,
-    line: UInt = #line
+    matching _: V,
+    as _: SnapshotFormat,
+    file _: StaticString = #file,
+    testName _: String = #function,
+    line _: UInt = #line
 ) {
     // Snapshot testing not available on macOS in this implementation
     XCTSkip("Snapshot testing not available on this platform")

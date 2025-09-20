@@ -13,24 +13,6 @@ public struct RootView: View {
 
     public init() {}
 
-    private var shouldUseCompactLayout: Bool {
-        #if os(iOS)
-        // Use SingleColumnScreen only when width is compact and height is regular (typically iPhone portrait)
-        // This ensures SplitViewScreen is used for landscape orientations and iPads
-        return horizontalSizeClass == .compact && verticalSizeClass == .regular
-        #else
-        return false
-        #endif
-    }
-    
-    private var timerBody: some View {
-        if shouldUseCompactLayout {
-            return AnyView(SingleColumnScreen())
-        }
-
-        return AnyView(SplitViewScreen())
-    }
-
     public var body: some View {
         SplitViewScreen()
 #if os(iOS)
