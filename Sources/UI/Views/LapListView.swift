@@ -3,6 +3,8 @@ import LiveClockCore
 
 struct LapListView: View {
     @EnvironmentObject var app: AppState
+    @Environment(\.horizontalSizeClass)
+    private var horizontalSizeClass
     
     var fastestLapId: UUID? {
         guard app.stopwatch.laps.count > 1 else { return nil }
@@ -26,7 +28,7 @@ struct LapListView: View {
                     }
                 }
             }
-            .onChange(of: app.stopwatch.laps.count) { _ in
+            .onChange(of: app.stopwatch.laps.count) {
                 if let firstLap = app.stopwatch.laps.first {
                     withAnimation {
                         proxy.scrollTo(firstLap.id, anchor: .top)

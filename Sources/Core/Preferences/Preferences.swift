@@ -78,7 +78,6 @@ public final class AppState: ObservableObject {
     @Published public var now = Date()
     @Published public var showExporter = false
     @Published public var showSettings = false
-    @Published public var showLaps = false
 
     public init() {}
 

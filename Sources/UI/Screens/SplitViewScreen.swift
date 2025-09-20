@@ -4,51 +4,49 @@ import SwiftUI
 @available(iOS 17.0, macOS 13.0, *)
 struct SplitViewScreen: View {
     @EnvironmentObject var app: AppState
+    
     @State private var preferredCompactColumn: NavigationSplitViewColumn = .detail
     @State private var columnVisibility: NavigationSplitViewVisibility = .all
     
+    @Environment(\.dismiss)
+    private var dismiss
     @Environment(\.horizontalSizeClass)
     private var horizontalSizeClass
     @Environment(\.verticalSizeClass)
     private var verticalSizeClass
-
+    
     var body: some View {
         NavigationSplitView(preferredCompactColumn: $preferredCompactColumn) {
             SidebarLapsView()
                 .toolbar {
-                    #if os(iOS)
+#if os(iOS)
+                    ToolbarItem(placement: .topBarTrailing) {
+                        ExportButton()
+                    }
+                    if horizontalSizeClass == .compact {
                         ToolbarItem(placement: .topBarTrailing) {
-                            ExportButton()
+                            Button("Back", systemImage: "chevron.right") {
+                                preferredCompactColumn = .detail
+                            }
                         }
-                    #endif
+                    }
+#endif
                 }
         } detail: {
             DetailTimerView()
                 .toolbar {
-                    if UIDevice.current.userInterfaceIdiom == .phone {
-                        ToolbarItem(placement: .topBarLeading) {
-                            Button {
-                                app.showLaps = true
-                            } label: {
-                                Label(
-                                    String(localized: "Laps", bundle: .module),
-                                    systemImage: "list.bullet")
-                            }
+#if os(iOS)
+                    ToolbarItem(placement: .topBarTrailing) {
+                        Button {
+                            app.showSettings = true
+                        } label: {
+                            Label(
+                                String(localized: "Settings", bundle: .module),
+                                systemImage: "gearshape")
                         }
                     }
-                    #if os(iOS)
-                        ToolbarItem(placement: .topBarTrailing) {
-                            Button {
-                                app.showSettings = true
-                            } label: {
-                                Label(
-                                    String(localized: "Settings", bundle: .module),
-                                    systemImage: "gearshape")
-                            }
-                        }
-                    #endif
+#endif
                 }
-                .navigationBarBackButtonHidden(UIDevice.current.userInterfaceIdiom == .phone)
         }
         .navigationSplitViewStyle(.balanced)
     }
@@ -58,8 +56,18 @@ struct SplitViewScreen: View {
 private struct SidebarLapsView: View {
     @EnvironmentObject var app: AppState
     var body: some View {
-        LapListView()
+        if app.stopwatch.laps.isEmpty {
+            VStack {
+                Text(String(localized: "Stopwatch is not running.", bundle: .module))
+                    .foregroundStyle(.secondary)
+                Text(String(localized: "Start stopwatch to see it here.", bundle: .module))
+                    .foregroundStyle(.secondary)
+            }
             .navigationTitle(String(localized: "Laps", bundle: .module))
+        } else {
+            LapListView()
+                .navigationTitle(String(localized: "Laps", bundle: .module))
+        }
     }
 }
 

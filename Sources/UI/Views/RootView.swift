@@ -32,58 +32,7 @@ public struct RootView: View {
     }
 
     public var body: some View {
-        ZStack(alignment: .leading) {
-            // Main content
-            timerBody
-                .disabled(app.showLaps) // prevent interactions when sidebar is open
-
-            // Scrim to dismiss sidebar
-            if app.showLaps {
-                Color.black.opacity(0.1)
-                    .ignoresSafeArea()
-                    .onTapGesture {
-                        withAnimation(.easeInOut) { app.showLaps = false }
-                    }
-            }
-
-            // Sidebar content
-            if app.showLaps {
-                GeometryReader { proxy in
-                    // Sidebar container
-                    VStack(spacing: 0) {
-                        // Header with right-aligned Export button
-                        HStack {
-                            Spacer()
-                            ExportButton()
-                                .labelStyle(.iconOnly)
-                                .buttonStyle(.borderless)
-                                .controlSize(.regular)
-                                .font(.title3)
-                        }
-                        .padding(.horizontal, 12)
-                        .padding(.top, 12)
-                        .padding(.bottom, 8)
-
-                        // Content with top/bottom padding to avoid clipping
-                        LapListView()
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                            .padding(.vertical, 8)
-                            .padding(.horizontal, 12)
-
-                        Spacer(minLength: 0)
-                    }
-                    .frame(
-                        width: max(420, min(proxy.size.width * 0.5, 680))
-                    )
-                    .background(.ultraThinMaterial)
-                    .ignoresSafeArea(edges: .vertical)
-                    .transition(.move(edge: .leading))
-                    .zIndex(1)
-                }
-                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
-            }
-        }
-        .animation(.easeInOut, value: app.showLaps)
+        SplitViewScreen()
 #if os(iOS)
         .statusBarHidden(true)
         .persistentSystemOverlays(.hidden)
@@ -114,18 +63,6 @@ public struct RootView: View {
             ticker?.stop()
             ticker = nil
         }
-#if os(iOS)
-        .onChange(of: horizontalSizeClass) { _, _ in
-            if app.showLaps {
-                withAnimation(.easeInOut) { app.showLaps = false }
-            }
-        }
-        .onChange(of: verticalSizeClass) { _, _ in
-            if app.showLaps {
-                withAnimation(.easeInOut) { app.showLaps = false }
-            }
-        }
-#endif
     }
 }
 

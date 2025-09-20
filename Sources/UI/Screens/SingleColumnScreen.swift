@@ -23,9 +23,6 @@ struct SingleColumnScreen: View {
                         Label(String(localized: "Settings", bundle: .module), systemImage: "gearshape")
                     }
                 }
-                ToolbarItem(placement: .topBarTrailing) {
-                    ExportButton()
-                }
             }
 #endif // os(iOS)
         }
