@@ -27,11 +27,10 @@ let project = Project(
             destinations: [.iPhone, .iPad],
             product: .app,
             bundleId: "io.ngs.LiveClock",
-            deploymentTargets: .iOS("16.0"),
+            deploymentTargets: .iOS("18.0"),
             infoPlist: .extendingDefault(with: [
                 "UIViewControllerBasedStatusBarAppearance": .boolean(false),
                 "UILaunchStoryboardName": .string(""),
-                "UIRequiresFullScreen": .boolean(true),
                 "UIStatusBarHidden": .boolean(true),
                 "CFBundleDisplayName": .string("LiveClock"),
                 "CFBundleName": .string("LiveClock"),
@@ -59,7 +58,7 @@ let project = Project(
             destinations: [.mac],
             product: .app,
             bundleId: "io.ngs.LiveClock",
-            deploymentTargets: .macOS("13.0"),
+            deploymentTargets: .macOS("15.0"),
             infoPlist: .extendingDefault(with: [
                 "ITSAppUsesNonExemptEncryption": .boolean(false),
                 "NSHumanReadableCopyright": .string(copyright),
@@ -88,7 +87,7 @@ let project = Project(
             destinations: [.appleVision],
             product: .app,
             bundleId: "io.ngs.LiveClock",
-            deploymentTargets: .visionOS("1.0"),
+            deploymentTargets: .visionOS("2.0"),
             infoPlist: .extendingDefault(with: [
                 "ITSAppUsesNonExemptEncryption": .boolean(false),
                 "CFBundleVersion": .string("$(CURRENT_PROJECT_VERSION)"),
@@ -114,7 +113,7 @@ let project = Project(
             destinations: [.iPhone, .iPad],
             product: .unitTests,
             bundleId: "io.ngs.LiveClockTests",
-            deploymentTargets: .iOS("16.0"),
+            deploymentTargets: .iOS("18.0"),
             sources: ["Tests/**"],
             dependencies: [
                 .target(name: "LiveClock-iOS"),
@@ -127,7 +126,7 @@ let project = Project(
             destinations: [.mac],
             product: .unitTests,
             bundleId: "io.ngs.LiveClockTests",
-            deploymentTargets: .macOS("13.0"),
+            deploymentTargets: .macOS("15.0"),
             sources: ["Tests/**"],
             dependencies: [
                 .target(name: "LiveClock-macOS"),
@@ -140,7 +139,7 @@ let project = Project(
             destinations: [.appleVision],
             product: .unitTests,
             bundleId: "io.ngs.LiveClockTests",
-            deploymentTargets: .visionOS("1.0"),
+            deploymentTargets: .visionOS("2.0"),
             sources: ["Tests/**"],
             dependencies: [
                 .target(name: "LiveClock-visionOS"),

@@ -26,7 +26,7 @@ struct LapListView: View {
                     }
                 }
             }
-            .onChange(of: app.stopwatch.laps.count) { _ in
+            .onChange(of: app.stopwatch.laps.count) {
                 if let firstLap = app.stopwatch.laps.first {
                     withAnimation {
                         proxy.scrollTo(firstLap.id, anchor: .top)

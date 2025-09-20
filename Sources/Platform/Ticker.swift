@@ -18,6 +18,7 @@ public enum TickerFrequency {
     }
 }
 
+@MainActor
 public final class Ticker {
     public weak var delegate: TickerDelegate?
     public var frequency: TickerFrequency
@@ -69,6 +70,7 @@ private final class DisplayLinkProxy: NSObject {
     init(_ owner: Ticker) { self.owner = owner }
 
     @objc
+    @MainActor
     func step() {
         owner?.delegate?.tickerDidTick()
     }

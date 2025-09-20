@@ -6,13 +6,13 @@ import AVFoundation
 import AppKit
 #endif
 
+@MainActor
 public final class FeedbackManager {
     public static let shared = FeedbackManager()
     
     #if os(iOS)
     private let impactFeedback = UIImpactFeedbackGenerator(style: .medium)
     private let notificationFeedback = UINotificationFeedbackGenerator()
-    private var audioPlayer: AVAudioPlayer?
     #endif
     
     private init() {

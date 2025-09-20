@@ -21,7 +21,7 @@ jobs:
             destination: "platform=macOS"
           - platform: visionOS
             scheme: LiveClock-visionOS
-            destination: "platform=visionOS Simulator,name=Apple Vision Pro,OS=26.0"
+            destination: "platform=visionOS Simulator,name=Apple Vision Pro,OS=2.5"
 
     steps:
       - uses: actions/checkout@v5
@@ -81,6 +81,28 @@ jobs:
         uses: norio-nomura/action-swiftlint@3.2.1
         with:
           args: --strict
+
+  periphery:
+    name: Periphery Scan
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Select Xcode
+        run: ls -l /Applications && sudo xcode-select -s /Applications/Xcode_26.app
+
+      - name: Install tuist and periphery
+        run: |
+          brew tap tuist/tuist
+          brew install --formula tuist periphery
+
+      - name: Generate Xcode project and workspace
+        run: tuist generate --no-open
+        env:
+          TUIST_RUN_ID: ${{ github.run_id }}
+
+      - name: periphery scan
+        run: periphery scan --strict
 
   rubocop:
     name: RuboCop

@@ -1,20 +1,19 @@
-// swift-tools-version: 5.9
+// swift-tools-version: 6.0
 import PackageDescription
 
 let package = Package(
     name: "LiveClock",
     defaultLocalization: "en",
     platforms: [
-        .iOS(.v16),
-        .macOS(.v13),
-        .tvOS(.v16),
-        .visionOS(.v1)
+        .iOS(.v18),
+        .macOS(.v15),
+        .visionOS(.v2),
     ],
     products: [
         // Expose core and UI as libraries so an app target in Xcode can depend on them.
         .library(name: "LiveClockCore", targets: ["LiveClockCore"]),
         .library(name: "LiveClockPlatform", targets: ["LiveClockPlatform"]),
-        .library(name: "LiveClockUI", targets: ["LiveClockUI"])
+        .library(name: "LiveClockUI", targets: ["LiveClockUI"]),
     ],
     dependencies: [
         .package(url: "https://github.com/SimplyDanny/SwiftLintPlugins", exact: "0.59.0")
@@ -22,21 +21,33 @@ let package = Package(
     targets: [
         .target(
             name: "LiveClockCore",
-            path: "Sources/Core"
+            path: "Sources/Core",
+            swiftSettings: [
+                .enableUpcomingFeature("StrictConcurrency"),
+                .swiftLanguageMode(.v6)
+            ]
         ),
         .target(
             name: "LiveClockPlatform",
-            path: "Sources/Platform"
+            path: "Sources/Platform",
+            swiftSettings: [
+                .enableUpcomingFeature("StrictConcurrency"),
+                .swiftLanguageMode(.v6)
+            ]
         ),
         .target(
             name: "LiveClockUI",
             dependencies: [
                 .target(name: "LiveClockCore"),
-                .target(name: "LiveClockPlatform")
+                .target(name: "LiveClockPlatform"),
             ],
             path: "Sources/UI",
             resources: [
                 .process("Resources")
+            ],
+            swiftSettings: [
+                .enableUpcomingFeature("StrictConcurrency"),
+                .swiftLanguageMode(.v6)
             ]
         ),
         .testTarget(
@@ -48,6 +59,6 @@ let package = Package(
             name: "LiveClockUITests",
             dependencies: ["LiveClockUI", "LiveClockCore"],
             path: "Tests/LiveClockUITests"
-        )
+        ),
     ]
 )

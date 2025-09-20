@@ -1,48 +1,72 @@
-import SwiftUI
 import LiveClockCore
+import SwiftUI
 
-@available(iOS 16.0, macOS 13.0, *)
+@available(iOS 18.0, macOS 15.0, visionOS 2.0, *)
 struct SplitViewScreen: View {
     @EnvironmentObject var app: AppState
-    
+
+    @State private var preferredCompactColumn: NavigationSplitViewColumn = .detail
+
+    @Environment(\.horizontalSizeClass)
+    private var horizontalSizeClass
+
     var body: some View {
-        NavigationSplitView {
+        NavigationSplitView(preferredCompactColumn: $preferredCompactColumn) {
             SidebarLapsView()
                 .toolbar {
-#if os(iOS)
-                    ToolbarItem(placement: .topBarTrailing) {
-                        ExportButton()
-                    }
-#endif
+                    #if os(iOS)
+                        ToolbarItem(placement: .topBarTrailing) {
+                            ExportButton()
+                        }
+                        if horizontalSizeClass == .compact {
+                            ToolbarItem(placement: .topBarTrailing) {
+                                Button("Back", systemImage: "chevron.right") {
+                                    preferredCompactColumn = .detail
+                                }
+                            }
+                        }
+                    #endif
                 }
         } detail: {
             DetailTimerView()
                 .toolbar {
-#if os(iOS)
-                    ToolbarItem(placement: .topBarTrailing) {
-                        Button {
-                            app.showSettings = true
-                        } label: {
-                            Label(String(localized: "Settings", bundle: .module), systemImage: "gearshape")
+                    #if os(iOS)
+                        ToolbarItem(placement: .topBarTrailing) {
+                            Button {
+                                app.showSettings = true
+                            } label: {
+                                Label(
+                                    String(localized: "Settings", bundle: .module),
+                                    systemImage: "gearshape")
+                            }
                         }
-                    }
-#endif
+                    #endif
                 }
         }
         .navigationSplitViewStyle(.balanced)
     }
 }
 
-@available(iOS 16.0, macOS 13.0, *)
+@available(iOS 18.0, macOS 15.0, visionOS 2.0, *)
 private struct SidebarLapsView: View {
     @EnvironmentObject var app: AppState
     var body: some View {
-        LapListView()
+        if app.stopwatch.laps.isEmpty {
+            VStack {
+                Text(String(localized: "Stopwatch is not running.", bundle: .module))
+                    .foregroundStyle(.secondary)
+                Text(String(localized: "Start stopwatch to see it here.", bundle: .module))
+                    .foregroundStyle(.secondary)
+            }
             .navigationTitle(String(localized: "Laps", bundle: .module))
+        } else {
+            LapListView()
+                .navigationTitle(String(localized: "Laps", bundle: .module))
+        }
     }
 }
 
-@available(iOS 16.0, macOS 13.0, *)
+@available(iOS 18.0, macOS 15.0, visionOS 2.0, *)
 private struct DetailTimerView: View {
     var body: some View {
         VStack(spacing: 24) {
@@ -55,7 +79,7 @@ private struct DetailTimerView: View {
     }
 }
 
-@available(iOS 16.0, macOS 13.0, *)
+@available(iOS 18.0, macOS 15.0, visionOS 2.0, *)
 #Preview {
     SplitViewScreen()
         .environmentObject(AppState())

@@ -103,7 +103,8 @@ final class ExportFormatterTests: XCTestCase {
     
     // MARK: - DateFormatterCache Tests
     
-    func testDateFormatterCacheTimeOfDay() {
+    @MainActor
+    func testDateFormatterCacheTimeOfDay() async {
         let date = Date()
         let formatted = DateFormatterCache.shared.timeOfDay(date)
         
@@ -125,7 +126,8 @@ final class ExportFormatterTests: XCTestCase {
         }
     }
     
-    func testDateFormatterCacheSingleton() {
+    @MainActor
+    func testDateFormatterCacheSingleton() async {
         let cache1 = DateFormatterCache.shared
         let cache2 = DateFormatterCache.shared
         XCTAssertIdentical(cache1, cache2, "Should be singleton instance")
