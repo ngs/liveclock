@@ -9,12 +9,12 @@ import AppKit
 @MainActor
 public final class FeedbackManager {
     public static let shared = FeedbackManager()
-    
+
     #if os(iOS)
     private let impactFeedback = UIImpactFeedbackGenerator(style: .medium)
     private let notificationFeedback = UINotificationFeedbackGenerator()
     #endif
-    
+
     private init() {
         #if os(iOS)
         impactFeedback.prepare()
@@ -22,7 +22,7 @@ public final class FeedbackManager {
         setupAudio()
         #endif
     }
-    
+
     #if os(iOS)
     private func setupAudio() {
         do {
@@ -34,7 +34,7 @@ public final class FeedbackManager {
         }
     }
     #endif
-    
+
     public func playStartFeedback() {
         #if os(iOS)
         impactFeedback.impactOccurred()
@@ -43,7 +43,7 @@ public final class FeedbackManager {
         NSSound.beep()
         #endif
     }
-    
+
     public func playStopFeedback() {
         #if os(iOS)
         impactFeedback.impactOccurred()
@@ -52,21 +52,21 @@ public final class FeedbackManager {
         NSSound.beep()
         #endif
     }
-    
+
     public func playLapFeedback() {
         #if os(iOS)
         impactFeedback.impactOccurred(intensity: 0.7)
         playSystemSound(1_103)
         #endif
     }
-    
+
     public func playResetFeedback() {
         #if os(iOS)
         notificationFeedback.notificationOccurred(.warning)
         playSystemSound(1_102)
         #endif
     }
-    
+
     public func playCountdownFinishedFeedback() {
         #if os(iOS)
         notificationFeedback.notificationOccurred(.success)
@@ -78,7 +78,7 @@ public final class FeedbackManager {
         }
         #endif
     }
-    
+
     #if os(iOS)
     private func playSystemSound(_ soundID: UInt32) {
         AudioServicesPlayAlertSound(soundID)

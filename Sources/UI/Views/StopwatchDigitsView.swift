@@ -38,7 +38,7 @@ struct StopwatchDigitsView: View {
                     Text("LAP \(app.stopwatch.currentLapNumber)")
                         .font(.system(size: 12, weight: .medium, design: .default))
                         .foregroundStyle(.secondary)
-                    
+
                     BlinkingTimeText(lapTime, colonOpacity: colonOpacity, dotOpacity: dotOpacity)
                         .font(.system(size: 20, weight: .semibold, design: .monospaced))
                         .monospacedDigit()
@@ -50,14 +50,14 @@ struct StopwatchDigitsView: View {
                 .accessibilityAddTraits(.updatesFrequently)
         }
     }
-    
+
     private func voiceOverTime(_ time: TimeInterval) -> String {
         let totalSeconds = Int(time)
         let hours = totalSeconds / 3_600
         let minutes = (totalSeconds % 3_600) / 60
         let seconds = totalSeconds % 60
         let milliseconds = Int((time.truncatingRemainder(dividingBy: 1)) * 1_000)
-        
+
         var components: [String] = []
         if hours > 0 {
             components.append("\(hours) \(hours == 1 ? "hour" : "hours")")
@@ -71,7 +71,7 @@ struct StopwatchDigitsView: View {
         if milliseconds > 0 {
             components.append("\(milliseconds) milliseconds")
         }
-        
+
         return components.joined(separator: ", ")
     }
 }
@@ -79,7 +79,7 @@ struct StopwatchDigitsView: View {
 #Preview("Running") {
     let appState = AppState()
     appState.stopwatch.start()
-    
+
     return StopwatchDigitsView()
         .environmentObject(appState)
         .frame(height: 100)
@@ -90,7 +90,7 @@ struct StopwatchDigitsView: View {
     appState.stopwatch.start()
     Thread.sleep(forTimeInterval: 2.5)
     appState.stopwatch.pause()
-    
+
     return StopwatchDigitsView()
         .environmentObject(appState)
         .frame(height: 100)

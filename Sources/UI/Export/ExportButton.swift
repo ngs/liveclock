@@ -26,7 +26,7 @@ struct ExportButton: View { var body: some View { EmptyView() } }
     appState.stopwatch.lap()
     Thread.sleep(forTimeInterval: 0.15)
     appState.stopwatch.lap()
-    
+
     return ExportButton()
         .environmentObject(appState)
 }

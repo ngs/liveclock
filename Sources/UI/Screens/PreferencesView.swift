@@ -6,9 +6,9 @@ import UIKit
 
 public struct PreferencesView: View {
     @EnvironmentObject var app: AppState
-    
+
     public init() {}
-    
+
     public var body: some View {
         Form {
             Section(header: Text(String(localized: "Appearance", bundle: .module))) {

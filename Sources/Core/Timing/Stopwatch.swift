@@ -26,7 +26,7 @@ public final class Stopwatch: ObservableObject {
     private var startReference: TimeInterval? // monotonic base
     private var accumulated: TimeInterval = 0
     private var lastLapReference: TimeInterval?
-    
+
     public init() {}
 
     public func start() {
@@ -107,7 +107,7 @@ public final class Stopwatch: ObservableObject {
             currentLapTime = elapsed
         }
     }
-    
+
     public var currentLapNumber: Int { (laps.first?.index ?? 0) + 1 }
 
     private func currentElapsed(now: TimeInterval) -> TimeInterval {

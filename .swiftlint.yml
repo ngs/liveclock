@@ -1,5 +1,4 @@
 disabled_rules:
-  - trailing_whitespace
   - line_length
   - file_length
   - type_body_length
@@ -59,6 +58,7 @@ opt_in_rules:
   - strong_iboutlet
   - test_case_accessibility
   - toggle_bool
+  - trailing_whitespace
   - unavailable_function
   - unneeded_parentheses_in_closure_argument
   - unowned_variable_capture

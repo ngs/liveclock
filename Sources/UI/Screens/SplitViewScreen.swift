@@ -14,34 +14,64 @@ struct SplitViewScreen: View {
         NavigationSplitView(preferredCompactColumn: $preferredCompactColumn) {
             SidebarLapsView()
                 .toolbar {
-                    #if os(iOS)
-                        ToolbarItem(placement: .topBarTrailing) {
-                            ExportButton()
-                        }
-                        if horizontalSizeClass == .compact {
-                            ToolbarItem(placement: .topBarTrailing) {
-                                Button("Back", systemImage: "chevron.right") {
-                                    preferredCompactColumn = .detail
+#if os(iOS)
+                    ToolbarItem(placement: .topBarTrailing) {
+                        ExportButton()
+                            .popover(isPresented: Binding(
+                                get: {
+                                    (horizontalSizeClass == .regular) ? app.showExporter : false
+                                },
+                                set: { newValue in
+                                    app.showExporter = newValue
                                 }
+                            ), arrowEdge: .top) {
+                                ActivityExporter(items: [temporaryCSVURL(for: app.stopwatch.laps)])
+                            }
+                    }
+                    if horizontalSizeClass == .compact {
+                        ToolbarItem(placement: .topBarTrailing) {
+                            Button("Back", systemImage: "chevron.right") {
+                                preferredCompactColumn = .detail
                             }
                         }
-                    #endif
+                    }
+#endif
                 }
                 .navigationSplitViewColumnWidth(min: 160, ideal: 400, max: 400)
         } detail: {
             DetailTimerView()
                 .toolbar {
-                    #if os(iOS)
-                        ToolbarItem(placement: .topBarTrailing) {
-                            Button {
-                                app.showSettings = true
-                            } label: {
-                                Label(
-                                    String(localized: "Settings", bundle: .module),
-                                    systemImage: "gearshape")
+#if os(iOS)
+                    ToolbarItem(placement: .topBarTrailing) {
+                        Button {
+                            app.showSettings = true
+                        } label: {
+                            Label(
+                                String(localized: "Settings", bundle: .module),
+                                systemImage: "gearshape")
+                        }.popover(isPresented: Binding(
+                            get: {
+                                (horizontalSizeClass == .regular) ? app.showSettings : false
+                            },
+                            set: { newValue in
+                                app.showSettings = newValue
+                            }
+                        )) {
+                            NavigationStack {
+                                PreferencesView()
+                                    .environmentObject(app)
+                                    .toolbar {
+                                        ToolbarItem(placement: .navigationBarTrailing) {
+                                            Button(String(localized: "Done", bundle: .module)) {
+                                                app.showSettings = false
+                                            }.bold()
+                                        }
+                                    }
+                                    .frame(minWidth: 320, idealWidth: 420, minHeight: 320, idealHeight: 500)
                             }
                         }
-                    #endif
+                    }
+#endif
                 }
         }
         .navigationSplitViewStyle(.balanced)
