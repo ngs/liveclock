@@ -1616,7 +1616,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "エクスポート"
+            "value": "書き出し"
           }
         },
         "ko": {
@@ -2638,7 +2638,7 @@
         "ro": {
           "stringUnit": {
             "state": "translated",
-            "value": "Tur"
+            "value": "Tură"
           }
         },
         "ru": {
@@ -6372,7 +6372,7 @@
         "ar-SA": {
           "stringUnit": {
             "state": "translated",
-            "value": "التوقف"
+            "value": "توقف"
           }
         },
         "ca": {
@@ -6384,7 +6384,7 @@
         "cs": {
           "stringUnit": {
             "state": "translated",
-            "value": "Stop"
+            "value": "Zastavit"
           }
         },
         "da": {
@@ -6402,7 +6402,7 @@
         "el": {
           "stringUnit": {
             "state": "translated",
-            "value": "Στοπ"
+            "value": "Σταμάτημα"
           }
         },
         "en": {
@@ -6444,7 +6444,7 @@
         "es-MX": {
           "stringUnit": {
             "state": "translated",
-            "value": "Parar"
+            "value": "Detener"
           }
         },
         "fi": {
@@ -6468,7 +6468,7 @@
         "he": {
           "stringUnit": {
             "state": "translated",
-            "value": "עצירה"
+            "value": "עצור"
           }
         },
         "hi": {
@@ -6522,13 +6522,13 @@
         "nl-NL": {
           "stringUnit": {
             "state": "translated",
-            "value": "Stop"
+            "value": "Stoppen"
           }
         },
         "pl": {
           "stringUnit": {
             "state": "translated",
-            "value": "Stop"
+            "value": "Zatrzymaj"
           }
         },
         "pt-BR": {
@@ -6546,19 +6546,19 @@
         "ro": {
           "stringUnit": {
             "state": "translated",
-            "value": "Stop"
+            "value": "Oprire"
           }
         },
         "ru": {
           "stringUnit": {
             "state": "translated",
-            "value": "Стоп"
+            "value": "Остановить"
           }
         },
         "sk": {
           "stringUnit": {
             "state": "translated",
-            "value": "Stop"
+            "value": "Zastaviť"
           }
         },
         "sv": {
@@ -6582,7 +6582,7 @@
         "uk": {
           "stringUnit": {
             "state": "translated",
-            "value": "Стоп"
+            "value": "Зупинити"
           }
         },
         "vi": {

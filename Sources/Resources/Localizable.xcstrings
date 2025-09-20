@@ -754,7 +754,7 @@
         "cs": {
           "stringUnit": {
             "state": "translated",
-            "value": "Resetovat"
+            "value": "Obnovit"
           }
         },
         "da": {
@@ -850,7 +850,7 @@
         "hr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Resetiraj"
+            "value": "Ponovno postaviti"
           }
         },
         "hu": {
@@ -886,13 +886,13 @@
         "ms": {
           "stringUnit": {
             "state": "translated",
-            "value": "Set Semula"
+            "value": "Set semula"
           }
         },
         "nl-NL": {
           "stringUnit": {
             "state": "translated",
-            "value": "Resetten"
+            "value": "Opnieuw instellen"
           }
         },
         "pl": {
@@ -928,7 +928,7 @@
         "sk": {
           "stringUnit": {
             "state": "translated",
-            "value": "Resetovať"
+            "value": "Obnoviť"
           }
         },
         "sv": {
