@@ -126,7 +126,7 @@ let project = Project(
             destinations: [.mac],
             product: .unitTests,
             bundleId: "io.ngs.LiveClockTests",
-            deploymentTargets: .macOS("14.0"),
+            deploymentTargets: .macOS("15.0"),
             sources: ["Tests/**"],
             dependencies: [
                 .target(name: "LiveClock-macOS"),
@@ -139,7 +139,7 @@ let project = Project(
             destinations: [.appleVision],
             product: .unitTests,
             bundleId: "io.ngs.LiveClockTests",
-            deploymentTargets: .visionOS("1.0"),
+            deploymentTargets: .visionOS("2.0"),
             sources: ["Tests/**"],
             dependencies: [
                 .target(name: "LiveClock-visionOS"),
