@@ -21,11 +21,19 @@ let package = Package(
     targets: [
         .target(
             name: "LiveClockCore",
-            path: "Sources/Core"
+            path: "Sources/Core",
+            swiftSettings: [
+                .enableUpcomingFeature("StrictConcurrency"),
+                .swiftLanguageMode(.v6)
+            ]
         ),
         .target(
             name: "LiveClockPlatform",
-            path: "Sources/Platform"
+            path: "Sources/Platform",
+            swiftSettings: [
+                .enableUpcomingFeature("StrictConcurrency"),
+                .swiftLanguageMode(.v6)
+            ]
         ),
         .target(
             name: "LiveClockUI",
@@ -36,6 +44,10 @@ let package = Package(
             path: "Sources/UI",
             resources: [
                 .process("Resources")
+            ],
+            swiftSettings: [
+                .enableUpcomingFeature("StrictConcurrency"),
+                .swiftLanguageMode(.v6)
             ]
         ),
         .testTarget(

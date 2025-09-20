@@ -17,6 +17,7 @@ public enum ExportFormatter {
     }
 }
 
+@MainActor
 final class DateFormatterCache {
     static let shared = DateFormatterCache()
     private let time: DateFormatter

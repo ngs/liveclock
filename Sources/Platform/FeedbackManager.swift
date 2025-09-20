@@ -6,6 +6,7 @@ import AVFoundation
 import AppKit
 #endif
 
+@MainActor
 public final class FeedbackManager {
     public static let shared = FeedbackManager()
     
