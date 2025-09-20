@@ -15,7 +15,7 @@ final class SnapshotTests: XCTestCase {
             .environmentObject(appState)
             .frame(width: 390, height: 200)
 
-        assertSnapshot(matching: view, as: .image)
+        assertSnapshot(matching: view)
     }
     
     func testControlsViewIdle() {
@@ -25,7 +25,7 @@ final class SnapshotTests: XCTestCase {
             .environmentObject(appState)
             .frame(width: 390, height: 100)
         
-        assertSnapshot(matching: view, as: .image)
+        assertSnapshot(matching: view)
     }
     
     func testControlsViewRunning() {
@@ -37,7 +37,7 @@ final class SnapshotTests: XCTestCase {
             .environmentObject(appState)
             .frame(width: 390, height: 100)
         
-        assertSnapshot(matching: view, as: .image)
+        assertSnapshot(matching: view)
     }
     
     func testControlsViewPaused() {
@@ -49,7 +49,7 @@ final class SnapshotTests: XCTestCase {
             .environmentObject(appState)
             .frame(width: 390, height: 100)
         
-        assertSnapshot(matching: view, as: .image)
+        assertSnapshot(matching: view)
     }
     
     func testLapListViewEmpty() {
@@ -59,7 +59,7 @@ final class SnapshotTests: XCTestCase {
             .environmentObject(appState)
             .frame(width: 390, height: 400)
         
-        assertSnapshot(matching: view, as: .image)
+        assertSnapshot(matching: view)
     }
     
     func testLapListViewWithLaps() {
@@ -71,14 +71,13 @@ final class SnapshotTests: XCTestCase {
             .environmentObject(appState)
             .frame(width: 390, height: 400)
 
-        assertSnapshot(matching: view, as: .image)
+        assertSnapshot(matching: view)
     }
 }
 
 #if os(iOS)
 private func assertSnapshot<V: View>(
     matching view: V,
-    as format: SnapshotFormat,
     file: StaticString = #file,
     testName: String = #function,
     line: UInt = #line
@@ -219,7 +218,6 @@ private func assertSnapshot<V: View>(
 #else
 private func assertSnapshot<V: View>(
     matching _: V,
-    as _: SnapshotFormat,
     file _: StaticString = #file,
     testName _: String = #function,
     line _: UInt = #line
@@ -228,7 +226,3 @@ private func assertSnapshot<V: View>(
     XCTSkip("Snapshot testing not available on this platform")
 }
 #endif
-
-private enum SnapshotFormat {
-    case image
-}

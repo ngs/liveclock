@@ -6,11 +6,6 @@ public struct RootView: View {
     @EnvironmentObject var app: AppState
     @State private var ticker: Ticker?
 
-    @Environment(\.horizontalSizeClass)
-    private var horizontalSizeClass
-    @Environment(\.verticalSizeClass)
-    private var verticalSizeClass
-
     public init() {}
 
     public var body: some View {

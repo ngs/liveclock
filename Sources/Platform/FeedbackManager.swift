@@ -12,7 +12,6 @@ public final class FeedbackManager {
     #if os(iOS)
     private let impactFeedback = UIImpactFeedbackGenerator(style: .medium)
     private let notificationFeedback = UINotificationFeedbackGenerator()
-    private var audioPlayer: AVAudioPlayer?
     #endif
     
     private init() {

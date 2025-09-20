@@ -3,8 +3,6 @@ import LiveClockCore
 
 struct LapListView: View {
     @EnvironmentObject var app: AppState
-    @Environment(\.horizontalSizeClass)
-    private var horizontalSizeClass
     
     var fastestLapId: UUID? {
         guard app.stopwatch.laps.count > 1 else { return nil }

@@ -6,14 +6,9 @@ struct SplitViewScreen: View {
     @EnvironmentObject var app: AppState
 
     @State private var preferredCompactColumn: NavigationSplitViewColumn = .detail
-    @State private var columnVisibility: NavigationSplitViewVisibility = .all
 
-    @Environment(\.dismiss)
-    private var dismiss
     @Environment(\.horizontalSizeClass)
     private var horizontalSizeClass
-    @Environment(\.verticalSizeClass)
-    private var verticalSizeClass
 
     var body: some View {
         NavigationSplitView(preferredCompactColumn: $preferredCompactColumn) {
