@@ -150,7 +150,7 @@ jobs:
       - name: Generate Xcode project and workspace
         run: tuist generate --no-open
         env:
-          TUIST_BUILD_NUMBER: "${{ github.run_id }}.${{ matrix.buildNumberSuffix }}"
+          TUIST_BUILD_NUMBER: "${{ github.run_id }}${{ matrix.buildNumberSuffix }}"
 
       - name: Build ${{ matrix.platform }}
         run: |
