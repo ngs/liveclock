@@ -14,7 +14,7 @@ struct SplitViewScreen: View {
         NavigationSplitView(preferredCompactColumn: $preferredCompactColumn) {
             SidebarLapsView()
                 .toolbar {
-#if os(iOS)
+#if os(iOS) || os(visionOS)
                     ToolbarItem(placement: .topBarTrailing) {
                         ExportButton()
                             .popover(isPresented: Binding(
@@ -41,7 +41,7 @@ struct SplitViewScreen: View {
         } detail: {
             DetailTimerView()
                 .toolbar {
-#if os(iOS)
+#if os(iOS) || os(visionOS)
                     ToolbarItem(placement: .topBarTrailing) {
                         Button {
                             app.showSettings = true
