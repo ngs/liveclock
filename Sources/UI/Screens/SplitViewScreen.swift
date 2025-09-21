@@ -32,7 +32,7 @@ struct SplitViewScreen: View {
                         ToolbarItem(placement: .topBarTrailing) {
                             Button("Back", systemImage: "chevron.right") {
                                 preferredCompactColumn = .detail
-                            }
+                            }.accessibility(identifier: "BackButton")
                         }
                     }
 #endif
@@ -93,6 +93,7 @@ private struct SidebarLapsView: View {
         } else {
             LapListView()
                 .navigationTitle(String(localized: "Laps", bundle: .module))
+                .accessibility(identifier: "LapListView")
         }
     }
 }

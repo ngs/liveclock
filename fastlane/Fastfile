@@ -64,6 +64,14 @@ platform :ios do
     )
   end
 
+  desc 'Take screenshots using snapshot'
+  lane :take_screenshots do
+    require_relative 'patches/snapshot_mac_detection_patch'
+    require_relative 'patches/device_manager_patch'
+
+    snapshot
+  end
+
   desc 'Update App Store screenshots'
   lane :deliver_screenshots do
     setup_app_store_connect_api_key

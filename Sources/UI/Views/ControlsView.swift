@@ -23,6 +23,7 @@ struct ControlsView: View {
                     .controlSize(.large)
                     .keyboardShortcut("r")
                     .accessibilityHint(String(localized: "Reset the stopwatch to zero", bundle: .module))
+                    .accessibility(identifier: "ResetButton")
                 Button(action: {
                     app.stopwatch.start()
                     if app.preferences.enableHaptics || app.preferences.enableSounds {
@@ -36,6 +37,7 @@ struct ControlsView: View {
                     .controlSize(.large)
                     .keyboardShortcut(.space)
                     .accessibilityHint(String(localized: "Resume the stopwatch", bundle: .module))
+                    .accessibility(identifier: "ResumeButton")
             } else {
                 Button(action: {
                     app.stopwatch.lap()
@@ -51,6 +53,7 @@ struct ControlsView: View {
                     .controlSize(.large)
                     .keyboardShortcut("l")
                     .accessibilityHint(String(localized: "Record a lap time", bundle: .module))
+                    .accessibility(identifier: "LapButton")
                 if app.stopwatchState == .running {
                     Button(role: .destructive, action: {
                         app.stopwatch.pause()
@@ -65,6 +68,7 @@ struct ControlsView: View {
                     .controlSize(.large)
                     .keyboardShortcut(.space)
                     .accessibilityHint(String(localized: "Pause the stopwatch", bundle: .module))
+                    .accessibility(identifier: "StopButton")
                 } else {
                     Button(action: {
                         app.stopwatch.start()
@@ -79,6 +83,7 @@ struct ControlsView: View {
                         .controlSize(.large)
                         .keyboardShortcut(.space)
                         .accessibilityHint(String(localized: "Start the stopwatch", bundle: .module))
+                        .accessibility(identifier: "StartButton")
                 }
             }
         }
