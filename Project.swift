@@ -3,7 +3,7 @@ import ProjectDescription
 let version = "1.0.0"
 let copyright = "© LittleApps Inc. All Rights Reserved."
 
-let actionRunId = Environment.runId.getString(default: "0")
+let buildNumber = Environment.buildNumber.getString(default: "0")
 
 let project = Project(
     name: "LiveClock",
@@ -15,7 +15,7 @@ let project = Project(
         base: [
             "INFOPLIST_KEY_LSApplicationCategoryType": .string("public.app-category.productivity"),
             "INFOPLIST_KEY_CFBundleIconFile": .string("AppIcon"),
-            "CURRENT_PROJECT_VERSION": .string(actionRunId),
+            "CURRENT_PROJECT_VERSION": .string(buildNumber),
             "MARKETING_VERSION": .string(version),
             "DEVELOPMENT_TEAM": .string("3Y8APYUG2G"),
             "SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD": "NO"
@@ -38,7 +38,10 @@ let project = Project(
                 "NSHumanReadableCopyright": .string(copyright),
                 "LSApplicationCategoryType": .string("public.app-category.productivity"),
                 "UIViewControllerBasedStatusBarAppearance": .boolean(false),
-                "UILaunchStoryboardName": .string(""),
+                "UILaunchScreen": [
+                    "UIColorName": "LaunchScreenBackground",
+                    "UIImageRespectsSafeAreaInsets": true
+                ],
                 "UIStatusBarHidden": .boolean(true)
             ]),
             sources: ["Sources/App/**"],

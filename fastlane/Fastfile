@@ -1,20 +1,5 @@
 # frozen_string_literal: true
 
-# This file contains the fastlane.tools configuration
-# You can find the documentation at https://docs.fastlane.tools
-#
-# For a list of all available actions, check out
-#
-#     https://docs.fastlane.tools/actions
-#
-# For a list of all available plugins, check out
-#
-#     https://docs.fastlane.tools/plugins/available-plugins
-#
-
-# Uncomment the line if you want fastlane to automatically update itself
-# update_fastlane
-#
 default_platform(:ios)
 
 platform :ios do
@@ -226,13 +211,17 @@ platform :visionos do
       build_configurations: %w[Release],
       path: 'LiveClock.xcodeproj'
     )
+
+    # Load monkey patches
+    require_relative 'patches/gym_module_patch'
+
     build_app(
       export_method: 'app-store',
       scheme: 'LiveClock',
       destination: 'generic/platform=visionOS',
       output_directory: './build/release/visionos',
       output_name: 'LiveClock-visionOS',
-      sdk: 'iphoneos'
+      sdk: 'xros'
     )
   end
 

@@ -166,9 +166,20 @@ jobs:
           brew install --formula tuist
 
       - name: Generate Xcode project and workspace
-        run: tuist generate --no-open
-        env:
-          TUIST_RUN_ID: ${{ github.run_id }}
+        run: |
+          case "${{ matrix.platform }}" in
+            ios)
+              export TUIST_BUILD_NUMBER="${{ github.run_id }}.1"
+              ;;
+            mac)
+              export TUIST_BUILD_NUMBER="${{ github.run_id }}.2"
+              ;;
+            visionos)
+              export TUIST_BUILD_NUMBER="${{ github.run_id }}.3"
+              ;;
+          esac
+          echo "Using build number: $TUIST_BUILD_NUMBER"
+          tuist generate --no-open
 
       - name: Get version info
         id: version
