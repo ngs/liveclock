@@ -81,7 +81,7 @@ platform :ios do
     )
     build_app(
       export_method: 'app-store',
-      output_directory: './build/release',
+      output_directory: './build/release/ios',
       catalyst_platform: 'ios',
       scheme: 'LiveClock',
       export_options: {
@@ -98,7 +98,7 @@ platform :ios do
 
     pilot(
       skip_waiting_for_build_processing: true,
-      ipa: './build/release/LiveClock_iOS.ipa'
+      ipa: './build/release/ios/LiveClock.ipa'
     )
   end
 
@@ -182,7 +182,7 @@ platform :mac do
     )
     build_app(
       export_method: 'app-store',
-      output_directory: './build/release',
+      output_directory: './build/release/mac',
       scheme: 'LiveClock-macOS',
       destination: 'platform=macOS',
       skip_package_pkg: false, # Generate PKG for App Store upload
@@ -203,7 +203,7 @@ platform :mac do
     upload_to_app_store(
       app_identifier: 'io.ngs.LiveClock',
       platform: 'osx',
-      pkg: './build/release/LiveClock_macOS.pkg',
+      pkg: './build/release/mac/LiveClock.pkg',
       skip_screenshots: true,
       skip_metadata: true,
       force: true,
@@ -269,7 +269,7 @@ platform :visionos do
     )
     build_app(
       export_method: 'app-store',
-      output_directory: './build/release',
+      output_directory: './build/release/visionos',
       scheme: 'LiveClock',
       destination: 'generic/platform=visionOS',
       export_options: {
@@ -286,7 +286,7 @@ platform :visionos do
 
     pilot(
       skip_waiting_for_build_processing: true,
-      ipa: './build/release/LiveClock_visionOS.ipa'
+      ipa: './build/release/visionos/LiveClock.ipa'
     )
   end
 
