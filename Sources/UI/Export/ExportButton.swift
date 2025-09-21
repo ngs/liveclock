@@ -1,7 +1,6 @@
-import SwiftUI
 import LiveClockCore
+import SwiftUI
 
-#if os(iOS)
 struct ExportButton: View {
     @EnvironmentObject var app: AppState
 
@@ -14,11 +13,7 @@ struct ExportButton: View {
         .disabled(app.stopwatch.laps.isEmpty)
     }
 }
-#else
-struct ExportButton: View { var body: some View { EmptyView() } }
-#endif
 
-#if os(iOS)
 #Preview {
     let appState = AppState()
     appState.stopwatch.start()
@@ -30,4 +25,3 @@ struct ExportButton: View { var body: some View { EmptyView() } }
     return ExportButton()
         .environmentObject(appState)
 }
-#endif

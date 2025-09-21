@@ -114,38 +114,6 @@ final class ExportFormatterTests: XCTestCase {
         XCTAssertNotNil(parsedDate, "Should be valid ISO8601 date")
     }
 
-    // MARK: - DateFormatterCache Tests
-
-    @MainActor
-    func testDateFormatterCacheTimeOfDay() async {
-        let date = Date()
-        let formatted = DateFormatterCache.shared.timeOfDay(date)
-
-        // Should be in HH:mm:ss.SSS format
-        let components = formatted.split(separator: ":")
-        XCTAssertEqual(components.count, 3, "Should have hour:minute:second format")
-
-        let lastComponent = components[2]
-        XCTAssertTrue(lastComponent.contains("."), "Should include milliseconds")
-
-        // Verify format with regex
-        do {
-            let regex = try NSRegularExpression(pattern: "^\\d{2}:\\d{2}:\\d{2}\\.\\d{3}$")
-            let range = NSRange(location: 0, length: formatted.utf16.count)
-            let matches = regex.matches(in: formatted, range: range)
-            XCTAssertEqual(matches.count, 1, "Should match HH:mm:ss.SSS format")
-        } catch {
-            XCTFail("Failed to create regex: \(error)")
-        }
-    }
-
-    @MainActor
-    func testDateFormatterCacheSingleton() async {
-        let cache1 = DateFormatterCache.shared
-        let cache2 = DateFormatterCache.shared
-        XCTAssertIdentical(cache1, cache2, "Should be singleton instance")
-    }
-
     // MARK: - Performance Tests
 
     func testCSVExportPerformanceWithManyLaps() {

@@ -1,4 +1,5 @@
 import SwiftUI
+// periphery:ignore
 import LiveClockCore
 
 #if os(macOS)

@@ -17,17 +17,3 @@ public enum ExportFormatter {
         return Data(csv.utf8)
     }
 }
-
-@MainActor
-final class DateFormatterCache {
-    static let shared = DateFormatterCache()
-    private let time: DateFormatter
-    private init() {
-        let df = DateFormatter()
-        df.locale = Locale.current
-        df.timeZone = .current
-        df.dateFormat = "HH:mm:ss.SSS"
-        self.time = df
-    }
-    func timeOfDay(_ date: Date) -> String { time.string(from: date) }
-}

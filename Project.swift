@@ -18,7 +18,7 @@ let project = Project(
             "CURRENT_PROJECT_VERSION": .string(actionRunId),
             "MARKETING_VERSION": .string(version),
             "DEVELOPMENT_TEAM": .string("3Y8APYUG2G"),
-            "SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD": "NO",
+            "SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD": "NO"
         ]),
     targets: [
         .target(
@@ -39,7 +39,7 @@ let project = Project(
                 "LSApplicationCategoryType": .string("public.app-category.productivity"),
                 "UIViewControllerBasedStatusBarAppearance": .boolean(false),
                 "UILaunchStoryboardName": .string(""),
-                "UIStatusBarHidden": .boolean(true),
+                "UIStatusBarHidden": .boolean(true)
             ]),
             sources: ["Sources/App/**"],
             resources: ["Sources/Resources/**"],
@@ -54,7 +54,7 @@ let project = Project(
             dependencies: [
                 .package(product: "LiveClockCore"),
                 .package(product: "LiveClockPlatform"),
-                .package(product: "LiveClockUI"),
+                .package(product: "LiveClockUI")
             ]
         ),
         .target(
@@ -71,9 +71,9 @@ let project = Project(
             dependencies: [
                 .target(name: "LiveClock"),
                 .package(product: "LiveClockCore"),
-                .package(product: "LiveClockUI"),
+                .package(product: "LiveClockUI")
             ]
-        ),
+        )
     ],
     schemes: [
         .scheme(
