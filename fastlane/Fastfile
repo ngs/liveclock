@@ -49,6 +49,7 @@ platform :ios do
       scheme: 'LiveClock',
       destination: 'generic/platform=iOS',
       output_directory: './build/release/ios',
+      output_name: 'LiveClock-iOS',
       sdk: 'iphoneos'
     )
   end
@@ -59,7 +60,7 @@ platform :ios do
 
     pilot(
       skip_waiting_for_build_processing: true,
-      ipa: './build/release/ios/LiveClock.ipa'
+      ipa: './build/release/ios/LiveClock-iOS.ipa'
     )
   end
 
@@ -147,6 +148,7 @@ platform :mac do
       scheme: 'LiveClock',
       destination: 'generic/platform=macOS',
       output_directory: './build/release/mac',
+      output_name: 'LiveClock-macOS',
       sdk: 'macosx'
     )
   end
@@ -159,7 +161,7 @@ platform :mac do
     upload_to_app_store(
       app_identifier: 'io.ngs.LiveClock',
       platform: 'osx',
-      pkg: './build/release/mac/LiveClock.pkg',
+      pkg: './build/release/mac/LiveClock-macOS.pkg',
       skip_screenshots: true,
       skip_metadata: true,
       force: true,
@@ -229,6 +231,7 @@ platform :visionos do
       scheme: 'LiveClock',
       destination: 'generic/platform=visionOS',
       output_directory: './build/release/visionos',
+      output_name: 'LiveClock-visionOS',
       sdk: 'iphoneos'
     )
   end
@@ -239,7 +242,7 @@ platform :visionos do
 
     pilot(
       skip_waiting_for_build_processing: true,
-      ipa: './build/release/visionos/LiveClock.ipa'
+      ipa: './build/release/visionos/LiveClock-visionOS.ipa'
     )
   end
 
