@@ -38,7 +38,10 @@ let project = Project(
                 "NSHumanReadableCopyright": .string(copyright),
                 "LSApplicationCategoryType": .string("public.app-category.productivity"),
                 "UIViewControllerBasedStatusBarAppearance": .boolean(false),
-                "UILaunchStoryboardName": .string(""),
+                "UILaunchScreen": [
+                    "UIColorName": "LaunchScreenBackground",
+                    "UIImageRespectsSafeAreaInsets": true
+                ],
                 "UIStatusBarHidden": .boolean(true)
             ]),
             sources: ["Sources/App/**"],
