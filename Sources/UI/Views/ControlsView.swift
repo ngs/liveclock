@@ -7,7 +7,7 @@ struct ControlsView: View {
 
     var body: some View {
         let buttonWidth: CGFloat = 110
-        
+
         return HStack(spacing: 16) {
             if app.stopwatchState == .paused {
                 Button(role: .destructive, action: {

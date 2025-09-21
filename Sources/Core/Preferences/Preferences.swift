@@ -1,4 +1,5 @@
 import SwiftUI
+import Combine
 #if os(iOS) || os(tvOS) || os(visionOS)
 import UIKit
 #elseif os(macOS)
@@ -83,7 +84,10 @@ public final class AppState: ObservableObject {
 
     public func applyKeepAwake() {
         #if os(iOS) || os(tvOS) || os(visionOS)
-        UIApplication.shared.isIdleTimerDisabled = preferences.keepAwake
+        let disabled = preferences.keepAwake
+        Task { @MainActor in
+            UIApplication.shared.isIdleTimerDisabled = disabled
+        }
         #elseif os(macOS)
         if preferences.keepAwake {
             if activity == nil {

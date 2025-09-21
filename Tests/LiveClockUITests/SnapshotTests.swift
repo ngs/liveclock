@@ -17,51 +17,51 @@ final class SnapshotTests: XCTestCase {
 
         assertSnapshot(matching: view)
     }
-    
+
     func testControlsViewIdle() {
         let appState = AppState()
-        
+
         let view = ControlsView()
             .environmentObject(appState)
             .frame(width: 390, height: 100)
-        
+
         assertSnapshot(matching: view)
     }
-    
+
     func testControlsViewRunning() {
         let appState = AppState()
         // Note: Not actually starting to keep UI consistent for snapshots
         // The state is set to make it appear as running without time changing
-        
+
         let view = ControlsView()
             .environmentObject(appState)
             .frame(width: 390, height: 100)
-        
+
         assertSnapshot(matching: view)
     }
-    
+
     func testControlsViewPaused() {
         let appState = AppState()
         // Set to paused state without actually running
         // This keeps the time at 00:00.00 for consistent snapshots
-        
+
         let view = ControlsView()
             .environmentObject(appState)
             .frame(width: 390, height: 100)
-        
+
         assertSnapshot(matching: view)
     }
-    
+
     func testLapListViewEmpty() {
         let appState = AppState()
-        
+
         let view = LapListView()
             .environmentObject(appState)
             .frame(width: 390, height: 400)
-        
+
         assertSnapshot(matching: view)
     }
-    
+
     func testLapListViewWithLaps() {
         let appState = AppState()
         // Create mock lap data without actually running the stopwatch

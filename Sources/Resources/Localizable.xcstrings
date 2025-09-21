@@ -139,7 +139,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "エクスポート"
+            "value": "書き出し"
           }
         },
         "ko": {
@@ -152,12 +152,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Eksport"
-          }
-        },
-        "nb": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Eksporter"
           }
         },
         "nl-NL": {
@@ -390,7 +384,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "エクスポートに失敗しました"
+            "value": "書き出しに失敗しました"
           }
         },
         "ko": {
@@ -403,12 +397,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Eksport Gagal"
-          }
-        },
-        "nb": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Eksport mislyktes"
           }
         },
         "nl-NL": {
@@ -656,12 +644,6 @@
             "value": "Pusingan"
           }
         },
-        "nb": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Runde"
-          }
-        },
         "nl-NL": {
           "stringUnit": {
             "state": "translated",
@@ -772,7 +754,7 @@
         "cs": {
           "stringUnit": {
             "state": "translated",
-            "value": "Resetovat"
+            "value": "Obnovit"
           }
         },
         "da": {
@@ -868,7 +850,7 @@
         "hr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Resetiraj"
+            "value": "Ponovno postaviti"
           }
         },
         "hu": {
@@ -904,19 +886,13 @@
         "ms": {
           "stringUnit": {
             "state": "translated",
-            "value": "Set Semula"
-          }
-        },
-        "nb": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tilbakestill"
+            "value": "Set semula"
           }
         },
         "nl-NL": {
           "stringUnit": {
             "state": "translated",
-            "value": "Resetten"
+            "value": "Opnieuw instellen"
           }
         },
         "pl": {
@@ -952,7 +928,7 @@
         "sk": {
           "stringUnit": {
             "state": "translated",
-            "value": "Resetovať"
+            "value": "Obnoviť"
           }
         },
         "sv": {
@@ -1000,7 +976,7 @@
         "no": {
           "stringUnit": {
             "state": "translated",
-            "value": "Nullstill"
+            "value": "Tilbakestill"
           }
         }
       }
@@ -1156,12 +1132,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Berhenti"
-          }
-        },
-        "nb": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Stopp"
           }
         },
         "nl-NL": {
@@ -1407,12 +1377,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Tidak dapat menyimpan fail: %@"
-          }
-        },
-        "nb": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Kan ikke lagre filen: %@"
           }
         },
         "nl-NL": {

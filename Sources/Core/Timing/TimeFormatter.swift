@@ -4,10 +4,10 @@ public enum TimeFormatter {
     public static func format(_ seconds: TimeInterval) -> String {
         return hmsms(seconds)
     }
-    
+
     public static func formatCompact(_ seconds: TimeInterval) -> String {
         guard seconds >= 0 else { return "0.000" }
-        
+
         let totalMilliseconds = Int((seconds * 1_000.0).rounded(.down))
         let ms = totalMilliseconds % 1_000
         let totalSeconds = totalMilliseconds / 1_000
@@ -15,7 +15,7 @@ public enum TimeFormatter {
         let totalMinutes = totalSeconds / 60
         let m = totalMinutes % 60
         let h = totalMinutes / 60
-        
+
         if h > 0 {
             return String(format: "%d:%02d:%02d.%03d", h, m, s, ms)
         } else if m > 0 {
@@ -24,13 +24,13 @@ public enum TimeFormatter {
             return String(format: "%d.%03d", s, ms)
         }
     }
-    
+
     public static func hmsms(_ seconds: TimeInterval) -> String {
         guard seconds >= 0 else { return "00:00:00.000" }
-        
+
         let maxSeconds: TimeInterval = 359_999.999
         let clampedSeconds = min(seconds, maxSeconds)
-        
+
         let totalMilliseconds = Int((clampedSeconds * 1_000.0).rounded(.down))
         let ms = totalMilliseconds % 1_000
         let totalSeconds = totalMilliseconds / 1_000

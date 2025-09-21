@@ -1,6 +1,8 @@
 name: Release Build and Upload
 
 on:
+  # push:
+  #   branches: [fastlane]
   # Trigger when CI workflow completes successfully
   workflow_run:
     workflows: ["CI"]
@@ -108,6 +110,7 @@ jobs:
       always() &&
       (
         (github.event_name == 'workflow_dispatch') ||
+        (github.event_name == 'push') ||
         (github.event_name == 'workflow_run' && needs.check-ci-status.outputs.should_deploy == 'true')
       )
     runs-on: macos-latest
@@ -133,7 +136,7 @@ jobs:
           bundler-cache: true
 
       - name: Create CI keychain
-        run: bundle exec fastlane ios create_ci_keychain
+        run: bundle exec fastlane create_ci_keychain
 
       - name: Setup SSH for Match
         env:
@@ -177,11 +180,6 @@ jobs:
           echo "version=$VERSION" >> $GITHUB_OUTPUT
           echo "Current version: $VERSION"
           echo "Build number will be: ${{ github.run_id }}"
-
-      - name: Sync certificates and profiles
-        run: |
-          echo "Running fastlane ${{ matrix.platform }} release_match..."
-          bundle exec fastlane ${{ matrix.platform }} release_match
 
       - name: Build release version
         run: |

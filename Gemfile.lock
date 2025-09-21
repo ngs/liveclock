@@ -32,17 +32,24 @@ GEM
     babosa (1.0.4)
     base64 (0.3.0)
     bigdecimal (3.2.3)
+    cgi (0.5.0)
     claide (1.1.0)
     colored (1.2)
     colored2 (3.1.2)
     commander (4.6.0)
       highline (~> 2.0.0)
+    date (3.4.1)
+    debug (1.11.0)
+      irb (~> 1.10)
+      reline (>= 0.3.8)
     declarative (0.0.20)
     digest-crc (0.7.0)
       rake (>= 12.0.0, < 14.0.0)
     domain_name (0.6.20240107)
     dotenv (2.8.1)
     emoji_regex (3.2.3)
+    erb (4.0.4)
+      cgi (>= 0.3.3)
     excon (0.112.0)
     faraday (1.10.4)
       faraday-em_http (~> 1.0)
@@ -159,6 +166,11 @@ GEM
       domain_name (~> 0.5)
     httpclient (2.9.0)
       mutex_m
+    io-console (0.8.1)
+    irb (1.15.2)
+      pp (>= 0.6.0)
+      rdoc (>= 4.0.0)
+      reline (>= 0.4.2)
     jmespath (1.6.2)
     json (2.13.2)
     jwt (2.10.2)
@@ -181,12 +193,23 @@ GEM
       ast (~> 2.4.1)
       racc
     plist (3.7.2)
+    pp (0.6.2)
+      prettyprint
+    prettyprint (0.2.0)
     prism (1.5.1)
+    psych (5.2.6)
+      date
+      stringio
     public_suffix (6.0.2)
     racc (1.8.1)
     rainbow (3.1.1)
     rake (13.3.0)
+    rdoc (6.14.2)
+      erb
+      psych (>= 4.0.0)
     regexp_parser (2.11.3)
+    reline (0.6.2)
+      io-console (~> 0.5)
     representable (3.2.0)
       declarative (< 0.1.0)
       trailblazer-option (>= 0.1.1, < 0.2.0)
@@ -220,6 +243,7 @@ GEM
     simctl (1.6.10)
       CFPropertyList
       naturally
+    stringio (3.1.7)
     sysrandom (1.0.5)
     terminal-notifier (2.0.0)
     terminal-table (3.0.2)
@@ -249,6 +273,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  debug
   fastlane
   rubocop
 

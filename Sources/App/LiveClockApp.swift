@@ -41,15 +41,16 @@ struct LiveClockApp: App {
                 CommandMenu("Export") {
                     Button("Export Laps as CSV") {
                         exportOnMac()
-                    }.keyboardShortcut("e", modifiers: [.command, .shift])
+                    }
+                    .keyboardShortcut("e", modifiers: [.command, .shift])
+                    .disabled(appState.stopwatch.laps.isEmpty)
                 }
             }
         #endif
         #if os(macOS)
             Settings {
-                PreferencesView()
+                MacPreferencesView()
                     .environmentObject(appState)
-                    .frame(minWidth: 420, minHeight: 320)
                     .preferredColorScheme(appState.preferences.colorScheme)
             }
         #endif

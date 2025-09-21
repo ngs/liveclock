@@ -14,7 +14,7 @@ struct BlinkingTimeText: View {
     var body: some View {
         let chars = Array(timeString)
         let dotPos = chars.firstIndex(of: ".")
-        
+
         return HStack(spacing: 0) {
             ForEach(0..<chars.count, id: \.self) { index in
                 let ch = chars[index]

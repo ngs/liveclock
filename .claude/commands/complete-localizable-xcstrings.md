@@ -146,12 +146,41 @@ The project supports the following languages (based on fastlane/metadata locales
 
 ## Execution Steps
 
-1. Start by reading both Localizable.xcstrings files
-2. Create a list of all strings that need translations
-3. For each string, provide translations in all missing languages
-4. Use the Edit or MultiEdit tool to update each file with the complete translations
-5. Verify the JSON syntax is valid after making changes
-6. Ensure all strings in both files have complete translations for all supported languages
+**IMPORTANT: Use the existing Python scripts in `/scripts/localization/` instead of creating temporary files.**
+
+1. **Check for missing translations**:
+   ```bash
+   python3 scripts/localization/check_missing_translations.py
+   ```
+
+2. **If translations are missing**:
+   - Create a temporary Python script based on `scripts/localization/add_translations.py`
+   - Populate it with the specific translations needed
+   - Run the script to add translations
+
+3. **Fix Norwegian locale codes** (if needed):
+   ```bash
+   python3 scripts/localization/fix_norwegian_locale.py
+   ```
+
+4. **Verify all translations are complete**:
+   ```bash
+   python3 scripts/localization/verify_translations.py
+   ```
+
+Alternatively, use the main orchestration script:
+```bash
+python3 scripts/localization/complete_translations.py
+```
+
+**Available Scripts**:
+- `check_missing_translations.py` - Identifies missing translations
+- `add_translations.py` - Template for adding specific translations
+- `fix_norwegian_locale.py` - Converts 'nb' to 'no' locale codes
+- `verify_translations.py` - Comprehensive verification
+- `complete_translations.py` - Main orchestration script
+
+See `/scripts/localization/README.md` for detailed documentation
 
 ## Notes
 - Some strings like ":", ".", or empty strings ("") may not need translations as they are punctuation marks

@@ -7,7 +7,7 @@ public protocol TickerDelegate: AnyObject {
 public enum TickerFrequency {
     case displayLink
     case custom(fps: Int)
-    
+
     var timeInterval: TimeInterval {
         switch self {
         case .displayLink:
@@ -22,7 +22,7 @@ public enum TickerFrequency {
 public final class Ticker {
     public weak var delegate: TickerDelegate?
     public var frequency: TickerFrequency
-    
+
     public init(frequency: TickerFrequency = .displayLink) {
         self.frequency = frequency
     }
@@ -43,12 +43,16 @@ public final class Ticker {
             self.link = link
         } else {
             timer = Timer.scheduledTimer(withTimeInterval: frequency.timeInterval, repeats: true) { [weak self] _ in
-                self?.delegate?.tickerDidTick()
+                Task { @MainActor in
+                    self?.delegate?.tickerDidTick()
+                }
             }
         }
         #else
         timer = Timer.scheduledTimer(withTimeInterval: frequency.timeInterval, repeats: true) { [weak self] _ in
-            self?.delegate?.tickerDidTick()
+            Task { @MainActor in
+                  self?.delegate?.tickerDidTick()
+            }
         }
         #endif
     }

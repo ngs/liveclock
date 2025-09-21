@@ -3,10 +3,27 @@ retain_objc_accessible: true
 retain_public: true
 strict: true
 schemes:
-- LiveClock-Workspace
-- LiveClock-iOS
-- LiveClock-macOS
-- LiveClock-visionOS
-- LiveClockTests-iOS
-- LiveClockTests-macOS
-- LiveClockTests-visionOS
+  - LiveClock
+
+# Retain SwiftUI property wrappers and modifiers
+retain_assign_only_properties: true
+retain_assign_only_property_types:
+  - State
+  - StateObject
+  - ObservedObject
+  - EnvironmentObject
+  - Environment
+  - AppStorage
+  - Published
+  - Binding
+
+# Ignore specific files and patterns
+index_exclude:
+  # Test files
+  - "Tests/**/*.swift"
+  # Generated files
+  - "**/*.generated.swift"
+  - "**/GeneratedAssetSymbols.swift"
+
+build_arguments:
+  - -destination 'platform=iOS Simulator,OS=26.0,name=iPhone 17 Pro'

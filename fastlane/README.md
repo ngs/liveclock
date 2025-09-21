@@ -21,26 +21,18 @@ For _fastlane_ installation instructions, see [Installing _fastlane_](https://do
 
 Setup AppStore Connect API Key
 
-----
-
-
-## iOS
-
-### ios create_ci_keychain
+### create_ci_keychain
 
 ```sh
-[bundle exec] fastlane ios create_ci_keychain
+[bundle exec] fastlane create_ci_keychain
 ```
 
 Create keychain
 
-### ios beta_match
+----
 
-```sh
-[bundle exec] fastlane ios beta_match
-```
 
-Match Ad-Hoc Provisioning Profiles
+## iOS
 
 ### ios release_match
 
@@ -49,14 +41,6 @@ Match Ad-Hoc Provisioning Profiles
 ```
 
 Match App Store Provisioning Profiles
-
-### ios beta_build
-
-```sh
-[bundle exec] fastlane ios beta_build
-```
-
-Build app for beta
 
 ### ios release_build
 

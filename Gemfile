@@ -2,5 +2,6 @@
 
 source 'https://rubygems.org'
 
+gem 'debug'
 gem 'fastlane'
 gem 'rubocop'
