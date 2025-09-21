@@ -1,4 +1,5 @@
 {
+  "originHash" : "f3e942f9f139b0c055f1a46d053d216f09cc38acbcddce72ce2fa0b8d6c7e5e9",
   "pins" : [
     {
       "identity" : "swiftlintplugins",
@@ -10,5 +11,5 @@
       }
     }
   ],
-  "version" : 2
+  "version" : 3
 }

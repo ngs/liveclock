@@ -25,7 +25,7 @@ Using Tuist (preferred by you)
 1) Install Tuist (see tuist.io): `curl -Ls https://install.tuist.io | bash` or via Homebrew.
 2) From the repo root, run: `tuist generate`.
 3) Open the generated workspace in Xcode.
-4) Select a scheme (LiveClock-iOS or LiveClock-macOS) and run.
+4) Select a scheme LiveClock and run.
 5) The app targets include the `Sources/App` entry and link to the Swift package products (Core/UI/Platform) automatically.
 6) To add a visionOS app target, update `Project.swift` (uncomment the sample target) if your Tuist version supports `.visionOS`.
 

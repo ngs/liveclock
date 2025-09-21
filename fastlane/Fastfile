@@ -18,53 +18,16 @@
 default_platform(:ios)
 
 platform :ios do
-  desc 'Create keychain'
-  lane :create_ci_keychain do
-    create_keychain(
-      default_keychain: true,
-      unlock: true,
-      timeout: 3600
-    )
-  end
-
-  desc 'Match Ad-Hoc Provisioning Profiles'
-  lane :beta_match do
-    xcode_select ENV['XCODE_PATH'] if ENV['XCODE_PATH']
-    match type: 'adhoc', app_identifier: 'io.ngs.LiveClock', readonly: ENV['MATCH_READONLY'] == 'true'
-  end
-
   desc 'Match App Store Provisioning Profiles'
   lane :release_match do
     xcode_select ENV['XCODE_PATH'] if ENV['XCODE_PATH']
     match type: 'appstore', app_identifier: 'io.ngs.LiveClock', readonly: ENV['MATCH_READONLY'] == 'true'
   end
 
-  desc 'Build app for beta'
-  lane :beta_build do
-    identifier = 'io.ngs.LiveClock'
-    xcode_select ENV['XCODE_PATH'] if ENV['XCODE_PATH']
-    update_code_signing_settings(
-      profile_name: "match AdHoc #{identifier}",
-      bundle_identifier: identifier,
-      use_automatic_signing: false,
-      targets: ['LiveClock'],
-      code_sign_identity: 'Apple Distribution',
-      build_configurations: %w[Release],
-      path: 'LiveClock.xcodeproj'
-    )
-    build_app(
-      export_method: 'ad-hoc',
-      scheme: 'LiveClock',
-      output_directory: './build/beta',
-      export_options: {
-        iCloudContainerEnvironment: 'Production'
-      }
-    )
-  end
-
   desc 'Build app for release'
   lane :release_build do
     xcode_select ENV['XCODE_PATH'] if ENV['XCODE_PATH']
+    release_match
 
     # Get the provisioning profile name from match
     profile_name = ENV['sigh_io.ngs.LiveClock_appstore_profile-name'] || 'match AppStore io.ngs.LiveClock'
@@ -79,16 +42,14 @@ platform :ios do
       build_configurations: %w[Release],
       path: 'LiveClock.xcodeproj'
     )
+
+    # Build the app and create the archive
     build_app(
       export_method: 'app-store',
-      output_directory: './build/release/ios',
-      catalyst_platform: 'ios',
       scheme: 'LiveClock',
-      export_options: {
-        provisioningProfiles: {
-          'io.ngs.LiveClock' => profile_name
-        }
-      }
+      destination: 'generic/platform=iOS',
+      output_directory: './build/release/ios',
+      sdk: 'iphoneos'
     )
   end
 
@@ -167,6 +128,7 @@ platform :mac do
   desc 'Build app for macOS release'
   lane :release_build do
     xcode_select ENV['XCODE_PATH'] if ENV['XCODE_PATH']
+    release_match
 
     # Get the provisioning profile name from match
     profile_name = ENV['sigh_io.ngs.LiveClock_appstore_macos_profile-name'] || 'match AppStore io.ngs.LiveClock macos'
@@ -176,22 +138,16 @@ platform :mac do
       bundle_identifier: 'io.ngs.LiveClock',
       use_automatic_signing: false,
       code_sign_identity: 'Apple Distribution',
-      targets: ['LiveClock-macOS'],
+      targets: ['LiveClock'],
       build_configurations: %w[Release],
       path: 'LiveClock.xcodeproj'
     )
     build_app(
       export_method: 'app-store',
+      scheme: 'LiveClock',
+      destination: 'generic/platform=macOS',
       output_directory: './build/release/mac',
-      scheme: 'LiveClock-macOS',
-      destination: 'platform=macOS',
-      skip_package_pkg: false, # Generate PKG for App Store upload
-      export_options: {
-        method: 'app-store',
-        provisioningProfiles: {
-          'io.ngs.LiveClock' => profile_name
-        }
-      }
+      sdk: 'macosx'
     )
   end
 
@@ -254,6 +210,7 @@ platform :visionos do
   desc 'Build app for visionOS release'
   lane :release_build do
     xcode_select ENV['XCODE_PATH'] if ENV['XCODE_PATH']
+    release_match
 
     # Get the provisioning profile name from match (visionOS uses iOS profiles)
     profile_name = ENV['sigh_io.ngs.LiveClock_appstore_profile-name'] || 'match AppStore io.ngs.LiveClock'
@@ -269,14 +226,10 @@ platform :visionos do
     )
     build_app(
       export_method: 'app-store',
-      output_directory: './build/release/visionos',
       scheme: 'LiveClock',
       destination: 'generic/platform=visionOS',
-      export_options: {
-        provisioningProfiles: {
-          'io.ngs.LiveClock' => profile_name
-        }
-      }
+      output_directory: './build/release/visionos',
+      sdk: 'iphoneos'
     )
   end
 
@@ -332,5 +285,14 @@ lane :setup_app_store_connect_api_key do
     issuer_id: ENV['APP_STORE_CONNECT_API_KEY_ISSUER_ID'],
     key_content: ENV['APP_STORE_CONNECT_API_KEY_KEY'],
     is_key_content_base64: ENV['APP_STORE_CONNECT_API_KEY_IS_KEY_CONTENT_BASE64'] == 'true'
+  )
+end
+
+desc 'Create keychain'
+lane :create_ci_keychain do
+  create_keychain(
+    default_keychain: true,
+    unlock: true,
+    timeout: 3600
   )
 end
