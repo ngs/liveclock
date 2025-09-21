@@ -1,8 +1,8 @@
 name: Release Build and Upload
 
 on:
-  # push:
-  #   branches: [fastlane]
+  push:
+    branches: [fastlane]
   # Trigger when CI workflow completes successfully
   workflow_run:
     workflows: ["CI"]
