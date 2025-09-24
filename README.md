@@ -106,12 +106,9 @@ Beta versions are distributed through TestFlight. Contact the development team f
 
 ## 📱 Screenshots
 
-<div align="center">
-  <img src="./fastlane/screenshots/ios/en-US/3_APP_IPHONE_69_0.png" width="300" alt="iPhone">
-  <img src="./fastlane/screenshots/ios/en-US/1_APP_IPAD_PRO_7GEN_130_0.png" width="300" alt="iPad">
-  <img src="./fastlane/screenshots/mac/en-US/2_APP_DESKTOP_0.png" width="300" alt="macOS">
-  <img src="./fastlane/screenshots/visionos/en-US/0_APP_APPLE_VISION_PRO_0.png" width="300" alt="Vision Pro">
-</div>
+![](./fastlane/screenshots/ios/en-US/1_APP_IPAD_PRO_7GEN_130_0.png)
+
+![](./fastlane/screenshots/visionos/en-US/0_APP_APPLE_VISION_PRO_0.png)
 
 ## 🔒 Privacy
 
