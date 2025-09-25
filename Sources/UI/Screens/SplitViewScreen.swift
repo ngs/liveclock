@@ -107,6 +107,9 @@ private struct DetailTimerView: View {
         }
         .padding()
         .navigationTitle("")
+#if os(macOS)
+        .toolbar(.hidden, for: .windowToolbar)
+#endif
     }
 }
 
