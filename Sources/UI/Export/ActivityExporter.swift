@@ -2,6 +2,7 @@ import SwiftUI
 #if os(iOS) || os(visionOS)
 import UIKit
 import LiveClockCore
+import Logging
 
 struct ActivityExporter: UIViewControllerRepresentable {
     let items: [Any]
@@ -15,7 +16,12 @@ func temporaryCSVURL(for laps: [Lap]) -> URL {
     let filename = defaultExportFileName(ext: "csv")
     let url = URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(filename)
     let data = ExportFormatter.csv(from: laps)
-    try? data.write(to: url, options: .atomic)
+    do {
+        try data.write(to: url, options: .atomic)
+        LiveClockLogger.ui.debug("Created temporary CSV file: \(url.lastPathComponent)")
+    } catch {
+        LiveClockLogger.ui.error("Failed to create temporary CSV file: \(error)")
+    }
     return url
 }
 

@@ -48,8 +48,7 @@ public final class Preferences: ObservableObject {
         set { appearanceModeRaw = newValue.rawValue }
     }
 
-    @MainActor
-    public var colorScheme: ColorScheme? {
+    @MainActor public var colorScheme: ColorScheme? {
         return appearanceMode.colorScheme ?? systemColorScheme
     }
 

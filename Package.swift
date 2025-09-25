@@ -16,11 +16,15 @@ let package = Package(
         .library(name: "LiveClockUI", targets: ["LiveClockUI"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/SimplyDanny/SwiftLintPlugins", exact: "0.59.0")
+        .package(url: "https://github.com/SimplyDanny/SwiftLintPlugins", exact: "0.59.0"),
+        .package(url: "https://github.com/apple/swift-log.git", from: "1.5.0")
     ],
     targets: [
         .target(
             name: "LiveClockCore",
+            dependencies: [
+                .product(name: "Logging", package: "swift-log")
+            ],
             path: "Sources/Core",
             swiftSettings: [
                 .enableUpcomingFeature("StrictConcurrency"),
@@ -31,6 +35,7 @@ let package = Package(
             name: "LiveClockPlatform",
             dependencies: [
                 .target(name: "LiveClockCore"),
+                .product(name: "Logging", package: "swift-log")
             ],
             path: "Sources/Platform",
             resources: [

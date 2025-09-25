@@ -1,4 +1,5 @@
 import Foundation
+import Logging
 #if os(iOS)
 import UIKit
 import AVFoundation
@@ -10,6 +11,7 @@ import LiveClockCore
 @MainActor
 public final class FeedbackManager {
     public static let shared = FeedbackManager()
+    private let logger = LiveClockLogger.platform
 
     #if os(iOS)
     private let impactFeedback = UIImpactFeedbackGenerator(style: .medium)
@@ -40,7 +42,7 @@ public final class FeedbackManager {
             try AVAudioSession.sharedInstance().setCategory(.ambient, mode: .default)
             try AVAudioSession.sharedInstance().setActive(true)
         } catch {
-            print("Failed to set up audio session: \(error)")
+            logger.error("Failed to set up audio session: \(error)")
         }
     }
 
@@ -58,9 +60,12 @@ public final class FeedbackManager {
                     let player = try AVAudioPlayer(contentsOf: url)
                     player.prepareToPlay()
                     soundPlayers[key] = player
+                    logger.debug("Loaded sound: \(filename)")
                 } catch {
-                    print("Failed to load sound \(filename): \(error)")
+                    logger.error("Failed to load sound \(filename): \(error)")
                 }
+            } else {
+                logger.warning("Sound file not found: \(filename).wav")
             }
         }
     }
