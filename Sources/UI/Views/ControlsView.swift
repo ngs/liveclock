@@ -12,9 +12,7 @@ struct ControlsView: View {
             if app.stopwatchState == .paused {
                 Button(role: .destructive, action: {
                     app.stopwatch.reset()
-                    if app.preferences.enableHaptics || app.preferences.enableSounds {
-                        FeedbackManager.shared.playResetFeedback()
-                    }
+                    FeedbackManager.shared.playResetFeedback()
                 }, label: {
                     Text(String(localized: "Reset", bundle: .module))
                         .frame(width: buttonWidth)
@@ -25,9 +23,7 @@ struct ControlsView: View {
                     .accessibilityHint(String(localized: "Reset the stopwatch to zero", bundle: .module))
                 Button(action: {
                     app.stopwatch.start()
-                    if app.preferences.enableHaptics || app.preferences.enableSounds {
-                        FeedbackManager.shared.playStartFeedback()
-                    }
+                    FeedbackManager.shared.playStartFeedback()
                 }, label: {
                     Text(String(localized: "Resume", bundle: .module))
                         .frame(width: buttonWidth)
@@ -39,9 +35,7 @@ struct ControlsView: View {
             } else {
                 Button(action: {
                     app.stopwatch.lap()
-                    if app.preferences.enableHaptics || app.preferences.enableSounds {
-                        FeedbackManager.shared.playLapFeedback()
-                    }
+                    FeedbackManager.shared.playLapFeedback()
                 }, label: {
                     Text(String(localized: "Lap", bundle: .module))
                         .frame(width: buttonWidth)
@@ -54,9 +48,7 @@ struct ControlsView: View {
                 if app.stopwatchState == .running {
                     Button(role: .destructive, action: {
                         app.stopwatch.pause()
-                        if app.preferences.enableHaptics || app.preferences.enableSounds {
-                            FeedbackManager.shared.playStopFeedback()
-                        }
+                        FeedbackManager.shared.playStopFeedback()
                     }, label: {
                         Text(String(localized: "Stop", bundle: .module))
                             .frame(width: buttonWidth)
@@ -68,9 +60,7 @@ struct ControlsView: View {
                 } else {
                     Button(action: {
                         app.stopwatch.start()
-                        if app.preferences.enableHaptics || app.preferences.enableSounds {
-                            FeedbackManager.shared.playStartFeedback()
-                        }
+                        FeedbackManager.shared.playStartFeedback()
                     }, label: {
                         Text(String(localized: "Start", bundle: .module))
                             .frame(width: buttonWidth)

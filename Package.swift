@@ -29,7 +29,13 @@ let package = Package(
         ),
         .target(
             name: "LiveClockPlatform",
+            dependencies: [
+                .target(name: "LiveClockCore"),
+            ],
             path: "Sources/Platform",
+            resources: [
+                .process("Resources")
+            ],
             swiftSettings: [
                 .enableUpcomingFeature("StrictConcurrency"),
                 .swiftLanguageMode(.v6)

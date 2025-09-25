@@ -1,5 +1,6 @@
 import LiveClockCore
 import LiveClockUI
+import LiveClockPlatform
 import SwiftUI
 
 #if os(macOS)
@@ -18,6 +19,7 @@ struct LiveClockApp: App {
                 .preferredColorScheme(appState.preferences.colorScheme)
                 .onAppear {
                     appState.preferences.setSystemColorScheme(systemColorScheme)
+                    FeedbackManager.shared.setPreferences(appState.preferences)
                     appState.applyKeepAwake()
                 }
         }
