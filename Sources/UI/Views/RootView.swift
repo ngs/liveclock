@@ -35,6 +35,7 @@ public struct RootView: View {
                             }
                         }
                 }
+                .preferredColorScheme(app.preferences.colorScheme)
             }
             .sheet(isPresented: Binding(
                 get: {

@@ -69,6 +69,7 @@ struct SplitViewScreen: View {
                                     }
                                     .frame(minWidth: 320, idealWidth: 420, minHeight: 320, idealHeight: 500)
                             }
+                            .preferredColorScheme(app.preferences.colorScheme)
                         }
                     }
 #endif
