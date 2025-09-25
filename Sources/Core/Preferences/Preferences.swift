@@ -22,6 +22,8 @@ public enum AppearanceMode: String, CaseIterable, Identifiable {
 }
 
 public final class Preferences: ObservableObject {
+    @MainActor private var systemColorScheme: ColorScheme?
+
     @AppStorage("appearanceMode")
     public var appearanceModeRaw: String = AppearanceMode.system.rawValue
     @AppStorage("useCustomTextColor")
@@ -46,7 +48,17 @@ public final class Preferences: ObservableObject {
         set { appearanceModeRaw = newValue.rawValue }
     }
 
-    public var colorScheme: ColorScheme? { appearanceMode.colorScheme }
+    @MainActor
+    public var colorScheme: ColorScheme? {
+        return appearanceMode.colorScheme ?? systemColorScheme
+    }
+
+    @MainActor
+    public func setSystemColorScheme(_ colorScheme: ColorScheme) {
+        if systemColorScheme == nil {
+            systemColorScheme = colorScheme
+        }
+    }
 
     public var textColor: Color {
         if useCustomTextColor {

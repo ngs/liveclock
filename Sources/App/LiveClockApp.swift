@@ -9,6 +9,7 @@ import SwiftUI
 @main
 struct LiveClockApp: App {
     @StateObject private var appState = AppState()
+    @Environment(\.colorScheme) private var systemColorScheme
 
     var body: some Scene {
         WindowGroup {
@@ -16,6 +17,7 @@ struct LiveClockApp: App {
                 .environmentObject(appState)
                 .preferredColorScheme(appState.preferences.colorScheme)
                 .onAppear {
+                    appState.preferences.setSystemColorScheme(systemColorScheme)
                     appState.applyKeepAwake()
                 }
         }
