@@ -1,8 +1,8 @@
 import Foundation
 import Logging
+import AVFoundation
 #if os(iOS)
 import UIKit
-import AVFoundation
 #elseif os(macOS)
 import AppKit
 #endif
@@ -16,34 +16,36 @@ public final class FeedbackManager {
     #if os(iOS)
     private let impactFeedback = UIImpactFeedbackGenerator(style: .medium)
     private let notificationFeedback = UINotificationFeedbackGenerator()
-    private var soundPlayers: [String: AVAudioPlayer] = [:]
     #endif
 
+    private var soundPlayers: [String: AVAudioPlayer] = [:]
     private var preferences: Preferences?
 
     private init() {
         #if os(iOS)
         impactFeedback.prepare()
         notificationFeedback.prepare()
+        #endif
         setupAudio()
         loadSounds()
-        #endif
     }
 
     public func setPreferences(_ prefs: Preferences) {
         self.preferences = prefs
     }
 
-    #if os(iOS)
     private func setupAudio() {
+        #if os(iOS)
         do {
-            // Use .ambient to respect silent mode
+            // Use .ambient to respect silent mode on iOS
             // This category respects the silent switch - no sound in silent mode
             try AVAudioSession.sharedInstance().setCategory(.ambient, mode: .default)
             try AVAudioSession.sharedInstance().setActive(true)
         } catch {
             logger.error("Failed to set up audio session: \(error)")
         }
+        #endif
+        // macOS doesn't need audio session setup
     }
 
     private func loadSounds() {
@@ -73,25 +75,19 @@ public final class FeedbackManager {
     private func playSound(_ name: String) {
         guard preferences?.enableSounds ?? true else { return }
 
-        // Create a new player instance for concurrent playback
         if let player = soundPlayers[name] {
-            // AVAudioPlayer with .ambient category respects silent mode
+            // AVAudioPlayer with .ambient category respects silent mode on iOS
             player.play()
         }
     }
-    #endif
 
     public func playStartFeedback() {
         #if os(iOS)
         if preferences?.enableHaptics ?? true {
             impactFeedback.impactOccurred()
         }
-        playSound("start")
-        #elseif os(macOS)
-        if preferences?.enableSounds ?? true {
-            NSSound.beep()
-        }
         #endif
+        playSound("start")
     }
 
     public func playStopFeedback() {
@@ -99,12 +95,8 @@ public final class FeedbackManager {
         if preferences?.enableHaptics ?? true {
             impactFeedback.impactOccurred()
         }
-        playSound("stop")
-        #elseif os(macOS)
-        if preferences?.enableSounds ?? true {
-            NSSound.beep()
-        }
         #endif
+        playSound("stop")
     }
 
     public func playLapFeedback() {
@@ -112,8 +104,8 @@ public final class FeedbackManager {
         if preferences?.enableHaptics ?? true {
             impactFeedback.impactOccurred(intensity: 0.7)
         }
-        playSound("lap")
         #endif
+        playSound("lap")
     }
 
     public func playResetFeedback() {
@@ -121,7 +113,7 @@ public final class FeedbackManager {
         if preferences?.enableHaptics ?? true {
             notificationFeedback.notificationOccurred(.warning)
         }
-        playSound("reset")
         #endif
+        playSound("reset")
     }
 }
