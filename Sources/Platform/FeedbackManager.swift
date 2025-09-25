@@ -49,8 +49,7 @@ public final class FeedbackManager {
             "start": "tap_high",
             "stop": "tap_low",
             "lap": "tap_soft",
-            "reset": "tap_low",
-            "countdown": "tap_sharp"
+            "reset": "tap_low"
         ]
 
         for (key, filename) in soundMappings {
@@ -118,30 +117,6 @@ public final class FeedbackManager {
             notificationFeedback.notificationOccurred(.warning)
         }
         playSound("reset")
-        #endif
-    }
-
-    public func playCountdownFinishedFeedback() {
-        #if os(iOS)
-        if preferences?.enableHaptics ?? true {
-            notificationFeedback.notificationOccurred(.success)
-        }
-        // Play multiple times for countdown finished
-        Task {
-            for i in 0..<3 {
-                playSound("countdown")
-                if i < 2 {
-                    try? await Task.sleep(nanoseconds: 200_000_000) // 0.2 seconds
-                }
-            }
-        }
-        #elseif os(macOS)
-        if preferences?.enableSounds ?? true {
-            for _ in 0..<3 {
-                NSSound.beep()
-                Thread.sleep(forTimeInterval: 0.2)
-            }
-        }
         #endif
     }
 }
