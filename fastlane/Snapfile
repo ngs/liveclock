@@ -1,0 +1,29 @@
+# frozen_string_literal: true
+
+devices([
+          'iPhone 14 Plus',
+          'iPad Pro (12.9-inch) (6th generation)'
+        ])
+
+ios_version('26.0')
+
+languages([
+            'en-US',
+            'ja'
+          ])
+
+# The name of the scheme which contains the UI Tests
+scheme('LiveClockSnapshot')
+
+output_directory('./fastlane/screenshots/ios')
+
+clear_previous_screenshots(true)
+
+# Remove the '#' to set the status bar to 9:41 AM, and show full battery and reception. See also override_status_bar_arguments for custom options.
+# override_status_bar(true)
+
+# Arguments to pass to the app on launch. See https://docs.fastlane.tools/actions/snapshot/#launch-arguments
+# launch_arguments(["-favColor red"])
+
+# For more information about all available options run
+# fastlane action snapshot

@@ -76,6 +76,17 @@ let project = Project(
                 .package(product: "LiveClockCore"),
                 .package(product: "LiveClockUI")
             ]
+        ),
+        .target(
+            name: "LiveClockSnapshotTests",
+            destinations: [.iPhone, .iPad],
+            product: .uiTests,
+            bundleId: "io.ngs.LiveClockSnapshotTests",
+            deploymentTargets: .iOS("26.0"),
+            sources: ["Tests/LiveClockSnapshotTests/**"],
+            dependencies: [
+                .target(name: "LiveClock")
+            ]
         )
     ],
     schemes: [
@@ -86,6 +97,16 @@ let project = Project(
                 ["LiveClockTests"],
                 configuration: .debug,
                 options: .options(coverage: true)
+            ),
+            runAction: .runAction(configuration: .debug)
+        ),
+        .scheme(
+            name: "LiveClockSnapshot",
+            buildAction: .buildAction(targets: ["LiveClock"]),
+            testAction: .targets(
+                ["LiveClockSnapshotTests"],
+                configuration: .debug,
+                options: .options(coverage: false)
             ),
             runAction: .runAction(configuration: .debug)
         )

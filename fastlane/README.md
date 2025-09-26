@@ -66,6 +66,14 @@ Publish app to App Store
 
 Update App Store metadata
 
+### ios take_screenshots
+
+```sh
+[bundle exec] fastlane ios take_screenshots
+```
+
+Take screenshots using snapshot
+
 ### ios deliver_screenshots
 
 ```sh
