@@ -8,6 +8,13 @@ import AppKit
 #endif
 import LiveClockCore
 
+public enum FeedbackType {
+    case start
+    case stop
+    case lap
+    case reset
+}
+
 @MainActor
 public final class FeedbackManager {
     public static let shared = FeedbackManager()
@@ -72,48 +79,55 @@ public final class FeedbackManager {
         }
     }
 
-    private func playSound(_ name: String) {
-        guard preferences?.enableSounds ?? true else { return }
+    private func playFeedback(type: FeedbackType) {
+        // Play haptic feedback
+        #if os(iOS)
+        if preferences?.enableHaptics ?? true {
+            switch type {
+            case .start, .stop:
+                impactFeedback.impactOccurred()
+            case .lap:
+                impactFeedback.impactOccurred(intensity: 0.7)
+            case .reset:
+                notificationFeedback.notificationOccurred(.warning)
+            }
+        }
+        #endif
 
-        if let player = soundPlayers[name] {
-            // AVAudioPlayer with .ambient category respects silent mode on iOS
-            player.play()
+        // Play sound feedback
+        if preferences?.enableSounds ?? true {
+            let soundKey: String
+            switch type {
+            case .start:
+                soundKey = "start"
+            case .stop:
+                soundKey = "stop"
+            case .lap:
+                soundKey = "lap"
+            case .reset:
+                soundKey = "reset"
+            }
+
+            if let player = soundPlayers[soundKey] {
+                // AVAudioPlayer with .ambient category respects silent mode on iOS
+                player.play()
+            }
         }
     }
 
     public func playStartFeedback() {
-        #if os(iOS)
-        if preferences?.enableHaptics ?? true {
-            impactFeedback.impactOccurred()
-        }
-        #endif
-        playSound("start")
+        playFeedback(type: .start)
     }
 
     public func playStopFeedback() {
-        #if os(iOS)
-        if preferences?.enableHaptics ?? true {
-            impactFeedback.impactOccurred()
-        }
-        #endif
-        playSound("stop")
+        playFeedback(type: .stop)
     }
 
     public func playLapFeedback() {
-        #if os(iOS)
-        if preferences?.enableHaptics ?? true {
-            impactFeedback.impactOccurred(intensity: 0.7)
-        }
-        #endif
-        playSound("lap")
+        playFeedback(type: .lap)
     }
 
     public func playResetFeedback() {
-        #if os(iOS)
-        if preferences?.enableHaptics ?? true {
-            notificationFeedback.notificationOccurred(.warning)
-        }
-        #endif
-        playSound("reset")
+        playFeedback(type: .reset)
     }
 }
