@@ -1,87 +1,133 @@
 import Foundation
+import Logging
+import AVFoundation
 #if os(iOS)
 import UIKit
-import AVFoundation
 #elseif os(macOS)
 import AppKit
 #endif
+import LiveClockCore
+
+public enum FeedbackType {
+    case start
+    case stop
+    case lap
+    case reset
+}
 
 @MainActor
 public final class FeedbackManager {
     public static let shared = FeedbackManager()
+    private let logger = LiveClockLogger.platform
 
     #if os(iOS)
     private let impactFeedback = UIImpactFeedbackGenerator(style: .medium)
     private let notificationFeedback = UINotificationFeedbackGenerator()
     #endif
 
+    private var soundPlayers: [String: AVAudioPlayer] = [:]
+    private var preferences: Preferences?
+
     private init() {
         #if os(iOS)
         impactFeedback.prepare()
         notificationFeedback.prepare()
-        setupAudio()
         #endif
+        setupAudio()
+        loadSounds()
     }
 
-    #if os(iOS)
+    public func setPreferences(_ prefs: Preferences) {
+        self.preferences = prefs
+    }
+
     private func setupAudio() {
+        #if os(iOS)
         do {
+            // Use .ambient to respect silent mode on iOS
+            // This category respects the silent switch - no sound in silent mode
             try AVAudioSession.sharedInstance().setCategory(.ambient, mode: .default)
             try AVAudioSession.sharedInstance().setActive(true)
         } catch {
-            // Audio session setup failed, but we'll continue silently
-            // as sound feedback is not critical to app functionality
+            logger.error("Failed to set up audio session: \(error)")
+        }
+        #endif
+        // macOS doesn't need audio session setup
+    }
+
+    private func loadSounds() {
+        let soundMappings: [String: String] = [
+            "start": "tap_high",
+            "stop": "tap_low",
+            "lap": "tap_soft",
+            "reset": "tap_low"
+        ]
+
+        for (key, filename) in soundMappings {
+            if let url = Bundle.module.url(forResource: filename, withExtension: "wav") {
+                do {
+                    let player = try AVAudioPlayer(contentsOf: url)
+                    player.prepareToPlay()
+                    soundPlayers[key] = player
+                    logger.debug("Loaded sound: \(filename)")
+                } catch {
+                    logger.error("Failed to load sound \(filename): \(error)")
+                }
+            } else {
+                logger.warning("Sound file not found: \(filename).wav")
+            }
         }
     }
-    #endif
+
+    private func playFeedback(type: FeedbackType) {
+        // Play haptic feedback
+        #if os(iOS)
+        if preferences?.enableHaptics ?? true {
+            switch type {
+            case .start, .stop:
+                impactFeedback.impactOccurred()
+            case .lap:
+                impactFeedback.impactOccurred(intensity: 0.7)
+            case .reset:
+                notificationFeedback.notificationOccurred(.warning)
+            }
+        }
+        #endif
+
+        // Play sound feedback
+        if preferences?.enableSounds ?? true {
+            let soundKey: String
+            switch type {
+            case .start:
+                soundKey = "start"
+            case .stop:
+                soundKey = "stop"
+            case .lap:
+                soundKey = "lap"
+            case .reset:
+                soundKey = "reset"
+            }
+
+            if let player = soundPlayers[soundKey] {
+                // AVAudioPlayer with .ambient category respects silent mode on iOS
+                player.play()
+            }
+        }
+    }
 
     public func playStartFeedback() {
-        #if os(iOS)
-        impactFeedback.impactOccurred()
-        playSystemSound(1_117)
-        #elseif os(macOS)
-        NSSound.beep()
-        #endif
+        playFeedback(type: .start)
     }
 
     public func playStopFeedback() {
-        #if os(iOS)
-        impactFeedback.impactOccurred()
-        playSystemSound(1_118)
-        #elseif os(macOS)
-        NSSound.beep()
-        #endif
+        playFeedback(type: .stop)
     }
 
     public func playLapFeedback() {
-        #if os(iOS)
-        impactFeedback.impactOccurred(intensity: 0.7)
-        playSystemSound(1_103)
-        #endif
+        playFeedback(type: .lap)
     }
 
     public func playResetFeedback() {
-        #if os(iOS)
-        notificationFeedback.notificationOccurred(.warning)
-        playSystemSound(1_102)
-        #endif
+        playFeedback(type: .reset)
     }
-
-    public func playCountdownFinishedFeedback() {
-        #if os(iOS)
-        notificationFeedback.notificationOccurred(.success)
-        playSystemSound(1_336)
-        #elseif os(macOS)
-        for _ in 0..<3 {
-            NSSound.beep()
-            Thread.sleep(forTimeInterval: 0.2)
-        }
-        #endif
-    }
-
-    #if os(iOS)
-    private func playSystemSound(_ soundID: UInt32) {
-        AudioServicesPlaySystemSound(soundID)
-    }
-    #endif
 }

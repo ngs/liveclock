@@ -46,7 +46,9 @@ public final class Preferences: ObservableObject {
         set { appearanceModeRaw = newValue.rawValue }
     }
 
-    public var colorScheme: ColorScheme? { appearanceMode.colorScheme }
+    @MainActor public var colorScheme: ColorScheme? {
+        return appearanceMode.colorScheme
+    }
 
     public var textColor: Color {
         if useCustomTextColor {

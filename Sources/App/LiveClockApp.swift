@@ -1,6 +1,8 @@
 import LiveClockCore
 import LiveClockUI
+import LiveClockPlatform
 import SwiftUI
+import Logging
 
 #if os(macOS)
     import AppKit
@@ -16,6 +18,7 @@ struct LiveClockApp: App {
                 .environmentObject(appState)
                 .preferredColorScheme(appState.preferences.colorScheme)
                 .onAppear {
+                    FeedbackManager.shared.setPreferences(appState.preferences)
                     appState.applyKeepAwake()
                 }
         }
@@ -73,7 +76,9 @@ struct LiveClockApp: App {
                 let data = ExportFormatter.csv(from: laps)
                 do {
                     try data.write(to: url)
+                    LiveClockLogger.app.info("Successfully exported CSV to: \(url.path)")
                 } catch {
+                    LiveClockLogger.app.error("Failed to export CSV: \(error)")
                     let alert = NSAlert()
                     alert.messageText = "Export Failed"
                     alert.informativeText = "Unable to save the file: \(error.localizedDescription)"
