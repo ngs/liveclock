@@ -20,7 +20,7 @@ jobs:
             destination: "platform=macOS"
             buildNumberSuffix: ".2"
           - platform: visionOS
-            destination: "platform=visionOS Simulator,name=Apple Vision Pro,OS=2.5"
+            destination: "platform=visionOS Simulator,name=Apple Vision Pro,OS=26.0"
             buildNumberSuffix: ".3"
 
     steps:
