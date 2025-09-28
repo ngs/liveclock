@@ -4,17 +4,12 @@ import LiveClockPlatform
 import SwiftUI
 import Logging
 
-#if os(macOS)
-import AppKit
-import Combine
-#endif
-
 @main
 struct LiveClockApp: App {
     @StateObject private var appState = AppState()
 
     var body: some Scene {
-        Window("LiveClock", id: "liveclock.main") {
+        WindowGroup("LiveClock", id: "liveclock.main") {
             RootView()
                 .environmentObject(appState)
                 .preferredColorScheme(appState.preferences.colorScheme)

@@ -29,7 +29,7 @@ let project = Project(
             deploymentTargets: .multiplatform(
                 iOS: "18.0",
                 macOS: "15.0",
-                visionOS: "26.0"
+                visionOS: "2.0"
             ),
             infoPlist: .extendingDefault(with: [
                 "ITSAppUsesNonExemptEncryption": .boolean(false),
@@ -68,7 +68,7 @@ let project = Project(
             deploymentTargets: .multiplatform(
                 iOS: "18.0",
                 macOS: "15.0",
-                visionOS: "26.0"
+                visionOS: "2.0"
             ),
             sources: ["Tests/**"],
             dependencies: [
