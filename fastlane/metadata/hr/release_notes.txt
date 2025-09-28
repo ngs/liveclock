@@ -1,1 +1,8 @@
-
+• Dodani zvukovi dodira gumbova i haptičke povratne informacije za bolju interakciju
+• Dodana podrška za tradicionalni kineski
+• Riješeni problemi izvoza datoteka na macOS
+• Poboljšana performansa pomicanja liste krugova
+• Poboljšana odzivnost prikaza na svim uređajima
+• Bolje sučelje podijeljenog prikaza na iPadu
+• Riješene povremene audio povratne informacije s kašnjenjem
+• Riješeni problemi sučelja na različitim veličinama ekrana

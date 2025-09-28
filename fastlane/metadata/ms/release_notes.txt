@@ -1,1 +1,8 @@
-
+• Menambah bunyi sentuhan butang dan maklum balas haptik untuk interaksi yang lebih baik
+• Menambah sokongan bahasa Cina tradisional
+• Membaiki masalah eksport fail pada macOS
+• Mempertingkat prestasi tatal senarai pusingan
+• Mempertingkat responsif paparan pada semua peranti
+• Susun atur paparan terpisah yang lebih baik pada iPad
+• Membaiki kelewatan maklum balas audio sekali-sekala
+• Menyelesaikan masalah susun atur pada pelbagai saiz skrin

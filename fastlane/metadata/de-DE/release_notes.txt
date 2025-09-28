@@ -1,1 +1,8 @@
-
+• Button-Tipp-Sounds und haptisches Feedback für bessere Interaktion hinzugefügt
+• Unterstützung für traditionelles Chinesisch hinzugefügt
+• Dateiexport-Probleme unter macOS behoben
+• Scroll-Performance der Rundenliste verbessert
+• Display-Reaktionsfähigkeit auf allen Geräten verbessert
+• Besseres Split-View-Layout auf dem iPad
+• Gelegentliche Audio-Feedback-Verzögerungen behoben
+• Layout-Probleme bei verschiedenen Bildschirmgrößen gelöst

@@ -1,1 +1,8 @@
-
+• Tilføjede knaptryk-lyde og haptisk feedback for bedre interaktion
+• Tilføjede støtte til traditionelt kinesisk
+• Rettede fileksportproblemer på macOS
+• Forbedrede rulleydelse for rundlisten
+• Forbedrede skærmrespons på alle enheder
+• Bedre delt visning layout på iPad
+• Rettede lejlighedsvise lydfeedback-forsinkelser
+• Løste layoutproblemer på forskellige skærmstørrelser

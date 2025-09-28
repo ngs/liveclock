@@ -1,1 +1,8 @@
-
+• Aggiunti suoni di tocco pulsante e feedback aptico per una migliore interazione
+• Aggiunto supporto per il cinese tradizionale
+• Risolti problemi di esportazione file su macOS
+• Migliorata la performance di scorrimento dell'elenco giri
+• Migliorata la reattività del display su tutti i dispositivi
+• Migliorato il layout vista divisa su iPad
+• Risolti ritardi occasionali del feedback audio
+• Risolti problemi di layout su varie dimensioni dello schermo

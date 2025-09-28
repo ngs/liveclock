@@ -1,1 +1,8 @@
-
+• Dodano dźwięki dotknięcia przycisków i haptyczne reakcje dla lepszej interakcji
+• Dodano obsługę chińskiego tradycyjnego
+• Naprawiono problemy z eksportowaniem plików na macOS
+• Poprawiono wydajność przewijania listy okrążeń
+• Poprawiono responsywność wyświetlania na wszystkich urządzeniach
+• Lepszy układ widoku podzielonego na iPad
+• Naprawiono okazjonalne opóźnienia w audio feedback
+• Rozwiązano problemy z układem na różnych rozmiarach ekranów

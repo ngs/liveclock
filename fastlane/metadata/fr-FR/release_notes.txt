@@ -1,1 +1,8 @@
-
+• Ajout de sons de pression de bouton et de retour haptique pour une meilleure interaction
+• Ajout de la prise en charge du chinois traditionnel
+• Correction des problèmes d'exportation de fichiers sur macOS
+• Amélioration des performances de défilement de la liste des tours
+• Amélioration de la réactivité d'affichage sur tous les appareils
+• Amélioration de la disposition en vue partagée sur iPad
+• Correction des retards audio occasionnels
+• Résolution des problèmes de mise en page sur diverses tailles d'écran
