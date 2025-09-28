@@ -9,7 +9,8 @@ struct LiveClockApp: App {
     @StateObject private var appState = AppState()
 
     var body: some Scene {
-        WindowGroup("LiveClock", id: "liveclock.main") {
+#if os(macOS)
+        Window("LiveClock", id: "liveclock.main") {
             RootView()
                 .environmentObject(appState)
                 .preferredColorScheme(appState.preferences.colorScheme)
@@ -18,10 +19,7 @@ struct LiveClockApp: App {
                     appState.applyKeepAwake()
                 }
         }
-#if os(macOS) || os(visionOS)
         .windowResizability(.contentMinSize)
-#endif
-#if os(macOS)
         .commands {
             CommandMenu("Stopwatch") {
                 Button("Start/Resume") { appState.stopwatch.start() }
@@ -52,8 +50,6 @@ struct LiveClockApp: App {
                 }
             }
         }
-#endif
-#if os(macOS)
         Settings {
             MacPreferencesView()
                 .environmentObject(appState)
@@ -64,6 +60,17 @@ struct LiveClockApp: App {
                 .environmentObject(appState)
         }
         .menuBarExtraStyle(.window)
+#else
+        WindowGroup("LiveClock", id: "liveclock.main") {
+            RootView()
+                .environmentObject(appState)
+                .preferredColorScheme(appState.preferences.colorScheme)
+                .onAppear {
+                    FeedbackManager.shared.setPreferences(appState.preferences)
+                    appState.applyKeepAwake()
+                }
+        }
+        .windowResizability(.contentMinSize)
 #endif
     }
 

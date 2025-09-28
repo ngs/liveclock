@@ -1,6 +1,8 @@
 #if os(macOS)
 import SwiftUI
+// periphery:ignore
 import LiveClockCore
+// periphery:ignore
 import LiveClockPlatform
 
 public struct MenuBarView: View {
