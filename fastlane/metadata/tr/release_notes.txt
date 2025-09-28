@@ -1,1 +1,8 @@
-
+• Daha iyi etkileşim için düğme dokunma sesleri ve haptic feedback eklendi
+• Geleneksel Çince dil desteği eklendi
+• macOS'ta dosya dışa aktarma sorunları düzeltildi
+• Tur listesi kaydırma performansı iyileştirildi
+• Tüm cihazlarda ekran yanıt verme hızı iyileştirildi
+• iPad'de daha iyi bölünmüş görünüm düzeni
+• Ara sıra oluşan ses geri bildirim gecikmeleri düzeltildi
+• Çeşitli ekran boyutlarında düzen sorunları çözüldü

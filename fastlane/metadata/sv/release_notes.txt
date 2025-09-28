@@ -1,1 +1,8 @@
-
+• Lade till knappljud och haptisk feedback för bättre interaktion
+• Lade till stöd för traditionell kinesiska
+• Åtgärdade filexportproblem på macOS
+• Förbättrade rullningsprestanda för varvlistan
+• Förbättrade skärmrespons på alla enheter
+• Bättre delad vy-layout på iPad
+• Åtgärdade enstaka ljudfeedback-förseningar
+• Löste layoutproblem på olika skärmstorlekar

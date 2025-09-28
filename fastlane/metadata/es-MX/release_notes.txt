@@ -1,1 +1,8 @@
-
+• Agregamos sonidos de toque de botón y retroalimentación háptica para una mejor interacción
+• Agregamos soporte para chino tradicional
+• Solucionamos problemas de exportación de archivos en macOS
+• Mejoramos el rendimiento del desplazamiento en la lista de vueltas
+• Mejoramos la capacidad de respuesta de la pantalla en todos los dispositivos
+• Mejor distribución de vista dividida en iPad
+• Solucionamos retrasos ocasionales en la retroalimentación de audio
+• Resolvimos problemas de distribución en varios tamaños de pantalla

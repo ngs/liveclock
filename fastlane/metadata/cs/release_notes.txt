@@ -1,1 +1,8 @@
-
+• Přidány zvuky klepnutí tlačítek a haptická zpětná vazba pro lepší interakci
+• Přidána podpora pro tradiční čínštinu
+• Opraveny problémy s exportem souborů na macOS
+• Vylepšen výkon posouvání seznamu kol
+• Vylepšena odezva displeje na všech zařízeních
+• Lepší rozložení rozdělené obrazovky na iPad
+• Opravena občasná zpoždění zvukové zpětné vazby
+• Vyřešeny problémy s rozložením na různých velikostech obrazovek
