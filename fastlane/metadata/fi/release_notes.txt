@@ -5,4 +5,4 @@
 • Parannettiin näytön reagointia kaikissa laitteissa
 • Parempi jaettu näkymä -asettelu iPadissa
 • Korjattiin satunnaisia äänipalaute-viiveitä
-• Ratkottiin asetteluongelmia eri näyttöko'oissa
+• Ratkottiin asetteluongelmia eri näyttökokoissa
