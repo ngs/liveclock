@@ -1,8 +1,3 @@
-• La til knapptrykklyder og haptisk tilbakemelding for bedre interaksjon
-• La til støtte for tradisjonell kinesisk
-• Fikset fileksportproblemer på macOS
-• Forbedret rullingsytelse for rundlisten
-• Forbedret skjermrespons på alle enheter
-• Bedre delt visning-layout på iPad
-• Fikset sporadiske lydfeedback-forsinkelser
-• Løste layoutproblemer på forskjellige skjermstørrelser
+• Ny støtte for macOS-menylinje for rask tilgang til stoppeklokke-funksjonen
+• Forbedret macOS-vindu og meny-konfigurasjon for bedre brukeropplevelse
+• Økt app-stabilitet og ytelsesoptimaliseringer

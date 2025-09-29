@@ -1,8 +1,3 @@
-• Gombkoppintási hangok és haptikus visszajelzés hozzáadva a jobb interakcióért
-• Hagyományos kínai nyelvi támogatás hozzáadva
-• macOS fájlexportálási problémák javítva
-• Körlistagörgetési teljesítmény javítva
-• Képernyő válaszkészsége javítva minden eszközön
-• Jobb osztott nézet elrendezés iPaden
-• Alkalmi hangvisszajelzési késések javítva
-• Elrendezési problémák megoldva különböző képernyőméreteken
+• Új macOS menüsáv támogatás a stopper funkció gyors eléréséhez
+• Továbbfejlesztett macOS ablak és menü konfiguráció jobb felhasználói élményért
+• Megnövelt alkalmazás stabilitás és teljesítmény optimalizálások

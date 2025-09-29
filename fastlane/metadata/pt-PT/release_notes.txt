@@ -1,8 +1,3 @@
-• Adicionados sons de toque de botão e feedback táctil para melhor interacção
-• Adicionado suporte para chinês tradicional
-• Corrigidos problemas de exportação de ficheiros no macOS
-• Melhorado o desempenho de rolagem da lista de voltas
-• Melhorada a capacidade de resposta do ecrã em todos os dispositivos
-• Melhor disposição de ecrã dividido no iPad
-• Corrigidos atrasos ocasionais no feedback de áudio
-• Resolvidos problemas de disposição em vários tamanhos de ecrã
+• Novo suporte para a barra de menu do macOS para acesso rápido ao cronómetro
+• Configuração aprimorada de janelas e menus do macOS para uma melhor experiência de utilizador
+• Maior estabilidade da aplicação e optimizações de desempenho

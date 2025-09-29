@@ -1,8 +1,3 @@
-• Afegits sons de toc de botons i retroalimentació hàptica per a una millor interacció
-• Afegit suport per al xinès tradicional
-• Solucionats problemes d'exportació d'arxius a macOS
-• Millorat el rendiment de desplaçament de la llista de voltes
-• Millorada la capacitat de resposta de la pantalla a tots els dispositius
-• Millor disposició de vista dividida a l'iPad
-• Solucionats retards ocasionals en la retroalimentació d'àudio
-• Resolts problemes de disposició en diverses mides de pantalla
+• Nova compatibilitat amb la barra de menús de macOS per a l'accés ràpid al cronòmetre
+• Configuració millorada de finestres i menús de macOS per a una millor experiència d'usuari
+• Major estabilitat de l'aplicació i optimitzacions de rendiment

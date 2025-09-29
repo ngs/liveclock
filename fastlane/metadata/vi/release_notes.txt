@@ -1,8 +1,3 @@
-• Thêm âm thanh chạm nút và phản hồi xúc giác để tương tác tốt hơn
-• Thêm hỗ trợ tiếng Trung phồn thể
-• Sửa lỗi xuất tệp trên macOS
-• Cải thiện hiệu suất cuộn danh sách vòng đua
-• Cải thiện độ phản hồi màn hình trên tất cả thiết bị
-• Bố cục chia đôi màn hình tốt hơn trên iPad
-• Sửa lỗi độ trễ phản hồi âm thanh thỉnh thoảng
-• Giải quyết vấn đề bố cục trên các kích thước màn hình khác nhau
+• Hỗ trợ thanh menu macOS mới để truy cập nhanh chức năng đồng hồ bấm giờ
+• Cải thiện cấu hình cửa sổ và menu macOS để mang lại trải nghiệm người dùng tốt hơn
+• Nâng cao độ ổn định ứng dụng và tối ưu hóa hiệu suất

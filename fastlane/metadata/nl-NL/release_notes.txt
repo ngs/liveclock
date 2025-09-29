@@ -1,8 +1,3 @@
-• Knoptik-geluiden en haptische feedback toegevoegd voor betere interactie
-• Ondersteuning voor traditioneel Chinees toegevoegd
-• Bestandsexportproblemen op macOS opgelost
-• Scrollprestaties van de rondenlijst verbeterd
-• Displayresponsiviteit op alle apparaten verbeterd
-• Betere split-view-indeling op iPad
-• Incidentele audiofeedback-vertragingen opgelost
-• Indelingsproblemen op verschillende schermformaten opgelost
+• Nieuwe ondersteuning voor de macOS-menubalk voor snelle toegang tot de stopwatchfunctie
+• Verbeterde macOS-venster- en menuconfiguratie voor een betere gebruikerservaring
+• Verbeterde app-stabiliteit en prestatieoptimalisaties

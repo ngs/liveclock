@@ -1,8 +1,3 @@
-• Adăugate sunete pentru atingerea butoanelor și feedback haptic pentru o interacțiune mai bună
-• Adăugat suport pentru chineză tradițională
-• Rezolvate problemele de export fișiere pe macOS
-• Îmbunătățit performanța de derulare a listei de tururi
-• Îmbunătățit răspunsul afișajului pe toate dispozitivele
-• Aspect mai bun pentru vizualizarea împărțită pe iPad
-• Rezolvate întârzierile ocazionale ale feedback-ului audio
-• Rezolvate problemele de aspect pe diverse dimensiuni de ecran
+• Suport nou pentru bara de meniu macOS pentru acces rapid la funcția cronometru
+• Configurare îmbunătățită a ferestrelor și meniurilor macOS pentru o experiență de utilizator mai bună
+• Stabilitate crescută a aplicației și optimizări de performanță
