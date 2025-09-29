@@ -1,8 +1,3 @@
-• Lisättiin painikenapautteiden äänet ja haptiikka paremman vuorovaikutuksen vuoksi
-• Lisättiin perinteisen kiinan kielituki
-• Korjattiin tiedostojen vientiongelmat macOS:ssä
-• Parannettiin kierroslistan vierityssuorituskykyä
-• Parannettiin näytön reagointia kaikissa laitteissa
-• Parempi jaettu näkymä -asettelu iPadissa
-• Korjattiin satunnaisia äänipalaute-viiveitä
-• Ratkottiin asetteluongelmia eri näyttökokoissa
+• Uusi macOS-valikkorivin tuki nopeaa pääsyä sekuntikello-toimintoon
+• Parannettu macOS-ikkunan ja valikon määrittely paremman käyttökokemuksen saavuttamiseksi
+• Lisääntynyt sovelluksen vakaus ja suorituskyvyn optimoinnit

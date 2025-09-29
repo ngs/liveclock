@@ -1,8 +1,3 @@
-• Added button tap sounds and haptic feedback for better interaction
-• Added Chinese Traditional language support
-• Fixed file export issues on macOS
-• Enhanced lap list scrolling performance
-• Improved display responsiveness across all devices
-• Better split view layout on iPad
-• Fixed occasional audio feedback delays
-• Resolved layout issues on various screen sizes
+• New macOS menu bar support for quick access to stopwatch functionality
+• Enhanced macOS window and menu configuration for better user experience
+• Improved app stability and performance optimizations

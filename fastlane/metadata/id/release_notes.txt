@@ -1,8 +1,3 @@
-• Menambahkan suara sentuhan tombol dan umpan balik haptik untuk interaksi yang lebih baik
-• Menambahkan dukungan bahasa Tionghoa tradisional
-• Memperbaiki masalah ekspor file di macOS
-• Meningkatkan performa pengguliran daftar putaran
-• Meningkatkan responsivitas tampilan di semua perangkat
-• Tata letak tampilan terpisah yang lebih baik di iPad
-• Memperbaiki keterlambatan umpan balik audio sesekali
-• Mengatasi masalah tata letak di berbagai ukuran layar
+• Dukungan menu bar macOS baru untuk akses cepat ke fungsi stopwatch
+• Konfigurasi jendela dan menu macOS yang disempurnakan untuk pengalaman pengguna yang lebih baik
+• Peningkatan stabilitas aplikasi dan optimisasi performa

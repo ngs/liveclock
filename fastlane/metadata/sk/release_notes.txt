@@ -1,8 +1,3 @@
-• Pridané zvuky kliknutia tlačidiel a haptická spätná väzba pre lepšiu interakciu
-• Pridaná podpora pre tradičnú čínštinu
-• Opravené problémy s exportom súborov na macOS
-• Vylepšený výkon posúvania zoznamu kôl
-• Vylepšená odozva displeja na všetkých zariadeniach
-• Lepšie rozloženie rozdelenej obrazovky na iPad
-• Opravené občasné oneskorenia zvukovej spätnej väzby
-• Vyriešené problémy s rozložením na rôznych veľkostiach obrazoviek
+• Nová podpora panela ponúk macOS pre rýchly prístup k funkcii stopiek
+• Vylepšená konfigurácia okien a ponúk macOS pre lepší používateľský zážitok
+• Zvýšená stabilita aplikácie a optimalizácie výkonu
