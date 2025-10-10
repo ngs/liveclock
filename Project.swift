@@ -1,6 +1,6 @@
 import ProjectDescription
 
-let version = "1.1.0"
+let version = "1.2.0"
 let copyright = "© LittleApps Inc. All Rights Reserved."
 
 let buildNumber = Environment.buildNumber.getString(default: "0")
