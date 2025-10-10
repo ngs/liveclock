@@ -127,7 +127,7 @@ jobs:
           fetch-depth: 0
 
       - name: Select Xcode
-        run: ls -l /Applications && sudo xcode-select -s /Applications/Xcode_26.app
+        run: ./Scripts/select-xcode.sh
 
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
