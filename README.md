@@ -27,22 +27,28 @@ A professional-grade timer application designed for stage performances, presenta
 
 | Platform | Minimum Version | Features |
 |----------|----------------|----------|
-| iOS | 17.0+ | Full feature set with display-linked updates |
-| iPadOS | 17.0+ | Optimized for larger screens with multi-column layout |
-| macOS | 14.0+ | Native Mac app with keyboard shortcuts |
-| visionOS | 1.0+ | Spatial computing support with immersive timing |
+| iOS | 18.0+ | Full feature set with display-linked updates |
+| iPadOS | 18.0+ | Optimized for larger screens with multi-column layout |
+| macOS | 15.0+ | Native Mac app with keyboard shortcuts and menu bar extra |
+| visionOS | 2.0+ | Spatial computing support with immersive timing |
 
 ## 🛠️ Development
 
 ### Prerequisites
-- Xcode 15.0 or later
-- macOS Sonoma 14.0 or later
-- [Tuist](https://tuist.io) (recommended) or Swift Package Manager
+- Xcode 16.0 or later
+- Swift 6.0 or later
+- macOS Sequoia 15.0 or later
+- [Tuist](https://tuist.io) for project generation
+- Ruby 3.3 or later (for fastlane and deployment scripts)
 
 ### Building the Project
 
-#### Option A: Using Tuist (Recommended)
+#### Using Tuist
 ```bash
+# Install Tuist (if not already installed)
+brew tap tuist/tuist
+brew install --formula tuist
+
 # Generate Xcode project
 tuist generate
 
@@ -50,10 +56,7 @@ tuist generate
 open LiveClock.xcworkspace
 ```
 
-#### Option B: Using Swift Package Manager
-1. Open `Package.swift` in Xcode
-2. Follow the instructions in `PROJECT_SETUP.md` to configure the app target
-3. Add dependencies to Core, Platform, and UI package products
+**Note**: The project uses Swift Package Manager for dependency management, but Tuist is required for generating the Xcode project with proper configuration. The `Package.swift` defines the library targets (Core, Platform, UI) that the app target depends on.
 
 ### Project Structure
 ```
